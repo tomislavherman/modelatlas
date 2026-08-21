@@ -335,9 +335,11 @@ const EXTRA={
 const MON={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
 // Newest date named anywhere in a model's date line, as year*12+month, so
 // "2023 → Jun 2026" sorts on Jun 2026. A bare year counts as December of that
-// year, which puts it after any dated month in the same year.
-const recency=d=>Math.max(0,...[...d.matchAll(/(?:([A-Za-z]{3})[a-z]*\s+)?(20\d\d)/g)]
- .map(([,mo,y])=>y*12+(MON[(mo||"").toLowerCase()]||12)));
+// year, which puts it after any dated month in the same year. A span written
+// "2024\u201326" counts as December 2026, its end. Connections use the same
+// function, and one with no date at all ("ongoing") is sorted first.
+const recency=d=>Math.max(0,...[...d.matchAll(/(?:([A-Za-z]{3})[a-z]*\s+)?(20\d\d)(?:[\u2013-](\d\d))?/g)]
+ .map(([,mo,y,end])=>end?(2000+ +end)*12+12:y*12+(MON[(mo||"").toLowerCase()]||12)));
 // ponytail: this reads any date in the line, including retirement dates, so a
 // model whose note ends "API ends Sep 2026" outranks one released earlier that
 // year. Add an explicit sort field per model if that ordering starts to matter.
@@ -367,7 +369,8 @@ function render(){
  $("controls").style.display=map?"block":"none";
  $("subs").style.display=map&&base(filt)==="audio"?"flex":"none";
  if(!map){
-  $("out").innerHTML=R.map(r=>`<div class="rel">
+  $("out").innerHTML=[...R].sort((a,b)=>(recency(b.d)||Infinity)-(recency(a.d)||Infinity))
+   .map(r=>`<div class="rel">
    <div class="p">${ents(r.a)}<span class="ar">→</span>${ents(r.b)}</div>
    <div class="kd"><span class="k">${esc(r.t)}</span><span class="dt">${esc(r.d)}</span></div>
    <div class="x">${link(r.x,r.s)}</div></div>`).join("");
