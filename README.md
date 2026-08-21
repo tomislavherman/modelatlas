@@ -8,9 +8,9 @@ Live: https://tomislavherman.github.io/modelatlas/
 
 Everything lives in `index.html`. No build step, no dependencies.
 
-- **Companies and models** — the `D` array. Each entry is `{c, r, f, n, m}`: company, region, founded, ownership, models.
-- **Models** — each is `{n, k, d}`: name, category tags, date/note.
-- **Relationships** — the `R` array: `{a, b, t, d, x}` — from, to, kind, date, description.
+- **Companies and models** — the `D` array. Each entry is `{c, r, f, n, u, m}`: company, region, founded, ownership, official site, models.
+- **Models** — each is `{n, k, d, u}`: name, category tags, date/note, and the page that best describes the model. `u` is optional; a model without one links to its company's `u` instead, and a company without `u` renders as plain text.
+- **Relationships** — the `R` array: `{a, b, t, d, x}` — from, to, kind, date, description. Both endpoints are linked by name: the name is looked up in the companies of `D` first, then in the `EXTRA` map, which holds entities that have no card of their own (record labels, universities, investors) and short forms such as `BFL` or `Mistral`. An endpoint that matches neither stays plain text.
 
 Category tags are `image`, `video`, `world`, `avatar`, and `audio:speech` / `audio:music` / `audio:sfx`. A model can carry several; the first one sets its colour.
 
