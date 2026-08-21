@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>modelatlas — an index of AI generative models</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FBFAF7; --card:#FFFFFF; --sunk:#F2F0EA;
+--tx:#1F1E1B; --tx2:#5F5E58; --tx3:#8B8981;
+--line:rgba(31,30,27,.11); --line2:rgba(31,30,27,.22);
+--r:7px;
+--sans:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+--mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+:root{--bg:#14140F;--card:#1D1D18;--sunk:#262620;--tx:#EDEBE3;--tx2:#A8A69C;--tx3:#78766E;
+--line:rgba(237,235,227,.13);--line2:rgba(237,235,227,.26);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--sans);
+font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:28px 20px 64px}
+header{border-bottom:1px solid var(--line2);padding-bottom:18px;margin-bottom:20px}
+h1{font-size:25px;font-weight:600;letter-spacing:-.02em;margin:0 0 6px}
+.sub{color:var(--tx2);font-size:14px;margin:0;max-width:60ch}
+.stamp{font-family:var(--mono);font-size:11px;color:var(--tx3);margin-top:10px;letter-spacing:.02em}
+.bar{display:flex;gap:6px;margin-bottom:14px}
+button{font:inherit;font-size:13px;padding:6px 13px;border:1px solid var(--line2);
+background:transparent;color:var(--tx2);border-radius:var(--r);cursor:pointer;
+transition:background .12s,color .12s}
+button:hover{background:var(--sunk);color:var(--tx)}
+button[aria-pressed="true"]{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+button:focus-visible{outline:2px solid #378ADD;outline-offset:2px}
+.bar.tabs button{flex:1}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.filters button{font-size:12px;padding:4px 11px}
+.subs{display:none;flex-wrap:wrap;gap:6px;margin:0 0 8px 14px;
+padding-left:12px;border-left:1px solid var(--line)}
+.subs button{font-size:12px;padding:3px 10px}
+#q{font:inherit;font-size:14px;width:100%;padding:9px 12px;margin-bottom:12px;
+border:1px solid var(--line2);border-radius:var(--r);background:var(--card);color:var(--tx)}
+#q::placeholder{color:var(--tx3)}
+#q:focus{outline:2px solid #378ADD;outline-offset:-1px}
+.count{font-family:var(--mono);font-size:11px;color:var(--tx3);margin:0 0 16px;letter-spacing:.02em}
+.grid{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
+.co{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;
+align-self:start}
+.co h2{font-size:16px;font-weight:600;margin:0;letter-spacing:-.01em}
+.co .meta{font-family:var(--mono);font-size:11px;color:var(--tx2);margin-top:3px;letter-spacing:.01em}
+.co .rg{font-family:var(--mono);font-size:11px;color:var(--tx3);flex-shrink:0}
+.hd{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.m{display:flex;align-items:flex-start;gap:10px;padding:9px 11px;margin-top:9px;
+border-left:2px solid;border-radius:0 var(--r) var(--r) 0}
+.m .l{flex:1;min-width:0}
+.m .n{font-size:13.5px;font-weight:500;line-height:1.35}
+.m .d{font-family:var(--mono);font-size:11px;opacity:.78;margin-top:3px;line-height:1.4}
+.tags{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.02em;white-space:nowrap;
+padding:2px 7px;border-radius:4px}
+.none{font-size:13px;color:var(--tx3);margin-top:9px;font-style:italic}
+.rel{border-bottom:1px solid var(--line);padding:13px 0}
+.rel:last-child{border-bottom:0}
+.rel .p{font-size:14.5px;font-weight:500}
+.rel .p .ar{color:var(--tx3);font-weight:400;padding:0 4px}
+.rel .kd{display:flex;gap:8px;align-items:center;margin:5px 0 5px}
+.rel .k{font-family:var(--mono);font-size:10px;letter-spacing:.03em;text-transform:uppercase;
+background:var(--sunk);color:var(--tx2);padding:2px 8px;border-radius:4px}
+.rel .dt{font-family:var(--mono);font-size:11px;color:var(--tx3)}
+.rel .x{font-size:13.5px;color:var(--tx2);line-height:1.5}
+footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);
+font-size:12.5px;color:var(--tx3);line-height:1.6}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>modelatlas</h1>
+<p class="sub">An index of AI generative models — image, video, audio, world and avatar — mapped to the companies behind them, with release dates and the acquisitions, spinouts, investments and lawsuits that connect them.</p>
+<p class="stamp" id="stamp"></p>
+</header>
+
+<div class="bar tabs" role="tablist">
+<button data-view="map" role="tab" aria-pressed="true">Models</button>
+<button data-view="rel" role="tab" aria-pressed="false">Connections</button>
+</div>
+
+<div id="controls">
+<div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
+<div class="subs" id="subs" role="group" aria-label="Filter by audio subcategory"></div>
+<label class="sr" for="q">Search companies and models</label>
+<input id="q" type="search" placeholder="Search a company or model…" autocomplete="off">
+<p class="count" id="count"></p>
+</div>
+
+<div id="out"></div>
+
+<footer id="foot"></footer>
+</div>
+
+<script>
+const KC={
+ image:["#E6F1FB","#0C447C","#85B7EB","Image"],
+ video:["#EEEDFE","#3C3489","#AFA9EC","Video"],
+ audio:["#E1F5EE","#085041","#5DCAA5","Audio"],
+ world:["#FAECE7","#712B13","#F0997B","World / 3D"],
+ avatar:["#FAEEDA","#633806","#EF9F27","Avatar"]};
+const KCD={
+ image:["#0C447C","#B5D4F4","#378ADD"],
+ video:["#3C3489","#CECBF6","#7F77DD"],
+ audio:["#085041","#9FE1CB","#1D9E75"],
+ world:["#712B13","#F5C4B3","#D85A30"],
+ avatar:["#633806","#FAC775","#BA7517"]};
+const SUB={speech:"Speech",music:"Music",sfx:"SFX"};
+const CATS=[["all","All"],["image","Image"],["video","Video"],["audio","Audio"],["world","World / 3D"],["avatar","Avatar"]];
+const SUBF=[["audio","All audio"],["audio:speech","Speech"],["audio:music","Music"],["audio:sfx","SFX"]];
+const dark=()=>matchMedia("(prefers-color-scheme:dark)").matches;
+function base(t){return t.split(":")[0]}
+function lab(t){const p=t.split(":");return p.length>1?KC[p[0]][3]+" · "+SUB[p[1]]:KC[p[0]][3]}
+function col(t){const b=base(t);return dark()?{bg:KCD[b][0],fg:KCD[b][1],ln:KCD[b][2]}:{bg:KC[b][0],fg:KC[b][1],ln:KC[b][2]}}
+
+const D=[
+{c:"OpenAI",r:"US",f:"2015",n:"independent",m:[
+{n:"DALL·E → 3",k:["image"],d:"2021 – retired 2025"},{n:"GPT Image 1 / 2",k:["image"],d:"Mar 2025 / Apr 2026"},
+{n:"Sora",k:["video"],d:"Feb 2024 → Dec 2024"},{n:"Sora 2",k:["video","audio:sfx"],d:"Sep 2025 – killed Apr 2026"},
+{n:"Whisper",k:["audio:speech"],d:"Sep 2022 – open weights"},{n:"TTS / Realtime voice",k:["audio:speech"],d:"2023 →"}]},
+{c:"Google DeepMind",r:"US",f:"2010 / merged 2023",n:"Alphabet",m:[
+{n:"Imagen",k:["image"],d:"2023 → v4"},{n:"Nano Banana (Gemini Image)",k:["image"],d:"2025 → NB2"},
+{n:"Veo",k:["video","audio:sfx"],d:"May 2024 → v4, native Foley"},{n:"Gemini Omni",k:["video","audio:sfx"],d:"May 2026"},
+{n:"Lyria → 3.5",k:["audio:music"],d:"2023 → Jul 2026"},{n:"Gemini Audio / Chirp",k:["audio:speech"],d:"2024 →"},
+{n:"Genie 3",k:["world"],d:"Aug 2025"}]},
+{c:"Anthropic",r:"US",f:"2021",n:"independent",m:[]},
+{c:"SpaceXAI",r:"US",f:"xAI 2023",n:"SpaceX (Feb 2026)",m:[
+{n:"Aurora",k:["image"],d:"Dec 2024"},{n:"Grok Imagine",k:["image"],d:"Jul 2025 → v1.0 Feb 2026"},
+{n:"grok-imagine-video 1.5",k:["video","audio:sfx"],d:"Jun 2026 – synced audio"},{n:"Grok voice",k:["audio:speech"],d:"2024 →"}]},
+{c:"Meta",r:"US",f:"2004",n:"NASDAQ",m:[
+{n:"Emu / Imagine",k:["image"],d:"2023 →"},{n:"Movie Gen",k:["video","audio:sfx"],d:"Oct 2024 – 30B research"},
+{n:"Mango",k:["video"],d:"announced for 2026"},{n:"MusicGen",k:["audio:music"],d:"2023 – open"},
+{n:"AudioGen",k:["audio:sfx"],d:"2023 – text-to-sound, open"},{n:"Voicebox / Seamless",k:["audio:speech"],d:"2023 →"}]},
+{c:"Amazon",r:"US",f:"1994",n:"NASDAQ",m:[
+{n:"Nova Canvas",k:["image"],d:"Dec 2024"},{n:"Nova Reel",k:["video"],d:"Dec 2024 – EOL Sep 2026"},
+{n:"Nova Sonic",k:["audio:speech"],d:"2025 →"}]},
+{c:"NVIDIA",r:"US",f:"1993",n:"NASDAQ",m:[
+{n:"Cosmos → Cosmos 3",k:["world","video","audio:sfx"],d:"Jan 2025 → Jun 2026 omnimodal"},
+{n:"Audio2Face / Riva",k:["avatar","audio:speech"],d:"2023 →"}]},
+{c:"Black Forest Labs",r:"DE",f:"2024",n:"independent",m:[
+{n:"FLUX.1",k:["image"],d:"Aug 2024"},{n:"FLUX.1 Kontext",k:["image"],d:"May 2025 – editing"},
+{n:"FLUX.2",k:["image"],d:"Nov 2025"},{n:"FLUX 3",k:["video","image","audio:sfx"],d:"Jul 2026 – unified backbone"},
+{n:"FLUX-mimic",k:["world"],d:"Jul 2026 – robot actions"}]},
+{c:"Runway",r:"US",f:"2018",n:"independent",m:[
+{n:"Gen-1 → Gen-4.5",k:["video","audio:sfx"],d:"2023 → 2026, audio added May 2026"},{n:"GWM-1",k:["world"],d:"2026"}]},
+{c:"Luma AI",r:"US",f:"2021",n:"independent",m:[
+{n:"Dream Machine",k:["video"],d:"Jun 2024 – silent"},{n:"Ray3 / Ray3.14",k:["video"],d:"Sep 2025 → 2026, 16-bit HDR"},
+{n:"Genie (3D)",k:["world"],d:"2024"}]},
+{c:"Pika",r:"US",f:"2023",n:"independent",m:[{n:"Pika 1.0 → 2.5",k:["video"],d:"2023 → 2026"}]},
+{c:"Moonvalley",r:"CA/US",f:"2021",n:"independent",m:[{n:"Marey",k:["video"],d:"2025 – fully licensed data"}]},
+{c:"Midjourney",r:"US",f:"2022",n:"independent",m:[
+{n:"v1 → v8.2",k:["image"],d:"2022 → 2026"},{n:"V1 video",k:["video"],d:"Jun 2025"}]},
+{c:"Stability AI",r:"UK",f:"2019",n:"independent",m:[
+{n:"Stable Diffusion",k:["image"],d:"Aug 2022"},{n:"SD 3.5",k:["image"],d:"Oct 2024 – last image model"},
+{n:"Stable Video Diffusion",k:["video"],d:"Nov 2023"},{n:"Stable Audio 3.0",k:["audio:music","audio:sfx"],d:"May 2026"}]},
+{c:"Ideogram",r:"US",f:"2022",n:"independent",m:[{n:"Ideogram 1 → 4.0",k:["image"],d:"2023 → Jun 2026 open"}]},
+{c:"Recraft",r:"US",f:"2022",n:"independent",m:[{n:"Recraft V3 → V4.1",k:["image"],d:"2024 → 2026"}]},
+{c:"Leonardo.ai",r:"AU",f:"2022",n:"Canva (Jul 2024)",m:[{n:"Phoenix / Lucid",k:["image"],d:"2024 →"}]},
+{c:"Krea",r:"US",f:"2022",n:"independent",m:[{n:"Krea 1 / Realtime",k:["image"],d:"2025 →"}]},
+{c:"Lightricks / LTX",r:"IL",f:"2013",n:"independent",m:[
+{n:"LTX Video",k:["video"],d:"Nov 2024"},{n:"LTX-2",k:["video","audio:sfx"],d:"Jan 2026 – open, synced audio"},
+{n:"LTX-2.3 / 2.5",k:["video","audio:sfx"],d:"Mar / Aug 2026 – 22B single pass"}]},
+{c:"World Labs",r:"US",f:"2024",n:"independent",m:[
+{n:"Marble",k:["world"],d:"Nov 2025 – 3D worlds"},{n:"RTFM",k:["world"],d:"2025 – real-time"},
+{n:"World API",k:["world"],d:"Jan 2026"}]},
+{c:"Decart",r:"IL/US",f:"2023",n:"independent",m:[{n:"Oasis / real-time worlds",k:["world"],d:"2024 →"}]},
+{c:"Odyssey",r:"US",f:"2023",n:"independent",m:[{n:"Interactive video",k:["world"],d:"2025 →"}]},
+{c:"Mistral AI",r:"FR",f:"2023",n:"independent",m:[
+{n:"Voxtral",k:["audio:speech"],d:"Jul 2025 – understanding"},{n:"Voxtral TTS",k:["audio:speech"],d:"Mar 2026 – 4B open"}]},
+{c:"ElevenLabs",r:"UK/US",f:"2022",n:"independent",m:[
+{n:"Eleven TTS → v3",k:["audio:speech"],d:"2023 → 2025"},{n:"Scribe",k:["audio:speech"],d:"2025 – speech-to-text"},
+{n:"Sound Effects",k:["audio:sfx"],d:"2024 – text-to-SFX"},{n:"Eleven Music",k:["audio:music"],d:"2025 →"},
+{n:"Agents",k:["audio:speech"],d:"2024 →"}]},
+{c:"Cartesia",r:"US",f:"2023",n:"independent",m:[{n:"Sonic",k:["audio:speech"],d:"2024 – low-latency SSM"}]},
+{c:"Hume AI",r:"US",f:"2021",n:"independent",m:[{n:"Octave / EVI",k:["audio:speech"],d:"2024 – emotional TTS"}]},
+{c:"Deepgram",r:"US",f:"2015",n:"independent",m:[{n:"Aura / Nova",k:["audio:speech"],d:"2024 →"}]},
+{c:"Suno",r:"US",f:"2022",n:"independent",m:[{n:"Suno v1 → v5",k:["audio:music"],d:"2023 → 2026"}]},
+{c:"Udio",r:"US",f:"2023",n:"independent",m:[{n:"Udio",k:["audio:music"],d:"Apr 2024 → walled garden"}]},
+{c:"Klay",r:"US",f:"2023",n:"independent",m:[{n:"Klay LMM",k:["audio:music"],d:"2026 – licensed from day one"}]},
+{c:"Riffusion",r:"US",f:"2022",n:"independent",m:[{n:"Fuzz",k:["audio:music"],d:"2024 →"}]},
+{c:"CassetteAI",r:"US",f:"2023",n:"Pixl Technologies",m:[
+{n:"Cassette music model",k:["audio:music"],d:"2023 – stems, MIDI"},{n:"SFX + on-device SDK",k:["audio:sfx"],d:"2025 – sub-50ms"}]},
+{c:"HeyGen",r:"US",f:"2020",n:"independent",m:[{n:"Avatar IV → V",k:["avatar"],d:"2025 → Apr 2026"}]},
+{c:"Synthesia",r:"UK",f:"2017",n:"independent",m:[{n:"Express / full-body avatars",k:["avatar"],d:"2023 →"}]},
+{c:"Hedra",r:"US",f:"2023",n:"independent",m:[
+{n:"Character-3",k:["avatar"],d:"2025 – omnimodal"},{n:"Live Avatars",k:["avatar"],d:"Jul 2025 – sub-100ms"}]},
+{c:"D-ID",r:"IL",f:"2017",n:"independent",m:[{n:"Talking photo",k:["avatar"],d:"2022 →"}]},
+{c:"ByteDance",r:"CN",f:"2012",n:"private",m:[
+{n:"Seedream → 5",k:["image"],d:"2024 → 2026"},{n:"Seedance → 2.5",k:["video","audio:sfx"],d:"2025 → 2026"},
+{n:"Seed Audio / Seed-TTS",k:["audio:speech"],d:"2024 →"}]},
+{c:"Kuaishou",r:"CN",f:"2011",n:"HKEX 2021",m:[
+{n:"Kling → v3",k:["video","audio:sfx"],d:"Jun 2024 → 2026"},{n:"Kolors",k:["image"],d:"2024 →"}]},
+{c:"MiniMax",r:"CN",f:"2021",n:"HKEX Jan 2026",m:[
+{n:"Hailuo Video-01",k:["video"],d:"Sep 2024"},{n:"Hailuo 2.3",k:["video"],d:"Oct 2025"},
+{n:"Hailuo H3",k:["video","audio:sfx"],d:"Jul 2026 – open, stereo audio"},{n:"Speech 2.6",k:["audio:speech"],d:"2025 →"},
+{n:"Music 2.0",k:["audio:music"],d:"2025 →"}]},
+{c:"Alibaba",r:"CN",f:"1999",n:"NYSE / HKEX",m:[
+{n:"Wan (Wanxiang) → 2.6",k:["video","audio:sfx"],d:"2025 → 2026"},{n:"Qwen-Image",k:["image"],d:"2025 →"},
+{n:"CosyVoice",k:["audio:speech"],d:"2024 – open"}]},
+{c:"Tencent",r:"CN",f:"1998",n:"HKEX",m:[
+{n:"HunyuanVideo → 1.5",k:["video"],d:"Dec 2024 → Nov 2025, open"},{n:"Hunyuan3D",k:["world"],d:"2024 – open"},
+{n:"HunyuanVideo-Avatar",k:["avatar"],d:"2025"}]},
+{c:"ShengShu",r:"CN",f:"2023",n:"independent",m:[{n:"Vidu → Q3",k:["video","audio:sfx"],d:"2024 → Jan 2026, 16s audio"}]},
+{c:"Baidu",r:"CN",f:"2000",n:"NASDAQ / HKEX",m:[{n:"MuseSteamer",k:["video"],d:"2025 →"}]},
+{c:"Zhipu / Z.ai",r:"CN",f:"2019",n:"listed 2025",m:[{n:"CogVideoX",k:["video"],d:"2024 – open"}]},
+{c:"StepFun",r:"CN",f:"2023",n:"independent",m:[{n:"Step-Video",k:["video"],d:"2025 – open"}]},
+{c:"PixVerse",r:"CN",f:"2023",n:"independent",m:[{n:"PixVerse V1 → V6",k:["video","audio:sfx"],d:"2024 → 2026"}]},
+{c:"Adobe",r:"US",f:"1982",n:"NASDAQ",m:[
+{n:"Firefly Image",k:["image"],d:"2023 →"},{n:"Firefly Video",k:["video"],d:"2025 – multi-model host"},
+{n:"Project Super Sonic",k:["audio:sfx"],d:"2024 – voice-driven Foley"}]}
+];
+
+const R=[
+{a:"Stability AI",b:"Black Forest Labs",t:"spinout",d:"2024",x:"Stable Diffusion authors left and founded BFL in Freiburg"},
+{a:"SpaceX",b:"xAI",t:"acquisition",d:"Feb 2026",x:"All-stock deal; xAI dissolved into SpaceXAI in May 2026"},
+{a:"xAI",b:"FLUX",t:"licensing",d:"2024–25",x:"Grok ran on Flux before Aurora shipped"},
+{a:"Meta",b:"Black Forest Labs",t:"licensing",d:"Sep 2025",x:"$140M multi-year deal; Adobe, Canva and Snap also license FLUX"},
+{a:"Canva",b:"Leonardo.ai",t:"acquisition",d:"Jul 2024",x:"Canva bought the image model and team outright"},
+{a:"Amazon",b:"Luma AI",t:"partnership",d:"2026",x:"Luma Ray v2 named the Bedrock successor to Nova Reel"},
+{a:"NVIDIA",b:"BFL / ElevenLabs / World Labs",t:"investment",d:"2024–26",x:"NVentures is on all three cap tables"},
+{a:"Autodesk / AMD",b:"World Labs",t:"investment",d:"Feb 2026",x:"$1B round; Autodesk's largest startup investment ever"},
+{a:"Stanford",b:"World Labs",t:"origin",d:"2024",x:"Founded by Fei-Fei Li with Justin Johnson and Ben Mildenhall"},
+{a:"SenseTime",b:"MiniMax",t:"spinout",d:"2021",x:"Founded by ex-SenseTime computer-vision researchers"},
+{a:"MiHoYo / Alibaba / Tencent",b:"MiniMax",t:"investment",d:"2022–24",x:"Genshin Impact studio was the earliest backer"},
+{a:"Alibaba",b:"ShengShu",t:"investment",d:"Apr 2026",x:"Led $290M round for the Vidu world model"},
+{a:"Tsinghua University",b:"ShengShu",t:"origin",d:"2023",x:"Vidu developed jointly with the university"},
+{a:"ByteDance",b:"Jukedeck",t:"acquisition",d:"2019",x:"Early AI music company; seeded ByteDance audio work"},
+{a:"Lightricks",b:"LTX",t:"spinout",d:"2026",x:"World-model arm split from the Facetune / Videoleap company"},
+{a:"Hedra",b:"ElevenLabs / Cartesia",t:"integration",d:"2025 →",x:"Live Avatars pipe any third-party TTS through LiveKit"},
+{a:"Warner Music",b:"Suno",t:"settlement",d:"Nov 2025",x:"Settled suit + licensing; unlicensed models deprecated"},
+{a:"Universal Music",b:"Udio",t:"settlement",d:"Oct 2025",x:"First major-label AI licensing template"},
+{a:"Sony Music",b:"Suno / Udio",t:"litigation",d:"ongoing",x:"Declined to settle; fair-use ruling pending"},
+{a:"GEMA",b:"Suno",t:"litigation",d:"Jan 2025 →",x:"First European case on AI training over audio, in Munich"},
+{a:"Disney / Universal / WB",b:"MiniMax",t:"litigation",d:"Sep 2025",x:"Copyright suit over Hailuo outputs"},
+{a:"Anthropic",b:"MiniMax",t:"dispute",d:"Feb 2026",x:"Anthropic alleged large-scale distillation of Claude"},
+{a:"Getty / Shutterstock",b:"Lightricks",t:"licensing",d:"2026",x:"LTX-2 trained on licensed stock rather than scraped web"},
+{a:"Mistral",b:"ElevenLabs",t:"competition",d:"Mar 2026",x:"Voxtral TTS aimed directly at ElevenLabs pricing"},
+{a:"OpenAI",b:"video",t:"exit",d:"Apr 2026",x:"Sora shut down; no successor announced"}
+];
+
+let view="map",filt="all",term="";
+const $=id=>document.getElementById(id);
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+
+$("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${l}</button>`).join("");
+$("subs").innerHTML=SUBF.map(([v,l])=>`<button data-f="${v}">${l}</button>`).join("");
+$("stamp").textContent="Compiled 21 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("foot").innerHTML="Company relationships and founding dates are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+
+function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
+function matchTerm(co,m){
+ if(!term)return true;
+ return (co.c+" "+co.n+" "+m.n+" "+m.d).toLowerCase().includes(term);}
+
+function render(){
+ document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.view===view));
+ document.querySelectorAll("#filters button,#subs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===filt));
+ const map=view==="map";
+ $("controls").style.display=map?"block":"none";
+ $("subs").style.display=map&&base(filt)==="audio"?"flex":"none";
+ if(!map){
+  $("out").innerHTML=R.map(r=>`<div class="rel">
+   <div class="p">${esc(r.a)}<span class="ar">→</span>${esc(r.b)}</div>
+   <div class="kd"><span class="k">${esc(r.t)}</span><span class="dt">${esc(r.d)}</span></div>
+   <div class="x">${esc(r.x)}</div></div>`).join("");
+  return;}
+ let nc=0,nm=0;
+ const cards=D.map(co=>{
+  const ms=co.m.filter(m=>matchCat(m)&&matchTerm(co,m));
+  const nameHit=term&&co.c.toLowerCase().includes(term);
+  if((filt!=="all"||term)&&!ms.length&&!(nameHit&&!co.m.length))return"";
+  nc++;nm+=ms.length;
+  const body=ms.length?ms.map(m=>{const c=col(m.k[0]);
+   const tags=m.k.map(t=>{const tc=col(t);
+    return `<span class="tag" style="background:${tc.bg};color:${tc.fg}">${lab(t)}</span>`}).join("");
+   return `<div class="m" style="background:${c.bg};border-color:${c.ln}">
+    <div class="l"><div class="n" style="color:${c.fg}">${esc(m.n)}</div>
+    <div class="d" style="color:${c.fg}">${esc(m.d)}</div></div>
+    <div class="tags">${tags}</div></div>`}).join("")
+   :`<p class="none">No media models — text and code only</p>`;
+  return `<article class="co"><div class="hd"><h2>${esc(co.c)}</h2><span class="rg">${esc(co.r)}</span></div>
+   <div class="meta">Founded ${esc(co.f)} · ${esc(co.n)}</div>${body}</article>`}).join("");
+ $("count").textContent=nc+" companies · "+nm+" models shown";
+ $("out").innerHTML=cards?`<div class="grid">${cards}</div>`
+  :`<p class="none">Nothing matches that. Try a different term or clear the filter.</p>`;}
+
+document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{view=b.dataset.view;render()});
+$("filters").onclick=e=>{if(e.target.dataset.f){filt=e.target.dataset.f;render()}};
+$("subs").onclick=e=>{if(e.target.dataset.f){filt=e.target.dataset.f;render()}};
+$("q").oninput=e=>{term=e.target.value.trim().toLowerCase();render()};
+matchMedia("(prefers-color-scheme:dark)").addEventListener("change",render);
+render();
+</script>
+</body>
+</html>
