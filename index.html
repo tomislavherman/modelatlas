@@ -332,6 +332,15 @@ const EXTRA={
  "Disney":"https://thewaltdisneycompany.com","Universal":"https://www.nbcuniversal.com","WB":"https://www.wbd.com",
  "Getty":"https://www.gettyimages.com","Shutterstock":"https://www.shutterstock.com",
  "Mistral":"https://mistral.ai","Lightricks":"https://www.lightricks.com","LTX":"https://ltx.io"};
+const MON={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
+// Newest date named anywhere in a model's date line, as year*12+month, so
+// "2023 → Jun 2026" sorts on Jun 2026. A bare year counts as December of that
+// year, which puts it after any dated month in the same year.
+const recency=d=>Math.max(0,...[...d.matchAll(/(?:([A-Za-z]{3})[a-z]*\s+)?(20\d\d)/g)]
+ .map(([,mo,y])=>y*12+(MON[(mo||"").toLowerCase()]||12)));
+// ponytail: this reads any date in the line, including retirement dates, so a
+// model whose note ends "API ends Sep 2026" outranks one released earlier that
+// year. Add an explicit sort field per model if that ordering starts to matter.
 const URL_OF=Object.assign(Object.fromEntries(D.filter(c=>c.u).map(c=>[c.c,c.u])),EXTRA);
 
 let view="map",filt="all",term="";
@@ -365,7 +374,7 @@ function render(){
   return;}
  let nc=0,nm=0;
  const cards=D.map(co=>{
-  const ms=co.m.filter(m=>matchCat(m)&&matchTerm(co,m));
+  const ms=co.m.filter(m=>matchCat(m)&&matchTerm(co,m)).sort((a,b)=>recency(b.d)-recency(a.d));
   const nameHit=term&&co.c.toLowerCase().includes(term);
   if((filt!=="all"||term)&&!ms.length&&!(nameHit&&!co.m.length))return"";
   nc++;nm+=ms.length;
