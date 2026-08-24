@@ -112,6 +112,47 @@ Confirm the new entries sit where expected, the badge counts match what you
 added, and nothing old picked up a badge by accident. Check the links you added
 actually resolve to that model's page, not a listing.
 
+## 8. Commit and push
+
+Only when something actually changed. `git diff --quiet && git diff --cached
+--quiet` means nothing moved — say so and stop, do not manufacture a commit.
+
+Two things count as a change worth committing:
+
+- **Model data moved.** Bump the compile date to today, commit, push to `main`.
+- **The month rolled over.** Bump `NOW` and the compile date even if no model
+  data moved, because last month's New badges expire and this month's appear.
+  That is a real visible change to the page.
+
+Nothing else. A compile date bumped on a day when neither happened is a daily
+empty-looking commit for no reason.
+
+Push to `main` — GitHub Pages publishes this site from `main`, so a branch
+would commit the work without deploying it.
+
+```sh
+node check.js || exit 1        # never push a failing tree
+git add index.html README.md
+git commit -m "feat: <what changed>"
+git push origin main
+```
+
+Match the existing commit style: `feat:`, lowercase, one specific change named
+in the subject rather than "update models".
+
+## Unattended runs
+
+A scheduled run has nobody to ask, so:
+
+- Add only what you could source. An unsourced version number is worse than a
+  missing one — leave it out and say so in the report.
+- Never delete or rewrite an existing entry to resolve a contradiction between
+  a source and the file. Leave the entry, and report the conflict.
+- If the sweep is ambiguous — a model that might be a new entry or might be a
+  version bump of a listed one — take the smaller edit and flag it.
+- If `check.js` fails and the fix is not obvious, revert the working tree and
+  report rather than pushing a guess.
+
 ## Reporting
 
 Say what changed and what you looked for and did not find — "no new music
