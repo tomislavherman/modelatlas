@@ -1,6 +1,6 @@
 # modelatlas
 
-An index of AI generative models — image, video, audio, world/3D and avatar — mapped to the companies behind them, with release dates and the acquisitions, spinouts, investments and lawsuits that connect them. Built to take LLMs later.
+An index of AI generative models — image, video, audio, world/3D, avatar, text and robotics — mapped to the companies behind them, with release dates and the acquisitions, spinouts, investments and lawsuits that connect them.
 
 Live: https://tomislavherman.github.io/modelatlas/
 
@@ -49,7 +49,7 @@ Everything lives in `index.html`. No build step, no dependencies.
   whenever you recompile the page, and the three badges follow.
 - **Relationships** — the `R` array: `{a, b, t, d, x}` — from, to, kind, date, description. Both endpoints are linked by name: the name is looked up in the companies of `D` first, then in the `EXTRA` map, which holds entities that have no card of their own (record labels, universities, investors) and short forms such as `BFL` or `Mistral`. An endpoint that matches neither stays plain text.
 
-Category tags are `image`, `video`, `world`, `avatar`, and `audio:speech` / `audio:music` / `audio:sfx`. A model can carry several; the first one sets its colour.
+Category tags are `image`, `video`, `world`, `avatar`, `robotics`, `audio:speech` / `audio:music` / `audio:sfx`, and `text:chat` / `text:code` / `text:embed`. A model can carry several; the first one sets its colour. Chat and coding share the `text` base because most frontier models do both — one model is one card carrying both tags, not two cards.
 
 Adding a model is one line in the relevant company's `m` array.
 

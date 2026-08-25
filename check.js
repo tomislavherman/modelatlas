@@ -8,13 +8,27 @@ const src = html.slice(html.indexOf("const KC="), html.indexOf("let view="));
 const { D, R, EXTRA, NOW, badge, fresh, retired } =
   new Function(`${src}; return {D,R,EXTRA,NOW,badge,fresh,retired}`)();
 
-const TAGS = ["image", "video", "world", "avatar", "audio:speech", "audio:music", "audio:sfx"];
+const TAGS = ["image", "video", "world", "avatar", "robotics",
+  "audio:speech", "audio:music", "audio:sfx",
+  "text:chat", "text:code", "text:embed"];
 const label = d => (badge(d).match(/>(\w+)</) || [, ""])[1];
 const month = v => ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][((v - 1) % 12) + 1];
 const stamp = v => (v ? `${month(v)} ${Math.floor((v - 1) / 12)}` : "(undated)");
 
 let failed = 0;
 const check = (ok, msg) => { if (!ok) { failed++; console.error(`  FAIL  ${msg}`); } };
+
+// A tag with no colour throws at render time, and a sub-filter button for a tag
+// nothing carries is a button that always shows an empty page.
+const { KC, KCD, SUB, SUBF } = new Function(`${src}; return {KC,KCD,SUB,SUBF}`)();
+for (const t of TAGS) {
+  const [b, sub] = t.split(":");
+  check(KC[b] && KCD[b], `tag "${t}": base "${b}" has no colour in KC/KCD`);
+  check(!sub || SUB[sub], `tag "${t}": sub "${sub}" has no label in SUB`);
+}
+for (const [b, row] of Object.entries(SUBF)) {
+  for (const [v] of row) check(v === b || TAGS.includes(v), `sub-filter "${v}" is not a tag any model can carry`);
+}
 
 // NOW drives every badge, so it has to agree with the date printed in the header.
 const printed = html.match(/"Compiled (\d+) (\w+) (\d+) · "/);

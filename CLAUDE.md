@@ -10,14 +10,16 @@ invariants below, and prints every badged model so you can eyeball the result.
 
 ## Scope
 
-Generative **media** only: image, video, world/3D, avatar, and audio (speech,
-music, sound effects). Text-only LLMs are out of scope — the README says the
-atlas is "built to take LLMs later", but until that happens, do not add GPT-5,
-Claude, Gemini text models, DeepSeek and so on. Most entries on a general "AI
-model releases" tracker will be LLMs and belong nowhere in this file.
+Image, video, world/3D, avatar, audio (speech, music, sound effects), text
+(chat, coding, embeddings) and robotics (vision-language-action models).
 
-A company card exists for the company, not the product. Anthropic has an empty
-`m: []` and renders "No media models — text and code only". That is deliberate.
+Text models were out of scope until August 2026 and are now in. What is still
+out: anything that is not a model with a name and a release date — datasets,
+inference chips, agent products that wrap someone else's model, fine-tunes of
+an open-weights model by a company that did not train the base.
+
+A company card exists for the company, not the product, so a company with no
+model in any of these categories still gets a card with an empty `m: []`.
 
 ## The data
 
@@ -63,9 +65,22 @@ shipped, when it dies. `x` holds what it is and why it matters.
 
 ### Category tags
 
-`image`, `video`, `world`, `avatar`, `audio:speech`, `audio:music`,
-`audio:sfx`. A model can carry several; **`k[0]` sets the card's colour**, so
-put the primary modality first.
+`image`, `video`, `world`, `avatar`, `robotics`, `audio:speech`,
+`audio:music`, `audio:sfx`, `text:chat`, `text:code`, `text:embed`. A model can
+carry several; **`k[0]` sets the card's colour**, so put the primary modality
+first.
+
+Chat and coding share the `text` base on purpose. Most frontier models do both,
+and a shared base means GPT-5 is one card carrying `["text:chat","text:code"]`
+rather than two cards in two colours. The same reasoning already applies to
+video models that generate their own sound: `["video","audio:sfx"]`.
+
+`robotics` is for models that output robot actions. Before August 2026 these
+were tagged `world` for lack of anywhere better — FLUX-mimic is the example.
+
+Each base tag may have a row of sub-filters under the main filter bar, defined
+in `SUBF` keyed by base. Only `audio` and `text` have one; a base missing from
+`SUBF` shows no sub row.
 
 ## How dates are read
 
