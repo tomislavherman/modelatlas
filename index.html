@@ -282,7 +282,7 @@ const D=[
 {c:"MiniMax",r:"CN",f:"2021",n:"HKEX Jan 2026",u:"https://www.minimax.io",m:[
 {n:"Hailuo Video-01",k:["video"],d:"Sep 2024",x:"",u:"https://hailuoai.video"},
 {n:"Hailuo 2.3",k:["video"],d:"Oct 2025",x:"",u:"https://hailuoai.video"},
-{n:"Hailuo H3",k:["video","audio:sfx"],d:"Jul 2026",x:"33B omni-modal, 2K, native stereo audio in one pipeline",u:"https://hailuoai.video"},
+{n:"Hailuo H3",k:["video","audio:sfx"],d:"Jul 2026 → open weights Aug 2026",x:"33B omni-modal, 2K, native stereo audio in one pipeline; the 2K upscale stays API-only",u:"https://hailuoai.video"},
 {n:"Speech 2.6",k:["audio:speech"],d:"2025 →",x:"",u:"https://www.minimax.io/audio"},
 {n:"Music 2.0",k:["audio:music"],d:"2025 →",x:"",u:"https://www.minimax.io/audio"}]},
 {c:"Alibaba",r:"CN",f:"1999",n:"NYSE / HKEX",u:"https://www.alibabacloud.com",m:[
@@ -403,7 +403,7 @@ const ents=s=>s.split(" / ").map(t=>link(t,URL_OF[t])).join(`<span class="sl">/<
 
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${l}</button>`).join("");
 $("subs").innerHTML=SUBF.map(([v,l])=>`<button data-f="${v}">${l}</button>`).join("");
-$("stamp").textContent="Compiled 24 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 25 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company relationships and founding dates are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
