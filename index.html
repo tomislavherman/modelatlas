@@ -34,8 +34,8 @@ transition:background .12s,color .12s}
 button:hover{background:var(--sunk);color:var(--tx)}
 button[aria-pressed="true"]{background:var(--tx);color:var(--bg);border-color:var(--tx)}
 button:focus-visible{outline:2px solid #378ADD;outline-offset:2px}
-.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
-.filters button{font-size:12px;padding:4px 11px}
+.filters,.badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.filters button,.badges button{font-size:12px;padding:4px 11px}
 .subs{display:none;flex-wrap:wrap;gap:6px;margin:0 0 8px 14px;
 padding-left:12px;border-left:1px solid var(--line)}
 .subs button{font-size:12px;padding:3px 10px}
@@ -56,9 +56,10 @@ border:1px solid;border-left-width:3px;border-radius:0 var(--r) var(--r) 0}
 .m .n{font-size:13.5px;font-weight:500;line-height:1.35}
 .m .d{font-family:var(--mono);font-size:11px;opacity:.78;margin-top:3px;line-height:1.4}
 .m .x{font-size:12.5px;opacity:.82;margin-top:4px;line-height:1.45}
-.tags{display:flex;align-items:center;gap:6px;flex-shrink:0}
-.tag{display:inline-flex}
-.tag .ic{width:16px;height:16px}
+.tags{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.tag{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;
+letter-spacing:.02em;white-space:nowrap;padding:2px 7px;border-radius:4px}
+.tag .ic{width:14px;height:14px}
 /* Category icons are drawn on a 16x16 grid and take their colour from the text
    around them, so one set works in both themes and on any chip background. */
 .ic{width:13px;height:13px;flex:none;fill:none;stroke:currentColor;
@@ -67,13 +68,7 @@ stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
 .filters button,.subs button{display:inline-flex;align-items:center;gap:5px}
 .nw{font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.04em;
 text-transform:uppercase;margin-left:6px;padding:1px 5px;border-radius:4px;
-background:#C42B1C;color:#fff;vertical-align:1px}
-.nw.an{background:#8A5A00}
-.nw.rt{background:#6B6A63}
-@media (prefers-color-scheme:dark){
-.nw{background:#FF6B57;color:#14140F}
-.nw.an{background:#E8B04B}
-.nw.rt{background:#A8A69C}}
+vertical-align:1px}
 .none{font-size:13px;color:var(--tx3);margin-top:9px;font-style:italic}
 footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);
 font-size:12.5px;color:var(--tx3);line-height:1.6}
@@ -95,6 +90,7 @@ a:focus-visible{outline:2px solid #378ADD;outline-offset:2px;border-radius:3px}
 <div>
 <div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
 <div class="subs" id="subs" role="group" aria-label="Filter by subcategory"></div>
+<div class="badges" id="badges" role="group" aria-label="Filter by release status"></div>
 <label class="sr" for="q">Search companies and models</label>
 <input id="q" type="search" placeholder="Search a company or model…" autocomplete="off">
 <p class="count" id="count"></p>
@@ -407,21 +403,38 @@ const retired=d=>(d.match(RETIRED)||[]).some(c=>{
 const announced=d=>{const t=d.replace(RETIRED,"");
  return /\b(?:announced|expected|planned|preview|coming|waitlist|slated)\b/i.test(t)
   ||[...t.matchAll(/([A-Za-z]{3})[a-z]*\s+(20\d\d)/g)].some(([,mo,y])=>y*12+MON[mo.toLowerCase()]>NOW);};
-// At most one badge per model, most decisive state first.
-const badge=d=>retired(d)?'<span class="nw rt">Retired</span>'
- :announced(d)?'<span class="nw an">Announced</span>'
- :fresh(d)?'<span class="nw">New</span>':"";
+// At most one badge per model, most decisive state first. The status filter
+// reads the same function as the badge, so the two can never disagree about
+// what a model is: a retired model is not also offered under Announced.
+const status=d=>retired(d)?"retired":announced(d)?"announced":fresh(d)?"new":"";
+const STATS=[["new","New"],["announced","Announced"],["retired","Retired"]];
+const NWLAB=Object.fromEntries(STATS);
+// [fill, text on that fill, outline] per status, light then dark — the same
+// shape as KC/KCD. The badge and the status buttons both read this, so a
+// colour changed here changes both and they cannot drift apart.
+const NW={new:["#C42B1C","#FFFFFF","#E5A79F"],
+ announced:["#8A5A00","#FFFFFF","#D9BC85"],retired:["#6B6A63","#FFFFFF","#C2C1BA"]};
+const NWD={new:["#FF6B57","#14140F","#B24A3C"],
+ announced:["#E8B04B","#14140F","#9E7A2F"],retired:["#A8A69C","#14140F","#73726B"]};
+const ncol=s=>{const[fill,on,ln]=dark()?NWD[s]:NW[s];return{fill,on,ln}};
+const badge=d=>{const s=status(d);if(!s)return"";const c=ncol(s);
+ return `<span class="nw" style="background:${c.fill};color:${c.on}">${NWLAB[s]}</span>`};
 
 let filt="all",term="";
+// Any-of, unlike the category row: an empty set means every model, and New
+// plus Announced together is the "what is happening now" view.
+const stats=new Set();
 const $=id=>document.getElementById(id);
 const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`:esc(t);
 
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
+$("badges").innerHTML=STATS.map(([v,l])=>`<button data-s="${v}">${l}</button>`).join("");
 $("stamp").textContent="Compiled 25 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
+function matchStat(m){return !stats.size||stats.has(status(m.d))}
 function matchTerm(co,m){
  if(!term)return true;
  return (co.c+" "+co.n+" "+m.n+" "+m.d+" "+m.x).toLowerCase().includes(term);}
@@ -432,6 +445,13 @@ function render(){
  $("subs").innerHTML=sf?sf.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join(""):"";
  $("subs").style.display=sf?"flex":"none";
  // Each filter button is tinted with its own category colour; "all" has none and keeps the default.
+ // Status buttons wear their own badge colour, the same way the category
+ // buttons wear theirs: outlined when off, filled when on.
+ document.querySelectorAll("#badges button").forEach(b=>{
+  const on=stats.has(b.dataset.s),c=ncol(b.dataset.s);
+  b.setAttribute("aria-pressed",on);
+  b.style.cssText=on?`background:${c.fill};color:${c.on};border-color:${c.fill}`
+   :`color:${c.fill};border-color:${c.ln}`;});
  document.querySelectorAll("#filters button,#subs button").forEach(b=>{
   const on=b.dataset.f===filt;
   b.setAttribute("aria-pressed",on);
@@ -441,13 +461,13 @@ function render(){
    :`color:${c.fg};border-color:${c.ln}`;});
  let nc=0,nm=0;
  const cards=D.map(co=>{
-  const ms=co.m.filter(m=>matchCat(m)&&matchTerm(co,m)).sort((a,b)=>cmpDate(a.d,b.d));
+  const ms=co.m.filter(m=>matchCat(m)&&matchStat(m)&&matchTerm(co,m)).sort((a,b)=>cmpDate(a.d,b.d));
   const nameHit=term&&co.c.toLowerCase().includes(term);
-  if((filt!=="all"||term)&&!ms.length&&!(nameHit&&!co.m.length))return null;
+  if((filt!=="all"||term||stats.size)&&!ms.length&&!(nameHit&&!co.m.length))return null;
   nc++;nm+=ms.length;
   const body=ms.length?ms.map(m=>{const c=col(m.k[0]);
    const tags=m.k.map(t=>{const tc=col(t);
-    return `<span class="tag" role="img" title="${lab(t)}" aria-label="${lab(t)}" style="color:${tc.fg}">${icon(t)}</span>`}).join("");
+    return `<span class="tag" style="background:${tc.fg};color:${dark()?tc.bg:"#fff"}">${icon(t)}${lab(t)}</span>`}).join("");
    return `<div class="m" style="border-color:${c.ln}">
     <div class="l"><div class="n" style="color:${c.fg}">${link(m.n,m.u||co.u)}${badge(m.d)}</div>
     <div class="d" style="color:${c.fg}">${esc(m.d)}</div>
@@ -464,6 +484,8 @@ function render(){
 
 $("filters").onclick=e=>{if(e.target.dataset.f){filt=e.target.dataset.f;render()}};
 $("subs").onclick=e=>{if(e.target.dataset.f){filt=e.target.dataset.f;render()}};
+$("badges").onclick=e=>{const s=e.target.dataset.s;
+ if(s){stats.has(s)?stats.delete(s):stats.add(s);render()}};
 $("q").oninput=e=>{term=e.target.value.trim().toLowerCase();render()};
 matchMedia("(prefers-color-scheme:dark)").addEventListener("change",render);
 render();

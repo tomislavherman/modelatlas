@@ -5,8 +5,11 @@ const fs = require("fs");
 
 const html = fs.readFileSync(`${__dirname}/index.html`, "utf8");
 const src = html.slice(html.indexOf("const KC="), html.indexOf("let filt="));
-const { D, NOW, badge, fresh, retired } =
-  new Function(`${src}; return {D,NOW,badge,fresh,retired}`)();
+// badge() picks its colours from the current theme, so the sandbox needs a
+// matchMedia. It reports light; the label badge() returns is the same either way.
+const evalPage = names =>
+  new Function("matchMedia", `${src}; return {${names}}`)(() => ({ matches: false }));
+const { D, NOW, badge, fresh, retired } = evalPage("D,NOW,badge,fresh,retired");
 
 const TAGS = ["image", "video", "world", "avatar", "robotics",
   "audio:speech", "audio:music", "audio:sfx",
@@ -20,7 +23,7 @@ const check = (ok, msg) => { if (!ok) { failed++; console.error(`  FAIL  ${msg}`
 
 // A tag with no colour throws at render time, and a sub-filter button for a tag
 // nothing carries is a button that always shows an empty page.
-const { KC, KCD, SUB, SUBF } = new Function(`${src}; return {KC,KCD,SUB,SUBF}`)();
+const { KC, KCD, SUB, SUBF } = evalPage("KC,KCD,SUB,SUBF");
 for (const t of TAGS) {
   const [b, sub] = t.split(":");
   check(KC[b] && KCD[b], `tag "${t}": base "${b}" has no colour in KC/KCD`);
