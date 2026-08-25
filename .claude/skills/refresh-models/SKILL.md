@@ -1,6 +1,6 @@
 ---
 name: refresh-models
-description: Use when refreshing the modelatlas data in index.html — sweeping for generative media models released, announced or retired since the last compile, and updating the page. Triggers include "check for new models", "refresh the atlas", "update modelatlas", "any new models out there", "sweep for new releases", or bumping the compile date. Not for layout, styling or code changes to the page.
+description: Use when refreshing the modelatlas data in index.html — sweeping for models released, announced or retired since the last compile, and updating the page. Triggers include "check for new models", "refresh the atlas", "update modelatlas", "any new models out there", "sweep for new releases", or bumping the compile date. Not for layout, styling or code changes to the page.
 allowed-tools: Bash, Read, Edit, Write, Grep, WebSearch, WebFetch
 ---
 
@@ -25,9 +25,10 @@ or two real changes — say so rather than padding the result.
 ## 2. Sweep
 
 Search per category, not once overall. A single "new AI models" query returns
-almost entirely LLMs, which are out of scope.
+mostly chat models and misses every other category.
 
 - image · video · world/3D · avatar · audio (speech, music, sfx)
+- text (chat, coding, embeddings) · robotics (vision-language-action)
 - one query for the current month's releases, one for retirements/shutdowns
 - one query for announced-but-unshipped models
 
@@ -52,7 +53,13 @@ than a new entry.
 | Company absent entirely | new card — Microsoft was missing with four shipped models |
 | Announced, not shipped | `d: "announced …"`, no invented ship date |
 | Retired or shut down | add the retirement clause to `d` |
-| Text-only LLM | skip |
+| A product wrapping someone else's model | skip |
+
+Chat and coding models version faster than anything else on the page. OpenAI
+shipped six point releases of GPT-5 in eleven months. One entry per point
+release would bury every other category, so a point release extends the `d`
+line of the progression already there — `Aug 2025 → Jul 2026` — and the entry
+names the endpoints rather than every version in between.
 
 A model reaching general availability, gaining audio, or going open weights is
 a `d` or `x` edit on the existing entry, not a second entry. A genuinely
@@ -88,7 +95,7 @@ Follow the schema in CLAUDE.md. The parts most often got wrong:
 Update **both** together or `check.js` fails:
 
 - `NOW` in the script (`2026*12+8` for August 2026)
-- the `"Compiled 24 Aug 2026 · "` string in the header
+- the `"Compiled 25 Aug 2026 · "` string in the header
 
 Also update the "Compiled …" line at the bottom of `README.md`.
 
@@ -134,8 +141,12 @@ would commit the work without deploying it.
 node check.js || exit 1        # never push a failing tree
 git add index.html README.md
 git commit -m "feat: <what changed>"
-git push origin main
+git push origin HEAD:main
 ```
+
+`HEAD:main` rather than `main` because the scheduled run gets a detached
+checkout with no branch name, where plain `git push origin main` fails. It
+does the same thing from a normal branch, so one command works either way.
 
 Match the existing commit style: `feat:`, lowercase, one specific change named
 in the subject rather than "update models".
@@ -152,6 +163,13 @@ A scheduled run has nobody to ask, so:
   version bump of a listed one — take the smaller edit and flag it.
 - If `check.js` fails and the fix is not obvious, revert the working tree and
   report rather than pushing a guess.
+
+The scheduled run happens in a cloud sandbox whose egress proxy blocks a
+number of vendor domains — `seed.bytedance.com`, `developers.openai.com` and
+`cnbc.com` have all failed. When `WebFetch` comes back `EGRESS_BLOCKED`, fall
+back to `WebSearch`, corroborate the claim across at least two independent
+reports before writing it, and name in the report which claims rest on
+secondary sources only.
 
 ## Reporting
 

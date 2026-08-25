@@ -23,16 +23,16 @@ model in any of these categories still gets a card with an empty `m: []`.
 
 ## The data
 
-Three arrays near the top of the script block.
+One array near the top of the script block.
 
 - `D` — companies. `{c, r, f, n, u, m}`: company, region, founded, ownership,
   official site, models.
-- `R` — connections. `{a, b, t, d, x, s}`: from, to, kind, date, description,
-  source.
-- `EXTRA` — names used in `R` that have no card of their own (labels,
-  universities, investors) plus short forms like `BFL`. An endpoint matching
-  neither `D` nor `EXTRA` renders as plain text, which is sometimes intended:
-  OpenAI's exit connection points at the literal word "video".
+
+The page used to carry a second view listing the acquisitions, spinouts,
+investments and lawsuits between these companies, held in an `R` array with an
+`EXTRA` map of names that had no card of their own. That view and both arrays
+were removed in August 2026. The page is the model list and nothing else, so
+there is no tab bar either.
 
 ### A model: `{n, k, d, x, u}`
 
@@ -148,6 +148,6 @@ grep -o 'https://[^"]*' index.html | sort -u \
 
 ## Accuracy
 
-Company relationships and founding dates are the stable part. Version numbers
+Founding dates and ownership are the stable part. Version numbers
 move monthly. Anything dated after the training cutoff must be verified against
 a real source before it goes in — do not write a version number from memory.

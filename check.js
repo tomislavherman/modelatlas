@@ -4,9 +4,9 @@
 const fs = require("fs");
 
 const html = fs.readFileSync(`${__dirname}/index.html`, "utf8");
-const src = html.slice(html.indexOf("const KC="), html.indexOf("let view="));
-const { D, R, EXTRA, NOW, badge, fresh, retired } =
-  new Function(`${src}; return {D,R,EXTRA,NOW,badge,fresh,retired}`)();
+const src = html.slice(html.indexOf("const KC="), html.indexOf("let filt="));
+const { D, NOW, badge, fresh, retired } =
+  new Function(`${src}; return {D,NOW,badge,fresh,retired}`)();
 
 const TAGS = ["image", "video", "world", "avatar", "robotics",
   "audio:speech", "audio:music", "audio:sfx",
@@ -51,16 +51,6 @@ for (const co of D) {
     if (m.u) check(m.u.startsWith("https://"), `${at}: link is not https — ${m.u}`);
     // Retired and Announced are contradictory; badge() picks one, so this catches bad data.
     check(!(retired(m.d) && fresh(m.d)), `${at}: reads as both Retired and New — d="${m.d}"`);
-  }
-}
-
-// Connection endpoints render as plain text when the name matches nothing.
-const known = new Set([...D.map(c => c.c), ...Object.keys(EXTRA)]);
-for (const r of R) {
-  for (const side of [r.a, r.b]) {
-    for (const name of side.split(" / ")) {
-      if (!known.has(name)) console.warn(`  note  connection endpoint "${name}" links nowhere — add it to EXTRA if it should`);
-    }
   }
 }
 
