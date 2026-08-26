@@ -155,6 +155,7 @@ const D=[
 {n:"TTS / Realtime voice",k:["audio:speech"],d:"2023 →",x:"Speech-to-speech in the Realtime API",u:"https://platform.openai.com/docs/guides/realtime"},
 {n:"GPT Transcribe",k:["audio:speech"],d:"Jul 2026",x:"Whisper successor: 19% word error rate against 40%, a quarter cheaper",u:"https://platform.openai.com/docs/guides/speech-to-text"},
 {n:"GPT-5 → GPT-5.6",k:["text:chat","text:code"],d:"Aug 2025 → Jul 2026",x:"Six point releases in eleven months; 5.6 ships in three sizes, Luna, Terra and Sol",u:"https://openai.com/index/gpt-5-6/"},
+{n:"Astra",k:["text:chat"],d:"announced Aug 2026",x:"Named in the third paragraph of a maths research post as the next major model, a class of its own beside Sol, Terra and Luna; no model card, price or ship date",u:"https://openai.com/index/ten-advances-in-mathematics/"},
 {n:"GPT-5-Codex → GPT-5.3-Codex",k:["text:code"],d:"Sep 2025 → Feb 2026",x:"Agentic coding variant, and the base model behind GitHub Copilot Business and Enterprise",u:"https://openai.com/index/gpt-5-3-codex-system-card/"},
 {n:"text-embedding-3",k:["text:embed"],d:"Jan 2024",x:"Small and large tiers on the API",u:"https://platform.openai.com/docs/guides/embeddings"}]},
 {c:"Google DeepMind",r:"US",f:"2010 / merged 2023",n:"Alphabet",u:"https://deepmind.google",m:[
@@ -182,7 +183,7 @@ const D=[
 {n:"Grok Imagine Image 2.0",k:["image"],d:"Aug 2026",x:"Region editing, multi-image input, smart resize",u:"https://x.ai/news"},
 {n:"grok-imagine-video 1.5",k:["video","audio:sfx"],d:"Jun 2026",x:"Synced audio",u:"https://x.ai/news"},
 {n:"Grok voice",k:["audio:speech"],d:"2024 →",x:"Speech-to-speech in the Grok app",u:"https://x.ai/grok"},
-{n:"Grok 3 → Grok 4.5",k:["text:chat","text:code"],d:"Feb 2025 → Jul 2026",x:"500K-token context",u:"https://x.ai/news"},
+{n:"Grok 3 → Grok 4.6",k:["text:chat","text:code"],d:"Feb 2025 → Aug 2026",x:"500K-token context; 4.6 is a post-training pass over the same V9 base as 4.5, aimed at long-running agents",u:"https://x.ai/news/grok-4-6"},
 {n:"Grok 5",k:["text:chat"],d:"announced Jan 2026",x:"Confirmed as in training in the funding announcement; no model card, spec sheet or public benchmark",u:"https://x.ai/news"}]},
 {c:"Meta",r:"US",f:"2004",n:"NASDAQ",u:"https://ai.meta.com",m:[
 {n:"Emu / Imagine",k:["image"],d:"2023 →",x:"Image generation and editing research",u:"https://ai.meta.com/blog/emu-text-to-video-generation-image-editing-research/"},
@@ -320,7 +321,7 @@ const D=[
 {n:"Music 2.0",k:["audio:music"],d:"2025 →",x:"",u:"https://www.minimax.io/audio"},
 {n:"MiniMax M2 → MiniMax M3",k:["text:chat","text:code"],d:"2025 → Jun 2026",x:"428B mixture of experts with sparse attention, 1M-token context, open weights",u:"https://www.minimax.io"}]},
 {c:"Alibaba",r:"CN",f:"1999",n:"NYSE / HKEX",u:"https://www.alibabacloud.com",m:[
-{n:"Wan (Wanxiang) → Wan 2.6",k:["video","audio:sfx"],d:"2025 → 2026",x:"Open weights",u:"https://wan.video"},
+{n:"Wan (Wanxiang) → Wan 3.0",k:["video","audio:sfx"],d:"2025 → Aug 2026",x:"30-second 1080p clips with audio in one pass, prompted from documents, slides or web pages; the first Wan flagship with closed weights, so Wan 2.2 stays the last open release",u:"https://wan.video"},
 {n:"Qwen-Image → Qwen-Image 3.0",k:["image"],d:"2025 → Aug 2026",x:"",u:"https://qwen.ai"},
 {n:"CosyVoice",k:["audio:speech"],d:"2024",x:"Open weights",u:"https://github.com/FunAudioLLM/CosyVoice"},
 {n:"Qwen3 → Qwen3.8",k:["text:chat","text:code"],d:"Apr 2025 → 2026",x:"Open weights from 0.8B up to 397B with 17B active; natively vision-language since the 3.5 generation",u:"https://qwen.ai"}]},
@@ -360,6 +361,8 @@ const D=[
 {n:"Helix → Helix 02",k:["robotics"],d:"Feb 2025 → Jan 2026",x:"One network for walking, balance and manipulation straight from raw sensor data",u:"https://www.figure.ai/news/helix-02"}]},
 {c:"Skild AI",r:"US",f:"2023",n:"independent",u:"https://www.skild.ai",m:[
 {n:"Skild Brain 1.0",k:["robotics"],d:"May 2026",x:"500B parameters meant to drive a robot from any maker after 15 seconds of calibration",u:"https://www.skild.ai/blogs/building-the-general-purpose-robotic-brain"}]},
+{c:"Xiaomi",r:"CN",f:"2010",n:"HKEX",u:"https://www.mi.com",m:[
+{n:"Xiaomi-Robotics-0 → Xiaomi-Robotics-1",k:["robotics"],d:"Feb 2026 → Aug 2026",x:"Vision-language-action model pre-trained on over 100K hours of real manipulation trajectories; 5B, Apache 2.0 open weights",u:"https://github.com/XiaomiRobotics/Xiaomi-Robotics-1"}]},
 {c:"Adobe",r:"US",f:"1982",n:"NASDAQ",u:"https://www.adobe.com",m:[
 {n:"Firefly Image → Firefly Image 5",k:["image"],d:"2023 → Oct 2025",x:"Native 4MP output",u:"https://www.adobe.com/products/firefly.html"},
 {n:"Firefly Video",k:["video"],d:"2025",x:"Hosts third-party models alongside Adobe's own",u:"https://www.adobe.com/products/firefly/features/ai-video-generator.html"},
@@ -430,7 +433,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 $("badges").innerHTML=STATS.map(([v,l])=>`<button data-s="${v}">${l}</button>`).join("");
-$("stamp").textContent="Compiled 25 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 26 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
