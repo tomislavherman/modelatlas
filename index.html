@@ -193,7 +193,7 @@ const D=[
 {n:"AudioGen",k:["audio:sfx"],d:"2023",x:"Text to sound effects, open weights",u:"https://audiocraft.metademolab.com/audiogen.html"},
 {n:"Voicebox / Seamless",k:["audio:speech"],d:"2023 →",x:"Speech generation and speech translation research",u:"https://ai.meta.com/research/seamless-communication/"},
 {n:"Llama 4 → Llama 5",k:["text:chat","text:code"],d:"Apr 2025 → Apr 2026",x:"Open weights; Llama 5 shipped the same morning as the closed Muse Spark",u:"https://www.llama.com"},
-{n:"Muse Spark",k:["text:chat","text:code"],d:"Apr 2026",x:"First closed-weights frontier model from Meta Superintelligence Labs; runs Meta AI across the apps",u:"https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/"}]},
+{n:"Muse Spark → Muse Spark 1.2",k:["text:chat","text:code"],d:"Apr 2026 → Aug 2026",x:"First closed-weights frontier model from Meta Superintelligence Labs; runs Meta AI across the apps, and 1.2 is the model behind the Muse Code terminal agent",u:"https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/"}]},
 {c:"Amazon",r:"US",f:"1994",n:"NASDAQ",u:"https://aws.amazon.com/ai/generative-ai/nova/",m:[
 {n:"Nova Canvas",k:["image"],d:"Dec 2024, wind-down Jul 2026",x:"",u:"https://aws.amazon.com/ai/generative-ai/nova/creative/"},
 {n:"Nova Reel",k:["video"],d:"Dec 2024, EOL Sep 2026",x:"Luma Ray named as the Bedrock successor",u:"https://aws.amazon.com/ai/generative-ai/nova/creative/"},
@@ -324,7 +324,7 @@ const D=[
 {n:"Wan (Wanxiang) → Wan 3.0",k:["video","audio:sfx"],d:"2025 → Aug 2026",x:"30-second 1080p clips with audio in one pass, prompted from documents, slides or web pages; the first Wan flagship with closed weights, so Wan 2.2 stays the last open release",u:"https://wan.video"},
 {n:"Qwen-Image → Qwen-Image 3.0",k:["image"],d:"2025 → Aug 2026",x:"",u:"https://qwen.ai"},
 {n:"CosyVoice",k:["audio:speech"],d:"2024",x:"Open weights",u:"https://github.com/FunAudioLLM/CosyVoice"},
-{n:"Qwen3 → Qwen3.8",k:["text:chat","text:code"],d:"Apr 2025 → 2026",x:"Open weights from 0.8B up to 397B with 17B active; natively vision-language since the 3.5 generation",u:"https://qwen.ai"}]},
+{n:"Qwen3 → Qwen3.8",k:["text:chat","text:code"],d:"Apr 2025 → Aug 2026",x:"Open weights from 0.8B up to 397B with 17B active; natively vision-language since the 3.5 generation; the Flash-Next release runs 125B with 6B active and previews the Qwen4 architecture",u:"https://qwen.ai"}]},
 {c:"Tencent",r:"CN",f:"1998",n:"HKEX",u:"https://www.tencent.com",m:[
 {n:"HunyuanVideo → HunyuanVideo 1.5",k:["video"],d:"Dec 2024 → Nov 2025",x:"Open weights",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo"},
 {n:"HunyuanImage 3.0",k:["image"],d:"Jan 2026",x:"80B mixture of experts, open weights",u:"https://github.com/Tencent-Hunyuan"},
@@ -433,7 +433,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 $("badges").innerHTML=STATS.map(([v,l])=>`<button data-s="${v}">${l}</button>`).join("");
-$("stamp").textContent="Compiled 26 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 27 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
