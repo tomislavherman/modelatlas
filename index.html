@@ -338,7 +338,8 @@ const D=[
 {n:"ERNIE 5.0 → ERNIE 5.1",k:["text:chat"],d:"Jan 2026 → May 2026",x:"2.4T parameters, natively omnimodal, trained on Baidu's own Kunlun chips",u:"https://yiyan.baidu.com"}]},
 {c:"Zhipu / Z.ai",r:"CN",f:"2019",n:"listed 2025",u:"https://z.ai",m:[
 {n:"CogVideoX",k:["video"],d:"2024",x:"Open weights",u:"https://github.com/THUDM/CogVideo"},
-{n:"GLM-5 → GLM-5.3",k:["text:chat","text:code"],d:"Feb 2026 → Aug 2026",x:"744B mixture of experts with 40B active, open weights; the 5.2 release added a 1M-token context under MIT",u:"https://z.ai"}]},
+{n:"GLM-5 → GLM-5.3",k:["text:chat","text:code"],d:"Feb 2026 → Aug 2026",x:"744B mixture of experts with 40B active, open weights; the 5.2 release added a 1M-token context under MIT",u:"https://z.ai"},
+{n:"GLM-5.3-Flash",k:["text:chat","text:code"],d:"Aug 2026",x:"320B with 18B active under MIT, the first natively multimodal GLM-5 and a tenth the price of 5.2; previewed anonymously as Ox Alpha and trained entirely on Chinese chips",u:"https://huggingface.co/zai-org/GLM-5.3-Flash"}]},
 {c:"StepFun",r:"CN",f:"2023",n:"independent",u:"https://www.stepfun.com",m:[
 {n:"Step-Video",k:["video"],d:"2025",x:"Open weights",u:"https://github.com/stepfun-ai/Step-Video-T2V"}]},
 {c:"PixVerse",r:"CN",f:"2023",n:"independent",u:"https://pixverse.ai",m:[
@@ -348,6 +349,9 @@ const D=[
 {n:"DeepSeek-R1",k:["text:chat"],d:"Jan 2025",x:"Open reasoning model; the R2 successor was held back over performance and a failed training run on Ascend hardware",u:"https://api-docs.deepseek.com"}]},
 {c:"Moonshot AI",r:"China",f:"2023",n:"independent",u:"https://www.moonshot.ai",m:[
 {n:"Kimi K2 → Kimi K3",k:["text:chat","text:code"],d:"Jul 2025 → Jul 2026",x:"2.8T parameters with 104B active, the largest open-weights release so far, under a modified MIT licence",u:"https://www.moonshot.ai"}]},
+{c:"Thinking Machines Lab",r:"US",f:"2025",n:"independent",u:"https://thinkingmachines.ai",m:[
+{n:"Inkling",k:["text:chat","text:code"],d:"Jul 2026",x:"First in-house model: 975B mixture of experts with 41B active, open weights, reasoning natively over text, image, audio and video",u:"https://thinkingmachines.ai/news/introducing-inkling/"},
+{n:"Inkling-Small",k:["text:chat","text:code"],d:"Jul 2026",x:"276B with 12B active under Apache 2.0, one point behind Inkling on the Artificial Analysis index at a quarter the size",u:"https://thinkingmachines.ai/news/inkling-small/"}]},
 {c:"Cursor",r:"US",f:"2022",n:"independent",u:"https://cursor.com",m:[
 {n:"Composer → Composer 2.5",k:["text:code"],d:"Oct 2025 → May 2026",x:"Trained on top of Kimi K2.5; matches Opus 4.7 and GPT-5.5 on SWE-Bench Multilingual at a tenth of the cost",u:"https://cursor.com/blog"}]},
 {c:"Cognition",r:"US",f:"2023",n:"independent",u:"https://cognition.ai",m:[
@@ -433,7 +437,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 $("badges").innerHTML=STATS.map(([v,l])=>`<button data-s="${v}">${l}</button>`).join("");
-$("stamp").textContent="Compiled 27 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 28 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
