@@ -211,7 +211,8 @@ const D=[
 {n:"Cosmos 3 Edge",k:["world"],d:"Jul 2026",x:"4B parameters, runs on-device, open weights",u:"https://www.nvidia.com/en-us/ai/cosmos/"},
 {n:"Audio2Face / Riva",k:["avatar","audio:speech"],d:"2023 →",x:"Facial animation and speech in the ACE stack",u:"https://developer.nvidia.com/ace"},
 {n:"Isaac GR00T N1 → Isaac GR00T N1.7",k:["robotics"],d:"Mar 2025 → Jun 2026",x:"Open vision-language-action model for humanoids; 3B parameters on a Cosmos Reason backbone",u:"https://github.com/NVIDIA/Isaac-GR00T"},
-{n:"Isaac GR00T N2",k:["robotics"],d:"expected 2026",x:"Currently first on MolmoSpaces and RoboArena for generalist robot policies",u:"https://developer.nvidia.com/isaac/gr00t"}]},
+{n:"Isaac GR00T N2",k:["robotics"],d:"expected 2026",x:"Currently first on MolmoSpaces and RoboArena for generalist robot policies",u:"https://developer.nvidia.com/isaac/gr00t"},
+{n:"Nemotron 3.5 Lightning",k:["text:chat"],d:"Aug 2026",x:"30B mixture of experts with 3B active on a hybrid Mamba-2 backbone, 1M-token context; weights, training data and recipes under OpenMDW-1.1, aimed at long-running agents",u:"https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/"}]},
 {c:"Black Forest Labs",r:"DE",f:"2024",n:"independent",u:"https://bfl.ai",m:[
 {n:"FLUX.1",k:["image"],d:"Aug 2024",x:"",u:"https://bfl.ai/models/flux-pro"},
 {n:"FLUX.1 Kontext",k:["image"],d:"May 2025",x:"In-context image editing",u:"https://bfl.ai/models/flux-kontext"},
@@ -318,12 +319,13 @@ const D=[
 {n:"Hailuo 2.3",k:["video"],d:"Oct 2025",x:"",u:"https://hailuoai.video"},
 {n:"Hailuo H3",k:["video","audio:sfx"],d:"Jul 2026 → open weights Aug 2026",x:"33B omni-modal, 2K, native stereo audio in one pipeline; the 2K upscale stays API-only",u:"https://hailuoai.video"},
 {n:"Speech 2.6",k:["audio:speech"],d:"2025 →",x:"",u:"https://www.minimax.io/audio"},
-{n:"Music 2.0",k:["audio:music"],d:"2025 →",x:"",u:"https://www.minimax.io/audio"},
+{n:"Music 2.0 → Music 3.0",k:["audio:music"],d:"2025 → Aug 2026",x:"Open weights; composes, arranges and produces a full song of up to five minutes in one generation",u:"https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model"},
 {n:"MiniMax M2 → MiniMax M3",k:["text:chat","text:code"],d:"2025 → Jun 2026",x:"428B mixture of experts with sparse attention, 1M-token context, open weights",u:"https://www.minimax.io"}]},
 {c:"Alibaba",r:"CN",f:"1999",n:"NYSE / HKEX",u:"https://www.alibabacloud.com",m:[
 {n:"Wan (Wanxiang) → Wan 3.0",k:["video","audio:sfx"],d:"2025 → Aug 2026",x:"30-second 1080p clips with audio in one pass, prompted from documents, slides or web pages; the first Wan flagship with closed weights, so Wan 2.2 stays the last open release",u:"https://wan.video"},
 {n:"Qwen-Image → Qwen-Image 3.0",k:["image"],d:"2025 → Aug 2026",x:"",u:"https://qwen.ai"},
 {n:"CosyVoice",k:["audio:speech"],d:"2024",x:"Open weights",u:"https://github.com/FunAudioLLM/CosyVoice"},
+{n:"HappyShrimp 1.0",k:["audio:music"],d:"beta Aug 2026",x:"One prompt to melody, arrangement, lyrics and vocals, with no BPM or key to specify; Taihe Music Group signed for artist co-creation",u:"https://www.happyshrimp.ai"},
 {n:"Qwen3 → Qwen3.8",k:["text:chat","text:code"],d:"Apr 2025 → Aug 2026",x:"Open weights from 0.8B up to 397B with 17B active; natively vision-language since the 3.5 generation; the Flash-Next release runs 125B with 6B active and previews the Qwen4 architecture",u:"https://qwen.ai"}]},
 {c:"Tencent",r:"CN",f:"1998",n:"HKEX",u:"https://www.tencent.com",m:[
 {n:"HunyuanVideo → HunyuanVideo 1.5",k:["video"],d:"Dec 2024 → Nov 2025",x:"Open weights",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo"},
@@ -345,7 +347,7 @@ const D=[
 {c:"PixVerse",r:"CN",f:"2023",n:"independent",u:"https://pixverse.ai",m:[
 {n:"PixVerse V1 → PixVerse V6",k:["video","audio:sfx"],d:"2024 → 2026",x:"",u:"https://pixverse.ai"}]},
 {c:"DeepSeek",r:"China",f:"2023",n:"High-Flyer",u:"https://www.deepseek.com",m:[
-{n:"DeepSeek-V3 → DeepSeek-V4",k:["text:chat","text:code"],d:"Dec 2024 → Apr 2026",x:"V4-Pro is 1.6T with 49B active, V4-Flash 284B; MIT licence, 1M-token context",u:"https://api-docs.deepseek.com/news/news260424/"},
+{n:"DeepSeek-V3 → DeepSeek-V4",k:["text:chat","text:code"],d:"Dec 2024 → Apr 2026 → vision Aug 2026",x:"V4-Pro is 1.6T with 49B active, V4-Flash 284B; MIT licence, 1M-token context; V4-Flash-Vision-Exp added image understanding at V4-Flash pricing",u:"https://api-docs.deepseek.com/news/news260424/"},
 {n:"DeepSeek-R1",k:["text:chat"],d:"Jan 2025",x:"Open reasoning model; the R2 successor was held back over performance and a failed training run on Ascend hardware",u:"https://api-docs.deepseek.com"}]},
 {c:"Moonshot AI",r:"China",f:"2023",n:"independent",u:"https://www.moonshot.ai",m:[
 {n:"Kimi K2 → Kimi K3",k:["text:chat","text:code"],d:"Jul 2025 → Jul 2026",x:"2.8T parameters with 104B active, the largest open-weights release so far, under a modified MIT licence",u:"https://www.moonshot.ai"}]},
@@ -441,7 +443,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 $("badges").innerHTML=STATS.map(([v,l])=>`<button data-s="${v}">${l}</button>`).join("");
-$("stamp").textContent="Compiled 28 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 29 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
