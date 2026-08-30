@@ -332,7 +332,7 @@ const D=[
 {n:"HunyuanImage 3.0",k:["image"],d:"Jan 2026",x:"80B mixture of experts, open weights",u:"https://github.com/Tencent-Hunyuan"},
 {n:"Hunyuan3D / HunyuanWorld",k:["world"],d:"2024 → 2026",x:"Open weights",u:"https://3d.hunyuan.tencent.com"},
 {n:"HunyuanVideo-Avatar",k:["avatar"],d:"2025",x:"",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo-Avatar"},
-{n:"Hunyuan 2.0 → Hunyuan 3.0",k:["text:chat"],d:"Dec 2025 → Apr 2026",x:"Deployed in over 900 Tencent products",u:"https://hunyuan.tencent.com"}]},
+{n:"Hunyuan 2.0 → Hy4 preview",k:["text:chat","text:code"],d:"Dec 2025 → Aug 2026",x:"Deployed in over 900 Tencent products; the Hy4 rename opens the line up at 770B with 49B active and a 1M-token context under Apache 2.0",u:"https://github.com/Tencent-Hunyuan/Hy4-preview"}]},
 {c:"ShengShu",r:"CN",f:"2023",n:"independent",u:"https://www.shengshu-ai.com",m:[
 {n:"Vidu → Vidu Q3",k:["video","audio:sfx"],d:"2024 → Jan 2026",x:"16-second clips with audio",u:"https://www.vidu.com"}]},
 {c:"Baidu",r:"CN",f:"2000",n:"NASDAQ / HKEX",u:"https://www.baidu.com",m:[
@@ -443,7 +443,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 $("badges").innerHTML=STATS.map(([v,l])=>`<button data-s="${v}">${l}</button>`).join("");
-$("stamp").textContent="Compiled 29 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 30 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
