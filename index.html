@@ -170,7 +170,7 @@ const D=[
 {n:"Gemini 3.5 Flash → Gemini 3.7 Flash",k:["text:chat","text:code"],d:"May 2026 → Aug 2026",x:"The Flash tier beats the larger Pro tier on coding and agentic benchmarks and runs four times faster",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/"},
 {n:"Gemini 3.5 Pro",k:["text:chat"],d:"expected 2026",x:"Testing with partners; three announced launch windows have come and gone",u:"https://deepmind.google/models/gemini/pro/"},
 {n:"Gemini Embedding → Gemini Embedding 2",k:["text:embed"],d:"2025 → Mar 2026",x:"Natively multimodal, in preview",u:"https://ai.google.dev/gemini-api/docs/embeddings"},
-{n:"Gemini Robotics 1.5 / Gemini Robotics-ER 1.6",k:["robotics"],d:"Oct 2025 → Apr 2026",x:"Vision-language-action pair that reasons in language before acting; ER 1.6 launched with Boston Dynamics",u:"https://deepmind.google/models/gemini-robotics/"}]},
+{n:"Gemini Robotics 1.5 / Gemini Robotics-ER 1.6 → Gemini Robotics 2 / Gemini Robotics-ER 2",k:["robotics"],d:"Oct 2025 → Apr 2026 → Jul 2026",x:"Vision-language-action pair that reasons in language before acting; ER 1.6 launched with Boston Dynamics, and version 2 coordinates a whole humanoid body rather than the upper half, with an On-Device 2 edge variant alongside",u:"https://deepmind.google/models/gemini-robotics/"}]},
 {c:"Anthropic",r:"US",f:"2021",n:"independent",u:"https://www.anthropic.com",m:[
 {n:"Claude Opus 4 → Claude Opus 4.8",k:["text:chat","text:code"],d:"May 2025 → May 2026",x:"Eight point releases of the largest tier inside a year",u:"https://www.anthropic.com/news"},
 {n:"Claude Haiku 4.5",k:["text:chat"],d:"Oct 2025",x:"The small, fast tier",u:"https://www.anthropic.com/news/claude-haiku-4-5"},
@@ -443,7 +443,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 $("badges").innerHTML=STATS.map(([v,l])=>`<button data-s="${v}">${l}</button>`).join("");
-$("stamp").textContent="Compiled 30 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 31 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
