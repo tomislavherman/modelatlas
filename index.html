@@ -151,7 +151,7 @@ const D=[
 {n:"GPT Image 1 / GPT Image 2",k:["image"],d:"Mar 2025 → Apr 2026, GPT Image 1 removed Dec 2026",x:"Native text rendering and prompt-driven editing",u:"https://platform.openai.com/docs/models/gpt-image-1"},
 {n:"Sora",k:["video"],d:"Feb 2024 → Dec 2024, retired Sep 2025",x:"Replaced by Sora 2",u:"https://openai.com/sora"},
 {n:"Sora 2",k:["video","audio:sfx"],d:"Sep 2025, app closed Apr 2026, API ends Sep 2026",x:"Shut down as unsustainable; OpenAI left video with no successor",u:"https://openai.com/index/sora-2/"},
-{n:"Whisper",k:["audio:speech"],d:"Sep 2022",x:"Open weights speech-to-text",u:"https://openai.com/index/whisper/"},
+{n:"Whisper",k:["audio:speech"],d:"Sep 2022, API removed Feb 2027",x:"Open weights speech-to-text; the deprecation is the hosted whisper-1 endpoint only, the weights stay public",u:"https://openai.com/index/whisper/"},
 {n:"TTS / Realtime voice",k:["audio:speech"],d:"2023 →",x:"Speech-to-speech in the Realtime API",u:"https://platform.openai.com/docs/guides/realtime"},
 {n:"GPT Transcribe",k:["audio:speech"],d:"Jul 2026",x:"Whisper successor: 19% word error rate against 40%, a quarter cheaper",u:"https://platform.openai.com/docs/guides/speech-to-text"},
 {n:"GPT-5 → GPT-5.6",k:["text:chat","text:code"],d:"Aug 2025 → Jul 2026",x:"Six point releases in eleven months; 5.6 ships in three sizes, Luna, Terra and Sol",u:"https://openai.com/index/gpt-5-6/"},
@@ -193,7 +193,8 @@ const D=[
 {n:"AudioGen",k:["audio:sfx"],d:"2023",x:"Text to sound effects, open weights",u:"https://audiocraft.metademolab.com/audiogen.html"},
 {n:"Voicebox / Seamless",k:["audio:speech"],d:"2023 →",x:"Speech generation and speech translation research",u:"https://ai.meta.com/research/seamless-communication/"},
 {n:"Llama 4 → Llama 5",k:["text:chat","text:code"],d:"Apr 2025 → Apr 2026",x:"Open weights; Llama 5 shipped the same morning as the closed Muse Spark",u:"https://www.llama.com"},
-{n:"Muse Spark → Muse Spark 1.2",k:["text:chat","text:code"],d:"Apr 2026 → Aug 2026",x:"First closed-weights frontier model from Meta Superintelligence Labs; runs Meta AI across the apps, and 1.2 is the model behind the Muse Code terminal agent",u:"https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/"}]},
+{n:"Muse Spark → Muse Spark 1.2",k:["text:chat","text:code"],d:"Apr 2026 → Aug 2026",x:"First closed-weights frontier model from Meta Superintelligence Labs; runs Meta AI across the apps, and 1.2 is the model behind the Muse Code terminal agent",u:"https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/"},
+{n:"Muse Glimmer",k:["text:chat","text:code"],d:"Aug 2026",x:"30B distilled from Muse Spark and released under Apache 2.0; 4-bit quantisation fits the agentic loop into a single 24GB consumer GPU, so it runs offline",u:"https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model"}]},
 {c:"Amazon",r:"US",f:"1994",n:"NASDAQ",u:"https://aws.amazon.com/ai/generative-ai/nova/",m:[
 {n:"Nova Canvas",k:["image"],d:"Dec 2024, wind-down Jul 2026",x:"",u:"https://aws.amazon.com/ai/generative-ai/nova/creative/"},
 {n:"Nova Reel",k:["video"],d:"Dec 2024, EOL Sep 2026",x:"Luma Ray named as the Bedrock successor",u:"https://aws.amazon.com/ai/generative-ai/nova/creative/"},
@@ -383,7 +384,7 @@ const MON={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,d
 // "wind-down Jul 2026"). Those are not releases, so the clause is dropped
 // before any date is read out of the line, for both the sort and the badge.
 const RETIRED=/\b(?:retired?|EOL|wind-?down|closed|ends?|discontinued|shut down|removed?|removal)\b[^,]*/gi;
-const NOW=2026*12+8;   // August 2026, the compile date in the header
+const NOW=2026*12+9;   // September 2026, the compile date in the header
 // Every release date a line names, as year*12+month, oldest first. A date
 // written with a month is exact. A bare year, or a span written "2024–26",
 // only tells us the year: it is read as December of that year but never later
@@ -443,7 +444,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 $("badges").innerHTML=STATS.map(([v,l])=>`<button data-s="${v}">${l}</button>`).join("");
-$("stamp").textContent="Compiled 31 Aug 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 1 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
