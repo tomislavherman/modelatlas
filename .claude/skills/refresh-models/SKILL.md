@@ -19,10 +19,57 @@ grep -o 'Compiled [0-9]* [A-Za-z]* [0-9]*' index.html   # last compile date
 node check.js                                            # current counts, NOW, badges
 ```
 
-The window is that compile date to today. If it is only a few days, expect one
-or two real changes — say so rather than padding the result.
+The window starts the day **before** the compile date and ends today. The
+compile date only says which day the last run happened, not what time. The
+scheduled run fires at about 04:15 UTC, and vendors publish during US working
+hours, so a model announced on the compile date was announced after that run
+and is still unrecorded. Claude Fable 5.1 was announced on 1 Sep 2026; the run
+that wrote "Compiled 1 Sep 2026" had finished twelve hours earlier, and the run
+on 2 Sep treated 1 Sep as covered and missed it. `git log -1 --format=%cI`
+gives the exact time the previous run committed if you want the precise start.
+
+If the window is only a few days, expect one or two real changes — say so
+rather than padding the result. But a short window is not a reason to skip the
+newsroom pass below; a one-day window is exactly when the search engines have
+not indexed the release yet.
 
 ## 2. Sweep
+
+### Newsrooms first
+
+Fetch each of these pages directly, before any search, and read the entries
+dated inside the window. Web search indexes lag a release by a day or more, so
+a model announced yesterday is invisible to `WebSearch` and visible only on the
+vendor's own page. These are the vendors that ship most often; any release
+they make is in scope.
+
+- https://www.anthropic.com/news
+- https://openai.com/news/
+- https://deepmind.google/blog/ and https://blog.google/technology/ai/
+- https://ai.meta.com/blog/
+- https://x.ai/news
+- https://mistral.ai/news
+- https://api-docs.deepseek.com/news/
+- https://qwen.ai/blog
+- https://seed.bytedance.com/en/blog
+- https://bfl.ai/blog
+- https://runwayml.com/news
+- https://lumalabs.ai/blog
+- https://elevenlabs.io/blog
+- https://stability.ai/news
+
+Also read https://platform.claude.com/docs/en/about-claude/model-deprecations
+for Anthropic retirement dates; it lists every model with its status.
+
+When a page comes back `EGRESS_BLOCKED` or 403, run `WebSearch` for
+`<vendor> releases` with that vendor's domain in `allowed_domains`, which
+returns the vendor's own pages rather than aggregators.
+
+If a fetched newsroom names a model that is not in `index.html`, that is a
+finding regardless of what the category searches return. The category searches
+exist to find the vendors this list does not name.
+
+### Category searches
 
 Search per category, not once overall. A single "new AI models" query returns
 mostly chat models and misses every other category.
