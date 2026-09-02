@@ -58,6 +58,15 @@ they make is in scope.
 - https://elevenlabs.io/blog
 - https://stability.ai/news
 
+Then read the API changelogs. A point release such as Gemini Omni 1.1 Flash
+gets a developer-blog post and a changelog line, not a headline, and the
+changelog names the exact model ID with the exact date:
+
+- https://ai.google.dev/gemini-api/docs/changelog and https://developers.googleblog.com/
+- https://platform.claude.com/docs/en/release-notes/overview
+- https://platform.openai.com/docs/changelog
+- https://docs.mistral.ai/getting-started/changelog/
+
 Also read https://platform.claude.com/docs/en/about-claude/model-deprecations
 for Anthropic retirement dates; it lists every model with its status.
 
@@ -92,6 +101,14 @@ docs beat aggregator blogs; aggregators disagree with each other on dates
 Check the existing data before adding anything — `grep -i '<name>' index.html`.
 Most findings are already present, and the right edit is to a `d` line rather
 than a new entry.
+
+A name match is not a version match. When the finding carries a version
+number, compare it with the version in the entry's `n` and the last date in
+its `d`. The entry is current only if `d` already names a month at or after
+the release. Gemini Omni 1.1 Flash shipped on 27 Aug 2026; the atlas held
+`Gemini Omni` with `d:"May 2026"`, the grep hit, and two daily runs treated it
+as already listed. The right edit was `Gemini Omni Flash → Gemini Omni 1.1
+Flash` with `May 2026 → Aug 2026`.
 
 | Finding | Edit |
 |---|---|
