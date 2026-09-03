@@ -194,7 +194,7 @@ const D=[
 {n:"AudioGen",k:["audio:sfx"],d:"2023",x:"Text to sound effects, open weights",u:"https://audiocraft.metademolab.com/audiogen.html"},
 {n:"Voicebox / Seamless",k:["audio:speech"],d:"2023 →",x:"Speech generation and speech translation research",u:"https://ai.meta.com/research/seamless-communication/"},
 {n:"Llama 4 → Llama 5",k:["text:chat","text:code"],d:"Apr 2025 → Apr 2026",x:"Open weights; Llama 5 shipped the same morning as the closed Muse Spark",u:"https://www.llama.com"},
-{n:"Muse Spark → Muse Spark 1.2",k:["text:chat","text:code"],d:"Apr 2026 → Aug 2026",x:"First closed-weights frontier model from Meta Superintelligence Labs; runs Meta AI across the apps, and 1.2 is the model behind the Muse Code terminal agent",u:"https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/"},
+{n:"Muse Spark → Muse Spark 1.3",k:["text:chat","text:code"],d:"Apr 2026 → Sep 2026",x:"First closed-weights frontier model from Meta Superintelligence Labs; runs Meta AI across the apps, and 1.3 is the model behind the Muse Code terminal agent, cutting tool calls by a fifth against 1.2",u:"https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/"},
 {n:"Muse Glimmer",k:["text:chat","text:code"],d:"Aug 2026",x:"30B distilled from Muse Spark and released under Apache 2.0; 4-bit quantisation fits the agentic loop into a single 24GB consumer GPU, so it runs offline",u:"https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model"}]},
 {c:"Amazon",r:"US",f:"1994",n:"NASDAQ",u:"https://aws.amazon.com/ai/generative-ai/nova/",m:[
 {n:"Nova Canvas",k:["image"],d:"Dec 2024, wind-down Jul 2026",x:"",u:"https://aws.amazon.com/ai/generative-ai/nova/creative/"},
@@ -450,7 +450,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 $("badges").innerHTML=STATS.map(([v,l])=>`<button data-s="${v}">${l}</button>`).join("");
-$("stamp").textContent="Compiled 2 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 3 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
