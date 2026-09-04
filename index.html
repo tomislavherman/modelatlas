@@ -155,7 +155,7 @@ const D=[
 {n:"TTS / Realtime voice",k:["audio:speech"],d:"2023 →",x:"Speech-to-speech in the Realtime API",u:"https://platform.openai.com/docs/guides/realtime"},
 {n:"GPT Transcribe",k:["audio:speech"],d:"Jul 2026",x:"Whisper successor: 19% word error rate against 40%, a quarter cheaper",u:"https://platform.openai.com/docs/guides/speech-to-text"},
 {n:"GPT-5 → GPT-5.6",k:["text:chat","text:code"],d:"Aug 2025 → Jul 2026",x:"Six point releases in eleven months; 5.6 ships in three sizes, Luna, Terra and Sol",u:"https://openai.com/index/gpt-5-6/"},
-{n:"Astra",k:["text:chat"],d:"announced Aug 2026",x:"The next major model beside Sol, Terra and Luna; the Sep 'Path to Astra' post rates it Critical for cyber capability, delays release for extra safeguards, and promises a staged rollout starting with alpha testers",u:"https://openai.com/index/path-to-astra/"},
+{n:"GPT-6 Astra",k:["text:chat","text:code"],d:"Sep 2026",x:"The generation after Sol, Terra and Luna, and the first model OpenAI rates Critical for cyber capability under its Preparedness Framework; state of the art on computer use, browsing and software engineering, shipping in Codex as well as ChatGPT, and gated to Daybreak partners before Plus, Pro, Business and Enterprise, the API and AWS",u:"https://openai.com/index/gpt-6-astra/"},
 {n:"GPT-5-Codex → GPT-5.3-Codex",k:["text:code"],d:"Sep 2025 → Feb 2026",x:"Agentic coding variant, and the base model behind GitHub Copilot Business and Enterprise",u:"https://openai.com/index/gpt-5-3-codex-system-card/"},
 {n:"text-embedding-3",k:["text:embed"],d:"Jan 2024",x:"Small and large tiers on the API",u:"https://platform.openai.com/docs/guides/embeddings"}]},
 {c:"Google DeepMind",r:"US",f:"2010 / merged 2023",n:"Alphabet",u:"https://deepmind.google",m:[
@@ -450,7 +450,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 $("badges").innerHTML=STATS.map(([v,l])=>`<button data-s="${v}">${l}</button>`).join("");
-$("stamp").textContent="Compiled 3 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 4 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
