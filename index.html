@@ -315,7 +315,7 @@ const D=[
 {c:"ByteDance",r:"CN",f:"2012",n:"private",u:"https://www.bytedance.com",m:[
 {n:"Seedream → Seedream 5",k:["image"],d:"2024 → 2026",x:"",u:"https://seed.bytedance.com/en/seedream"},
 {n:"Seedance → Seedance 2.5",k:["video","audio:sfx"],d:"2025 → 2026",x:"4K output; developer API delayed over studio copyright disputes",u:"https://seed.bytedance.com/en/seedance"},
-{n:"Seed Audio / Seed-TTS",k:["audio:speech"],d:"2024 →",x:"",u:"https://seed.bytedance.com/en/research"},
+{n:"Seed Audio / Seed-TTS → Seed Audio 1.0",k:["audio:speech","audio:sfx","audio:music"],d:"2024 → Jul 2026",x:"The speech line becomes an audio-scene model: multi-speaker dialogue with a distinct voice each, music, foley and ambience generated together from one prompt or a video, zero-shot voice cloning, 20 languages",u:"https://seed.bytedance.com/en/blog/from-speech-to-audio-creation-introducing-the-seed-audio-1-0-audio-creation-model"},
 {n:"SeedRealtime",k:["audio:speech"],d:"Aug 2026",x:"Full-duplex model that watches, listens and speaks in one network and decides its own turn-taking; live in the Doubao app",u:"https://seed.bytedance.com/en/SeedRealtime"},
 {n:"Doubao 1.6 → Doubao-Seed 2.0",k:["text:chat","text:code"],d:"2025 → Feb 2026",x:"Pro, Lite and Mini agent tiers plus a separate code model",u:"https://seed.bytedance.com"}]},
 {c:"Kunlun Tech",r:"CN",f:"2008",n:"public (Shenzhen)",u:"https://www.mureka.ai",m:[
@@ -454,7 +454,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 $("badges").innerHTML=STATS.map(([v,l])=>`<button data-s="${v}">${l}</button>`).join("");
-$("stamp").textContent="Compiled 5 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 6 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
