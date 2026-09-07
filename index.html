@@ -163,7 +163,7 @@ const D=[
 {n:"Nano Banana → Nano Banana 2",k:["image"],d:"2025 → 2026",x:"Gemini-native image generation and editing",u:"https://deepmind.google/models/gemini-image/"},
 {n:"Veo → Veo 3.1",k:["video","audio:sfx"],d:"May 2024 → Oct 2025",x:"Native Foley sound generated with the picture",u:"https://deepmind.google/models/veo/"},
 {n:"Gemini Omni Flash → Gemini Omni 1.1 Flash",k:["video","audio:sfx"],d:"May 2026 → Aug 2026",x:"Video with sound from text, image or video input, edited by conversation; 1.1 adds scene extension to 40 s, first and last frame control, a cheaper 360p draft mode and 4K upscaling",u:"https://ai.google.dev/gemini-api/docs/omni"},
-{n:"Lyria → Lyria 3.5",k:["audio:music"],d:"2023 → Jul 2026",x:"Section-level song structure",u:"https://deepmind.google/models/lyria/"},
+{n:"Lyria → Lyria 3.5",k:["audio:music"],d:"2023 → Jul 2026 → Gemini app and API Sep 2026",x:"Section-level song structure; the wider release adds full songs up to three minutes with duration control, 44.1 kHz stereo and SynthID watermarking",u:"https://blog.google/innovation-and-ai/products/gemini-app/better-tracks-lyria-gemini/"},
 {n:"Gemini Audio / Chirp",k:["audio:speech"],d:"2024 →",x:"Chirp 3 HD voices on Google Cloud",u:"https://cloud.google.com/text-to-speech/docs/chirp3-hd"},
 {n:"Genie 3",k:["world"],d:"Aug 2025 → Jan 2026",x:"Interactive 720p worlds at 24 fps; Project Genie for Ultra subscribers",u:"https://deepmind.google/discover/blog/genie-3-a-new-frontier-for-world-models/"},
 {n:"Gemini 3 Pro → Gemini 3.1 Pro",k:["text:chat","text:code"],d:"Nov 2025 → Feb 2026",x:"Sparse mixture of experts, 1M-token input",u:"https://deepmind.google/models/gemini/pro/"},
@@ -454,7 +454,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 $("badges").innerHTML=STATS.map(([v,l])=>`<button data-s="${v}">${l}</button>`).join("");
-$("stamp").textContent="Compiled 6 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 7 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
