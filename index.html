@@ -154,6 +154,7 @@ const D=[
 {n:"Whisper",k:["audio:speech"],d:"Sep 2022, API removed Feb 2027",x:"Open weights speech-to-text; the deprecation is the hosted whisper-1 endpoint only, the weights stay public",u:"https://openai.com/index/whisper/"},
 {n:"TTS / Realtime voice",k:["audio:speech"],d:"2023 →",x:"Speech-to-speech in the Realtime API",u:"https://platform.openai.com/docs/guides/realtime"},
 {n:"GPT Transcribe",k:["audio:speech"],d:"Jul 2026",x:"Whisper successor: 19% word error rate against 40%, a quarter cheaper",u:"https://platform.openai.com/docs/guides/speech-to-text"},
+{n:"GPT-Live-1 / GPT-Live-1 mini",k:["audio:speech"],d:"Jul 2026",x:"Full-duplex speech-to-speech that listens and talks at the same time; replaced Advanced Voice Mode in ChatGPT, mini as the free tier default, and hands the hard questions to a text model in the background"},
 {n:"GPT-5 → GPT-5.6",k:["text:chat","text:code"],d:"Aug 2025 → Jul 2026",x:"Six point releases in eleven months; 5.6 ships in three sizes, Luna, Terra and Sol",u:"https://openai.com/index/gpt-5-6/"},
 {n:"GPT-6 Astra",k:["text:chat","text:code"],d:"Sep 2026",x:"The generation after Sol, Terra and Luna, and the first model OpenAI rates Critical for cyber capability under its Preparedness Framework; state of the art on computer use, browsing and software engineering, shipping in Codex as well as ChatGPT, and gated to Daybreak partners before Plus, Pro, Business and Enterprise, the API and AWS",u:"https://openai.com/index/gpt-6-astra/"},
 {n:"GPT-5-Codex → GPT-5.3-Codex",k:["text:code"],d:"Sep 2025 → Feb 2026",x:"Agentic coding variant, and the base model behind GitHub Copilot Business and Enterprise",u:"https://openai.com/index/gpt-5-3-codex-system-card/"},
@@ -278,12 +279,14 @@ const D=[
 {c:"Mistral AI",r:"FR",f:"2023",n:"independent",u:"https://mistral.ai",m:[
 {n:"Voxtral",k:["audio:speech"],d:"Jul 2025",x:"Speech understanding",u:"https://mistral.ai/news/voxtral"},
 {n:"Voxtral TTS",k:["audio:speech"],d:"Mar 2026",x:"4B, open weights, priced against ElevenLabs",u:"https://mistral.ai/news/voxtral-tts/"},
+{n:"Robostral Navigate",k:["robotics"],d:"Jul 2026",x:"Mistral's first embodied model: 8B, driving a robot from one RGB camera and a plain-language instruction with no LiDAR or depth rig; 76.6% on R2R-CE and the same weights across wheeled, legged and flying bodies",u:"https://mistral.ai/news/robostral-navigate/"},
 {n:"Mistral Large 3",k:["text:chat","text:code"],d:"Dec 2025",x:"675B sparse mixture of experts with 41B active, Apache 2.0, 256K context",u:"https://mistral.ai/news"},
 {n:"Mistral Medium 3 → Mistral Medium 3.5",k:["text:code","text:chat"],d:"May 2025 → Apr 2026",x:"The tier Mistral points at for coding work",u:"https://mistral.ai/news/mistral-medium-3"},
 {n:"Leanstral → Leanstral 1.5",k:["text:code"],d:"Mar 2026 → Jun 2026, Labs hosting ends 30 Sep 2026",x:"Lean 4 proof agent trained to work natively in formal repositories rather than wrapping a generalist model around the syntax; 119B sparse mixture of experts with 6B active, Apache 2.0, 256K context, free in the experimental Labs tier; the open weights stay up after the hosted endpoint closes",u:"https://mistral.ai/news/leanstral-1-5/"}]},
 {c:"ElevenLabs",r:"UK/US",f:"2022",n:"independent",u:"https://elevenlabs.io",m:[
 {n:"Eleven TTS → Eleven v3",k:["audio:speech"],d:"2023 → 2025",x:"",u:"https://elevenlabs.io/text-to-speech"},
 {n:"Scribe → Scribe v2",k:["audio:speech"],d:"2025 → 2026",x:"Speech-to-text",u:"https://elevenlabs.io/speech-to-text"},
+{n:"Dubbing v2",k:["audio:speech"],d:"May 2026 → API Aug 2026",x:"Dubs straight from audio to audio, conditioned on the original performance instead of the usual transcribe-translate-resynthesise chain, so tone and pacing survive the trip across 90+ languages",u:"https://elevenlabs.io/blog/introducing-dubbing-v2"},
 {n:"Sound Effects",k:["audio:sfx"],d:"2024",x:"Text to sound effects",u:"https://elevenlabs.io/sound-effects"},
 {n:"Eleven Music → Eleven Music v2",k:["audio:music"],d:"2025 → May 2026",x:"Launched with major-label licensing in place",u:"https://elevenlabs.io/music"},
 {n:"Agents",k:["audio:speech"],d:"2024 →",x:"Conversational voice agents",u:"https://elevenlabs.io/conversational-ai"}]},
