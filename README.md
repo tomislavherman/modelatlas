@@ -8,7 +8,22 @@ Live: https://tomislavherman.github.io/modelatlas/
 
 Everything lives in `index.html`. No build step, no dependencies.
 
+The page has two views over one filter bar. **Models** is the index of what
+exists, grouped by company. **Changelog** is the flat, dated stream of what
+changed — models added, announced or retired — newest first. The category,
+subcategory, status and search filters apply to whichever view is showing, so
+switching views keeps your question and changes only what answers it.
+
 - **Companies and models** — the `D` array. Each entry is `{c, r, f, n, u, m}`: company, region, founded, ownership, official site, models.
+- **Changelog** — the `H` array. Each entry is `{t, y, c, n, k, x, u}`: type
+  (`added` / `announced` / `retired`), day, company, model, tags, detail,
+  link. `y` is the day the change landed in this page, `YYYY-MM-DD` — not the
+  model's release date, so a model that shipped in 2024 can carry a 2026 entry
+  recording when the atlas picked it up. `H` is append-only: entries are added
+  at the top and never rewritten, and `k`/`x`/`u` are copied from the model
+  card rather than referenced, so an entry keeps saying what the page said on
+  the day. The two views deliberately disagree on counts — one shows state,
+  the other shows history.
 - **Models** — each is `{n, k, d, x, u}` and renders as three lines: `n` the
   model name or names, `d` the dates, `x` the detail note. Keep them separate —
   `d` is the only field the ordering and badge code reads, so a date belongs

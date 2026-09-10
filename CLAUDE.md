@@ -23,16 +23,48 @@ model in any of these categories still gets a card with an empty `m: []`.
 
 ## The data
 
-One array near the top of the script block.
+Two arrays near the top of the script block, one per view.
 
 - `D` — companies. `{c, r, f, n, u, m}`: company, region, founded, ownership,
-  official site, models.
+  official site, models. Renders the **Models** view.
+- `H` — the changelog. `{t, y, c, n, k, x, u}`: type, day, company, model,
+  tags, detail, link. Renders the **Changelog** view.
 
-The page used to carry a second view listing the acquisitions, spinouts,
-investments and lawsuits between these companies, held in an `R` array with an
-`EXTRA` map of names that had no card of their own. That view and both arrays
-were removed in August 2026. The page is the model list and nothing else, so
-there is no tab bar either.
+The page carried a third array once: an `R` list of acquisitions, spinouts,
+investments and lawsuits between these companies, with an `EXTRA` map of names
+that had no card of their own. That view and both its arrays were removed in
+August 2026 and are not coming back. The tab bar returned in September 2026
+for the changelog.
+
+### The changelog: `{t, y, c, n, k, x, u}`
+
+`H` is **append-only history**, and the one place in this repo where the date
+is not a release date. `y` is the day the change landed *in this page*,
+`YYYY-MM-DD`, which is why a model released in 2024 can carry a 2026 entry: it
+records when the atlas learned of it, not when the vendor shipped it.
+
+`t` is `added`, `announced` or `retired`. Those map onto the three badges, so
+one status filter drives both views; only the label differs, `New` in the
+model list against `Added` in the changelog.
+
+`n` names the version that changed, `c` the company (it must match a `c` in
+`D`, and `check.js` enforces that). `k`, `x` and `u` are the model's tags,
+detail and link **as they read on the day**, copied rather than referenced.
+That duplication is deliberate: an entry is a record of what the page said at
+the time, so it must not shift when the model card is later reworded, renamed
+or split.
+
+Newest first, and `check.js` fails if the array falls out of order.
+
+**Never rewrite or delete an entry.** A wrong entry is corrected by appending a
+new one, the same way you would not rewrite a commit that is already pushed.
+The one thing that legitimately edits `H` is a bug in how an entry was
+generated on the day it was written, caught before it ships.
+
+The counts in the two views will not agree, and should not. The model list
+shows 12 Retired badges against 9 retired entries in the changelog, because
+one retirement of a grouped card in August covered two versions that are
+separate cards today. State and history answer different questions.
 
 ### A model: `{n, k, d, x, u}`
 

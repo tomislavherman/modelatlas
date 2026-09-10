@@ -69,6 +69,20 @@ stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
 .nw{font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.04em;
 text-transform:uppercase;margin-left:6px;padding:1px 5px;border-radius:4px;
 vertical-align:1px}
+.views{display:flex;gap:6px;margin-bottom:14px}
+.views button{font-size:13px;padding:5px 14px}
+/* A changelog entry is one dated change, standing on its own rather than
+   nested under a company heading, so it repeats the company name that the
+   model list gets to say once per card. */
+.ev{background:var(--card);border:1px solid;border-left-width:3px;
+border-radius:0 12px 12px 0;padding:11px 14px;display:flex;align-items:flex-start;gap:10px}
+.ev .l{flex:1;min-width:0}
+.ev .top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:2px}
+.ev .day{font-family:var(--mono);font-size:11px;color:var(--tx3);letter-spacing:.02em;
+flex-shrink:0}
+.ev .who{font-family:var(--mono);font-size:11px;color:var(--tx2);letter-spacing:.01em}
+.ev .n{font-size:13.5px;font-weight:500;line-height:1.35}
+.ev .x{font-size:12.5px;opacity:.82;margin-top:4px;line-height:1.45}
 .none{font-size:13px;color:var(--tx3);margin-top:9px;font-style:italic}
 footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);
 font-size:12.5px;color:var(--tx3);line-height:1.6}
@@ -88,6 +102,7 @@ a:focus-visible{outline:2px solid #378ADD;outline-offset:2px;border-radius:3px}
 </header>
 
 <div>
+<div class="views" id="views" role="group" aria-label="View"></div>
 <div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
 <div class="subs" id="subs" role="group" aria-label="Filter by subcategory"></div>
 <div class="badges" id="badges" role="group" aria-label="Filter by release status"></div>
@@ -496,6 +511,274 @@ const D=[
 {n:"Project Super Sonic",k:["audio:sfx"],d:"2024",x:"Voice-driven Foley, from Adobe Labs",u:"https://labs.adobe.com"},
 {n:"Firefly Music Model / Firefly Speech Model / Firefly Audio Model",k:["audio:music","audio:speech","audio:sfx"],d:"GA Aug 2026",x:"Adobe's own audio generation trio, out of beta together: music tuned to a video's length and mood, voiceover with voice, pacing and emotion control, and sound effects matched to on-screen action and timing, all trained for commercially safe output; ElevenLabs sits beside the speech model as an optional partner model",u:"https://blog.adobe.com/en/publish/2026/08/20/adobe-firefly-expands-its-creative-ai-studio-generate-music-speech-and-sound-effects-in-one-place"}]}
 ];
+
+// Every change the atlas has recorded, newest first: a model added, a model
+// announced before it shipped, a model marked retired. `y` is the day the
+// change landed in this page, not the day the vendor made it — the changelog
+// is the atlas's own history, which is why a model released in 2024 can carry
+// a 2026 date here. `t` is one of added / announced / retired; `n` names the
+// version that changed, and `k`, `x` and `u` are that model's tags, detail and
+// link as they read at the time.
+const H=[
+{t:"added",y:"2026-09-10",c:"Sonilo",n:"Sonilo v1.0 → v1.1",k:["audio:music"],x:"Video-to-music with no text prompt: reads a clip's pacing, motion and emotional arc, then scores it to the exact duration so nothing has to be trimmed or looped; trained only on licensed catalogues, Shutterstock's among them"},
+{t:"added",y:"2026-09-10",c:"Sonilo",n:"Sonilo Sound Effects 1.0",k:["audio:sfx"],x:"Sound effects from video or text, timed to on-screen movement and scene context rather than dropped in flat; fal took it as exclusive API launch partner"},
+{t:"added",y:"2026-09-10",c:"Adobe",n:"Firefly Music Model / Firefly Speech Model / Firefly Audio Model",k:["audio:music","audio:speech","audio:sfx"],x:"Adobe's own audio generation trio, out of beta together: music tuned to a video's length and mood, voiceover with voice, pacing and emotion control, and sound effects matched to on-screen action and timing, all trained for commercially safe output; ElevenLabs sits beside the speech model as an optional partner model",u:"https://blog.adobe.com/en/publish/2026/08/20/adobe-firefly-expands-its-creative-ai-studio-generate-music-speech-and-sound-effects-in-one-place"},
+{t:"added",y:"2026-09-10",c:"Alibaba",n:"HappyHorse 1.0 → HappyHorse 1.1",k:["video","audio:sfx"],x:"15B unified transformer from the Taotian Future Life Lab that generates a clip and its soundtrack in one pass, lip-synced across seven languages; 1080p up to 15 seconds, prompted by text, a first frame or a set of reference subjects. Took the top Elo on the Artificial Analysis video arena while still entered anonymously",u:"https://www.alibabacloud.com/blog/happyhorse-gets-stronger-motion-expressiveness-higher-generation-consistency-and-enhanced-visual-quality_603293"},
+{t:"added",y:"2026-09-10",c:"DeepSeek",n:"DeepSeek-V4.1-Flash",k:["text:chat","text:code"],x:"V4-Pro is 1.6T with 49B active, V4-Flash 284B; MIT licence, 1M-token context. V4.1-Flash is the first DeepSeek model multimodal in the architecture rather than through a bolted-on vision tier, and benchmarks above V4-Pro on quality, cost and speed; the V4-Flash and V4-Flash-Vision-Exp tiers it retires now route to it",u:"https://api-docs.deepseek.com/news/news260910/"},
+{t:"added",y:"2026-09-10",c:"OpenAI",n:"GPT-Live-1 / GPT-Live-1 mini",k:["audio:speech"],x:"Full-duplex speech-to-speech that listens and talks at the same time instead of taking turns, handing reasoning and tool calls to a paired frontier model without breaking the flow of the conversation; it replaced the turn-based voice mode in ChatGPT first and reached developers on a separate sessions endpoint at five cents a minute",u:"https://openai.com/index/introducing-gpt-live-1-in-the-api/"},
+{t:"retired",y:"2026-09-10",c:"DeepSeek",n:"DeepSeek-V4",k:["text:chat","text:code"],x:"V4-Pro was 1.6T with 49B active, V4-Flash 284B; MIT licence, 1M-token context. The V4-Flash and V4-Flash-Vision-Exp tiers are gone and their names now route to V4.1-Flash, with V4-Pro following on 14 September until a V4.1-Pro arrives",u:"https://api-docs.deepseek.com/news/news260910/"},
+{t:"added",y:"2026-09-09",c:"Deemos",n:"Rodin → Rodin Gen-2.5",k:["world"],x:"Native 3D asset generation from text or a single image, sold as Hyper3D; Gen-2.5 drafts in about four seconds and pushes raw output past ten million polygons, with 3D-native texturing and selectable topology",u:"https://hyper3d.ai/blog/rodin-gen-2"},
+{t:"added",y:"2026-09-09",c:"Deemos",n:"WorldGen",k:["world"],x:"One image in, a whole 3D scene out rather than a single asset: foreground objects come back from Rodin as separate meshes carrying estimated physical properties, backgrounds as Gaussian splats, so the scene stays editable for robotics simulation and game work"},
+{t:"added",y:"2026-09-09",c:"Mistral AI",n:"Mistral Small 4",k:["text:chat","text:code"],x:"119B sparse mixture of experts with 6B active, Apache 2.0, 256K context; folds Magistral's reasoning, Pixtral's vision and Devstral's agentic coding into one model instead of three",u:"https://mistral.ai/news/mistral-small-4/"},
+{t:"retired",y:"2026-09-09",c:"Suno",n:"Suno v1 → v5.5",k:["audio:music"],x:"Trained on unlicensed material and deprecated after the Warner settlement; switched off the day v6 shipped, though songs already generated stay playable",u:"https://suno.com"},
+{t:"added",y:"2026-09-09",c:"Suno",n:"Suno v6 / v6-wild / v6-mini",k:["audio:music"],x:"First Suno family trained on catalogue licensed from Warner Music Group, BMG and Believe; v6 is the precise flagship, v6-wild the exploratory variant, v6-mini free to every user"},
+{t:"added",y:"2026-09-09",c:"Skild AI",n:"Skild S1",k:["robotics"],x:"500B parameters meant to drive a robot from any maker after 15 seconds of calibration; S1 learns an unseen task up to ten minutes long from a single demonstration video held in context, with the shipped weights frozen rather than fine-tuned",u:"https://skild.ai/blogs/s1"},
+{t:"added",y:"2026-09-09",c:"Sony AI",n:"Woosh",k:["audio:sfx"],x:"Sound effect foundation model for games and film, text-to-audio and video-to-audio; a studio model trained on licensed libraries stays private, while the same architecture trained on public data ships as open weights under CC-BY-NC",u:"https://github.com/SonyResearch/Woosh"},
+{t:"added",y:"2026-09-08",c:"IBM",n:"Granite 3.0 → Granite 4.2",k:["text:chat","text:code"],x:"Apache 2.0 weights across the whole family; 4.2 ships dense 3B, 8B and 30B models with a thinking switch, so one checkpoint either reasons step by step or answers straight, aimed at tool calling and agentic work",u:"https://research.ibm.com/blog/introducing-granite-4-2"},
+{t:"added",y:"2026-09-08",c:"IBM",n:"Granite Speech 4.1",k:["audio:speech"],x:"Two open 2B speech recognition models with translation and keyword biasing; the non-autoregressive variant drops both for roughly 1800x real-time on a single H100",u:"https://huggingface.co/ibm-granite/granite-speech-4.1-2b"},
+{t:"added",y:"2026-09-08",c:"IBM",n:"Granite Embedding R2",k:["text:embed"],x:"97M and 311M bi-encoders for retrieval, 200+ languages, 32K context",u:"https://www.ibm.com/granite/docs/models/embedding"},
+{t:"added",y:"2026-09-08",c:"Inception",n:"Mercury → Mercury 2.5",k:["text:chat","text:code"],x:"Diffusion language models: tokens are produced and refined in parallel instead of one at a time, which puts 2.5 past 1100 tokens a second on stock GPUs at cost-optimised frontier quality. Ships as a preview endpoint with tunable reasoning and parallel tool calls",u:"https://www.inceptionlabs.ai/blog/mercury-refreshed"},
+{t:"added",y:"2026-09-08",c:"OpenAI",n:"GPT Live Transcribe",k:["audio:speech"],x:"Whisper successors, batch and low-latency streaming: 19% word error rate against 40%, a quarter cheaper",u:"https://platform.openai.com/docs/guides/speech-to-text"},
+{t:"added",y:"2026-09-08",c:"Runway",n:"GWM Worlds 2",k:["world"],x:"General world model; powers the Characters API. Worlds 2 streams interactive real-time simulation at 720p 24 fps with synchronised 48 kHz audio, steered by text actions and camera motion, and runs indefinitely rather than to a fixed duration; research preview by request",u:"https://runway.com/research/introducing-gwm-worlds-2"},
+{t:"added",y:"2026-09-08",c:"Microsoft",n:"MAI-Image-2.6-Flash",k:["image"],x:"No. 2 on Arena text-to-image, behind only GPT Image 2; 2.6 adds multi-reference editing, web grounding and 360p-to-4K resolution control, and the Flash tier that landed with the Microsoft Foundry rollout runs over twice as fast as GPT Image 2 Medium",u:"https://microsoft.ai/news/mai-image-2-6-launches-at-no-2-on-arena-ahead-of-google-meta-and-xai/"},
+{t:"added",y:"2026-09-08",c:"ElevenLabs",n:"Dubbing v2",k:["audio:speech"],x:"Audio-to-audio dubbing into 90+ languages: the target language is generated straight from the source speech instead of running recognition, translation and synthesis in sequence, so cadence, intonation and delivery carry across; later opened up through the API",u:"https://elevenlabs.io/blog/introducing-dubbing-v2"},
+{t:"added",y:"2026-09-08",c:"OpenAI",n:"GPT Image 2.5 Flare / GPT Image 2.5 Sunburst",k:["image"],x:"Native text rendering and prompt-driven editing; 2.5 lands in ChatGPT as Images 2.5 with two API tiers beside it, Flare as the default at half the latency of GPT Image 2 and Sunburst for edit-heavy production work",u:"https://openai.com/index/introducing-chatgpt-images-2-5/"},
+{t:"added",y:"2026-09-07",c:"Meta",n:"Muse Voice Transcribe",k:["audio:speech"],x:"First real-time audio perception model from Meta Superintelligence Labs: streaming speech-to-text, diarization across 20+ speakers and endpointing in one pass, no post-processing step; trained on 70 languages with 25 validated at launch",u:"https://research.meta.ai/blog/introducing-muse-voice-transcribe"},
+{t:"added",y:"2026-09-06",c:"ByteDance",n:"Seed Audio 1.0",k:["audio:speech","audio:sfx","audio:music"],x:"The speech line becomes an audio-scene model: multi-speaker dialogue with a distinct voice each, music, foley and ambience generated together from one prompt or a video, zero-shot voice cloning, 20 languages",u:"https://seed.bytedance.com/en/blog/from-speech-to-audio-creation-introducing-the-seed-audio-1-0-audio-creation-model"},
+{t:"retired",y:"2026-09-05",c:"Mistral AI",n:"Leanstral → Leanstral 1.5",k:["text:code"],x:"Lean 4 proof agent trained to work natively in formal repositories rather than wrapping a generalist model around the syntax; 119B sparse mixture of experts with 6B active, Apache 2.0, 256K context, free in the experimental Labs tier; the open weights stay up after the hosted endpoint closes",u:"https://mistral.ai/news/leanstral-1-5/"},
+{t:"added",y:"2026-09-04",c:"OpenAI",n:"GPT-6 Astra",k:["text:chat","text:code"],x:"The generation after Sol, Terra and Luna, and the first model OpenAI rates Critical for cyber capability under its Preparedness Framework; state of the art on computer use, browsing and software engineering, shipping in Codex as well as ChatGPT, and gated to Daybreak partners before Plus, Pro, Business and Enterprise, the API and AWS",u:"https://openai.com/index/gpt-6-astra/"},
+{t:"announced",y:"2026-09-04",c:"SpaceXAI",n:"Grok 4.7",k:["text:chat","text:code"],x:"Musk put it at 2.1T parameters against 4.6's 1.5T in an announcement post, claiming a win over 4.6 on everything but serving speed; xAI has published no launch page, model card, API ID, price or benchmark table"},
+{t:"added",y:"2026-09-04",c:"Mistral AI",n:"Leanstral → Leanstral 1.5",k:["text:code"],x:"Lean 4 proof agent trained to work natively in formal repositories rather than wrapping a generalist model around the syntax; 119B sparse mixture of experts with 6B active, Apache 2.0, 256K context, free in the Labs tier",u:"https://mistral.ai/news/leanstral-1-5/"},
+{t:"added",y:"2026-09-04",c:"Microsoft",n:"MAI-Transcribe-2",k:["audio:speech"],x:"Speech-to-text; the second generation covers 60 languages and adds speaker diarization and word-level timestamps",u:"https://microsoft.ai/news/mai-transcribe-2-is-the-fastest-most-accurate-and-cheapest-speech-recognition-model-in-the-world/"},
+{t:"added",y:"2026-09-04",c:"Institute of Foundation Models",n:"K2 Horizon",k:["text:chat","text:code"],x:"Six models from 0.9B to 375B under Apache 2.0, shipped with weights, code and training data",u:"https://ifm.ai/k2/press-release/"},
+{t:"added",y:"2026-09-03",c:"Meta",n:"Muse Spark 1.3",k:["text:chat","text:code"],x:"First closed-weights frontier model from Meta Superintelligence Labs; runs Meta AI across the apps, and 1.3 is the model behind the Muse Code terminal agent, cutting tool calls by a fifth against 1.2",u:"https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/"},
+{t:"added",y:"2026-09-02",c:"Anthropic",n:"Claude Mythos 5.1 / Claude Fable 5.1",k:["text:chat","text:code"],x:"Frontier tier; Mythos is the same model under lighter safeguards for vetted cyber and life-science orgs. 5.1 matches Fable 5 at low effort and cuts cache reads to a quarter of the price",u:"https://www.anthropic.com/claude-fable-and-mythos-5-1"},
+{t:"added",y:"2026-09-02",c:"Google DeepMind",n:"Gemini Omni Flash → Gemini Omni 1.1 Flash",k:["video","audio:sfx"],x:"Video with sound from text, image or video input, edited by conversation; 1.1 adds scene extension to 40 s, first and last frame control, a cheaper 360p draft mode and 4K upscaling",u:"https://ai.google.dev/gemini-api/docs/omni"},
+{t:"added",y:"2026-09-02",c:"Google DeepMind",n:"Gemini 3.5 Transcribe",k:["audio:speech"],x:"Speech-to-text successor to Chirp 3 in public preview: 2.6% word error rate against 5%, live and batch variants, 85 languages",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe/"},
+{t:"added",y:"2026-09-02",c:"SpaceXAI",n:"Grok Voice Think Fast 2.0",k:["audio:speech"],x:"Speech-to-speech in the Grok app and API; 2.0 reasons while speaking and is the API default from Aug 2026",u:"https://x.ai/news/grok-voice-think-fast-2"},
+{t:"added",y:"2026-09-02",c:"Amazon",n:"Nova 2 Sonic",k:["audio:speech"],x:"Speech-to-speech on Bedrock",u:"https://aws.amazon.com/ai/generative-ai/nova/speech/"},
+{t:"announced",y:"2026-09-02",c:"Runway",n:"Solaris",k:["world"],x:"First Interface World Model: renders a software interface frame by frame from clicks and drags, built on Gen-4.5; early access by request",u:"https://runway.com/news/research/introducing-solaris"},
+{t:"added",y:"2026-09-02",c:"World Labs",n:"Atlas",k:["world","video"],x:"Omni world model: text, images, video and 3D in one spatial context, out to Gaussian splats or a minute of 1440p video; early access with select partners",u:"https://www.worldlabs.ai/blog/atlas"},
+{t:"added",y:"2026-09-02",c:"ByteDance",n:"SeedRealtime",k:["audio:speech"],x:"Full-duplex model that watches, listens and speaks in one network and decides its own turn-taking; live in the Doubao app",u:"https://seed.bytedance.com/en/SeedRealtime"},
+{t:"added",y:"2026-09-02",c:"Kunlun Tech",n:"Mureka V6 → Mureka V9.5",k:["audio:music"],x:"Lyrics-first song generation under the Skywork unit, with the O-series reasoning models alongside; 9.5 plans a track's structure before rendering audio and O3 is previewed",u:"https://www.mureka.ai"},
+{t:"added",y:"2026-09-02",c:"Google DeepMind",n:"Gemini 3.8 Flash",k:["text:chat","text:code"],x:"The Flash tier beats the larger Pro tier on coding and agentic benchmarks and runs four times faster; 3.8 takes Terminal-Bench 2.1 from 81.6% to 90.8%, with a Cyber variant for vulnerability discovery and patching limited to the Fairwind program",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"},
+{t:"added",y:"2026-09-01",c:"Meta",n:"Muse Glimmer",k:["text:chat","text:code"],x:"30B distilled from Muse Spark and released under Apache 2.0; 4-bit quantisation fits the agentic loop into a single 24GB consumer GPU, so it runs offline",u:"https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model"},
+{t:"retired",y:"2026-09-01",c:"Amazon",n:"Nova Reel",k:["video"],x:"Luma Ray named as the Bedrock successor",u:"https://aws.amazon.com/ai/generative-ai/nova/creative/"},
+{t:"added",y:"2026-08-31",c:"Google DeepMind",n:"Gemini Robotics 2 / Gemini Robotics-ER 2",k:["robotics"],x:"Vision-language-action pair that reasons in language before acting; ER 1.6 launched with Boston Dynamics, and version 2 coordinates a whole humanoid body rather than the upper half, with an On-Device 2 edge variant alongside",u:"https://deepmind.google/models/gemini-robotics/"},
+{t:"added",y:"2026-08-30",c:"Tencent",n:"Hy4 preview",k:["text:chat","text:code"],x:"Deployed in over 900 Tencent products; the Hy4 rename opens the line up at 770B with 49B active and a 1M-token context under Apache 2.0",u:"https://github.com/Tencent-Hunyuan/Hy4-preview"},
+{t:"added",y:"2026-08-29",c:"NVIDIA",n:"Nemotron 3.5 Lightning",k:["text:chat"],x:"30B mixture of experts with 3B active on a hybrid Mamba-2 backbone, 1M-token context; weights, training data and recipes under OpenMDW-1.1, aimed at long-running agents",u:"https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/"},
+{t:"added",y:"2026-08-29",c:"MiniMax",n:"Music 3.0",k:["audio:music"],x:"Open weights; composes, arranges and produces a full song of up to five minutes in one generation",u:"https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model"},
+{t:"added",y:"2026-08-29",c:"Alibaba",n:"HappyShrimp 1.0",k:["audio:music"],x:"One prompt to melody, arrangement, lyrics and vocals, with no BPM or key to specify; Taihe Music Group signed for artist co-creation",u:"https://www.happyshrimp.ai"},
+{t:"added",y:"2026-08-28",c:"Zhipu / Z.ai",n:"GLM-5.3-Flash",k:["text:chat","text:code"],x:"320B with 18B active under MIT, the first natively multimodal GLM-5 and a tenth the price of 5.2; previewed anonymously as Ox Alpha and trained entirely on Chinese chips",u:"https://huggingface.co/zai-org/GLM-5.3-Flash"},
+{t:"added",y:"2026-08-28",c:"Thinking Machines Lab",n:"Inkling",k:["text:chat","text:code"],x:"First in-house model: 975B mixture of experts with 41B active, open weights, reasoning natively over text, image, audio and video",u:"https://thinkingmachines.ai/news/introducing-inkling/"},
+{t:"added",y:"2026-08-28",c:"Thinking Machines Lab",n:"Inkling-Small",k:["text:chat","text:code"],x:"276B with 12B active under Apache 2.0, one point behind Inkling on the Artificial Analysis index at a quarter the size",u:"https://thinkingmachines.ai/news/inkling-small/"},
+{t:"added",y:"2026-08-28",c:"Cohere",n:"Embed v3 → Embed v4",k:["text:embed"],x:"Text, images and mixed PDF pages in one call; 128k context, Matryoshka dimensions from 256 to 1536",u:"https://cohere.com/blog/embed-4"},
+{t:"added",y:"2026-08-28",c:"Cohere",n:"Command A → Command A+",k:["text:chat"],x:"218B sparse mixture of experts, 25B active, Apache 2.0 weights; folds the separate reasoning, vision and translate variants into one model",u:"https://cohere.com/blog/command-a-plus"},
+{t:"added",y:"2026-08-28",c:"Cohere",n:"Aya Expanse / Aya Vision",k:["text:chat"],x:"Open-weights multilingual research family from Cohere Labs, 23 languages",u:"https://cohere.com/research/aya"},
+{t:"added",y:"2026-08-27",c:"Meta",n:"Muse Spark 1.2",k:["text:chat","text:code"],x:"First closed-weights frontier model from Meta Superintelligence Labs; runs Meta AI across the apps, and 1.2 is the model behind the Muse Code terminal agent",u:"https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/"},
+{t:"announced",y:"2026-08-26",c:"OpenAI",n:"Astra",k:["text:chat"],x:"Named in the third paragraph of a maths research post as the next major model, a class of its own beside Sol, Terra and Luna; no model card, price or ship date",u:"https://openai.com/index/ten-advances-in-mathematics/"},
+{t:"added",y:"2026-08-26",c:"SpaceXAI",n:"Grok 4.6",k:["text:chat","text:code"],x:"500K-token context; 4.6 is a post-training pass over the same V9 base as 4.5, aimed at long-running agents",u:"https://x.ai/news/grok-4-6"},
+{t:"added",y:"2026-08-26",c:"Alibaba",n:"Wan 3.0",k:["video","audio:sfx"],x:"30-second 1080p clips with audio in one pass, prompted from documents, slides or web pages; the first Wan flagship with closed weights, so Wan 2.2 stays the last open release",u:"https://wan.video"},
+{t:"added",y:"2026-08-26",c:"Xiaomi",n:"Xiaomi-Robotics-0 → Xiaomi-Robotics-1",k:["robotics"],x:"Vision-language-action model pre-trained on over 100K hours of real manipulation trajectories; 5B, Apache 2.0 open weights",u:"https://github.com/XiaomiRobotics/Xiaomi-Robotics-1"},
+{t:"added",y:"2026-08-25",c:"OpenAI",n:"GPT-5 → GPT-5.6",k:["text:chat","text:code"],x:"Six point releases in eleven months; 5.6 ships in three sizes, Luna, Terra and Sol",u:"https://openai.com/index/gpt-5-6/"},
+{t:"added",y:"2026-08-25",c:"OpenAI",n:"GPT-5-Codex → GPT-5.3-Codex",k:["text:code"],x:"Agentic coding variant, and the base model behind GitHub Copilot Business and Enterprise",u:"https://openai.com/index/gpt-5-3-codex-system-card/"},
+{t:"added",y:"2026-08-25",c:"OpenAI",n:"text-embedding-3",k:["text:embed"],x:"Small and large tiers on the API",u:"https://platform.openai.com/docs/guides/embeddings"},
+{t:"added",y:"2026-08-25",c:"Google DeepMind",n:"Gemini 3 Pro → Gemini 3.1 Pro",k:["text:chat","text:code"],x:"Sparse mixture of experts, 1M-token input",u:"https://deepmind.google/models/gemini/pro/"},
+{t:"added",y:"2026-08-25",c:"Google DeepMind",n:"Gemini 3.5 Flash → Gemini 3.7 Flash",k:["text:chat","text:code"],x:"The Flash tier beats the larger Pro tier on coding and agentic benchmarks and runs four times faster",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/"},
+{t:"announced",y:"2026-08-25",c:"Google DeepMind",n:"Gemini 3.5 Pro",k:["text:chat"],x:"Testing with partners; three announced launch windows have come and gone",u:"https://deepmind.google/models/gemini/pro/"},
+{t:"added",y:"2026-08-25",c:"Google DeepMind",n:"Gemini Embedding → Gemini Embedding 2",k:["text:embed"],x:"Natively multimodal, in preview",u:"https://ai.google.dev/gemini-api/docs/embeddings"},
+{t:"added",y:"2026-08-25",c:"Google DeepMind",n:"Gemini Robotics 1.5 / Gemini Robotics-ER 1.6",k:["robotics"],x:"Vision-language-action pair that reasons in language before acting; ER 1.6 launched with Boston Dynamics",u:"https://deepmind.google/models/gemini-robotics/"},
+{t:"added",y:"2026-08-25",c:"Anthropic",n:"Claude Opus 4 → Claude Opus 4.8",k:["text:chat","text:code"],x:"Eight point releases of the largest tier inside a year",u:"https://www.anthropic.com/news"},
+{t:"added",y:"2026-08-25",c:"Anthropic",n:"Claude Haiku 4.5",k:["text:chat"],x:"The small, fast tier",u:"https://www.anthropic.com/news/claude-haiku-4-5"},
+{t:"added",y:"2026-08-25",c:"Anthropic",n:"Claude Mythos 5 / Claude Fable 5",k:["text:chat","text:code"],x:"Frontier tier; Mythos is limited availability and stronger on cybersecurity and biology",u:"https://www.anthropic.com/news"},
+{t:"added",y:"2026-08-25",c:"Anthropic",n:"Claude Sonnet 5",k:["text:chat","text:code"],x:"",u:"https://www.anthropic.com/news"},
+{t:"added",y:"2026-08-25",c:"Anthropic",n:"Claude Opus 5",k:["text:chat","text:code"],x:"Close to Fable 5 at half the price, with a low, medium or high effort setting per request",u:"https://www.anthropic.com/news/claude-opus-5"},
+{t:"added",y:"2026-08-25",c:"SpaceXAI",n:"Grok 3 → Grok 4.5",k:["text:chat","text:code"],x:"500K-token context",u:"https://x.ai/news"},
+{t:"announced",y:"2026-08-25",c:"SpaceXAI",n:"Grok 5",k:["text:chat"],x:"Confirmed as in training in the funding announcement; no model card, spec sheet or public benchmark",u:"https://x.ai/news"},
+{t:"added",y:"2026-08-25",c:"Meta",n:"Llama 4 → Llama 5",k:["text:chat","text:code"],x:"Open weights; Llama 5 shipped the same morning as the closed Muse Spark",u:"https://www.llama.com"},
+{t:"added",y:"2026-08-25",c:"Meta",n:"Muse Spark",k:["text:chat","text:code"],x:"First closed-weights frontier model from Meta Superintelligence Labs; runs Meta AI across the apps",u:"https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/"},
+{t:"added",y:"2026-08-25",c:"Amazon",n:"Nova → Nova 2",k:["text:chat","text:code"],x:"Lite and Pro tiers on Bedrock; the first-generation text tiers moved to legacy status as the successors went GA",u:"https://aws.amazon.com/ai/generative-ai/nova/"},
+{t:"added",y:"2026-08-25",c:"Amazon",n:"Nova 2 Multimodal Embeddings",k:["text:embed"],x:"",u:"https://aws.amazon.com/ai/generative-ai/nova/"},
+{t:"added",y:"2026-08-25",c:"Microsoft",n:"MAI-Thinking-1",k:["text:chat"],x:"Microsoft's first reasoning model, announced at Build",u:"https://microsoft.ai/news/"},
+{t:"added",y:"2026-08-25",c:"NVIDIA",n:"Isaac GR00T N1 → Isaac GR00T N1.7",k:["robotics"],x:"Open vision-language-action model for humanoids; 3B parameters on a Cosmos Reason backbone",u:"https://github.com/NVIDIA/Isaac-GR00T"},
+{t:"announced",y:"2026-08-25",c:"NVIDIA",n:"Isaac GR00T N2",k:["robotics"],x:"Currently first on MolmoSpaces and RoboArena for generalist robot policies",u:"https://developer.nvidia.com/isaac/gr00t"},
+{t:"added",y:"2026-08-25",c:"Mistral AI",n:"Mistral Large 3",k:["text:chat","text:code"],x:"675B sparse mixture of experts with 41B active, Apache 2.0, 256K context",u:"https://mistral.ai/news"},
+{t:"added",y:"2026-08-25",c:"Mistral AI",n:"Mistral Medium 3 → Mistral Medium 3.5",k:["text:code","text:chat"],x:"The tier Mistral points at for coding work",u:"https://mistral.ai/news/mistral-medium-3"},
+{t:"added",y:"2026-08-25",c:"ByteDance",n:"Doubao 1.6 → Doubao-Seed 2.0",k:["text:chat","text:code"],x:"Pro, Lite and Mini agent tiers plus a separate code model",u:"https://seed.bytedance.com"},
+{t:"added",y:"2026-08-25",c:"MiniMax",n:"MiniMax M2 → MiniMax M3",k:["text:chat","text:code"],x:"428B mixture of experts with sparse attention, 1M-token context, open weights",u:"https://www.minimax.io"},
+{t:"added",y:"2026-08-25",c:"Alibaba",n:"Qwen3 → Qwen3.8",k:["text:chat","text:code"],x:"Open weights from 0.8B up to 397B with 17B active; natively vision-language since the 3.5 generation",u:"https://qwen.ai"},
+{t:"added",y:"2026-08-25",c:"Tencent",n:"Hunyuan 2.0 → Hunyuan 3.0",k:["text:chat"],x:"Deployed in over 900 Tencent products",u:"https://hunyuan.tencent.com"},
+{t:"added",y:"2026-08-25",c:"Baidu",n:"ERNIE 5.0 → ERNIE 5.1",k:["text:chat"],x:"2.4T parameters, natively omnimodal, trained on Baidu's own Kunlun chips",u:"https://yiyan.baidu.com"},
+{t:"added",y:"2026-08-25",c:"Zhipu / Z.ai",n:"GLM-5 → GLM-5.3",k:["text:chat","text:code"],x:"744B mixture of experts with 40B active, open weights; the 5.2 release added a 1M-token context under MIT",u:"https://z.ai"},
+{t:"added",y:"2026-08-25",c:"DeepSeek",n:"DeepSeek-V3 → DeepSeek-V4",k:["text:chat","text:code"],x:"V4-Pro is 1.6T with 49B active, V4-Flash 284B; MIT licence, 1M-token context",u:"https://api-docs.deepseek.com/news/news260424/"},
+{t:"added",y:"2026-08-25",c:"DeepSeek",n:"DeepSeek-R1",k:["text:chat"],x:"Open reasoning model; the R2 successor was held back over performance and a failed training run on Ascend hardware",u:"https://api-docs.deepseek.com"},
+{t:"added",y:"2026-08-25",c:"Moonshot AI",n:"Kimi K2 → Kimi K3",k:["text:chat","text:code"],x:"2.8T parameters with 104B active, the largest open-weights release so far, under a modified MIT licence",u:"https://www.moonshot.ai"},
+{t:"added",y:"2026-08-25",c:"Cursor",n:"Composer → Composer 2.5",k:["text:code"],x:"Trained on top of Kimi K2.5; matches Opus 4.7 and GPT-5.5 on SWE-Bench Multilingual at a tenth of the cost",u:"https://cursor.com/blog"},
+{t:"added",y:"2026-08-25",c:"Cognition",n:"SWE-1.5 → SWE-1.7",k:["text:code"],x:"Runs inside Devin at about 1000 tokens per second on Cerebras hardware",u:"https://cognition.ai/blog"},
+{t:"added",y:"2026-08-25",c:"Voyage AI",n:"voyage-3 → voyage-4",k:["text:embed"],x:"Mixture of experts with one shared embedding space across the family",u:"https://blog.voyageai.com/2026/01/15/voyage-4/"},
+{t:"added",y:"2026-08-25",c:"Voyage AI",n:"voyage-code-4",k:["text:embed"],x:"Code retrieval built for coding agents",u:"https://blog.voyageai.com/2026/08/13/voyage-code-4/"},
+{t:"added",y:"2026-08-25",c:"Physical Intelligence",n:"π0 → π0.7",k:["robotics"],x:"Actions come out of a diffusion flow; the 0.6 release learns from its own corrections through RECAP",u:"https://www.pi.website/blog"},
+{t:"added",y:"2026-08-25",c:"Figure",n:"Helix → Helix 02",k:["robotics"],x:"One network for walking, balance and manipulation straight from raw sensor data",u:"https://www.figure.ai/news/helix-02"},
+{t:"added",y:"2026-08-25",c:"Skild AI",n:"Skild Brain 1.0",k:["robotics"],x:"500B parameters meant to drive a robot from any maker after 15 seconds of calibration",u:"https://www.skild.ai/blogs/building-the-general-purpose-robotic-brain"},
+{t:"added",y:"2026-08-24",c:"OpenAI",n:"GPT Image 2",k:["image"],x:"Native text rendering and prompt-driven editing",u:"https://platform.openai.com/docs/models/gpt-image-1"},
+{t:"retired",y:"2026-08-24",c:"OpenAI",n:"Sora",k:["video"],x:"Replaced by Sora 2",u:"https://openai.com/sora"},
+{t:"added",y:"2026-08-24",c:"OpenAI",n:"GPT Transcribe",k:["audio:speech"],x:"Whisper successor: 19% word error rate against 40%, a quarter cheaper",u:"https://platform.openai.com/docs/guides/speech-to-text"},
+{t:"retired",y:"2026-08-24",c:"Google DeepMind",n:"Imagen → Imagen 4",k:["image"],x:"Endpoints closed; Gemini-native Nano Banana is the migration target",u:"https://deepmind.google/models/imagen/"},
+{t:"added",y:"2026-08-24",c:"Google DeepMind",n:"Nano Banana → Nano Banana 2",k:["image"],x:"Gemini-native image generation and editing",u:"https://deepmind.google/models/gemini-image/"},
+{t:"added",y:"2026-08-24",c:"Google DeepMind",n:"Veo 3.1",k:["video","audio:sfx"],x:"Native Foley sound generated with the picture",u:"https://deepmind.google/models/veo/"},
+{t:"added",y:"2026-08-24",c:"SpaceXAI",n:"Grok Imagine 1.0",k:["image"],x:"",u:"https://x.ai/news"},
+{t:"added",y:"2026-08-24",c:"Microsoft",n:"MAI-Image-2.5 → MAI-Image-2.6",k:["image"],x:"No. 2 on Arena text-to-image, behind only GPT Image 2",u:"https://microsoft.ai/news/mai-image-2-6-launches-at-no-2-on-arena-ahead-of-google-meta-and-xai/"},
+{t:"added",y:"2026-08-24",c:"Microsoft",n:"MAI-Image-2.5-Pro",k:["image"],x:"In-image text and natural-language editing",u:"https://microsoft.ai/news/introducing-mai-image-2-5/"},
+{t:"added",y:"2026-08-24",c:"Microsoft",n:"MAI-Voice-2 / MAI-Voice-2-Flash",k:["audio:speech"],x:"15+ languages; Flash is the low-latency tier",u:"https://microsoft.ai/news/"},
+{t:"added",y:"2026-08-24",c:"Microsoft",n:"MAI-Transcribe-1.5",k:["audio:speech"],x:"Speech-to-text, announced at Build",u:"https://microsoft.ai/news/"},
+{t:"announced",y:"2026-08-24",c:"Black Forest Labs",n:"FLUX 3 Dev",k:["image","video"],x:"Last tier in the FLUX 3 rollout, licence undecided",u:"https://bfl.ai/models/flux-3"},
+{t:"added",y:"2026-08-24",c:"Midjourney",n:"Midjourney v1 → v8.2",k:["image"],x:"",u:"https://www.midjourney.com/explore"},
+{t:"added",y:"2026-08-24",c:"Midjourney",n:"Midjourney Video V1 → V8",k:["video"],x:"",u:"https://www.midjourney.com/updates"},
+{t:"announced",y:"2026-08-24",c:"Midjourney",n:"World model (unnamed)",k:["world"],x:"Published roadmap after video: 3D, then real-time, then one unified system",u:"https://www.midjourney.com/updates"},
+{t:"added",y:"2026-08-24",c:"Ideogram",n:"Ideogram 1.0",k:["image"],x:"Open weights from 4.0; strongest at text inside images",u:"https://about.ideogram.ai"},
+{t:"added",y:"2026-08-24",c:"Krea",n:"Krea Realtime",k:["image"],x:"",u:"https://www.krea.ai"},
+{t:"added",y:"2026-08-24",c:"Lightricks / LTX",n:"LTX-2.5",k:["video","audio:sfx"],x:"22B, single pass, 10s of 1080p in about 24 seconds",u:"https://ltx.io"},
+{t:"added",y:"2026-08-24",c:"ElevenLabs",n:"Eleven v3",k:["audio:speech"],x:"",u:"https://elevenlabs.io/text-to-speech"},
+{t:"added",y:"2026-08-24",c:"CassetteAI",n:"Cassette SFX",k:["audio:sfx"],x:"Sub-50ms on-device SDK",u:"https://cassetteai.com"},
+{t:"added",y:"2026-08-24",c:"HeyGen",n:"Avatar V",k:["avatar"],x:"Digital twin from a 15-second clip, lip-sync in 175+ languages",u:"https://www.heygen.com/avatars"},
+{t:"added",y:"2026-08-24",c:"Alibaba",n:"Wan 2.6",k:["video","audio:sfx"],x:"Open weights",u:"https://wan.video"},
+{t:"added",y:"2026-08-24",c:"ShengShu",n:"Vidu Q3",k:["video","audio:sfx"],x:"16-second clips with audio",u:"https://www.vidu.com"},
+{t:"added",y:"2026-08-24",c:"Meta",n:"Muse Image",k:["image"],x:"Codenamed Mango; first image model from Meta Superintelligence Labs, free in the Meta AI app, Instagram Stories and WhatsApp",u:"https://techcrunch.com/2026/07/07/meta-rolls-out-muse-a-new-ai-image-generator/"},
+{t:"retired",y:"2026-08-21",c:"OpenAI",n:"DALL·E → 3",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"OpenAI",n:"GPT Image 1 / 2",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"OpenAI",n:"Sora",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"OpenAI",n:"Sora 2",k:["video","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"OpenAI",n:"Whisper",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"OpenAI",n:"TTS / Realtime voice",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"Google DeepMind",n:"Imagen",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"Google DeepMind",n:"Nano Banana (Gemini Image)",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"Google DeepMind",n:"Veo",k:["video","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"Google DeepMind",n:"Gemini Omni",k:["video","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"Google DeepMind",n:"Lyria → 3.5",k:["audio:music"],x:""},
+{t:"added",y:"2026-08-21",c:"Google DeepMind",n:"Gemini Audio / Chirp",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"Google DeepMind",n:"Genie 3",k:["world"],x:""},
+{t:"added",y:"2026-08-21",c:"SpaceXAI",n:"Aurora",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"SpaceXAI",n:"Grok Imagine",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"SpaceXAI",n:"grok-imagine-video 1.5",k:["video","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"SpaceXAI",n:"Grok voice",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"Meta",n:"Emu / Imagine",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"Meta",n:"Movie Gen",k:["video","audio:sfx"],x:""},
+{t:"announced",y:"2026-08-21",c:"Meta",n:"Mango",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"Meta",n:"MusicGen",k:["audio:music"],x:""},
+{t:"added",y:"2026-08-21",c:"Meta",n:"AudioGen",k:["audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"Meta",n:"Voicebox / Seamless",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"Amazon",n:"Nova Canvas",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"Amazon",n:"Nova Reel",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"Amazon",n:"Nova Sonic",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"NVIDIA",n:"Cosmos → Cosmos 3",k:["world","video","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"NVIDIA",n:"Audio2Face / Riva",k:["avatar","audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"Black Forest Labs",n:"FLUX.1",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"Black Forest Labs",n:"FLUX.1 Kontext",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"Black Forest Labs",n:"FLUX.2",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"Black Forest Labs",n:"FLUX 3",k:["video","image","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"Black Forest Labs",n:"FLUX-mimic",k:["world"],x:""},
+{t:"added",y:"2026-08-21",c:"Runway",n:"Gen-1 → Gen-4.5",k:["video","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"Runway",n:"GWM-1",k:["world"],x:""},
+{t:"added",y:"2026-08-21",c:"Luma AI",n:"Dream Machine",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"Luma AI",n:"Ray3 / Ray3.14",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"Luma AI",n:"Genie (3D)",k:["world"],x:""},
+{t:"added",y:"2026-08-21",c:"Pika",n:"Pika 1.0 → 2.5",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"Moonvalley",n:"Marey",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"Midjourney",n:"v1 → v8.2",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"Midjourney",n:"V1 video",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"Stability AI",n:"Stable Diffusion",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"Stability AI",n:"SD 3.5",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"Stability AI",n:"Stable Video Diffusion",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"Stability AI",n:"Stable Audio 3.0",k:["audio:music","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"Ideogram",n:"Ideogram 1 → 4.0",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"Recraft",n:"Recraft V3 → V4.1",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"Leonardo.ai",n:"Phoenix / Lucid",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"Krea",n:"Krea 1 / Realtime",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"Lightricks / LTX",n:"LTX Video",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"Lightricks / LTX",n:"LTX-2",k:["video","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"Lightricks / LTX",n:"LTX-2.3 / 2.5",k:["video","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"World Labs",n:"Marble",k:["world"],x:""},
+{t:"added",y:"2026-08-21",c:"World Labs",n:"RTFM",k:["world"],x:""},
+{t:"added",y:"2026-08-21",c:"World Labs",n:"World API",k:["world"],x:""},
+{t:"added",y:"2026-08-21",c:"Decart",n:"Oasis / real-time worlds",k:["world"],x:""},
+{t:"added",y:"2026-08-21",c:"Odyssey",n:"Interactive video",k:["world"],x:""},
+{t:"added",y:"2026-08-21",c:"Mistral AI",n:"Voxtral",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"Mistral AI",n:"Voxtral TTS",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"ElevenLabs",n:"Eleven TTS → v3",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"ElevenLabs",n:"Scribe",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"ElevenLabs",n:"Sound Effects",k:["audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"ElevenLabs",n:"Eleven Music",k:["audio:music"],x:""},
+{t:"added",y:"2026-08-21",c:"ElevenLabs",n:"Agents",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"Cartesia",n:"Sonic",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"Hume AI",n:"Octave / EVI",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"Deepgram",n:"Aura / Nova",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"Suno",n:"Suno v1 → v5",k:["audio:music"],x:""},
+{t:"added",y:"2026-08-21",c:"Udio",n:"Udio",k:["audio:music"],x:""},
+{t:"added",y:"2026-08-21",c:"Klay",n:"Klay LMM",k:["audio:music"],x:""},
+{t:"added",y:"2026-08-21",c:"Riffusion",n:"Fuzz",k:["audio:music"],x:""},
+{t:"added",y:"2026-08-21",c:"CassetteAI",n:"Cassette music model",k:["audio:music"],x:""},
+{t:"added",y:"2026-08-21",c:"CassetteAI",n:"SFX + on-device SDK",k:["audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"HeyGen",n:"Avatar IV → V",k:["avatar"],x:""},
+{t:"added",y:"2026-08-21",c:"Synthesia",n:"Express / full-body avatars",k:["avatar"],x:""},
+{t:"added",y:"2026-08-21",c:"Hedra",n:"Character-3",k:["avatar"],x:""},
+{t:"added",y:"2026-08-21",c:"Hedra",n:"Live Avatars",k:["avatar"],x:""},
+{t:"added",y:"2026-08-21",c:"D-ID",n:"Talking photo",k:["avatar"],x:""},
+{t:"added",y:"2026-08-21",c:"ByteDance",n:"Seedream → 5",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"ByteDance",n:"Seedance → 2.5",k:["video","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"ByteDance",n:"Seed Audio / Seed-TTS",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"Kuaishou",n:"Kling → v3",k:["video","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"Kuaishou",n:"Kolors",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"MiniMax",n:"Hailuo Video-01",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"MiniMax",n:"Hailuo 2.3",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"MiniMax",n:"Hailuo H3",k:["video","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"MiniMax",n:"Speech 2.6",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"MiniMax",n:"Music 2.0",k:["audio:music"],x:""},
+{t:"added",y:"2026-08-21",c:"Alibaba",n:"Wan (Wanxiang) → 2.6",k:["video","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"Alibaba",n:"Qwen-Image",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"Alibaba",n:"CosyVoice",k:["audio:speech"],x:""},
+{t:"added",y:"2026-08-21",c:"Tencent",n:"HunyuanVideo → 1.5",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"Tencent",n:"Hunyuan3D",k:["world"],x:""},
+{t:"added",y:"2026-08-21",c:"Tencent",n:"HunyuanVideo-Avatar",k:["avatar"],x:""},
+{t:"added",y:"2026-08-21",c:"ShengShu",n:"Vidu → Q3",k:["video","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"Baidu",n:"MuseSteamer",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"Zhipu / Z.ai",n:"CogVideoX",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"StepFun",n:"Step-Video",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"PixVerse",n:"PixVerse V1 → V6",k:["video","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"Adobe",n:"Firefly Image",k:["image"],x:""},
+{t:"added",y:"2026-08-21",c:"Adobe",n:"Firefly Video",k:["video"],x:""},
+{t:"added",y:"2026-08-21",c:"Adobe",n:"Project Super Sonic",k:["audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"Krea",n:"Krea 2",k:["image"],x:"",u:"https://www.krea.ai/blog/krea-2-technical-report"},
+{t:"retired",y:"2026-08-21",c:"OpenAI",n:"Sora 2",k:["video","audio:sfx"],x:"",u:"https://openai.com/index/sora-2/"},
+{t:"added",y:"2026-08-21",c:"SpaceXAI",n:"Grok Imagine Image 2.0",k:["image"],x:"",u:"https://x.ai/news"},
+{t:"retired",y:"2026-08-21",c:"Amazon",n:"Nova Canvas",k:["image"],x:"",u:"https://aws.amazon.com/ai/generative-ai/nova/creative/"},
+{t:"added",y:"2026-08-21",c:"NVIDIA",n:"Cosmos 3 Edge",k:["world"],x:"",u:"https://www.nvidia.com/en-us/ai/cosmos/"},
+{t:"added",y:"2026-08-21",c:"Runway",n:"Aleph → 2.0",k:["video"],x:"",u:"https://runwayml.com/research/introducing-runway-aleph"},
+{t:"added",y:"2026-08-21",c:"Luma AI",n:"Ray3.2",k:["video"],x:"",u:"https://lumalabs.ai/ray"},
+{t:"added",y:"2026-08-21",c:"Pika",n:"PikaStream",k:["video"],x:"",u:"https://pika.art"},
+{t:"added",y:"2026-08-21",c:"Midjourney",n:"V8 video",k:["video"],x:"",u:"https://www.midjourney.com/updates"},
+{t:"added",y:"2026-08-21",c:"World Labs",n:"Marble 1.1",k:["world"],x:"",u:"https://marble.worldlabs.ai"},
+{t:"added",y:"2026-08-21",c:"Decart",n:"Oasis 3",k:["world"],x:"",u:"https://oasis.decart.ai"},
+{t:"added",y:"2026-08-21",c:"Decart",n:"Lucy 2 → 2.5",k:["video"],x:"",u:"https://decart.ai/blog"},
+{t:"added",y:"2026-08-21",c:"Odyssey",n:"Odyssey-2 Pro",k:["world"],x:"",u:"https://odyssey.ml/introducing-odyssey-2"},
+{t:"added",y:"2026-08-21",c:"Odyssey",n:"Starchild-1 / Agora-1",k:["world","audio:sfx"],x:"",u:"https://odyssey.ml/the-gpt-2-moment-for-world-models"},
+{t:"added",y:"2026-08-21",c:"ElevenLabs",n:"Scribe v2",k:["audio:speech"],x:"",u:"https://elevenlabs.io/speech-to-text"},
+{t:"added",y:"2026-08-21",c:"ElevenLabs",n:"Eleven Music v2",k:["audio:music"],x:"",u:"https://elevenlabs.io/music"},
+{t:"added",y:"2026-08-21",c:"Cartesia",n:"Sonic 3.6",k:["audio:speech"],x:"",u:"https://cartesia.ai/sonic"},
+{t:"added",y:"2026-08-21",c:"Hume AI",n:"Octave 2",k:["audio:speech"],x:"",u:"https://www.hume.ai/blog/octave-2-launch"},
+{t:"added",y:"2026-08-21",c:"Deepgram",n:"Aura 2 / Nova 3",k:["audio:speech"],x:"",u:"https://deepgram.com/product/text-to-speech"},
+{t:"added",y:"2026-08-21",c:"Deepgram",n:"Flux TTS",k:["audio:speech"],x:"",u:"https://deepgram.com/product/text-to-speech"},
+{t:"added",y:"2026-08-21",c:"Suno",n:"Suno v5.5",k:["audio:music"],x:"",u:"https://suno.com"},
+{t:"added",y:"2026-08-21",c:"Synthesia",n:"Express-2",k:["avatar"],x:"",u:"https://www.synthesia.io/features/avatars"},
+{t:"added",y:"2026-08-21",c:"Hedra",n:"Omnia",k:["avatar","video"],x:"",u:"https://www.hedra.com"},
+{t:"added",y:"2026-08-21",c:"D-ID",n:"V4 Expressive Visual Agents",k:["avatar"],x:"",u:"https://www.d-id.com/news/v4-expressive-visual-agents-real-time-llm-connected-interaction/"},
+{t:"added",y:"2026-08-21",c:"Kuaishou",n:"Kling Image 3.0",k:["image"],x:"",u:"https://github.com/Kwai-Kolors/Kolors"},
+{t:"added",y:"2026-08-21",c:"Alibaba",n:"Qwen-Image 3.0",k:["image"],x:"",u:"https://qwen.ai"},
+{t:"added",y:"2026-08-21",c:"Tencent",n:"HunyuanImage 3.0",k:["image"],x:"",u:"https://github.com/Tencent-Hunyuan"},
+{t:"added",y:"2026-08-21",c:"Tencent",n:"HunyuanWorld",k:["world"],x:"",u:"https://3d.hunyuan.tencent.com"},
+{t:"added",y:"2026-08-21",c:"Baidu",n:"MuseSteamer 2.0",k:["video","audio:speech","audio:sfx"],x:""},
+{t:"added",y:"2026-08-21",c:"Adobe",n:"Firefly Image 5",k:["image"],x:"",u:"https://www.adobe.com/products/firefly.html"}
+];
+
 const MON={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
 // A date line can also name the end of a model's life ("API ends Sep 2026",
 // "wind-down Jul 2026"). Those are not releases, so the clause is dropped
@@ -551,7 +834,19 @@ const ncol=s=>{const[fill,on,ln]=dark()?NWD[s]:NW[s];return{fill,on,ln}};
 const badge=d=>{const s=status(d);if(!s)return"";const c=ncol(s);
  return `<span class="nw" style="background:${c.fill};color:${c.on}">${NWLAB[s]}</span>`};
 
-let filt="all",term="";
+// Two views over one filter bar. The category row, the sub row, the status row
+// and the search box all apply to whichever view is showing, so switching view
+// keeps the question you were asking and changes only what answers it.
+let view="models",filt="all",term="";
+const VIEWS=[["models","Models"],["log","Changelog"]];
+// A changelog entry's type is the model status it corresponds to, so one status
+// filter serves both views. Only the label for "new" differs: in the model list
+// it means released this month, in the changelog it means added to the page.
+const evStat=e=>e.t==="added"?"new":e.t;
+const STATLAB={models:{new:"New",announced:"Announced",retired:"Retired"},
+ log:{new:"Added",announced:"Announced",retired:"Retired"}};
+const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const day=y=>+y.slice(8)+" "+MONTHS[+y.slice(5,7)-1]+" "+y.slice(0,4);
 // Any-of, unlike the category row: an empty set means every model, and New
 // plus Announced together is the "what is happening now" view.
 const stats=new Set();
@@ -559,37 +854,71 @@ const $=id=>document.getElementById(id);
 const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`:esc(t);
 
+$("views").innerHTML=VIEWS.map(([v,l])=>`<button data-v="${v}">${l}</button>`).join("");
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
-$("badges").innerHTML=STATS.map(([v,l])=>`<button data-s="${v}">${l}</button>`).join("");
+$("badges").innerHTML=STATS.map(([v])=>`<button data-s="${v}"></button>`).join("");
 $("stamp").textContent="Compiled 10 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
+// Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
 function matchStat(m){return !stats.size||stats.has(status(m.d))}
 function matchTerm(co,m){
  if(!term)return true;
  return (co.c+" "+co.n+" "+m.n+" "+m.d+" "+m.x).toLowerCase().includes(term);}
+function matchEv(e){
+ return matchCat(e)&&(!stats.size||stats.has(evStat(e)))
+  &&(!term||(e.c+" "+e.n+" "+e.x).toLowerCase().includes(term));}
 
-function render(){
- // The sub row is rebuilt whenever the base category changes, so it has to exist before aria-pressed is set below.
+// The filter bar is shared, so only the parts that differ per view are redrawn.
+function paintBar(){
  const sf=SUBF[base(filt)];
  $("subs").innerHTML=sf?sf.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join(""):"";
  $("subs").style.display=sf?"flex":"none";
- // Each filter button is tinted with its own category colour; "all" has none and keeps the default.
+ document.querySelectorAll("#views button").forEach(b=>
+  b.setAttribute("aria-pressed",b.dataset.v===view));
  // Status buttons wear their own badge colour, the same way the category
  // buttons wear theirs: outlined when off, filled when on.
  document.querySelectorAll("#badges button").forEach(b=>{
   const on=stats.has(b.dataset.s),c=ncol(b.dataset.s);
+  b.textContent=STATLAB[view][b.dataset.s];
   b.setAttribute("aria-pressed",on);
   b.style.cssText=on?`background:${c.fill};color:${c.on};border-color:${c.fill}`
    :`color:${c.fill};border-color:${c.ln}`;});
+ // Each filter button is tinted with its own category colour; "all" has none and keeps the default.
  document.querySelectorAll("#filters button,#subs button").forEach(b=>{
   const on=b.dataset.f===filt;
   b.setAttribute("aria-pressed",on);
   const c=KC[base(b.dataset.f)]&&col(b.dataset.f);
   b.style.cssText=!c?"":on
    ?`background:${c.fg};color:${c.bg};border-color:${c.fg}`
-   :`color:${c.fg};border-color:${c.ln}`;});
+   :`color:${c.fg};border-color:${c.ln}`;});}
+
+function tagsOf(k){return k.map(t=>{const tc=col(t);
+ return `<span class="tag" style="background:${tc.fg};color:${dark()?tc.bg:"#fff"}">${icon(t)}${lab(t)}</span>`}).join("")}
+
+// One flat stream, newest first, with no company grouping: the unit here is the
+// change, not the company, and the same change can involve a company that has
+// nothing else happening that week.
+function renderLog(){
+ const es=H.filter(matchEv);
+ const days=new Set(es.map(e=>e.y));
+ $("count").textContent=es.length+" change"+(es.length===1?"":"s")+" · "+days.size+" day"+(days.size===1?"":"s");
+ $("out").innerHTML=es.length?`<div class="grid">${es.map(e=>{
+  const c=col(e.k[0]),s=evStat(e),nc=ncol(s);
+  return `<article class="ev" style="border-color:${c.ln}">
+   <div class="l"><div class="top"><span class="day">${esc(day(e.y))}</span>
+   <span class="who">${esc(e.c)}</span>
+   <span class="nw" style="background:${nc.fill};color:${nc.on};margin-left:0">${STATLAB.log[s]}</span></div>
+   <div class="n" style="color:${c.fg}">${link(e.n,e.u)}</div>
+   ${e.x?`<div class="x" style="color:${c.fg}">${esc(e.x)}</div>`:""}</div>
+   <div class="tags">${tagsOf(e.k)}</div></article>`}).join("")}</div>`
+  :`<p class="none">No changes match that. Try a different term or clear the filter.</p>`;}
+
+function render(){
+ // The sub row is rebuilt whenever the base category changes, so it has to exist before aria-pressed is set.
+ paintBar();
+ if(view==="log")return renderLog();
  let nc=0,nm=0;
  const cards=D.map(co=>{
   const ms=co.m.filter(m=>matchCat(m)&&matchStat(m)&&matchTerm(co,m)).sort((a,b)=>cmpDate(a.d,b.d));
@@ -597,13 +926,11 @@ function render(){
   if((filt!=="all"||term||stats.size)&&!ms.length&&!(nameHit&&!co.m.length))return null;
   nc++;nm+=ms.length;
   const body=ms.length?ms.map(m=>{const c=col(m.k[0]);
-   const tags=m.k.map(t=>{const tc=col(t);
-    return `<span class="tag" style="background:${tc.fg};color:${dark()?tc.bg:"#fff"}">${icon(t)}${lab(t)}</span>`}).join("");
    return `<div class="m" style="border-color:${c.ln}">
     <div class="l"><div class="n" style="color:${c.fg}">${link(m.n,m.u||co.u)}${badge(m.d)}</div>
     <div class="d" style="color:${c.fg}">${esc(m.d)}</div>
     ${m.x?`<div class="x" style="color:${c.fg}">${esc(m.x)}</div>`:""}</div>
-    <div class="tags">${tags}</div></div>`}).join("")
+    <div class="tags">${tagsOf(m.k)}</div></div>`}).join("")
    :`<p class="none">No models listed yet</p>`;
   return {d:ms.length?ms[0].d:"",
    h:`<article class="co"><div class="hd"><h2>${link(co.c,co.u)}</h2><span class="rg">${esc(co.r)}</span></div>
@@ -613,6 +940,7 @@ function render(){
  $("out").innerHTML=cards?`<div class="grid">${cards}</div>`
   :`<p class="none">Nothing matches that. Try a different term or clear the filter.</p>`;}
 
+$("views").onclick=e=>{if(e.target.dataset.v){view=e.target.dataset.v;render()}};
 $("filters").onclick=e=>{if(e.target.dataset.f){filt=e.target.dataset.f;render()}};
 $("subs").onclick=e=>{if(e.target.dataset.f){filt=e.target.dataset.f;render()}};
 $("badges").onclick=e=>{const s=e.target.dataset.s;

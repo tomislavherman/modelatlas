@@ -4,12 +4,14 @@
 const fs = require("fs");
 
 const html = fs.readFileSync(`${__dirname}/index.html`, "utf8");
-const src = html.slice(html.indexOf("const KC="), html.indexOf("let filt="));
+// Everything from the first constant to the first piece of view state: the data
+// and the date/badge helpers, with none of the DOM code that follows them.
+const src = html.slice(html.indexOf("const KC="), html.indexOf("let view="));
 // badge() picks its colours from the current theme, so the sandbox needs a
 // matchMedia. It reports light; the label badge() returns is the same either way.
 const evalPage = names =>
   new Function("matchMedia", `${src}; return {${names}}`)(() => ({ matches: false }));
-const { D, NOW, badge, fresh, retired, dates } = evalPage("D,NOW,badge,fresh,retired,dates");
+const { D, H, NOW, badge, fresh, retired, dates } = evalPage("D,H,NOW,badge,fresh,retired,dates");
 
 const TAGS = ["image", "video", "world", "avatar", "robotics",
   "audio:speech", "audio:music", "audio:sfx",
@@ -65,11 +67,32 @@ for (const co of D) {
   }
 }
 
+// The changelog is append-only history: entries are never rewritten, so the
+// only things worth asserting are that each one is well formed and that the
+// array stays sorted newest first, which is the order the view renders in.
+const EVT = ["added", "announced", "retired"];
+const companies = new Set(D.map(co => co.c));
+let prevDay = null;
+for (const e of H) {
+  const at = `changelog ${e.y} ${e.c} / ${e.n}`;
+  check(EVT.includes(e.t), `${at}: type "${e.t}" is not one of ${EVT.join(" / ")}`);
+  check(/^20\d\d-\d\d-\d\d$/.test(e.y), `${at}: date is not YYYY-MM-DD — "${e.y}"`);
+  check(companies.has(e.c), `${at}: no company card named "${e.c}"`);
+  check(e.n && typeof e.x === "string", `${at}: needs a model name and an x (use "")`);
+  check(e.k.length && e.k.every(t => TAGS.includes(t)), `${at}: bad category tag in ${JSON.stringify(e.k)}`);
+  if (e.u) check(e.u.startsWith("https://"), `${at}: link is not https — ${e.u}`);
+  if (prevDay) check(e.y <= prevDay, `${at}: out of order — the changelog runs newest first`);
+  prevDay = e.y;
+}
+
 const counts = {};
 for (const co of D) for (const m of co.m) { const l = label(m.d) || "none"; counts[l] = (counts[l] || 0) + 1; }
+const evc = H.reduce((a, e) => (a[e.t] = (a[e.t] || 0) + 1, a), {});
 
 console.log(`${D.length} companies, ${D.reduce((a, c) => a + c.m.length, 0)} models, NOW = ${stamp(NOW)}`);
 console.log(`badges: ${Object.entries(counts).map(([k, v]) => `${k} ${v}`).join(", ")}`);
+console.log(`changelog: ${H.length} entries, ${new Set(H.map(e => e.y)).size} days, `
+  + `${Object.entries(evc).map(([k, v]) => `${k} ${v}`).join(", ")}, newest ${H[0].y}`);
 for (const co of D) for (const m of co.m) {
   const l = label(m.d);
   if (l) console.log(`  ${l.padEnd(9)} ${co.c} / ${m.n}  [${m.d}]`);

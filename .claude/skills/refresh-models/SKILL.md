@@ -162,15 +162,54 @@ outside a retirement clause reads as a *release*, so "Pro reroutes to
 V4.1-Flash 14 Sep 2026" would have earned a New badge where "Pro discontinued
 14 Sep 2026" correctly earns none.
 
-## 5. Write the entries
+## 5. Write the entries — in both arrays
+
+Every finding is written **twice**: once as state in `D`, once as history in
+`H`. A run that edits `D` and not `H` leaves the changelog silently wrong, and
+because `H` is append-only there is no later run that will notice and fix it.
+
+### 5a. `D` — the model list
 
 Follow the schema in CLAUDE.md. The parts most often got wrong:
 
 - Dates go in `d`, prose goes in `x`. A date in `x` is invisible to the sort
   and to every badge.
-- Both sides of `→` spelled out in full.
+- One card per version — a new version is a new card, never `→` appended to
+  the card already there. Names spelled out in full.
 - `k[0]` sets the card colour — primary modality first.
 - Link the page for that model, never a `/models` listing page.
+
+### 5b. `H` — the changelog
+
+One entry at the **top** of `H` for each change you just made, newest first:
+
+```js
+{t:"added",y:"2026-09-10",c:"OpenAI",n:"GPT-Live-1 / GPT-Live-1 mini",
+ k:["audio:speech"],x:"Full-duplex speech-to-speech …",u:"https://…"},
+```
+
+- `y` is **today**, the day this run is writing the page — not the model's
+  release date. The changelog answers "when did the atlas learn this", and it
+  is the only date in the repo that works that way. A model that shipped in
+  July and that you are recording in September gets `2026-09`.
+- `t` is `added` for a model or version now listed as shipped, `announced` for
+  one recorded before it ships, `retired` for one whose shutdown date has
+  **passed** — a future shutdown is not a retirement and earns no entry, the
+  same way it earns no badge. Log it when the date arrives.
+- An announced model that ships later gets a second entry, `added`, on the day
+  it ships. Both stay: that is the history.
+- `c` has to match a company `c` in `D` exactly, and `n` names the version
+  that changed, not the whole line.
+- Copy `k`, `x` and `u` from the card as you just wrote it. They are a
+  snapshot, not a reference — later edits to the model must not reach back and
+  change what the changelog says happened.
+
+Do **not** log restructuring. Splitting a card, rewording an `x`, fixing a
+link or renaming for clarity changes the page without changing the world, and
+the changelog only carries the three things above. The September split turned
+197 cards into 283 and correctly produced zero entries.
+
+Never edit or delete an existing entry. Correct a wrong one by appending.
 
 ## 6. Bump the compile date
 
@@ -197,9 +236,19 @@ Then look at the page, since `check.js` cannot see layout:
 python3 -m http.server 8731    # Chrome blocks file:// URLs
 ```
 
-Confirm the new entries sit where expected, the badge counts match what you
-added, and nothing old picked up a badge by accident. Check the links you added
-actually resolve to that model's page, not a listing.
+`check.js` prints both arrays' counts. Confirm the new entries sit where
+expected, the badge counts match what you added, and nothing old picked up a
+badge by accident. Check the links you added actually resolve to that model's
+page, not a listing.
+
+Then open the **Changelog** tab and confirm today's entries are at the top,
+one per change and no more. The two views are filtered by the same bar, so
+also check one category in both — a tag you got wrong in `H` will hide the
+entry under a filter where its model still shows.
+
+The two counts are not meant to match. The model list shows current state and
+the changelog shows what happened, so a retirement logged once against a
+grouped card can correspond to several Retired badges today.
 
 ## 8. Commit and push
 
@@ -259,3 +308,8 @@ Say what changed and what you looked for and did not find — "no new music
 models in August" is a result. Name the sources for each added or changed
 entry. Flag anything you could not source rather than writing a confident
 version number.
+
+State the changelog entries you appended, and say so explicitly when you
+appended none. A run that edited `D` and reported nothing about `H` is the
+failure mode to watch for: the two arrays drift apart silently, and the
+history cannot be reconstructed afterwards from the page alone.
