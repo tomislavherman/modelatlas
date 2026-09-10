@@ -314,6 +314,9 @@ const D=[
 {n:"Cassette SFX",k:["audio:sfx"],d:"2025",x:"Sub-50ms on-device SDK",u:"https://cassetteai.com"}]},
 {c:"Sony AI",r:"JP",f:"2020",n:"Sony Group",u:"https://ai.sony",m:[
 {n:"Woosh",k:["audio:sfx"],d:"May 2026",x:"Sound effect foundation model for games and film, text-to-audio and video-to-audio; a studio model trained on licensed libraries stays private, while the same architecture trained on public data ships as open weights under CC-BY-NC",u:"https://github.com/SonyResearch/Woosh"}]},
+{c:"Sonilo",r:"US",f:"unknown",n:"independent",u:"https://sonilo.com",m:[
+{n:"Sonilo v1.0 → v1.1",k:["audio:music"],d:"May 2026 → Jun 2026",x:"Video-to-music with no text prompt: reads a clip's pacing, motion and emotional arc, then scores it to the exact duration so nothing has to be trimmed or looped; trained only on licensed catalogues, Shutterstock's among them"},
+{n:"Sonilo Sound Effects 1.0",k:["audio:sfx"],d:"Jul 2026",x:"Sound effects from video or text, timed to on-screen movement and scene context rather than dropped in flat; fal took it as exclusive API launch partner"}]},
 {c:"HeyGen",r:"US",f:"2020",n:"independent",u:"https://www.heygen.com",m:[
 {n:"Avatar IV → Avatar V",k:["avatar"],d:"2025 → Apr 2026",x:"Digital twin from a 15-second clip, lip-sync in 175+ languages",u:"https://www.heygen.com/avatars"}]},
 {c:"Synthesia",r:"UK",f:"2017",n:"independent",u:"https://www.synthesia.io",m:[
@@ -469,7 +472,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 $("badges").innerHTML=STATS.map(([v,l])=>`<button data-s="${v}">${l}</button>`).join("");
-$("stamp").textContent="Compiled 9 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 10 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
