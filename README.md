@@ -8,11 +8,17 @@ Live: https://tomislavherman.github.io/modelatlas/
 
 Everything lives in `index.html`. No build step, no dependencies.
 
-The page has two views over one filter bar. **Models** is the index of what
-exists, grouped by company. **Changelog** is the flat, dated stream of what
-changed — models added, announced or retired — newest first. The category,
-subcategory, status and search filters apply to whichever view is showing, so
-switching views keeps your question and changes only what answers it.
+The page has two tabbed views. **Models** is the index of what exists, grouped
+by company. **Changelog** is the flat, dated stream of what changed — models
+added, announced or retired — newest first, with the kind of change shown in a
+gutter beside each card rather than as a tag on it.
+
+Category, subcategory and search sit above the tabs and are shared, so
+switching views keeps your question. The status row sits under the tabs and
+belongs to its view: **New / Announced / Retired** for the model list, and
+**Listed / Slated / Ended** for the changelog. The two sets are the same three
+states named differently — one describes what a model is, the other what
+happened to it — and each view remembers its own selection.
 
 - **Companies and models** — the `D` array. Each entry is `{c, r, f, n, u, m}`: company, region, founded, ownership, official site, models.
 - **Changelog** — the `H` array. Each entry is `{t, y, c, n, k, x, u}`: type

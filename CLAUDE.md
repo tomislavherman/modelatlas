@@ -43,9 +43,21 @@ is not a release date. `y` is the day the change landed *in this page*,
 `YYYY-MM-DD`, which is why a model released in 2024 can carry a 2026 entry: it
 records when the atlas learned of it, not when the vendor shipped it.
 
-`t` is `added`, `announced` or `retired`. Those map onto the three badges, so
-one status filter drives both views; only the label differs, `New` in the
-model list against `Added` in the changelog.
+`t` is `added`, `announced` or `retired` in the data, but the page shows those
+three as **Listed**, **Slated** and **Ended**. The rename is deliberate: the
+model list's New / Announced / Retired describe what a model *is* right now,
+and the changelog's three describe what happened to it on a day. Different
+words mean a reader never has to work out which of the two they are reading.
+Both sets share the three status colours, since they are the same three
+states seen from different angles.
+
+The state names are display-only — `t` in the data stays `added` /
+`announced` / `retired`, and that is what you write in `H`.
+
+The status row belongs to its view and sits under the tabs, so each view keeps
+its own selection: filtering the model list to Retired does not filter the
+changelog to Ended. Category, subcategory and search sit above the tabs and
+are shared, because "show me audio" means the same thing to both.
 
 `n` names the version that changed, `c` the company (it must match a `c` in
 `D`, and `check.js` enforces that). `k`, `x` and `u` are the model's tags,

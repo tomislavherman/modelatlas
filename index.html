@@ -69,20 +69,36 @@ stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
 .nw{font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.04em;
 text-transform:uppercase;margin-left:6px;padding:1px 5px;border-radius:4px;
 vertical-align:1px}
-.views{display:flex;gap:6px;margin-bottom:14px}
-.views button{font-size:13px;padding:5px 14px}
+/* Real tabs: a strip that the active tab sits on rather than a pair of pills,
+   so the panel below reads as belonging to the chosen one. */
+.views{display:flex;gap:2px;border-bottom:1px solid var(--line2);margin:22px 0 12px}
+.views button{background:none;border:none;border-bottom:2px solid transparent;
+border-radius:0;margin-bottom:-1px;padding:8px 15px;font-size:13.5px;color:var(--tx3)}
+.views button:hover{background:var(--sunk);color:var(--tx2)}
+.views button[aria-selected="true"]{background:none;color:var(--tx);font-weight:500;
+border-bottom-color:var(--tx)}
 /* A changelog entry is one dated change, standing on its own rather than
    nested under a company heading, so it repeats the company name that the
-   model list gets to say once per card. */
+   model list gets to say once per card. The kind of change is deliberately
+   *not* drawn like a model tag: it sits outside the card in its own gutter,
+   as a dot and a word, so the two vocabularies never look interchangeable. */
+.evrow{display:grid;grid-template-columns:80px 1fr;gap:10px;align-items:start}
+.evmark{display:flex;align-items:center;justify-content:flex-end;gap:6px;
+font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.07em;
+text-transform:uppercase;padding-top:14px;white-space:nowrap}
+.evmark .dot{width:7px;height:7px;border-radius:50%;flex:none}
 .ev{background:var(--card);border:1px solid;border-left-width:3px;
 border-radius:0 12px 12px 0;padding:11px 14px;display:flex;align-items:flex-start;gap:10px}
 .ev .l{flex:1;min-width:0}
-.ev .top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:2px}
-.ev .day{font-family:var(--mono);font-size:11px;color:var(--tx3);letter-spacing:.02em;
-flex-shrink:0}
-.ev .who{font-family:var(--mono);font-size:11px;color:var(--tx2);letter-spacing:.01em}
+.ev .top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:3px}
+.ev .day{font-family:var(--mono);font-size:10.5px;color:var(--tx2);background:var(--sunk);
+padding:2px 7px;border-radius:4px;letter-spacing:.03em;flex:none}
+.ev .who{font-size:13.5px;font-weight:600;color:var(--tx);letter-spacing:-.01em}
 .ev .n{font-size:13.5px;font-weight:500;line-height:1.35}
 .ev .x{font-size:12.5px;opacity:.82;margin-top:4px;line-height:1.45}
+@media (max-width:560px){
+.evrow{grid-template-columns:1fr;gap:5px}
+.evmark{justify-content:flex-start;padding:0 0 0 2px}}
 .none{font-size:13px;color:var(--tx3);margin-top:9px;font-style:italic}
 footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);
 font-size:12.5px;color:var(--tx3);line-height:1.6}
@@ -102,16 +118,17 @@ a:focus-visible{outline:2px solid #378ADD;outline-offset:2px;border-radius:3px}
 </header>
 
 <div>
-<div class="views" id="views" role="group" aria-label="View"></div>
 <div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
 <div class="subs" id="subs" role="group" aria-label="Filter by subcategory"></div>
-<div class="badges" id="badges" role="group" aria-label="Filter by release status"></div>
 <label class="sr" for="q">Search companies and models</label>
 <input id="q" type="search" placeholder="Search a company or model…" autocomplete="off">
-<p class="count" id="count"></p>
 </div>
 
-<div id="out"></div>
+<div class="views" id="views" role="tablist" aria-label="View"></div>
+<div class="badges" id="badges" role="group" aria-label="Filter by status"></div>
+<p class="count" id="count"></p>
+
+<div id="out" role="tabpanel"></div>
 
 <footer id="foot"></footer>
 </div>
@@ -821,6 +838,8 @@ const announced=d=>{const t=d.replace(RETIRED,"");
 // reads the same function as the badge, so the two can never disagree about
 // what a model is: a retired model is not also offered under Announced.
 const status=d=>retired(d)?"retired":announced(d)?"announced":fresh(d)?"new":"";
+// The model list's three words, used by the badge on a card and by the status
+// row under the Models tab. The changelog's three are in STATF below.
 const STATS=[["new","New"],["announced","Announced"],["retired","Retired"]];
 const NWLAB=Object.fromEntries(STATS);
 // [fill, text on that fill, outline] per status, light then dark — the same
@@ -839,49 +858,53 @@ const badge=d=>{const s=status(d);if(!s)return"";const c=ncol(s);
 // keeps the question you were asking and changes only what answers it.
 let view="models",filt="all",term="";
 const VIEWS=[["models","Models"],["log","Changelog"]];
-// A changelog entry's type is the model status it corresponds to, so one status
-// filter serves both views. Only the label for "new" differs: in the model list
-// it means released this month, in the changelog it means added to the page.
-const evStat=e=>e.t==="added"?"new":e.t;
-const STATLAB={models:{new:"New",announced:"Announced",retired:"Retired"},
- log:{new:"Added",announced:"Announced",retired:"Retired"}};
+// The changelog names its three states differently on purpose. The model list
+// says what a model *is* right now; the changelog says what happened to it on
+// a given day, and a reader should be able to tell which of the two they are
+// looking at without reading the words twice. Same three underlying states, so
+// they keep the same three colours.
+const STATF={
+ models:STATS,
+ log:[["added","Listed"],["announced","Slated"],["retired","Ended"]]};
+const STATC={new:"new",added:"new",announced:"announced",retired:"retired"};
+const LOGLAB=Object.fromEntries(STATF.log);
 const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const day=y=>+y.slice(8)+" "+MONTHS[+y.slice(5,7)-1]+" "+y.slice(0,4);
-// Any-of, unlike the category row: an empty set means every model, and New
-// plus Announced together is the "what is happening now" view.
-const stats=new Set();
+// Any-of, unlike the category row: an empty set means everything. Each view
+// keeps its own set, because the row belongs to the view it sits under.
+const stats={models:new Set(),log:new Set()};
 const $=id=>document.getElementById(id);
 const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`:esc(t);
 
-$("views").innerHTML=VIEWS.map(([v,l])=>`<button data-v="${v}">${l}</button>`).join("");
+$("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</button>`).join("");
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
-$("badges").innerHTML=STATS.map(([v])=>`<button data-s="${v}"></button>`).join("");
 $("stamp").textContent="Compiled 10 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
-function matchStat(m){return !stats.size||stats.has(status(m.d))}
+function matchStat(m){const s=stats.models;return !s.size||s.has(status(m.d))}
 function matchTerm(co,m){
  if(!term)return true;
  return (co.c+" "+co.n+" "+m.n+" "+m.d+" "+m.x).toLowerCase().includes(term);}
 function matchEv(e){
- return matchCat(e)&&(!stats.size||stats.has(evStat(e)))
+ return matchCat(e)&&(!stats.log.size||stats.log.has(e.t))
   &&(!term||(e.c+" "+e.n+" "+e.x).toLowerCase().includes(term));}
 
-// The filter bar is shared, so only the parts that differ per view are redrawn.
+// Category, subcategory and search are shared and stay put. The status row is
+// rebuilt on every view change, because its keys and its labels both differ.
 function paintBar(){
  const sf=SUBF[base(filt)];
  $("subs").innerHTML=sf?sf.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join(""):"";
  $("subs").style.display=sf?"flex":"none";
  document.querySelectorAll("#views button").forEach(b=>
-  b.setAttribute("aria-pressed",b.dataset.v===view));
+  b.setAttribute("aria-selected",b.dataset.v===view));
  // Status buttons wear their own badge colour, the same way the category
  // buttons wear theirs: outlined when off, filled when on.
+ $("badges").innerHTML=STATF[view].map(([v,l])=>`<button data-s="${v}">${l}</button>`).join("");
  document.querySelectorAll("#badges button").forEach(b=>{
-  const on=stats.has(b.dataset.s),c=ncol(b.dataset.s);
-  b.textContent=STATLAB[view][b.dataset.s];
+  const on=stats[view].has(b.dataset.s),c=ncol(STATC[b.dataset.s]);
   b.setAttribute("aria-pressed",on);
   b.style.cssText=on?`background:${c.fill};color:${c.on};border-color:${c.fill}`
    :`color:${c.fill};border-color:${c.ln}`;});
@@ -905,14 +928,15 @@ function renderLog(){
  const days=new Set(es.map(e=>e.y));
  $("count").textContent=es.length+" change"+(es.length===1?"":"s")+" · "+days.size+" day"+(days.size===1?"":"s");
  $("out").innerHTML=es.length?`<div class="grid">${es.map(e=>{
-  const c=col(e.k[0]),s=evStat(e),nc=ncol(s);
-  return `<article class="ev" style="border-color:${c.ln}">
+  const c=col(e.k[0]),nc=ncol(STATC[e.t]);
+  return `<div class="evrow">
+   <div class="evmark" style="color:${nc.fill}"><span class="dot" style="background:${nc.fill}"></span>${LOGLAB[e.t]}</div>
+   <article class="ev" style="border-color:${c.ln}">
    <div class="l"><div class="top"><span class="day">${esc(day(e.y))}</span>
-   <span class="who">${esc(e.c)}</span>
-   <span class="nw" style="background:${nc.fill};color:${nc.on};margin-left:0">${STATLAB.log[s]}</span></div>
+   <span class="who">${esc(e.c)}</span></div>
    <div class="n" style="color:${c.fg}">${link(e.n,e.u)}</div>
    ${e.x?`<div class="x" style="color:${c.fg}">${esc(e.x)}</div>`:""}</div>
-   <div class="tags">${tagsOf(e.k)}</div></article>`}).join("")}</div>`
+   <div class="tags">${tagsOf(e.k)}</div></article></div>`}).join("")}</div>`
   :`<p class="none">No changes match that. Try a different term or clear the filter.</p>`;}
 
 function render(){
@@ -923,7 +947,7 @@ function render(){
  const cards=D.map(co=>{
   const ms=co.m.filter(m=>matchCat(m)&&matchStat(m)&&matchTerm(co,m)).sort((a,b)=>cmpDate(a.d,b.d));
   const nameHit=term&&co.c.toLowerCase().includes(term);
-  if((filt!=="all"||term||stats.size)&&!ms.length&&!(nameHit&&!co.m.length))return null;
+  if((filt!=="all"||term||stats.models.size)&&!ms.length&&!(nameHit&&!co.m.length))return null;
   nc++;nm+=ms.length;
   const body=ms.length?ms.map(m=>{const c=col(m.k[0]);
    return `<div class="m" style="border-color:${c.ln}">
@@ -944,7 +968,7 @@ $("views").onclick=e=>{if(e.target.dataset.v){view=e.target.dataset.v;render()}}
 $("filters").onclick=e=>{if(e.target.dataset.f){filt=e.target.dataset.f;render()}};
 $("subs").onclick=e=>{if(e.target.dataset.f){filt=e.target.dataset.f;render()}};
 $("badges").onclick=e=>{const s=e.target.dataset.s;
- if(s){stats.has(s)?stats.delete(s):stats.add(s);render()}};
+ if(s){const S=stats[view];S.has(s)?S.delete(s):S.add(s);render()}};
 $("q").oninput=e=>{term=e.target.value.trim().toLowerCase();render()};
 matchMedia("(prefers-color-scheme:dark)").addEventListener("change",render);
 render();
