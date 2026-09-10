@@ -120,7 +120,7 @@ a:focus-visible{outline:2px solid #378ADD;outline-offset:2px;border-radius:3px}
 <div class="wrap">
 <header>
 <h1>modelatlas</h1>
-<p class="sub">An index of AI generative models — image, video, audio, world, avatar, text and robotics — mapped to the companies behind them, with release dates.</p>
+<p class="sub">An index of AI generative models and the companies behind them, with release dates and a dated log of every change.</p>
 <p class="stamp" id="stamp"></p>
 </header>
 
@@ -886,6 +886,18 @@ const STATC={new:"new",added:"new",announced:"announced",retired:"retired"};
 const LOGLAB={added:"Addition",announced:"Announcement",retired:"Retirement"};
 const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const day=y=>+y.slice(8)+" "+MONTHS[+y.slice(5,7)-1]+" "+y.slice(0,4);
+// How fresh a change is, warmest first: today and yesterday, then the rest of
+// the week, then everything older in the ordinary text colour.
+//
+// This is the one thing on the page measured against the reader's own clock
+// rather than the NOW constant, and deliberately so. NOW is pinned to the
+// compile date because a badge has to be reviewable and stable; recency is a
+// question about the moment you are looking, so a page that stops being
+// rebuilt should go quiet rather than sit there permanently red. Rounding,
+// not flooring, so a clock crossing daylight saving does not shift a day.
+function dayCol(y,today){
+ const a=Math.round((today-new Date(y+"T00:00:00"))/864e5);
+ return a<=1?ncol("new").fill:a<=7?ncol("announced").fill:"";}
 // Any-of, unlike the category row: an empty set means everything. Each view
 // keeps its own set, because the row belongs to the view it sits under.
 const stats={models:new Set(),log:new Set()};
@@ -944,13 +956,13 @@ function tagsOf(k){return k.map(t=>{const tc=col(t);
 // change, not the company, and the same change can involve a company that has
 // nothing else happening that week.
 function renderLog(){
- const es=H.filter(matchEv);
- const days=new Set(es.map(e=>e.y));
- $("count").textContent=es.length+" change"+(es.length===1?"":"s")+" · "+days.size+" day"+(days.size===1?"":"s");
+ const es=H.filter(matchEv),n=new Date();
+ const today=new Date(n.getFullYear(),n.getMonth(),n.getDate());
+ $("count").textContent=es.length+" change"+(es.length===1?"":"s");
  $("out").innerHTML=es.length?`<div class="grid">${es.map(e=>{
-  const c=col(e.k[0]),nc=ncol(STATC[e.t]);
+  const c=col(e.k[0]),nc=ncol(STATC[e.t]),dc=dayCol(e.y,today);
   return `<div class="evrow">
-   <div class="evside"><span class="evday">${esc(day(e.y))}</span>
+   <div class="evside"><span class="evday"${dc?` style="color:${dc}"`:""}>${esc(day(e.y))}</span>
    <span class="evmark" style="color:${nc.fill}"><span class="dot" style="background:${nc.fill}"></span>${LOGLAB[e.t]}</span></div>
    <article class="ev" style="border-color:${c.ln}">
    <div class="l"><span class="who">${esc(e.c)}</span>

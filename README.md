@@ -1,6 +1,6 @@
 # modelatlas
 
-An index of AI generative models — image, video, audio, world/3D, avatar, text and robotics — mapped to the companies behind them, with release dates.
+An index of AI generative models and the companies behind them, with release dates and a dated log of every change.
 
 Live: https://tomislavherman.github.io/modelatlas/
 
