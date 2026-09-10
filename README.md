@@ -15,10 +15,17 @@ Everything lives in `index.html`. No build step, no dependencies.
   there and prose belongs in `x`. `x` may be `""`. `u` is optional; a model
   without one links to its company's `u` instead, and a company without `u`
   renders as plain text.
-- **Naming** — `→` marks a version progression and both sides are spelled out
-  in full (`Aleph → Aleph 2.0`, not `Aleph → 2.0`), except where a product name
-  prefixes bare version numbers (`Suno v1 → v5.5`). `/` marks sibling models
-  released as a set (`Aura 2 / Nova 3`), not a progression.
+- **One card per version** — a card is one release, and a new version gets its
+  own card rather than an arrow appended to the card already there. Badges are
+  computed per card, so a version sharing a card with its successor could never
+  be badged Retired on its own; splitting is what lets the page show DALL·E,
+  Imagen and Suno v1 as switched off while their successors run. The one
+  exception is two names with a single date between them, where splitting would
+  mean inventing the second date — `MuseSteamer → MuseSteamer 2.0` on `2025`.
+  `check.js` fails anything more than that.
+- **Naming** — version names are spelled out in full: `Aleph` and `Aleph 2.0`,
+  never a bare `2.0`. `/` marks sibling models released as one set on one date
+  (`Aura 2 / Nova 3`), which do share a card.
 - **Dates in `d`** — the lifecycle only: when it shipped, when later versions
   shipped, and when it dies. `2023 → Jun 2026`, `Dec 2024, EOL Sep 2026`.
   A feature that arrived on its own date is a detail, so it goes in `x`
@@ -42,7 +49,7 @@ Everything lives in `index.html`. No build step, no dependencies.
     `planned`, or names a month still in the future. These are models with no
     shipped version yet.
   - **New**, when the line names an explicit month equal to the current month,
-    August 2026 for this build. A bare year such as `2024 → 2026` carries no
+    September 2026 for this build. A bare year such as `2024 → 2026` carries no
     month and is never badged New.
 
   The current month is the `NOW` constant in `index.html`; move it forward

@@ -9,7 +9,7 @@ const src = html.slice(html.indexOf("const KC="), html.indexOf("let filt="));
 // matchMedia. It reports light; the label badge() returns is the same either way.
 const evalPage = names =>
   new Function("matchMedia", `${src}; return {${names}}`)(() => ({ matches: false }));
-const { D, NOW, badge, fresh, retired } = evalPage("D,NOW,badge,fresh,retired");
+const { D, NOW, badge, fresh, retired, dates } = evalPage("D,NOW,badge,fresh,retired,dates");
 
 const TAGS = ["image", "video", "world", "avatar", "robotics",
   "audio:speech", "audio:music", "audio:sfx",
@@ -54,6 +54,14 @@ for (const co of D) {
     if (m.u) check(m.u.startsWith("https://"), `${at}: link is not https — ${m.u}`);
     // Retired and Announced are contradictory; badge() picks one, so this catches bad data.
     check(!(retired(m.d) && fresh(m.d)), `${at}: reads as both Retired and New — d="${m.d}"`);
+    // One card is one release. A card may name two versions across "→" only
+    // when it has a single release date to hang them on (Baidu's MuseSteamer);
+    // the moment the second version has a date of its own it needs its own
+    // card, or its retirement can never be badged separately from the first's.
+    const versions = m.n.split("→").length;
+    check(versions <= 2, `${at}: names ${versions} versions — one card per version, at most one "→"`);
+    check(versions === 1 || dates(m.d).length <= 1,
+      `${at}: names two versions and dates both — split it into one card per version. d="${m.d}"`);
   }
 }
 

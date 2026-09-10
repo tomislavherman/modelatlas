@@ -107,28 +107,38 @@ number, compare it with the version in the entry's `n` and the last date in
 its `d`. The entry is current only if `d` already names a month at or after
 the release. Gemini Omni 1.1 Flash shipped on 27 Aug 2026; the atlas held
 `Gemini Omni` with `d:"May 2026"`, the grep hit, and two daily runs treated it
-as already listed. The right edit was `Gemini Omni Flash → Gemini Omni 1.1
-Flash` with `May 2026 → Aug 2026`.
+as already listed. The right edit was a new `Gemini Omni 1.1 Flash` card on
+`Aug 2026`, beside the `Gemini Omni Flash` card it succeeds.
 
 | Finding | Edit |
 |---|---|
-| New version of a listed model | extend `d`: `Jul 2026` → `Jul 2026 → Aug 2026` |
+| New version of a listed model | **a new card of its own**, next to the version it succeeds |
 | Genuinely new model | new `{n, k, d, x, u}` in that company's `m` |
 | Company absent entirely | new card — Microsoft was missing with four shipped models |
 | Announced, not shipped | `d: "announced …"`, no invented ship date |
-| Retired or shut down | add the retirement clause to `d` |
+| Retired or shut down | add the retirement clause to the **retired version's own card** |
 | A product wrapping someone else's model | skip |
 
-Chat and coding models version faster than anything else on the page. OpenAI
-shipped six point releases of GPT-5 in eleven months. One entry per point
-release would bury every other category, so a point release extends the `d`
-line of the progression already there — `Aug 2025 → Jul 2026` — and the entry
-names the endpoints rather than every version in between.
+**One card is one release.** A new version never extends the card of the
+version before it — see "One card per version" in CLAUDE.md for why, and for
+the single `→`-in-`n` case that survives. This reverses the rule that stood
+until September 2026, which folded point releases into the `d` line of the
+progression already there. That kept the page short and made the badges lie:
+a version that had been switched off could not show Retired while it shared a
+card with a live successor.
+
+Chat and coding models version faster than anything else on the page — OpenAI
+shipped six point releases of GPT-5 in eleven months — so the catalogue is
+long and that is fine. What still does **not** earn a card is a version the
+page cannot date: name the releases you have a sourced date for and let the
+ones in between go unlisted, exactly as `GPT-5` and `GPT-5.6` sit beside each
+other with nothing between them. Never manufacture a date to justify a split.
 
 A model reaching general availability, gaining audio, or going open weights is
-a `d` or `x` edit on the existing entry, not a second entry. A genuinely
-separate model with its own name and weights is a new entry — FLUX 3 and
-FLUX 3 Dev are separate; FLUX 3's video GA is not.
+a `d` or `x` edit on that version's existing card, not a second card. A new
+**version** is a new card; a new **state of the same version** is not. FLUX 3
+and FLUX 3 Dev are separate cards; FLUX 3's video GA is `→ video GA Aug 2026`
+on the FLUX 3 card.
 
 ## 4. Sweep retirements too
 
@@ -141,8 +151,16 @@ the **predecessor** is still available. Superseded is not the same as dead:
 Whisper, Stable Diffusion and CogVideoX are all superseded and all still
 shipping. Only add a retirement clause when there is a shutdown notice.
 
+The predecessor now has its own card, so put the clause there and leave the
+successor's card alone. When a vendor retires part of a line, that split is
+what lets the page say so: DeepSeek's V4-Flash tiers were removed the same day
+V4.1-Flash shipped, and the two cards carry Retired and New independently.
+
 Word the clause with a term `RETIRED` already matches, or add the new term to
-that regex — see CLAUDE.md.
+that regex — see CLAUDE.md. Check the wording strips cleanly: a date left
+outside a retirement clause reads as a *release*, so "Pro reroutes to
+V4.1-Flash 14 Sep 2026" would have earned a New badge where "Pro discontinued
+14 Sep 2026" correctly earns none.
 
 ## 5. Write the entries
 
