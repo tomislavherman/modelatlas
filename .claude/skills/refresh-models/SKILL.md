@@ -9,8 +9,9 @@ allowed-tools: Bash, Read, Edit, Write, Grep, WebSearch, WebFetch
 Read `CLAUDE.md` in this repo first — it holds the schema, the naming rules and
 the date-parsing traps. This skill is the procedure; that file is the reference.
 
-The output is an edit to the `D` array in `index.html` plus a bumped compile
-date. Finish with `node check.js` passing.
+The output is an edit to the `D` and `H` arrays in `index.html` plus a bumped
+compile date, and — when the sweep turns one up — a new source appended to
+this file's own lists. Finish with `node check.js` passing.
 
 ## 1. Establish the window
 
@@ -53,10 +54,10 @@ they make is in scope.
 - https://qwen.ai/blog
 - https://seed.bytedance.com/en/blog
 - https://bfl.ai/blog
-- https://runwayml.com/news
+- https://runway.com/news
 - https://lumalabs.ai/blog
 - https://elevenlabs.io/blog
-- https://stability.ai/news
+- https://stability.ai/news-updates
 
 Then read the API changelogs. A point release such as Gemini Omni 1.1 Flash
 gets a developer-blog post and a changelog line, not a headline, and the
@@ -64,7 +65,7 @@ changelog names the exact model ID with the exact date:
 
 - https://ai.google.dev/gemini-api/docs/changelog and https://developers.googleblog.com/
 - https://platform.claude.com/docs/en/release-notes/overview
-- https://platform.openai.com/docs/changelog
+- https://developers.openai.com/api/docs/changelog
 - https://docs.mistral.ai/getting-started/changelog/
 
 Also read https://platform.claude.com/docs/en/about-claude/model-deprecations
@@ -95,6 +96,84 @@ before concluding nothing shipped. Quiet months are real, but so are misses.
 cannot be written from memory. Vendor announcement pages and the vendor's own
 docs beat aggregator blogs; aggregators disagree with each other on dates
 (GPT Transcribe was reported as both 28 Jul and 5 Aug 2026).
+
+### Grow the source list
+
+**The two lists above are part of the output, not just the input.** They are
+the fastest-staling thing in this file: labs appear, newsrooms move, a vendor
+quiet for a year starts shipping monthly. Every run leaves them a little
+better than it found them, by editing this file.
+
+**The strongest trigger is a miss.** When the category searches — or anything
+downstream — turn up a model the newsroom pass should have caught, that is not
+a lucky save, it is a hole in the list. Work backwards from every finding you
+made today: which source *should* have carried it, and was that source listed?
+If it was listed and you read it, fine. If it was not, that vendor's newsroom
+is the thing to add.
+
+Three cheaper triggers, worth a look every run:
+
+- **Domains in the search results.** You are already running the category
+  searches; read them for vendor domains as well as for models. A lab whose
+  own site keeps appearing and is on neither list is a candidate.
+- **A company in `D` with no source.** Check the ten or so newest company
+  cards, not all sixty-six. A company added last week almost never gets its
+  newsroom added at the same time.
+- **A source that has moved.** A 404, or a redirect landing somewhere generic,
+  means the newsroom has a new home. Find it and fix the URL in place rather
+  than deleting the line.
+
+Then **one dedicated query per run**, no more, aimed at labs rather than
+models: something like `AI lab launches first model <Month> <Year>`. One query
+is the budget; this is a background task, not the point of the run.
+
+#### A source earns its place only if all of this holds
+
+- You **fetched it in this run** and it returned real content. Never write down
+  a URL you guessed at, pattern-matched from another vendor, or only saw cited
+  somewhere else.
+- It is on the **vendor's own domain**. Not an aggregator, a newsletter, a
+  mirror, a Medium account or a press-release wire.
+- It is a **dated index** — posts or changelog lines with dates on them. Not a
+  `/models` listing, not a product page. Same reason model links point at a
+  model's own page: a page showing what is being promoted today tells you
+  nothing about what changed last Tuesday.
+- It is **not already covered**. A vendor's blog and its newsroom are usually
+  the same posts twice, and fetching both costs a slot for nothing.
+
+Append it as one line in the same format as its neighbours, to whichever list
+it belongs to — newsrooms, or API changelogs. No commentary, no "added on"
+note; git already records that.
+
+**A source you could not reach is not a dead source.** A 403 or an
+`EGRESS_BLOCKED` is a property of the sandbox on the day, not of the page —
+which domains fail moves around, and a domain that blocked last month can
+answer today. Keep the line and fall back to search; never drop a source over
+a failed fetch.
+
+#### Keep the lists bounded
+
+Every entry is a fetch on every future run, so the lists cannot only grow.
+Roughly **24 newsrooms and 8 changelogs** is the ceiling. At the ceiling,
+adding one means dropping one, and the one to drop is decided from data you
+already have in front of you: the listed vendor whose newest model in `D` is
+oldest. A lab that has shipped nothing in a year does not need a daily fetch.
+
+Drop a genuinely dead source at any time, ceiling or not — domain gone, or the
+company folded into another that is already listed.
+
+#### What must never change
+
+This is the one section of this skill that a run may edit, and it may edit
+**only the two source lists** — adding a line, fixing a moved URL, removing a
+dead or superseded one. Never rewrite the procedure, the thresholds, the
+schema rules or this section itself from inside a run, unattended or not. How
+the job works is a decision for a person; which pages the job reads is
+maintenance, and that is the whole difference.
+
+Editing this file does not change the run you are in — the instructions were
+loaded before you edited them, so a source added today is first read tomorrow.
+Commit `SKILL.md` alongside `index.html`, and name the change in the report.
 
 ## 3. Decide what each finding is
 
@@ -260,22 +339,26 @@ grouped card can correspond to several Retired badges today.
 Only when something actually changed. `git diff --quiet && git diff --cached
 --quiet` means nothing moved — say so and stop, do not manufacture a commit.
 
-Two things count as a change worth committing:
+Three things count as a change worth committing:
 
 - **Model data moved.** Bump the compile date to today, commit, push to `main`.
 - **The month rolled over.** Bump `NOW` and the compile date even if no model
   data moved, because last month's New badges expire and this month's appear.
   That is a real visible change to the page.
+- **The source list changed.** A source added, moved or dropped is worth its
+  own commit even on a day the page did not move — it changes what tomorrow's
+  run reads. Do **not** bump the compile date for it: nothing on the page
+  changed, and a bumped date claims otherwise.
 
-Nothing else. A compile date bumped on a day when neither happened is a daily
-empty-looking commit for no reason.
+Nothing else. A compile date bumped on a day when none of those happened is a
+daily empty-looking commit for no reason.
 
 Push to `main` — GitHub Pages publishes this site from `main`, so a branch
 would commit the work without deploying it.
 
 ```sh
 node check.js || exit 1        # never push a failing tree
-git add index.html README.md
+git add index.html README.md .claude/skills/refresh-models/SKILL.md
 git commit -m "feat: <what changed>"
 git push origin HEAD:main
 ```
@@ -299,13 +382,20 @@ A scheduled run has nobody to ask, so:
   version bump of a listed one — take the smaller edit and flag it.
 - If `check.js` fails and the fix is not obvious, revert the working tree and
   report rather than pushing a guess.
+- The source lists in step 2 may be edited unattended; nothing else in this
+  file may. A run that finds itself wanting to change a rule has found
+  something to report, not something to edit.
 
-The scheduled run happens in a cloud sandbox whose egress proxy blocks a
-number of vendor domains — `seed.bytedance.com`, `developers.openai.com` and
-`cnbc.com` have all failed. When `WebFetch` comes back `EGRESS_BLOCKED`, fall
-back to `WebSearch`, corroborate the claim across at least two independent
-reports before writing it, and name in the report which claims rest on
-secondary sources only.
+The scheduled run happens in a cloud sandbox whose egress proxy refuses some
+vendor domains, and **which ones moves around** — do not treat any list of
+them as current. `seed.bytedance.com`, `developers.openai.com` and `cnbc.com`
+have all failed in the past; on 10 Sep 2026 the first two answered fine and
+`openai.com` and `x.ai` were the ones returning 403. Find out by fetching, not
+by assuming.
+
+When `WebFetch` comes back `EGRESS_BLOCKED` or 403, fall back to `WebSearch`,
+corroborate the claim across at least two independent reports before writing
+it, and name in the report which claims rest on secondary sources only.
 
 ## Reporting
 
@@ -318,3 +408,9 @@ State the changelog entries you appended, and say so explicitly when you
 appended none. A run that edited `D` and reported nothing about `H` is the
 failure mode to watch for: the two arrays drift apart silently, and the
 history cannot be reconstructed afterwards from the page alone.
+
+Name any source you added, moved or dropped, and say which finding exposed
+the gap — "Sonilo's releases kept arriving through search, so its blog is now
+on the list" is the useful form. If a finding came from a search and you could
+**not** find a first-party source behind it, report that too: it is the one
+case where the list should have grown and could not.
