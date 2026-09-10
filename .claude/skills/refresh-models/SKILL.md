@@ -196,8 +196,9 @@ One entry at the **top** of `H` for each change you just made, newest first:
   one recorded before it ships, `retired` for one whose shutdown date has
   **passed** — a future shutdown is not a retirement and earns no entry, the
   same way it earns no badge. Log it when the date arrives.
-  The page renders those three as **Listed**, **Slated** and **Ended**; that
-  is display only, and `t` in the data keeps the three names above.
+  The page renders those three as **Addition**, **Announcement** and
+  **Retirement** (plural on the filter buttons); that is display only, and
+  `t` in the data keeps the three names above.
 - An announced model that ships later gets a second entry, `added`, on the day
   it ships. Both stay: that is the history.
 - `c` has to match a company `c` in `D` exactly, and `n` names the version
@@ -247,7 +248,8 @@ Then open the **Changelog** tab and confirm today's entries are at the top,
 one per change and no more. Category and search are shared across the tabs, so
 check one category in both — a tag you got wrong in `H` will hide the entry
 under a filter where its model still shows. The status rows are per-view, so
-check the changelog's own Listed / Slated / Ended row separately.
+check the changelog's own Additions / Announcements / Retirements row
+separately.
 
 The two counts are not meant to match. The model list shows current state and
 the changelog shows what happened, so a retirement logged once against a

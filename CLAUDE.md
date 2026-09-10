@@ -43,20 +43,31 @@ is not a release date. `y` is the day the change landed *in this page*,
 `YYYY-MM-DD`, which is why a model released in 2024 can carry a 2026 entry: it
 records when the atlas learned of it, not when the vendor shipped it.
 
-`t` is `added`, `announced` or `retired` in the data, but the page shows those
-three as **Listed**, **Slated** and **Ended**. The rename is deliberate: the
-model list's New / Announced / Retired describe what a model *is* right now,
-and the changelog's three describe what happened to it on a day. Different
-words mean a reader never has to work out which of the two they are reading.
-Both sets share the three status colours, since they are the same three
-states seen from different angles.
+`t` is `added`, `announced` or `retired` in the data, and the page shows those
+three as **Addition**, **Announcement** and **Retirement** — nouns, where the
+model list uses adjectives. That is the whole trick: the model list says what
+a model *is* right now, and a changelog row *is* an addition, an announcement
+or a retirement. The grammar tells a reader which of the two they are looking
+at, so the words themselves can stay plain instead of reaching for synonyms.
+An earlier pass used Listed / Slated / Ended to force the words apart and read
+like nobody's English. Both sets share the three status colours, since they
+are the same three states seen from different angles.
+
+Singular beside a card, plural on the filter button: one row is an addition,
+the button selects the additions.
 
 The state names are display-only — `t` in the data stays `added` /
 `announced` / `retired`, and that is what you write in `H`.
 
+The day and the kind of change are drawn in a gutter to the **left of the
+card**, not inside it, so the card holds only the model and nothing about the
+change can be mistaken for a category tag. The changelog's filter buttons wear
+the same dot-and-word marker for the same reason: the control looks like what
+it selects. Under 560px the gutter folds into one line above the card.
+
 The status row belongs to its view and sits under the tabs, so each view keeps
 its own selection: filtering the model list to Retired does not filter the
-changelog to Ended. Category, subcategory and search sit above the tabs and
+changelog to Retirements. Category, subcategory and search sit above the tabs and
 are shared, because "show me audio" means the same thing to both.
 
 `n` names the version that changed, `c` the company (it must match a `c` in

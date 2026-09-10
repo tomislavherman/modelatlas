@@ -79,26 +79,33 @@ border-radius:0;margin-bottom:-1px;padding:8px 15px;font-size:13.5px;color:var(-
 border-bottom-color:var(--tx)}
 /* A changelog entry is one dated change, standing on its own rather than
    nested under a company heading, so it repeats the company name that the
-   model list gets to say once per card. The kind of change is deliberately
-   *not* drawn like a model tag: it sits outside the card in its own gutter,
-   as a dot and a word, so the two vocabularies never look interchangeable. */
-.evrow{display:grid;grid-template-columns:80px 1fr;gap:10px;align-items:start}
-.evmark{display:flex;align-items:center;justify-content:flex-end;gap:6px;
-font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.07em;
-text-transform:uppercase;padding-top:14px;white-space:nowrap}
-.evmark .dot{width:7px;height:7px;border-radius:50%;flex:none}
+   model list gets to say once per card. When the change happened and what
+   kind of change it was both live outside the card, in a gutter down the
+   left, which leaves the card itself to describe only the model — and keeps
+   the kind of change from ever being drawn like a category tag. */
+.evrow{display:grid;grid-template-columns:112px 1fr;gap:12px;align-items:start}
+.evside{display:flex;flex-direction:column;align-items:flex-end;gap:3px;padding-top:12px}
+.evday{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--tx2);
+letter-spacing:.02em;white-space:nowrap}
+.evmark{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;
+font-weight:500;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+.dot{width:7px;height:7px;border-radius:50%;flex:none;pointer-events:none}
 .ev{background:var(--card);border:1px solid;border-left-width:3px;
 border-radius:0 12px 12px 0;padding:11px 14px;display:flex;align-items:flex-start;gap:10px}
 .ev .l{flex:1;min-width:0}
-.ev .top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:3px}
-.ev .day{font-family:var(--mono);font-size:10.5px;color:var(--tx2);background:var(--sunk);
-padding:2px 7px;border-radius:4px;letter-spacing:.03em;flex:none}
-.ev .who{font-size:13.5px;font-weight:600;color:var(--tx);letter-spacing:-.01em}
+.ev .who{display:block;font-size:13.5px;font-weight:600;color:var(--tx);
+letter-spacing:-.01em;margin-bottom:2px}
 .ev .n{font-size:13.5px;font-weight:500;line-height:1.35}
 .ev .x{font-size:12.5px;opacity:.82;margin-top:4px;line-height:1.45}
+/* The changelog's status buttons are drawn as the gutter markers they select,
+   rather than as the model list's badges, so the control and the thing it
+   filters share one visual language. */
+.badges button.mk{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;
+font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.07em;
+text-transform:uppercase}
 @media (max-width:560px){
 .evrow{grid-template-columns:1fr;gap:5px}
-.evmark{justify-content:flex-start;padding:0 0 0 2px}}
+.evside{flex-direction:row;align-items:center;gap:9px;padding:0 0 0 2px}}
 .none{font-size:13px;color:var(--tx3);margin-top:9px;font-style:italic}
 footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);
 font-size:12.5px;color:var(--tx3);line-height:1.6}
@@ -864,16 +871,19 @@ const badge=d=>{const s=status(d);if(!s)return"";const c=ncol(s);
 // keeps the question you were asking and changes only what answers it.
 let view="models",filt="all",term="";
 const VIEWS=[["models","Models"],["log","Changelog"]];
-// The changelog names its three states differently on purpose. The model list
-// says what a model *is* right now; the changelog says what happened to it on
-// a given day, and a reader should be able to tell which of the two they are
-// looking at without reading the words twice. Same three underlying states, so
+// The changelog names its three states as nouns, where the model list uses
+// adjectives. The model list says what a model *is* right now; a changelog row
+// *is* an addition, an announcement or a retirement. The grammar alone tells a
+// reader which of the two they are looking at, and the words stay the plain
+// ones rather than reaching for synonyms. Same three underlying states, so
 // they keep the same three colours.
 const STATF={
  models:STATS,
- log:[["added","Listed"],["announced","Slated"],["retired","Ended"]]};
+ log:[["added","Additions"],["announced","Announcements"],["retired","Retirements"]]};
 const STATC={new:"new",added:"new",announced:"announced",retired:"retired"};
-const LOGLAB=Object.fromEntries(STATF.log);
+// Singular beside a card, because one entry is one of these; plural on the
+// filter, because the button selects the set of them.
+const LOGLAB={added:"Addition",announced:"Announcement",retired:"Retirement"};
 const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const day=y=>+y.slice(8)+" "+MONTHS[+y.slice(5,7)-1]+" "+y.slice(0,4);
 // Any-of, unlike the category row: an empty set means everything. Each view
@@ -908,12 +918,16 @@ function paintBar(){
   b.setAttribute("aria-selected",b.dataset.v===view));
  // Status buttons wear their own badge colour, the same way the category
  // buttons wear theirs: outlined when off, filled when on.
- $("badges").innerHTML=STATF[view].map(([v,l])=>`<button data-s="${v}">${l}</button>`).join("");
+ $("badges").innerHTML=STATF[view].map(([v,l])=>view==="log"
+  ?`<button class="mk" data-s="${v}"><span class="dot"></span>${l}</button>`
+  :`<button data-s="${v}">${l}</button>`).join("");
  document.querySelectorAll("#badges button").forEach(b=>{
   const on=stats[view].has(b.dataset.s),c=ncol(STATC[b.dataset.s]);
   b.setAttribute("aria-pressed",on);
   b.style.cssText=on?`background:${c.fill};color:${c.on};border-color:${c.fill}`
-   :`color:${c.fill};border-color:${c.ln}`;});
+   :`color:${c.fill};border-color:${c.ln}`;
+  const d=b.querySelector(".dot");
+  if(d)d.style.background=on?c.on:c.fill;});
  // Each filter button is tinted with its own category colour; "all" has none and keeps the default.
  document.querySelectorAll("#filters button,#subs button").forEach(b=>{
   const on=b.dataset.f===filt;
@@ -936,10 +950,10 @@ function renderLog(){
  $("out").innerHTML=es.length?`<div class="grid">${es.map(e=>{
   const c=col(e.k[0]),nc=ncol(STATC[e.t]);
   return `<div class="evrow">
-   <div class="evmark" style="color:${nc.fill}"><span class="dot" style="background:${nc.fill}"></span>${LOGLAB[e.t]}</div>
+   <div class="evside"><span class="evday">${esc(day(e.y))}</span>
+   <span class="evmark" style="color:${nc.fill}"><span class="dot" style="background:${nc.fill}"></span>${LOGLAB[e.t]}</span></div>
    <article class="ev" style="border-color:${c.ln}">
-   <div class="l"><div class="top"><span class="day">${esc(day(e.y))}</span>
-   <span class="who">${esc(e.c)}</span></div>
+   <div class="l"><span class="who">${esc(e.c)}</span>
    <div class="n" style="color:${c.fg}">${link(e.n,e.u)}</div>
    ${e.x?`<div class="x" style="color:${c.fg}">${esc(e.x)}</div>`:""}</div>
    <div class="tags">${tagsOf(e.k)}</div></article></div>`}).join("")}</div>`
