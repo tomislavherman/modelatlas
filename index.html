@@ -886,18 +886,26 @@ const STATC={new:"new",added:"new",announced:"announced",retired:"retired"};
 const LOGLAB={added:"Addition",announced:"Announcement",retired:"Retirement"};
 const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const day=y=>+y.slice(8)+" "+MONTHS[+y.slice(5,7)-1]+" "+y.slice(0,4);
-// How fresh a change is, warmest first: today and yesterday, then the rest of
-// the week, then everything older in the ordinary text colour.
+// Recency shading for changelog dates: red today, orange for the rest of the
+// week, ordinary text colour after that.
 //
+// Its own small palette rather than the badge colours it first borrowed. A
+// date's age and a model's status are different questions, and tuning the one
+// should not drag the other with it — the Announced badge's amber went brown
+// at date size. Light values clear AA on the page ground, dark values are the
+// same hues lifted for the dark one.
+const AGE={fresh:["#C42B1C","#FF6B57"],recent:["#B35400","#FF9A45"]};
+const ageCol=k=>AGE[k][dark()?1:0];
 // This is the one thing on the page measured against the reader's own clock
 // rather than the NOW constant, and deliberately so. NOW is pinned to the
 // compile date because a badge has to be reviewable and stable; recency is a
 // question about the moment you are looking, so a page that stops being
 // rebuilt should go quiet rather than sit there permanently red. Rounding,
 // not flooring, so a clock crossing daylight saving does not shift a day.
+// A negative age is a reader's clock running behind, and still reads as today.
 function dayCol(y,today){
  const a=Math.round((today-new Date(y+"T00:00:00"))/864e5);
- return a<=1?ncol("new").fill:a<=7?ncol("announced").fill:"";}
+ return a<=0?ageCol("fresh"):a<=7?ageCol("recent"):"";}
 // Any-of, unlike the category row: an empty set means everything. Each view
 // keeps its own set, because the row belongs to the view it sits under.
 const stats={models:new Set(),log:new Set()};
