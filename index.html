@@ -417,6 +417,9 @@ const D=[
 {n:"Cassette SFX",k:["audio:sfx"],d:"2025",x:"Sub-50ms on-device SDK",u:"https://cassetteai.com"}]},
 {c:"Sony AI",r:"JP",f:"2020",n:"Sony Group",u:"https://ai.sony",m:[
 {n:"Woosh",k:["audio:sfx"],d:"May 2026",x:"Sound effect foundation model for games and film, text-to-audio and video-to-audio; a studio model trained on licensed libraries stays private, while the same architecture trained on public data ships as open weights under CC-BY-NC",u:"https://github.com/SonyResearch/Woosh"}]},
+{c:"Desert Ant Labs",r:"NL",f:"unknown",n:"independent",u:"https://desertant.com",m:[
+{n:"Voz / Clear / Uhm / Align / Ear",k:["audio:speech"],d:"Sep 2026",x:"The speech half of the launch suite, all running locally with nothing sent to a server: transcription at ten minutes of audio in two seconds on an iPhone, studio-grade cleanup, filler-word removal, word-level timestamps and spoken language detection from 30 seconds of audio",u:"https://desertant.com/blog/introducing-desert-ant-labs/"},
+{n:"Shapes",k:["image"],d:"Sep 2026",x:"Turns a rough sketch into a clean shape on device",u:"https://desertant.com/blog/introducing-desert-ant-labs/"}]},
 {c:"Sonilo",r:"US",f:"unknown",n:"independent",u:"https://sonilo.com",m:[
 {n:"Sonilo v1.0",k:["audio:music"],d:"May 2026",x:"Video-to-music with no text prompt: reads a clip's pacing, motion and emotional arc, then scores it to the exact duration so nothing has to be trimmed or looped; trained only on licensed catalogues, Shutterstock's among them"},
 {n:"Sonilo v1.1",k:["audio:music"],d:"Jun 2026",x:"Video-to-music with no text prompt, trained only on licensed catalogues"},
@@ -515,7 +518,8 @@ const D=[
 {n:"Composer 2.5",k:["text:code"],d:"May 2026",x:"Trained on top of Kimi K2.5; matches Opus 4.7 and GPT-5.5 on SWE-Bench Multilingual at a tenth of the cost",u:"https://cursor.com/blog"}]},
 {c:"Cognition",r:"US",f:"2023",n:"independent",u:"https://cognition.ai",m:[
 {n:"SWE-1.5",k:["text:code"],d:"Oct 2025",x:"Runs inside Devin",u:"https://cognition.ai/blog"},
-{n:"SWE-1.7",k:["text:code"],d:"Jul 2026",x:"Runs inside Devin at about 1000 tokens per second on Cerebras hardware",u:"https://cognition.ai/blog"}]},
+{n:"SWE-1.7",k:["text:code"],d:"Jul 2026",x:"Runs inside Devin at about 1000 tokens per second on Cerebras hardware",u:"https://cognition.ai/blog"},
+{n:"SWE-2",k:["text:code"],d:"Sep 2026",x:"Post-trained from Kimi K3 with medium, high and max effort levels; 50.0% on FrontierCode 1.1 Main, within a point of Fable 5.1 at 64% less cost, and 92.8% on Terminal-Bench 2.1",u:"https://cognition.com/blog/swe-2"}]},
 {c:"Inception",r:"US",f:"2024",n:"independent",u:"https://www.inceptionlabs.ai",m:[
 {n:"Mercury",k:["text:chat","text:code"],d:"2025 → Feb 2026",x:"Diffusion language models: tokens are produced and refined in parallel instead of one at a time"},
 {n:"Mercury 2.5",k:["text:chat","text:code"],d:"Aug 2026 → GA Sep 2026",x:"Past 1100 tokens a second on stock GPUs at cost-optimised frontier quality, with tunable reasoning and parallel tool calls; opened as a preview endpoint in August and reached general availability on Inception's own API, Baseten and OpenRouter in September",u:"https://www.inceptionlabs.ai/blog/introducing-mercury-2-5"}]},
@@ -524,7 +528,8 @@ const D=[
 {n:"Embed v4",k:["text:embed"],d:"Apr 2025",x:"Text, images and mixed PDF pages in one call; 128k context, Matryoshka dimensions from 256 to 1536",u:"https://cohere.com/blog/embed-4"},
 {n:"Command A",k:["text:chat"],d:"Mar 2025",x:"Open weights"},
 {n:"Command A+",k:["text:chat"],d:"May 2026",x:"218B sparse mixture of experts, 25B active, Apache 2.0 weights; folds the separate reasoning, vision and translate variants into one model",u:"https://cohere.com/blog/command-a-plus"},
-{n:"Aya Expanse / Aya Vision",k:["text:chat"],d:"Oct 2024 → Mar 2025",x:"Open-weights multilingual research family from Cohere Labs, 23 languages",u:"https://cohere.com/research/aya"}]},
+{n:"Aya Expanse / Aya Vision",k:["text:chat"],d:"Oct 2024 → Mar 2025",x:"Open-weights multilingual research family from Cohere Labs, 23 languages",u:"https://cohere.com/research/aya"},
+{n:"North Small Translate",k:["text:chat"],d:"Sep 2026",x:"Machine translation over 50+ languages, 218B sparse mixture of experts with 25B active, open weights under CC BY-NC 4.0; scores 83.6 on WMT26 against DeepL's 81.37 and Google Translate's 68.20, and ships to enterprises through RWS Language Weaver",u:"https://cohere.com/blog/north-small-translate"}]},
 {c:"Voyage AI",r:"US",f:"2023",n:"MongoDB (Feb 2025)",u:"https://www.voyageai.com",m:[
 {n:"voyage-3",k:["text:embed"],d:"2024",x:""},
 {n:"voyage-4",k:["text:embed"],d:"Jan 2026",x:"Mixture of experts with one shared embedding space across the family",u:"https://blog.voyageai.com/2026/01/15/voyage-4/"},
@@ -557,6 +562,10 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-11",c:"Cognition",n:"SWE-2",k:["text:code"],x:"Post-trained from Kimi K3 with medium, high and max effort levels; 50.0% on FrontierCode 1.1 Main, within a point of Fable 5.1 at 64% less cost, and 92.8% on Terminal-Bench 2.1",u:"https://cognition.com/blog/swe-2"},
+{t:"added",y:"2026-09-11",c:"Cohere",n:"North Small Translate",k:["text:chat"],x:"Machine translation over 50+ languages, 218B sparse mixture of experts with 25B active, open weights under CC BY-NC 4.0; scores 83.6 on WMT26 against DeepL's 81.37 and Google Translate's 68.20, and ships to enterprises through RWS Language Weaver",u:"https://cohere.com/blog/north-small-translate"},
+{t:"added",y:"2026-09-11",c:"Desert Ant Labs",n:"Voz / Clear / Uhm / Align / Ear",k:["audio:speech"],x:"The speech half of the launch suite, all running locally with nothing sent to a server: transcription at ten minutes of audio in two seconds on an iPhone, studio-grade cleanup, filler-word removal, word-level timestamps and spoken language detection from 30 seconds of audio",u:"https://desertant.com/blog/introducing-desert-ant-labs/"},
+{t:"added",y:"2026-09-11",c:"Desert Ant Labs",n:"Shapes",k:["image"],x:"Turns a rough sketch into a clean shape on device",u:"https://desertant.com/blog/introducing-desert-ant-labs/"},
 {t:"retired",y:"2026-09-11",c:"Anthropic",n:"Claude Opus 4",k:["text:chat","text:code"],x:"Deprecated Apr 2026 and pulled from the API in favour of Claude Opus 4.8",u:"https://platform.claude.com/docs/en/about-claude/model-deprecations"},
 {t:"added",y:"2026-09-10",c:"Google DeepMind",n:"Gemini 3.7 Flash",k:["text:chat","text:code"],x:"Three weeks after 3.6 Flash and half its price, on software engineering, web development and multi-step tool calling",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/"},
 {t:"added",y:"2026-09-10",c:"Google DeepMind",n:"Gemini 3.6 Flash / Gemini 3.5 Flash-Lite",k:["text:chat","text:code"],x:"Announced together: 3.6 Flash spends 17% fewer output tokens than 3.5 Flash for better results, Flash-Lite runs the high-throughput tier at 350 output tokens a second, and a Cyber variant went to governments and trusted partners through CodeMender",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/"},
