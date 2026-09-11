@@ -213,6 +213,7 @@ const D=[
 {n:"GPT-6 Astra",k:["text:chat","text:code"],d:"Sep 2026",x:"The generation after Sol, Terra and Luna, and the first model OpenAI rates Critical for cyber capability under its Preparedness Framework; state of the art on computer use, browsing and software engineering, shipping in Codex as well as ChatGPT, and gated to Daybreak partners before Plus, Pro, Business and Enterprise, the API and AWS",u:"https://openai.com/index/gpt-6-astra/"},
 {n:"GPT-5-Codex",k:["text:code"],d:"Sep 2025",x:"Agentic coding variant of GPT-5"},
 {n:"GPT-5.3-Codex",k:["text:code"],d:"Feb 2026",x:"The base model behind GitHub Copilot Business and Enterprise",u:"https://openai.com/index/gpt-5-3-codex-system-card/"},
+{n:"GPT-Rosalind",k:["text:chat"],d:"Apr 2026 → GA Sep 2026",x:"Frontier reasoning model for life sciences, tuned for chemistry, genomics and protein engineering; ran for five months as a research preview under a trusted-access programme before going generally available on the API at five dollars per million input tokens",u:"https://openai.com/index/introducing-gpt-rosalind/"},
 {n:"text-embedding-3",k:["text:embed"],d:"Jan 2024",x:"Small and large tiers on the API",u:"https://platform.openai.com/docs/guides/embeddings"}]},
 {c:"Google DeepMind",r:"US",f:"2010 / merged 2023",n:"Alphabet",u:"https://deepmind.google",m:[
 {n:"Imagen",k:["image"],d:"2023, shut down Aug 2026",x:"",u:"https://deepmind.google/models/imagen/"},
@@ -280,6 +281,7 @@ const D=[
 {n:"Nova 2 Sonic",k:["audio:speech"],d:"Dec 2025",x:"Speech-to-speech on Bedrock",u:"https://aws.amazon.com/ai/generative-ai/nova/speech/"},
 {n:"Nova",k:["text:chat","text:code"],d:"Dec 2024",x:"Lite and Pro tiers on Bedrock; the first-generation text tiers moved to legacy status as the successors went GA",u:"https://aws.amazon.com/ai/generative-ai/nova/"},
 {n:"Nova 2",k:["text:chat","text:code"],d:"Dec 2025",x:"Lite and Pro tiers on Bedrock",u:"https://aws.amazon.com/ai/generative-ai/nova/"},
+{n:"Nova 2 Omni",k:["text:chat","image"],d:"preview Dec 2025",x:"Takes text, images, video and speech in and returns both text and images, on a one-million-token context; still gated to Nova Forge customers while Lite, Sonic and the embeddings model went generally available around it",u:"https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-nova-2-omni-preview/"},
 {n:"Nova 2 Multimodal Embeddings",k:["text:embed"],d:"2026",x:"",u:"https://aws.amazon.com/ai/generative-ai/nova/"}]},
 {c:"Microsoft",r:"US",f:"1975",n:"NASDAQ",u:"https://microsoft.ai",m:[
 {n:"MAI-Image-2.5 / MAI-Image-2.5-Flash",k:["image"],d:"Jun 2026",x:"",u:"https://microsoft.ai/news/introducing-mai-image-2-5/"},
@@ -536,6 +538,7 @@ const D=[
 {n:"Command A",k:["text:chat"],d:"Mar 2025",x:"Open weights"},
 {n:"Command A+",k:["text:chat"],d:"May 2026",x:"218B sparse mixture of experts, 25B active, Apache 2.0 weights; folds the separate reasoning, vision and translate variants into one model",u:"https://cohere.com/blog/command-a-plus"},
 {n:"Aya Expanse / Aya Vision",k:["text:chat"],d:"Oct 2024 → Mar 2025",x:"Open-weights multilingual research family from Cohere Labs, 23 languages",u:"https://cohere.com/research/aya"},
+{n:"North Mini Code",k:["text:code"],d:"Jun 2026",x:"Cohere's first agentic coding model, 30B sparse mixture of experts with 3B active and Apache 2.0 weights; 256k context, 64k generation, and small enough to serve from a single H100",u:"https://cohere.com/blog/north-mini-code"},
 {n:"North Small Translate",k:["text:chat"],d:"Sep 2026",x:"Machine translation over 50+ languages, 218B sparse mixture of experts with 25B active, open weights under CC BY-NC 4.0; scores 83.6 on WMT26 against DeepL's 81.37 and Google Translate's 68.20, and ships to enterprises through RWS Language Weaver",u:"https://cohere.com/blog/north-small-translate"}]},
 {c:"Voyage AI",r:"US",f:"2023",n:"MongoDB (Feb 2025)",u:"https://www.voyageai.com",m:[
 {n:"voyage-3",k:["text:embed"],d:"2024",x:""},
@@ -569,6 +572,9 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-11",c:"OpenAI",n:"GPT-Rosalind",k:["text:chat"],x:"Frontier reasoning model for life sciences, tuned for chemistry, genomics and protein engineering; ran for five months as a research preview under a trusted-access programme before going generally available on the API at five dollars per million input tokens",u:"https://openai.com/index/introducing-gpt-rosalind/"},
+{t:"added",y:"2026-09-11",c:"Cohere",n:"North Mini Code",k:["text:code"],x:"Cohere's first agentic coding model, 30B sparse mixture of experts with 3B active and Apache 2.0 weights; 256k context, 64k generation, and small enough to serve from a single H100",u:"https://cohere.com/blog/north-mini-code"},
+{t:"announced",y:"2026-09-11",c:"Amazon",n:"Nova 2 Omni",k:["text:chat","image"],x:"Takes text, images, video and speech in and returns both text and images, on a one-million-token context; still gated to Nova Forge customers while Lite, Sonic and the embeddings model went generally available around it",u:"https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-nova-2-omni-preview/"},
 {t:"retired",y:"2026-09-11",c:"Moonshot AI",n:"Kimi K2",k:["text:chat","text:code"],x:"Open weights under a modified MIT licence; the kimi-k2 preview, turbo and thinking endpoints were pulled from the Kimi platform",u:"https://platform.kimi.ai/docs/models"},
 {t:"added",y:"2026-09-11",c:"Moonshot AI",n:"Kimi K2.7 Code",k:["text:code"],x:"Agentic coding tier; 62.0 on Kimi Code Bench V2 against K2.6's 50.9 and 81.1 on MCP Mark Verified, spending about 30% fewer thinking tokens than K2.6",u:"https://forum.moonshot.ai/t/here-comes-kimi-k2-7-code-better-coding-with-more-efficiency/441"},
 {t:"added",y:"2026-09-11",c:"MiniMax",n:"Speech 2.8",k:["audio:speech"],x:"Native sound tags for breaths, hesitations and fillers, voice cloning from a ten-second sample, and background noise stripped out of the take",u:"https://www.minimax.io/news/minimax-speech-28"},
