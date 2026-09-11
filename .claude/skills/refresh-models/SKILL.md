@@ -71,6 +71,7 @@ changelog names the exact model ID with the exact date:
 - https://developers.openai.com/api/docs/changelog
 - https://docs.mistral.ai/getting-started/changelog/
 - https://docs.z.ai/release-notes/new-released
+- https://platform.kimi.ai/docs/models
 
 Also read https://platform.claude.com/docs/en/about-claude/model-deprecations
 for Anthropic retirement dates; it lists every model with its status.
