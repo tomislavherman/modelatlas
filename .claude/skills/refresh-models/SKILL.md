@@ -52,6 +52,7 @@ they make is in scope.
 - https://mistral.ai/news
 - https://api-docs.deepseek.com/news/
 - https://qwen.ai/blog
+- https://forum.moonshot.ai/c/announcement/5
 - https://seed.bytedance.com/en/blog
 - https://microsoft.ai/news/
 - https://bfl.ai/blog

@@ -282,13 +282,16 @@ const D=[
 {n:"Nova 2",k:["text:chat","text:code"],d:"Dec 2025",x:"Lite and Pro tiers on Bedrock",u:"https://aws.amazon.com/ai/generative-ai/nova/"},
 {n:"Nova 2 Multimodal Embeddings",k:["text:embed"],d:"2026",x:"",u:"https://aws.amazon.com/ai/generative-ai/nova/"}]},
 {c:"Microsoft",r:"US",f:"1975",n:"NASDAQ",u:"https://microsoft.ai",m:[
-{n:"MAI-Image-2.5",k:["image"],d:"Jun 2026",x:"",u:"https://microsoft.ai/news/introducing-mai-image-2-5/"},
+{n:"MAI-Image-2.5 / MAI-Image-2.5-Flash",k:["image"],d:"Jun 2026",x:"",u:"https://microsoft.ai/news/introducing-mai-image-2-5/"},
 {n:"MAI-Image-2.6 / MAI-Image-2.6-Flash",k:["image"],d:"Aug 2026 → Flash Sep 2026",x:"No. 2 on Arena text-to-image, behind only GPT Image 2; 2.6 adds multi-reference editing, web grounding and 360p-to-4K resolution control, and the Flash tier that landed with the Microsoft Foundry rollout runs over twice as fast as GPT Image 2 Medium",u:"https://microsoft.ai/news/mai-image-2-6-launches-at-no-2-on-arena-ahead-of-google-meta-and-xai/"},
 {n:"MAI-Image-2.5-Pro",k:["image"],d:"Jul 2026",x:"In-image text and natural-language editing",u:"https://microsoft.ai/news/introducing-mai-image-2-5/"},
 {n:"MAI-Voice-2 / MAI-Voice-2-Flash",k:["audio:speech"],d:"Jun 2026 → Jul 2026",x:"15+ languages; Flash is the low-latency tier",u:"https://microsoft.ai/news/"},
 {n:"MAI-Transcribe-1.5",k:["audio:speech"],d:"Jun 2026",x:"Speech-to-text"},
 {n:"MAI-Transcribe-2",k:["audio:speech"],d:"Sep 2026",x:"Covers 60 languages and adds speaker diarization and word-level timestamps",u:"https://microsoft.ai/news/mai-transcribe-2-is-the-fastest-most-accurate-and-cheapest-speech-recognition-model-in-the-world/"},
-{n:"MAI-Thinking-1",k:["text:chat"],d:"Jun 2026",x:"Microsoft's first reasoning model, announced at Build",u:"https://microsoft.ai/news/"}]},
+{n:"MAI-Thinking-1",k:["text:chat"],d:"Jun 2026",x:"Microsoft's first reasoning model, announced at Build",u:"https://microsoft.ai/news/"},
+{n:"MAI-Code-1-Flash",k:["text:code"],d:"Jun 2026",x:"Trained on GitHub Copilot production workflows rather than benchmarks, with adaptive solution-length control that stays concise on simple requests; 16 points ahead of Claude Haiku 4.5 on SWE-Bench Pro using up to 60% fewer tokens",u:"https://microsoft.ai/news/introducingmai-code-1-flash/"},
+{n:"MAI-Code-1.1-Flash",k:["text:code"],d:"Aug 2026",x:"Higher code quality at 25% greater token efficiency and a quarter of the price of 1.0, with the gains concentrated on CLI and .NET work; serving in GitHub Copilot and VS Code",u:"https://microsoft.ai/news/mai-code-1-1-flash-br-better-faster-at-a-quarter-of-the-cost/"},
+{n:"MAI-Cyber-1-Flash",k:["text:code"],d:"Aug 2026",x:"A compact, code-heavy security model out of the MAI-Thinking-1 lineage; 96% on CyberGym at half the cost of leading models, covering around 90% of the work inside MDASH with the hardest tenth routed to larger models",u:"https://microsoft.ai/news/introducing-mai-cyber-1-flash-inside-mdash/"}]},
 {c:"IBM",r:"US",f:"1911",n:"NYSE",u:"https://www.ibm.com/granite",m:[
 {n:"Granite 3.0",k:["text:chat","text:code"],d:"Oct 2024",x:"Apache 2.0 weights across the whole family"},
 {n:"Granite 4.2",k:["text:chat","text:code"],d:"Aug 2026",x:"Apache 2.0 weights; dense 3B, 8B and 30B models with a thinking switch, so one checkpoint either reasons step by step or answers straight, aimed at tool calling and agentic work",u:"https://research.ibm.com/blog/introducing-granite-4-2"},
@@ -462,6 +465,7 @@ const D=[
 {n:"Hailuo 2.3",k:["video"],d:"Oct 2025",x:"",u:"https://hailuoai.video"},
 {n:"Hailuo H3",k:["video","audio:sfx"],d:"Jul 2026 → open weights Aug 2026",x:"33B omni-modal, 2K, native stereo audio in one pipeline; the 2K upscale stays API-only",u:"https://hailuoai.video"},
 {n:"Speech 2.6",k:["audio:speech"],d:"2025 →",x:"",u:"https://www.minimax.io/audio"},
+{n:"Speech 2.8",k:["audio:speech"],d:"Jan 2026",x:"Native sound tags for breaths, hesitations and fillers, voice cloning from a ten-second sample, and background noise stripped out of the take",u:"https://www.minimax.io/news/minimax-speech-28"},
 {n:"Music 2.0",k:["audio:music"],d:"2025",x:"",u:"https://www.minimax.io/audio"},
 {n:"Music 3.0",k:["audio:music"],d:"Aug 2026",x:"Open weights; composes, arranges and produces a full song of up to five minutes in one generation",u:"https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model"},
 {n:"MiniMax M2",k:["text:chat","text:code"],d:"2025",x:"",u:"https://www.minimax.io"},
@@ -508,7 +512,8 @@ const D=[
 {n:"DeepSeek-V4.1-Flash",k:["text:chat","text:code"],d:"Sep 2026",x:"Rebuilds the line as a causal encoder-decoder of 552B backbone parameters activating 8B per token in prefill and 16B in decode, the first DeepSeek model multimodal in the architecture rather than through a bolted-on vision tier, and it benchmarks above V4-Pro on quality, cost and speed",u:"https://api-docs.deepseek.com/news/news260910/"},
 {n:"DeepSeek-R1",k:["text:chat"],d:"Jan 2025",x:"Open reasoning model; the R2 successor was held back over performance and a failed training run on Ascend hardware",u:"https://api-docs.deepseek.com"}]},
 {c:"Moonshot AI",r:"China",f:"2023",n:"independent",u:"https://www.moonshot.ai",m:[
-{n:"Kimi K2",k:["text:chat","text:code"],d:"Jul 2025",x:"Open weights under a modified MIT licence",u:"https://www.moonshot.ai"},
+{n:"Kimi K2",k:["text:chat","text:code"],d:"Jul 2025, hosted endpoints discontinued May 2026",x:"Open weights under a modified MIT licence; the kimi-k2 preview, turbo and thinking endpoints were pulled from the Kimi platform",u:"https://platform.kimi.ai/docs/models"},
+{n:"Kimi K2.7 Code",k:["text:code"],d:"Jun 2026",x:"Agentic coding tier; 62.0 on Kimi Code Bench V2 against K2.6's 50.9 and 81.1 on MCP Mark Verified, spending about 30% fewer thinking tokens than K2.6",u:"https://forum.moonshot.ai/t/here-comes-kimi-k2-7-code-better-coding-with-more-efficiency/441"},
 {n:"Kimi K3",k:["text:chat","text:code"],d:"Jul 2026",x:"2.8T parameters with 104B active, the largest open-weights release so far, under a modified MIT licence",u:"https://www.moonshot.ai"}]},
 {c:"Institute of Foundation Models",r:"AE",f:"2025",n:"MBZUAI",u:"https://ifm.ai",m:[
 {n:"K2 Horizon",k:["text:chat","text:code"],d:"Sep 2026",x:"Six models from 0.9B to 375B under Apache 2.0, shipped with weights, code and training data",u:"https://ifm.ai/k2/press-release/"}]},
@@ -564,6 +569,13 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"retired",y:"2026-09-11",c:"Moonshot AI",n:"Kimi K2",k:["text:chat","text:code"],x:"Open weights under a modified MIT licence; the kimi-k2 preview, turbo and thinking endpoints were pulled from the Kimi platform",u:"https://platform.kimi.ai/docs/models"},
+{t:"added",y:"2026-09-11",c:"Moonshot AI",n:"Kimi K2.7 Code",k:["text:code"],x:"Agentic coding tier; 62.0 on Kimi Code Bench V2 against K2.6's 50.9 and 81.1 on MCP Mark Verified, spending about 30% fewer thinking tokens than K2.6",u:"https://forum.moonshot.ai/t/here-comes-kimi-k2-7-code-better-coding-with-more-efficiency/441"},
+{t:"added",y:"2026-09-11",c:"MiniMax",n:"Speech 2.8",k:["audio:speech"],x:"Native sound tags for breaths, hesitations and fillers, voice cloning from a ten-second sample, and background noise stripped out of the take",u:"https://www.minimax.io/news/minimax-speech-28"},
+{t:"added",y:"2026-09-11",c:"Microsoft",n:"MAI-Cyber-1-Flash",k:["text:code"],x:"A compact, code-heavy security model out of the MAI-Thinking-1 lineage; 96% on CyberGym at half the cost of leading models, covering around 90% of the work inside MDASH with the hardest tenth routed to larger models",u:"https://microsoft.ai/news/introducing-mai-cyber-1-flash-inside-mdash/"},
+{t:"added",y:"2026-09-11",c:"Microsoft",n:"MAI-Code-1.1-Flash",k:["text:code"],x:"Higher code quality at 25% greater token efficiency and a quarter of the price of 1.0, with the gains concentrated on CLI and .NET work; serving in GitHub Copilot and VS Code",u:"https://microsoft.ai/news/mai-code-1-1-flash-br-better-faster-at-a-quarter-of-the-cost/"},
+{t:"added",y:"2026-09-11",c:"Microsoft",n:"MAI-Code-1-Flash",k:["text:code"],x:"Trained on GitHub Copilot production workflows rather than benchmarks, with adaptive solution-length control that stays concise on simple requests; 16 points ahead of Claude Haiku 4.5 on SWE-Bench Pro using up to 60% fewer tokens",u:"https://microsoft.ai/news/introducingmai-code-1-flash/"},
+{t:"added",y:"2026-09-11",c:"Microsoft",n:"MAI-Image-2.5-Flash",k:["image"],x:"The fast tier of MAI-Image-2.5, launched alongside it in the family of seven in-house MAI models",u:"https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/"},
 {t:"added",y:"2026-09-11",c:"Autodesk",n:"Wonder 3D",k:["world","image"],x:"Text to 3D, image to 3D and text to image inside Flow Studio, built by Wonder Dynamics: editable characters, creatures and props with geometry and textures, exported as USD, STL or OBJ",u:"https://adsknews.autodesk.com/en/news/autodesk-flow-studio-launches-wonder-3d-gen-ai-model-to-help-creators-make-3d-characters-and-objects-faster-and-easier/"},
 {t:"added",y:"2026-09-11",c:"Cognition",n:"SWE-2",k:["text:code"],x:"Post-trained from Kimi K3 with medium, high and max effort levels; 50.0% on FrontierCode 1.1 Main, within a point of Fable 5.1 at 64% less cost, and 92.8% on Terminal-Bench 2.1",u:"https://cognition.com/blog/swe-2"},
 {t:"added",y:"2026-09-11",c:"Cohere",n:"North Small Translate",k:["text:chat"],x:"Machine translation over 50+ languages, 218B sparse mixture of experts with 25B active, open weights under CC BY-NC 4.0; scores 83.6 on WMT26 against DeepL's 81.37 and Google Translate's 68.20, and ships to enterprises through RWS Language Weaver",u:"https://cohere.com/blog/north-small-translate"},
