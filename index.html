@@ -241,7 +241,7 @@ const D=[
 {n:"Gemini Robotics 1.5 / Gemini Robotics-ER 1.6",k:["robotics"],d:"Oct 2025 → Apr 2026",x:"Vision-language-action pair that reasons in language before acting; ER 1.6 launched with Boston Dynamics",u:"https://deepmind.google/models/gemini-robotics/"},
 {n:"Gemini Robotics 2 / Gemini Robotics-ER 2",k:["robotics"],d:"Jul 2026",x:"Coordinates a whole humanoid body rather than the upper half, with an On-Device 2 edge variant alongside",u:"https://deepmind.google/models/gemini-robotics/"}]},
 {c:"Anthropic",r:"US",f:"2021",n:"independent",u:"https://www.anthropic.com",m:[
-{n:"Claude Opus 4",k:["text:chat","text:code"],d:"May 2025",x:"",u:"https://www.anthropic.com/news/claude-4"},
+{n:"Claude Opus 4",k:["text:chat","text:code"],d:"May 2025, retired Jun 2026",x:"Deprecated Apr 2026 and pulled from the API in favour of Claude Opus 4.8",u:"https://platform.claude.com/docs/en/about-claude/model-deprecations"},
 {n:"Claude Opus 4.8",k:["text:chat","text:code"],d:"May 2026",x:"Eighth point release of the largest tier inside a year"},
 {n:"Claude Haiku 4.5",k:["text:chat"],d:"Oct 2025",x:"The small, fast tier",u:"https://www.anthropic.com/news/claude-haiku-4-5"},
 {n:"Claude Mythos 5 / Claude Fable 5",k:["text:chat","text:code"],d:"Jun 2026",x:"Frontier tier; Mythos is the same model under lighter safeguards for vetted cyber and life-science orgs"},
@@ -557,6 +557,7 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"retired",y:"2026-09-11",c:"Anthropic",n:"Claude Opus 4",k:["text:chat","text:code"],x:"Deprecated Apr 2026 and pulled from the API in favour of Claude Opus 4.8",u:"https://platform.claude.com/docs/en/about-claude/model-deprecations"},
 {t:"added",y:"2026-09-10",c:"Google DeepMind",n:"Gemini 3.7 Flash",k:["text:chat","text:code"],x:"Three weeks after 3.6 Flash and half its price, on software engineering, web development and multi-step tool calling",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/"},
 {t:"added",y:"2026-09-10",c:"Google DeepMind",n:"Gemini 3.6 Flash / Gemini 3.5 Flash-Lite",k:["text:chat","text:code"],x:"Announced together: 3.6 Flash spends 17% fewer output tokens than 3.5 Flash for better results, Flash-Lite runs the high-throughput tier at 350 output tokens a second, and a Cyber variant went to governments and trusted partners through CodeMender",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/"},
 {t:"added",y:"2026-09-10",c:"Google DeepMind",n:"Gemma 4",k:["text:chat","text:code"],x:"Open-weights family under Apache 2.0 in four sizes from a 2B-effective edge model to a 31B dense one, with native vision and audio input, 128K context on the small tiers and 256K on the large",u:"https://deepmind.google/models/gemma/gemma-4/"},
@@ -925,7 +926,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</button>`).join("");
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
-$("stamp").textContent="Compiled 10 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 11 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.

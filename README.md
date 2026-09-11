@@ -84,4 +84,4 @@ Adding a model is one line in the relevant company's `m` array.
 
 Founding dates and ownership are the stable part. Model version numbers move monthly and some smaller entries are approximate — verify anything load-bearing against the vendor's own announcement.
 
-Compiled 10 September 2026.
+Compiled 11 September 2026.
