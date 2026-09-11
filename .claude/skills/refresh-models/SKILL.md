@@ -53,6 +53,7 @@ they make is in scope.
 - https://api-docs.deepseek.com/news/
 - https://qwen.ai/blog
 - https://seed.bytedance.com/en/blog
+- https://microsoft.ai/news/
 - https://bfl.ai/blog
 - https://runway.com/news
 - https://lumalabs.ai/blog
@@ -69,6 +70,7 @@ changelog names the exact model ID with the exact date:
 - https://platform.claude.com/docs/en/release-notes/overview
 - https://developers.openai.com/api/docs/changelog
 - https://docs.mistral.ai/getting-started/changelog/
+- https://docs.z.ai/release-notes/new-released
 
 Also read https://platform.claude.com/docs/en/about-claude/model-deprecations
 for Anthropic retirement dates; it lists every model with its status.
