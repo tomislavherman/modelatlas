@@ -540,6 +540,8 @@ const D=[
 {n:"Aya Expanse / Aya Vision",k:["text:chat"],d:"Oct 2024 → Mar 2025",x:"Open-weights multilingual research family from Cohere Labs, 23 languages",u:"https://cohere.com/research/aya"},
 {n:"North Mini Code",k:["text:code"],d:"Jun 2026",x:"Cohere's first agentic coding model, 30B sparse mixture of experts with 3B active and Apache 2.0 weights; 256k context, 64k generation, and small enough to serve from a single H100",u:"https://cohere.com/blog/north-mini-code"},
 {n:"North Small Translate",k:["text:chat"],d:"Sep 2026",x:"Machine translation over 50+ languages, 218B sparse mixture of experts with 25B active, open weights under CC BY-NC 4.0; scores 83.6 on WMT26 against DeepL's 81.37 and Google Translate's 68.20, and ships to enterprises through RWS Language Weaver",u:"https://cohere.com/blog/north-small-translate"}]},
+{c:"Sakana AI",r:"JP",f:"2023",n:"independent",u:"https://sakana.ai",m:[
+{n:"Sakana Namazu",k:["text:chat"],d:"Aug 2026",x:"Japanese-specialised LLM post-trained from Moonshot's open-weights Kimi K2.6, with web search and code execution as built-in tools; lifts FairPoliticsQA from 34.1% to 56.3% over the base while holding AIME26, MMLU-Pro and LiveCodeBench v6",u:"https://sakana.ai/namazu-api/"}]},
 {c:"Voyage AI",r:"US",f:"2023",n:"MongoDB (Feb 2025)",u:"https://www.voyageai.com",m:[
 {n:"voyage-3",k:["text:embed"],d:"2024",x:""},
 {n:"voyage-4",k:["text:embed"],d:"Jan 2026",x:"Mixture of experts with one shared embedding space across the family",u:"https://blog.voyageai.com/2026/01/15/voyage-4/"},
@@ -572,6 +574,7 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-12",c:"Sakana AI",n:"Sakana Namazu",k:["text:chat"],x:"Japanese-specialised LLM post-trained from Moonshot's open-weights Kimi K2.6, with web search and code execution as built-in tools; lifts FairPoliticsQA from 34.1% to 56.3% over the base while holding AIME26, MMLU-Pro and LiveCodeBench v6",u:"https://sakana.ai/namazu-api/"},
 {t:"added",y:"2026-09-11",c:"OpenAI",n:"GPT-Rosalind",k:["text:chat"],x:"Frontier reasoning model for life sciences, tuned for chemistry, genomics and protein engineering; ran for five months as a research preview under a trusted-access programme before going generally available on the API at five dollars per million input tokens",u:"https://openai.com/index/introducing-gpt-rosalind/"},
 {t:"added",y:"2026-09-11",c:"Cohere",n:"North Mini Code",k:["text:code"],x:"Cohere's first agentic coding model, 30B sparse mixture of experts with 3B active and Apache 2.0 weights; 256k context, 64k generation, and small enough to serve from a single H100",u:"https://cohere.com/blog/north-mini-code"},
 {t:"announced",y:"2026-09-11",c:"Amazon",n:"Nova 2 Omni",k:["text:chat","image"],x:"Takes text, images, video and speech in and returns both text and images, on a one-million-token context; still gated to Nova Forge customers while Lite, Sonic and the embeddings model went generally available around it",u:"https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-nova-2-omni-preview/"},
@@ -956,7 +959,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</button>`).join("");
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
-$("stamp").textContent="Compiled 11 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 12 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.

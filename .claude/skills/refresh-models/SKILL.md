@@ -63,6 +63,7 @@ they make is in scope.
 - https://cognition.com/blog
 - https://cohere.com/blog
 - https://sakana.ai/blog/
+- https://thinkingmachines.ai/news/
 
 Then read the API changelogs. A point release such as Gemini Omni 1.1 Flash
 gets a developer-blog post and a changelog line, not a headline, and the
@@ -71,6 +72,7 @@ changelog names the exact model ID with the exact date:
 - https://ai.google.dev/gemini-api/docs/changelog and https://developers.googleblog.com/
 - https://platform.claude.com/docs/en/release-notes/overview
 - https://developers.openai.com/api/docs/changelog
+- https://docs.x.ai/developers/release-notes
 - https://docs.mistral.ai/getting-started/changelog/
 - https://docs.z.ai/release-notes/new-released
 - https://platform.kimi.ai/docs/models
