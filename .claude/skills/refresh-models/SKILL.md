@@ -64,6 +64,8 @@ they make is in scope.
 - https://cohere.com/blog
 - https://sakana.ai/blog/
 - https://thinkingmachines.ai/news/
+- https://desertant.com/blog/
+- https://www.worldlabs.ai/blog
 
 Then read the API changelogs. A point release such as Gemini Omni 1.1 Flash
 gets a developer-blog post and a changelog line, not a headline, and the
