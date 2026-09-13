@@ -68,6 +68,7 @@ they make is in scope.
 - https://desertant.com/blog/
 - https://www.worldlabs.ai/blog
 - https://www.visko.ai/news
+- https://skild.ai/blogs
 
 Then read the API changelogs. A point release such as Gemini Omni 1.1 Flash
 gets a developer-blog post and a changelog line, not a headline, and the
