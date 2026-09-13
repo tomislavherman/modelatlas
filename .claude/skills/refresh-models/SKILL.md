@@ -58,9 +58,9 @@ they make is in scope.
 - https://microsoft.ai/news/
 - https://bfl.ai/blog
 - https://runway.com/news
-- https://lumalabs.ai/blog
 - https://elevenlabs.io/blog
 - https://suno.com/blog
+- https://sonilo.com/news
 - https://cognition.com/blog
 - https://cohere.com/blog
 - https://sakana.ai/blog/
