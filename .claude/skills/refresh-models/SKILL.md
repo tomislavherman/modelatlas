@@ -54,11 +54,13 @@ they make is in scope.
 - https://qwen.ai/blog
 - https://forum.moonshot.ai/c/announcement/5
 - https://seed.bytedance.com/en/blog
+- https://www.minimax.io/blog
 - https://microsoft.ai/news/
 - https://bfl.ai/blog
 - https://runway.com/news
 - https://lumalabs.ai/blog
 - https://elevenlabs.io/blog
+- https://suno.com/blog
 - https://stability.ai/news-updates
 - https://cognition.com/blog
 - https://cohere.com/blog
