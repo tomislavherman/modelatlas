@@ -49,12 +49,12 @@ they make is in scope.
 - https://deepmind.google/blog/ and https://blog.google/technology/ai/
 - https://ai.meta.com/blog/
 - https://x.ai/news
-- https://mistral.ai/news
 - https://api-docs.deepseek.com/news/
 - https://qwen.ai/blog
 - https://forum.moonshot.ai/c/announcement/5
 - https://seed.bytedance.com/en/blog
 - https://www.minimax.io/blog
+- https://www.tencent.com/newsroom/
 - https://microsoft.ai/news/
 - https://bfl.ai/blog
 - https://runway.com/news
