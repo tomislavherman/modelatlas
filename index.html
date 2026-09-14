@@ -485,6 +485,7 @@ const D=[
 {n:"HappyHorse 1.1",k:["video","audio:sfx"],d:"Jun 2026",x:"Took the top Elo on the Artificial Analysis video arena while still entered anonymously",u:"https://www.alibabacloud.com/blog/happyhorse-gets-stronger-motion-expressiveness-higher-generation-consistency-and-enhanced-visual-quality_603293"},
 {n:"Qwen-Image",k:["image"],d:"2025",x:"",u:"https://qwen.ai"},
 {n:"Qwen-Image 3.0",k:["image"],d:"Aug 2026",x:"",u:"https://qwen.ai"},
+{n:"Qwen-MT-Image 2.0",k:["image"],d:"Aug 2026",x:"Translates the text inside an image and re-renders it in place, holding the original layout, fonts and background; covers 55 languages and drops the first version's rule that Chinese or English had to be one side of the pair, with terminology overrides, sensitive-word filtering and subject detection to leave text on faces, products and logos alone",u:"https://www.alibabacloud.com/help/en/model-studio/qwen-mt-image-api"},
 {n:"CosyVoice",k:["audio:speech"],d:"2024",x:"Open weights",u:"https://github.com/FunAudioLLM/CosyVoice"},
 {n:"HappyShrimp 1.0",k:["audio:music"],d:"beta Aug 2026",x:"One prompt to melody, arrangement, lyrics and vocals, with no BPM or key to specify; Taihe Music Group signed for artist co-creation",u:"https://www.happyshrimp.ai"},
 {n:"Qwen3",k:["text:chat","text:code"],d:"Apr 2025",x:"Open weights from 0.8B up to 397B with 17B active",u:"https://qwen.ai"},
@@ -581,6 +582,7 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-14",c:"Alibaba",n:"Qwen-MT-Image 2.0",k:["image"],x:"Translates the text inside an image and re-renders it in place, holding the original layout, fonts and background; covers 55 languages and drops the first version's rule that Chinese or English had to be one side of the pair, with terminology overrides, sensitive-word filtering and subject detection to leave text on faces, products and logos alone",u:"https://www.alibabacloud.com/help/en/model-studio/qwen-mt-image-api"},
 {t:"added",y:"2026-09-13",c:"Multimodal Art Projection",n:"YuE2-3B",k:["audio:music"],x:"Plans a song as an editable melody-and-chord score in ABC notation before rendering it, so the composition can be revised between the two steps; a 3B AR-NAR mixture-of-transformers writes the score and semantic tokens, flow matching and a VAE decode them to 48 kHz stereo with vocals and accompaniment. Runs on one 24GB GPU; code Apache 2.0, weights CC BY-NC 4.0",u:"https://github.com/multimodal-art-projection/YuE"},
 {t:"added",y:"2026-09-13",c:"Visko",n:"Orbis",k:["world","video"],x:"A \"live model\" that runs a world rather than rendering a clip: 4K at 24fps streamed in real time, hour-scale generation without visible quality or colour drift, persistent memory and physics-grounded dynamics, and the prompt can be changed mid-generation with the stream updating as it continues",u:"https://www.visko.ai/news/visko-closes-10-million-pre-seed-round-and-launches-orbis"},
 {t:"added",y:"2026-09-12",c:"Sakana AI",n:"Fugu Max / Fugu Ultra v2",k:["text:chat","text:code"],x:"One orchestration architecture in two tiers, each a model trained to route a task across a pool of open-weights and specialist models behind a single API: Max is the cost tier at $2 and $6 per million input and output tokens and comes top on Terminal Bench 2.1, GPQAD, AA-LCR, AutomationBench and SWEFish, while Ultra v2 takes the capability tier with 48.3 on Chartography against Opus 5's 27.3 and Fable 5's 29.5",u:"https://sakana.ai/fugu-max-release/"},
@@ -970,7 +972,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</button>`).join("");
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
-$("stamp").textContent="Compiled 13 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 14 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
