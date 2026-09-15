@@ -513,6 +513,8 @@ const D=[
 {n:"GLM-5",k:["text:chat","text:code"],d:"Feb 2026",x:"Open weights",u:"https://z.ai"},
 {n:"GLM-5.3",k:["text:chat","text:code"],d:"Aug 2026",x:"744B mixture of experts with 40B active, open weights; the 5.2 release added a 1M-token context under MIT",u:"https://z.ai"},
 {n:"GLM-5.3-Flash",k:["text:chat","text:code"],d:"Aug 2026",x:"320B with 18B active under MIT, the first natively multimodal GLM-5 and a tenth the price of 5.2; previewed anonymously as Ox Alpha and trained entirely on Chinese chips",u:"https://huggingface.co/zai-org/GLM-5.3-Flash"}]},
+{c:"inclusionAI",r:"CN",f:"2025",n:"Ant Group",u:"https://www.inclusion-ai.org",m:[
+{n:"LLaDA-Image / LLaDA-Image-Turbo",k:["image"],d:"Sep 2026",x:"6B diffusion transformer that generates and edits from a single checkpoint, with reference-image editing and Chinese-English text rendering; Apache 2.0 weights shipped with the inference code and the full training recipe, and the distilled Turbo variant draws in four sampling steps against the base model's fifty",u:"https://github.com/inclusionAI/LLaDA-Image"}]},
 {c:"StepFun",r:"CN",f:"2023",n:"independent",u:"https://www.stepfun.com",m:[
 {n:"Step-Video",k:["video"],d:"2025",x:"Open weights",u:"https://github.com/stepfun-ai/Step-Video-T2V"}]},
 {c:"PixVerse",r:"CN",f:"2023",n:"independent",u:"https://pixverse.ai",m:[
@@ -526,6 +528,7 @@ const D=[
 {c:"Moonshot AI",r:"China",f:"2023",n:"independent",u:"https://www.moonshot.ai",m:[
 {n:"Kimi K2",k:["text:chat","text:code"],d:"Jul 2025, hosted endpoints discontinued May 2026",x:"Open weights under a modified MIT licence; the kimi-k2 preview, turbo and thinking endpoints were pulled from the Kimi platform",u:"https://platform.kimi.ai/docs/models"},
 {n:"Kimi K2.7 Code",k:["text:code"],d:"Jun 2026",x:"Agentic coding tier; 62.0 on Kimi Code Bench V2 against K2.6's 50.9 and 81.1 on MCP Mark Verified, spending about 30% fewer thinking tokens than K2.6",u:"https://forum.moonshot.ai/t/here-comes-kimi-k2-7-code-better-coding-with-more-efficiency/441"},
+{n:"Kimi K2.8 Preview",k:["text:code"],d:"Sep 2026",x:"Mid-tier coding and agentic model sitting between K2.7 Code and K3, rolled out in Kimi Code under the unchanged kimi-for-coding model ID; Moonshot puts it close to K3 with more efficient thinking, gives it K3's low, high and max thinking levels with max the default, and opens the 1M-token context to every membership tier",u:"https://www.kimi.com/code/docs/en/kimi-code/whats-new.html"},
 {n:"Kimi K3",k:["text:chat","text:code"],d:"Jul 2026",x:"2.8T parameters with 104B active, the largest open-weights release so far, under a modified MIT licence",u:"https://www.moonshot.ai"}]},
 {c:"Institute of Foundation Models",r:"AE",f:"2025",n:"MBZUAI",u:"https://ifm.ai",m:[
 {n:"K2 Horizon",k:["text:chat","text:code"],d:"Sep 2026",x:"Six models from 0.9B to 375B under Apache 2.0, shipped with weights, code and training data",u:"https://ifm.ai/k2/press-release/"}]},
@@ -585,6 +588,8 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-15",c:"Moonshot AI",n:"Kimi K2.8 Preview",k:["text:code"],x:"Mid-tier coding and agentic model sitting between K2.7 Code and K3, rolled out in Kimi Code under the unchanged kimi-for-coding model ID; Moonshot puts it close to K3 with more efficient thinking, gives it K3's low, high and max thinking levels with max the default, and opens the 1M-token context to every membership tier",u:"https://www.kimi.com/code/docs/en/kimi-code/whats-new.html"},
+{t:"added",y:"2026-09-15",c:"inclusionAI",n:"LLaDA-Image / LLaDA-Image-Turbo",k:["image"],x:"6B diffusion transformer that generates and edits from a single checkpoint, with reference-image editing and Chinese-English text rendering; Apache 2.0 weights shipped with the inference code and the full training recipe, and the distilled Turbo variant draws in four sampling steps against the base model's fifty",u:"https://github.com/inclusionAI/LLaDA-Image"},
 {t:"added",y:"2026-09-14",c:"Desert Ant Labs",n:"Clips / Title",k:["text:chat"],x:"The pair behind the Auto Edit feature in Detail, the lab's own video app, both running on device: Clips scores every sentence of a transcript for editorial value in one encoder pass and marks where a short should start and end, 284MB standing in for a Claude Sonnet call at ten times the speed and 470x less energy; Title then names and describes each clip it returns, about a second each",u:"https://desertant.com/blog/detail-auto-edit-on-device/"},
 {t:"added",y:"2026-09-14",c:"Desert Ant Labs",n:"Redact / Tongue / Gist / Emo",k:["text:chat"],x:"The rest of the stable text suite, all local: Redact masks names, addresses and card numbers in 27 languages in real time, catching 88.8% of the personal data in a text from 12MB against a 2.3GB GLiNER-PII's 91.1; Tongue names one of 84 languages from three words at 2MB; Gist tags topics for posts and articles and Emo suggests emoji as you type",u:"https://desertant.com/blog/introducing-desert-ant-labs/"},
 {t:"added",y:"2026-09-14",c:"Desert Ant Labs",n:"Eye / Face / Moderator / Who / Schemer / Toxic",k:["image","audio:speech","text:chat"],x:"The six models the launch shipped in beta beside the twelve stable ones: Eye tags and ranks images on aesthetics and content, Face finds people in photos without the photos leaving the phone, Moderator flags nudity before an upload, Who labels who said what in audio and video, Schemer extracts typed JSON from any text and Toxic catches hate speech before it posts",u:"https://desertant.com/blog/introducing-desert-ant-labs/"},
@@ -978,7 +983,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</button>`).join("");
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
-$("stamp").textContent="Compiled 14 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 15 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
