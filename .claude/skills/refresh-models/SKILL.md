@@ -80,7 +80,7 @@ changelog names the exact model ID with the exact date:
 - https://docs.x.ai/developers/release-notes
 - https://docs.mistral.ai/getting-started/changelog/
 - https://docs.z.ai/release-notes/new-released
-- https://platform.kimi.ai/docs/models
+- https://www.kimi.com/code/docs/en/kimi-code/whats-new.html
 - https://www.alibabacloud.com/help/en/model-studio/newly-released-models
 
 Also read https://platform.claude.com/docs/en/about-claude/model-deprecations
