@@ -78,8 +78,8 @@ changelog names the exact model ID with the exact date:
 - https://platform.claude.com/docs/en/release-notes/overview
 - https://developers.openai.com/api/docs/changelog
 - https://docs.x.ai/developers/release-notes
-- https://docs.mistral.ai/getting-started/changelog/
 - https://docs.z.ai/release-notes/new-released
+- https://platform.vidu.com/docs/update
 - https://www.kimi.com/code/docs/en/kimi-code/whats-new.html
 - https://www.alibabacloud.com/help/en/model-studio/newly-released-models
 
