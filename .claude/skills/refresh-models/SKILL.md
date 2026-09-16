@@ -57,7 +57,7 @@ they make is in scope.
 - https://www.tencent.com/newsroom/
 - https://microsoft.ai/news/
 - https://bfl.ai/blog
-- https://runway.com/news
+- https://runway.com/research
 - https://elevenlabs.io/blog
 - https://suno.com/blog
 - https://sonilo.com/news

@@ -253,7 +253,7 @@ const D=[
 {c:"SpaceXAI",r:"US",f:"xAI 2023",n:"SpaceX (Feb 2026)",u:"https://x.ai",m:[
 {n:"Aurora",k:["image"],d:"Dec 2024",x:"First in-house Grok image model",u:"https://x.ai/news/grok-image-generation-release"},
 {n:"Grok Imagine",k:["image"],d:"Jul 2025",x:""},
-{n:"Grok Imagine 1.0",k:["image"],d:"Feb 2026",x:"",u:"https://x.ai/news"},
+{n:"Grok Imagine 1.0",k:["image"],d:"Feb 2026, quality tier discontinued Nov 2026",x:"The higher-priced grok-imagine-image-quality slug is being removed and its requests rerouted to Grok Imagine Image 2.0 at low quality; the base grok-imagine-image tier is unaffected",u:"https://docs.x.ai/developers/release-notes"},
 {n:"Grok Imagine Image 2.0",k:["image"],d:"Aug 2026",x:"Region editing, multi-image input, smart resize",u:"https://x.ai/news"},
 {n:"grok-imagine-video 1.5",k:["video","audio:sfx"],d:"Jun 2026",x:"Synced audio",u:"https://x.ai/news"},
 {n:"Grok Voice",k:["audio:speech"],d:"2024",x:"Speech-to-speech in the Grok app and API"},
@@ -988,7 +988,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</button>`).join("");
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
-$("stamp").textContent="Compiled 15 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 16 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
