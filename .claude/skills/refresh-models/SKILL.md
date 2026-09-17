@@ -82,6 +82,7 @@ changelog names the exact model ID with the exact date:
 - https://platform.vidu.com/docs/update
 - https://www.kimi.com/code/docs/en/kimi-code/whats-new.html
 - https://www.alibabacloud.com/help/en/model-studio/newly-released-models
+- https://mimo.mi.com/docs/en-US/updates/model
 
 Also read https://platform.claude.com/docs/en/about-claude/model-deprecations
 for Anthropic retirement dates; it lists every model with its status.
