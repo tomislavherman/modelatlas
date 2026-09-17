@@ -46,7 +46,7 @@ they make is in scope.
 
 - https://www.anthropic.com/news
 - https://openai.com/news/
-- https://deepmind.google/blog/ and https://blog.google/technology/ai/
+- https://deepmind.google/blog/ and https://blog.google/innovation-and-ai/models-and-research/
 - https://research.meta.ai/blog
 - https://x.ai/news
 - https://api-docs.deepseek.com/news/
