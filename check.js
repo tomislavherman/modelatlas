@@ -35,12 +35,12 @@ for (const [b, row] of Object.entries(SUBF)) {
   for (const [v] of row) check(v === b || TAGS.includes(v), `sub-filter "${v}" is not a tag any model can carry`);
 }
 
-// NOW drives every badge, so it has to agree with the date printed in the header.
+// NOW drives every badge, so it has to agree with the date printed in the footer.
 const printed = html.match(/"Compiled (\d+) (\w+) (\d+) · "/);
-check(printed, "header has no compile stamp");
+check(printed, "footer has no compile stamp");
 if (printed) {
   const want = +printed[3] * 12 + ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].indexOf(printed[2]);
-  check(want === NOW, `NOW is ${stamp(NOW)} but the header says "Compiled ${printed[1]} ${printed[2]} ${printed[3]}" — bump both together`);
+  check(want === NOW, `NOW is ${stamp(NOW)} but the footer says "Compiled ${printed[1]} ${printed[2]} ${printed[3]}" — bump both together`);
 }
 
 for (const co of D) {
@@ -54,6 +54,16 @@ for (const co of D) {
     check(!/\b(19|20)\d\d\b/.test(m.x) || /\b(added|since|until|after|from)\b/i.test(m.x),
       `${at}: x names a year that nothing reads — move it to d, or word it as a feature note. x="${m.x}"`);
     if (m.u) check(m.u.startsWith("https://"), `${at}: link is not https — ${m.u}`);
+    // Open weights: licence text, a Hugging Face page, and a size in billions
+    // of parameters (a number, or [smallest, largest] for a family).
+    if (m.o !== undefined) {
+      check(m.o && typeof m.o === "object", `${at}: o must be an object`);
+      if (m.o.l !== undefined) check(typeof m.o.l === "string" && m.o.l, `${at}: o.l must be a non-empty string`);
+      if (m.o.h !== undefined) check(/^https:\/\/huggingface\.co\/.+/.test(m.o.h), `${at}: o.h must be a huggingface.co link — ${m.o.h}`);
+      if (m.o.p !== undefined) check(typeof m.o.p === "number" ? m.o.p > 0
+        : Array.isArray(m.o.p) && m.o.p.length === 2 && m.o.p[0] > 0 && m.o.p[0] < m.o.p[1],
+        `${at}: o.p must be a positive number or [smallest, largest] — ${JSON.stringify(m.o.p)}`);
+    }
     // Retired and Announced are contradictory; badge() picks one, so this catches bad data.
     check(!(retired(m.d) && fresh(m.d)), `${at}: reads as both Retired and New — d="${m.d}"`);
     // One card is one release. A card may name two versions across "→" only
@@ -91,6 +101,8 @@ const evc = H.reduce((a, e) => (a[e.t] = (a[e.t] || 0) + 1, a), {});
 
 console.log(`${D.length} companies, ${D.reduce((a, c) => a + c.m.length, 0)} models, NOW = ${stamp(NOW)}`);
 console.log(`badges: ${Object.entries(counts).map(([k, v]) => `${k} ${v}`).join(", ")}`);
+const om = D.flatMap(co => co.m).filter(m => m.o);
+console.log(`open weights: ${om.length} models, ${om.filter(m => m.o.h).length} on Hugging Face, ${om.filter(m => m.o.p).length} with a size`);
 console.log(`changelog: ${H.length} entries, ${new Set(H.map(e => e.y)).size} days, `
   + `${Object.entries(evc).map(([k, v]) => `${k} ${v}`).join(", ")}, newest ${H[0].y}`);
 for (const co of D) for (const m of co.m) {

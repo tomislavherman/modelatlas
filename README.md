@@ -8,10 +8,12 @@ Live: https://tomislavherman.github.io/modelatlas/
 
 Everything lives in `index.html`. No build step, no dependencies.
 
-The page has two tabbed views. **Models** is the index of what exists, grouped
-by company. **Changelog** is the flat, dated stream of what changed — newest
-first, with the day and the kind of change in a gutter to the left of each
-card rather than inside it.
+The page has three tabbed views. **All** is the index of what exists,
+grouped by company. **Open weights** is the same index narrowed to models whose
+weights can be downloaded, with extra filters for licence, a Hugging Face page
+and the RAM the weights need. **Changelog** is the flat, dated stream of what
+changed — newest first, with the day and the kind of change in a gutter to the
+left of each card rather than inside it.
 
 Category, subcategory and search sit above the tabs and are shared, so
 switching views keeps your question. The status row sits under the tabs and
@@ -36,6 +38,11 @@ nouns for what a row records — and each view remembers its own selection.
   there and prose belongs in `x`. `x` may be `""`. `u` is optional; a model
   without one links to its company's `u` instead, and a company without `u`
   renders as plain text.
+- **Open weights** — a model whose weights can be downloaded carries `o`,
+  `{l, h, p}`: the licence as the vendor names it, the Hugging Face page, and
+  the size in billions of parameters (or `[smallest, largest]` for a family).
+  The RAM shown is the weights at 16-bit, 2 GB per billion parameters, from
+  the smallest size; 4-bit quantised weights need about a quarter of it.
 - **One card per version** — a card is one release, and a new version gets its
   own card rather than an arrow appended to the card already there. Badges are
   computed per card, so a version sharing a card with its successor could never

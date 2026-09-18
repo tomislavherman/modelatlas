@@ -23,18 +23,15 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--sans);
 font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
-.wrap{max-width:900px;margin:0 auto;padding:28px 20px 64px}
-header{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;
-border-bottom:1px solid var(--line2);padding-bottom:18px;margin-bottom:20px}
+.wrap{max-width:900px;margin:0 auto;padding:20px 20px 64px}
+header{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:12px}
 /* The repo link is the one icon on the page that is a solid mark rather than
    a stroked 16x16 glyph, so it opts out of .ic and fills instead. */
-.gh{flex:none;display:inline-flex;padding:4px;margin:-3px -4px 0 0;
+.gh{flex:none;display:inline-flex;padding:4px;margin:0 -4px 0 0;
 border-radius:6px;color:var(--tx3);text-decoration:none}
 .gh:hover{color:var(--tx);background:var(--sunk)}
 .gh svg{display:block;width:21px;height:21px;fill:currentColor}
-h1{font-size:25px;font-weight:600;letter-spacing:-.02em;margin:0 0 6px}
-.sub{color:var(--tx2);font-size:14px;margin:0;max-width:60ch}
-.stamp{font-family:var(--mono);font-size:11px;color:var(--tx3);margin-top:10px;letter-spacing:.02em}
+h1{font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0;line-height:1.2}
 button{font:inherit;font-size:13px;padding:6px 13px;border:1px solid var(--line2);
 background:transparent;color:var(--tx2);border-radius:var(--r);cursor:pointer;
 transition:background .12s,color .12s}
@@ -42,16 +39,15 @@ button:hover{background:var(--sunk);color:var(--tx)}
 button[aria-pressed="true"]{background:var(--tx);color:var(--bg);border-color:var(--tx)}
 button:focus-visible{outline:2px solid #378ADD;outline-offset:2px}
 .filters,.badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
-.filters button,.badges button{font-size:12px;padding:4px 11px}
+.filters button,.badges button{font-size:14px;padding:5px 13px}
 .subs{display:none;flex-wrap:wrap;gap:6px;margin:0 0 8px 14px;
 padding-left:12px;border-left:1px solid var(--line)}
 .subs button{font-size:12px;padding:3px 10px}
-#q{font:inherit;font-size:14px;width:100%;padding:9px 12px;margin-bottom:12px;
+#q{font:inherit;font-size:14px;width:100%;padding:9px 12px;margin-bottom:0;
 border:1px solid var(--line2);border-radius:var(--r);background:var(--card);color:var(--tx)}
 #q::placeholder{color:var(--tx3)}
 #q:focus{outline:2px solid #378ADD;outline-offset:-1px}
-.count{font-family:var(--mono);font-size:11px;color:var(--tx3);margin:0 0 16px;letter-spacing:.02em}
-.grid{display:grid;gap:12px;grid-template-columns:1fr}
+.grid{display:grid;gap:12px;grid-template-columns:1fr;margin-top:16px}
 .co{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px}
 .co h2{font-size:16px;font-weight:600;margin:0;letter-spacing:-.01em}
 .co .meta{font-family:var(--mono);font-size:11px;color:var(--tx2);margin-top:3px;letter-spacing:.01em}
@@ -63,13 +59,33 @@ border:1px solid;border-left-width:3px;border-radius:0 var(--r) var(--r) 0}
 .m .n{font-size:13.5px;font-weight:500;line-height:1.35}
 .m .d{font-family:var(--mono);font-size:11px;opacity:.78;margin-top:3px;line-height:1.4}
 .m .x{font-size:12.5px;opacity:.82;margin-top:4px;line-height:1.45}
+/* The open-weights view adds a fourth line: licence, size, and where to download. */
+.m .o{display:flex;flex-wrap:wrap;gap:3px 14px;font-family:var(--mono);font-size:11px;
+opacity:.82;margin-top:5px;line-height:1.4}
+.m .o span,.m .o a{display:inline-flex;align-items:center;gap:4px}
+/* One row per question — licence, download, size — each with its own label,
+   so the three never read as one long list of unrelated buttons. */
+#ofilt{display:none;flex-direction:column;gap:6px}
+.orow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.olab{display:inline-flex;align-items:center;gap:5px;width:96px;flex:none;
+font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.07em;
+text-transform:uppercase;color:var(--tx3)}
+/* On a phone the label shrinks to its icon and the buttons tighten, so each
+   row still fits on one line at 360px. */
+@media (max-width:560px){
+.filters,.badges{gap:3px}
+.filters button,.badges button{font-size:11.5px;padding:4px 5px}
+.filters button .ic{width:14px;height:14px}
+.olab{width:auto}
+.olab b{display:none}
+#ofilt .orow{gap:4px}}
 .tags{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
 .tag{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;
 letter-spacing:.02em;white-space:nowrap;padding:2px 7px;border-radius:4px}
 .tag .ic{width:14px;height:14px}
 /* Category icons are drawn on a 16x16 grid and take their colour from the text
    around them, so one set works in both themes and on any chip background. */
-.ic{width:13px;height:13px;flex:none;fill:none;stroke:currentColor;
+.ic{width:15px;height:15px;flex:none;fill:none;stroke:currentColor;
 stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
 .ic .f{fill:currentColor;stroke:none}
 .filters button,.subs button{display:inline-flex;align-items:center;gap:5px}
@@ -78,7 +94,7 @@ text-transform:uppercase;margin-left:6px;padding:1px 5px;border-radius:4px;
 vertical-align:1px}
 /* Real tabs: a strip that the active tab sits on rather than a pair of pills,
    so the panel below reads as belonging to the chosen one. */
-.views{display:flex;gap:2px;border-bottom:1px solid var(--line2);margin:22px 0 12px}
+.views{display:flex;gap:2px;border-bottom:1px solid var(--line2);margin:10px 0 12px}
 .views button{background:none;border:none;border-bottom:2px solid transparent;
 border-radius:0;margin-bottom:-1px;padding:8px 15px;font-size:13.5px;color:var(--tx3)}
 .views button:hover{background:var(--sunk);color:var(--tx2)}
@@ -104,12 +120,9 @@ border-radius:0 12px 12px 0;padding:11px 14px;display:flex;align-items:flex-star
 letter-spacing:-.01em;margin-bottom:2px}
 .ev .n{font-size:13.5px;font-weight:500;line-height:1.35}
 .ev .x{font-size:12.5px;opacity:.82;margin-top:4px;line-height:1.45}
-/* The changelog's status buttons are drawn as the gutter markers they select,
-   rather than as the model list's badges, so the control and the thing it
-   filters share one visual language. */
-.badges button.mk{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;
-font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.07em;
-text-transform:uppercase}
+/* The changelog's status buttons carry the gutter dot of the markers they
+   select, at the same size as every other filter button on the page. */
+.badges button.mk{display:inline-flex;align-items:center;gap:6px}
 @media (max-width:560px){
 .evrow{grid-template-columns:1fr;gap:5px}
 .evside{flex-direction:row;align-items:center;gap:9px;padding:0 0 0 2px}}
@@ -126,11 +139,7 @@ a:focus-visible{outline:2px solid #378ADD;outline-offset:2px;border-radius:3px}
 <body>
 <div class="wrap">
 <header>
-<div>
 <h1>modelatlas</h1>
-<p class="sub">An index of AI generative models and the companies behind them, with release dates and a dated log of every change.</p>
-<p class="stamp" id="stamp"></p>
-</div>
 <a class="gh" href="https://github.com/tomislavherman/modelatlas" target="_blank" rel="noopener" aria-label="Source on GitHub" title="Source on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
 </header>
 
@@ -143,7 +152,7 @@ a:focus-visible{outline:2px solid #378ADD;outline-offset:2px;border-radius:3px}
 
 <div class="views" id="views" role="tablist" aria-label="View"></div>
 <div class="badges" id="badges" role="group" aria-label="Filter by status"></div>
-<p class="count" id="count"></p>
+<div class="filters" id="ofilt" role="group" aria-label="Filter by licence, download and size"></div>
 
 <div id="out" role="tabpanel"></div>
 
@@ -187,7 +196,12 @@ const ICON={
  text:'<path d="M2.8 4h10.4M2.8 8h10.4M2.8 12h6.2"/>',
  "text:chat":'<path d="M13.6 8.2c0 2.6-2.5 4.7-5.6 4.7-.7 0-1.4-.1-2-.3l-3.2 1.3 1-2.5C2.9 10.6 2.4 9.5 2.4 8.2c0-2.6 2.5-4.7 5.6-4.7s5.6 2.1 5.6 4.7z"/>',
  "text:code":'<path d="M5.6 4.6 2.4 8l3.2 3.4M10.4 4.6 13.6 8l-3.2 3.4"/>',
- "text:embed":'<path d="M2.6 2.8v10.6h10.8"/><circle class="f" cx="5.8" cy="10.4" r="1.2"/><circle class="f" cx="9.1" cy="6.4" r="1.2"/><circle class="f" cx="12.2" cy="9.2" r="1.2"/>'};
+ "text:embed":'<path d="M2.6 2.8v10.6h10.8"/><circle class="f" cx="5.8" cy="10.4" r="1.2"/><circle class="f" cx="9.1" cy="6.4" r="1.2"/><circle class="f" cx="12.2" cy="9.2" r="1.2"/>',
+ // The open-weights view: a licence (a sheet with a seal), memory (a chip)
+ // and Hugging Face (a download arrow into a tray).
+ licence:'<path d="M4 2.4h5.6l3 3v8.2H4z"/><path d="M9.6 2.4v3h3"/><circle cx="8.3" cy="9.3" r="1.5"/><path d="M7.3 10.6 6.7 13l1.6-.8 1.6.8-.6-2.4"/>',
+ ram:'<rect x="4" y="4" width="8" height="8" rx="1.4"/><rect x="6.4" y="6.4" width="3.2" height="3.2" rx=".6"/><path d="M6.2 4V2.2M9.8 4V2.2M6.2 13.8V12M9.8 13.8V12M4 6.2H2.2M4 9.8H2.2M13.8 6.2H12M13.8 9.8H12"/>',
+ hf:'<path d="M8 2.6v7.2"/><path d="M5.2 7.2 8 9.9l2.8-2.7"/><path d="M2.8 10.6v1.6a1.2 1.2 0 0 0 1.2 1.2h8a1.2 1.2 0 0 0 1.2-1.2v-1.6"/>'};
 const icon=t=>`<svg class="ic" viewBox="0 0 16 16" aria-hidden="true">${ICON[t]||ICON[base(t)]||""}</svg>`;
 const dark=()=>matchMedia("(prefers-color-scheme:dark)").matches;
 function base(t){return t.split(":")[0]}
@@ -203,7 +217,7 @@ const D=[
 {n:"GPT Image 2.5 Flare / GPT Image 2.5 Sunburst",k:["image"],d:"Sep 2026",x:"Lands in ChatGPT as Images 2.5 with two API tiers beside it, Flare as the default at half the latency of GPT Image 2 and Sunburst for edit-heavy production work",u:"https://openai.com/index/introducing-chatgpt-images-2-5/"},
 {n:"Sora",k:["video"],d:"Feb 2024 → Dec 2024, retired Sep 2025",x:"Replaced by Sora 2",u:"https://openai.com/sora"},
 {n:"Sora 2",k:["video","audio:sfx"],d:"Sep 2025, app closed Apr 2026, API ends Sep 2026",x:"Shut down as unsustainable; OpenAI left video with no successor",u:"https://openai.com/index/sora-2/"},
-{n:"Whisper",k:["audio:speech"],d:"Sep 2022, API removed Feb 2027",x:"Open weights speech-to-text; the deprecation is the hosted whisper-1 endpoint only, the weights stay public",u:"https://openai.com/index/whisper/"},
+{n:"Whisper",k:["audio:speech"],d:"Sep 2022, API removed Feb 2027",x:"Open weights speech-to-text; the deprecation is the hosted whisper-1 endpoint only, the weights stay public",u:"https://openai.com/index/whisper/",o:{l:"Apache 2.0",h:"https://huggingface.co/openai/whisper-large-v3",p:1.5}},
 {n:"TTS",k:["audio:speech"],d:"2023 →",x:"Text-to-speech on the API",u:"https://platform.openai.com/docs/guides/text-to-speech"},
 {n:"Realtime voice",k:["audio:speech"],d:"2023 →, first-generation realtime models shut down Jan 2027",x:"Speech-to-speech in the Realtime API; gpt-realtime-2.1 and its mini tier are the surviving models, and the GPT-Live line is where the work moved",u:"https://platform.openai.com/docs/guides/realtime"},
 {n:"GPT-Live-1 / GPT-Live-1 mini",k:["audio:speech"],d:"Jul 2026 → API Sep 2026",x:"Full-duplex speech-to-speech that listens and talks at the same time instead of taking turns, handing reasoning and tool calls to a paired frontier model without breaking the flow of the conversation; it replaced the turn-based voice mode in ChatGPT first and reached developers on a separate sessions endpoint at five cents a minute",u:"https://openai.com/index/introducing-gpt-live-1-in-the-api/"},
@@ -234,7 +248,7 @@ const D=[
 {n:"Gemini 3.6 Flash / Gemini 3.5 Flash-Lite",k:["text:chat","text:code"],d:"Jul 2026",x:"Announced together: 3.6 Flash spends 17% fewer output tokens than 3.5 Flash for better results, Flash-Lite runs the high-throughput tier at 350 output tokens a second, and a Cyber variant went to governments and trusted partners through CodeMender",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/"},
 {n:"Gemini 3.7 Flash",k:["text:chat","text:code"],d:"Aug 2026",x:"Three weeks after 3.6 Flash and half its price, on software engineering, web development and multi-step tool calling",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/"},
 {n:"Gemini 3.8 Flash",k:["text:chat","text:code"],d:"Sep 2026",x:"Takes Terminal-Bench 2.1 from 81.6% to 90.8%, with a Cyber variant for vulnerability discovery and patching limited to the Fairwind program",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"},
-{n:"Gemma 4",k:["text:chat","text:code"],d:"Apr 2026",x:"Open-weights family under Apache 2.0 in four sizes from a 2B-effective edge model to a 31B dense one, with native vision and audio input, 128K context on the small tiers and 256K on the large",u:"https://deepmind.google/models/gemma/gemma-4/"},
+{n:"Gemma 4",k:["text:chat","text:code"],d:"Apr 2026",x:"Open-weights family under Apache 2.0 in four sizes from a 2B-effective edge model to a 31B dense one, with native vision and audio input, 128K context on the small tiers and 256K on the large",u:"https://deepmind.google/models/gemma/gemma-4/",o:{l:"Apache 2.0",h:"https://huggingface.co/google/gemma-4-31B-it",p:[5,31]}},
 {n:"Gemini 3.5 Transcribe",k:["audio:speech"],d:"Aug 2026",x:"Speech-to-text successor to Chirp 3 in public preview: 2.6% word error rate against 5%, live and batch variants, 85 languages",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe/"},
 {n:"Gemini 3.8 Live / Gemini 3.8 Live Extended Thinking",k:["audio:speech","text:chat"],d:"Sep 2026",x:"Audio-to-audio voice models that detect and switch between 97 languages mid-conversation and run tools in the background without breaking the exchange; the standard tier tops the Artificial Analysis speech-to-speech index at 82.6 and scores 97.7% on Big Bench Audio, while Extended Thinking adds multi-step reasoning narrated aloud as it works",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/"},
 {n:"Gemini 3.5 Pro",k:["text:chat"],d:"expected 2026",x:"Testing with partners; three announced launch windows have come and gone",u:"https://deepmind.google/models/gemini/pro/"},
@@ -267,15 +281,15 @@ const D=[
 {n:"Emu / Imagine",k:["image"],d:"2023 →",x:"Image generation and editing research",u:"https://ai.meta.com/blog/emu-text-to-video-generation-image-editing-research/"},
 {n:"Movie Gen",k:["video","audio:sfx"],d:"Oct 2024",x:"30B research model; cost and generation time kept it out of products",u:"https://ai.meta.com/research/movie-gen/"},
 {n:"Muse Image",k:["image"],d:"Jul 2026",x:"Codenamed Mango; first image model from Meta Superintelligence Labs, free in the Meta AI app, Instagram Stories and WhatsApp",u:"https://techcrunch.com/2026/07/07/meta-rolls-out-muse-a-new-ai-image-generator/"},
-{n:"MusicGen",k:["audio:music"],d:"2023",x:"Open weights, part of AudioCraft",u:"https://audiocraft.metademolab.com/musicgen.html"},
-{n:"AudioGen",k:["audio:sfx"],d:"2023",x:"Text to sound effects, open weights",u:"https://audiocraft.metademolab.com/audiogen.html"},
+{n:"MusicGen",k:["audio:music"],d:"2023",x:"Open weights, part of AudioCraft",u:"https://audiocraft.metademolab.com/musicgen.html",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/facebook/musicgen-large",p:3.3}},
+{n:"AudioGen",k:["audio:sfx"],d:"2023",x:"Text to sound effects, open weights",u:"https://audiocraft.metademolab.com/audiogen.html",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/facebook/audiogen-medium",p:1.5}},
 {n:"Voicebox / Seamless",k:["audio:speech"],d:"2023 →",x:"Speech generation and speech translation research",u:"https://ai.meta.com/research/seamless-communication/"},
 {n:"Muse Voice Transcribe",k:["audio:speech"],d:"Sep 2026",x:"First real-time audio perception model from Meta Superintelligence Labs: streaming speech-to-text, diarization across 20+ speakers and endpointing in one pass, no post-processing step; trained on 70 languages with 25 validated at launch",u:"https://research.meta.ai/blog/introducing-muse-voice-transcribe"},
-{n:"Llama 4",k:["text:chat","text:code"],d:"Apr 2025",x:"Open weights",u:"https://www.llama.com"},
-{n:"Llama 5",k:["text:chat","text:code"],d:"Apr 2026",x:"Open weights; shipped the same morning as the closed Muse Spark",u:"https://www.llama.com"},
+{n:"Llama 4",k:["text:chat","text:code"],d:"Apr 2025",x:"Open weights",u:"https://www.llama.com",o:{l:"Llama 4 community",h:"https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct",p:[109,402]}},
+{n:"Llama 5",k:["text:chat","text:code"],d:"Apr 2026",x:"Open weights; shipped the same morning as the closed Muse Spark",u:"https://www.llama.com",o:{}},
 {n:"Muse Spark",k:["text:chat","text:code"],d:"Apr 2026",x:"First closed-weights frontier model from Meta Superintelligence Labs; runs Meta AI across the apps",u:"https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/"},
 {n:"Muse Spark 1.3",k:["text:chat","text:code"],d:"Sep 2026",x:"The model behind the Muse Code terminal agent, cutting tool calls by a fifth against 1.2"},
-{n:"Muse Glimmer",k:["text:chat","text:code"],d:"Aug 2026",x:"30B distilled from Muse Spark and released under Apache 2.0; 4-bit quantisation fits the agentic loop into a single 24GB consumer GPU, so it runs offline",u:"https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model"}]},
+{n:"Muse Glimmer",k:["text:chat","text:code"],d:"Aug 2026",x:"30B distilled from Muse Spark and released under Apache 2.0; 4-bit quantisation fits the agentic loop into a single 24GB consumer GPU, so it runs offline",u:"https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",o:{l:"Apache 2.0",h:"https://huggingface.co/meta-models/Muse-Glimmer-30B",p:30}}]},
 {c:"Amazon",r:"US",f:"1994",n:"NASDAQ",u:"https://aws.amazon.com/ai/generative-ai/nova/",m:[
 {n:"Nova Canvas",k:["image"],d:"Dec 2024, wind-down Jul 2026",x:"",u:"https://aws.amazon.com/ai/generative-ai/nova/creative/"},
 {n:"Nova Reel",k:["video"],d:"Dec 2024, EOL Sep 2026",x:"Luma Ray named as the Bedrock successor",u:"https://aws.amazon.com/ai/generative-ai/nova/creative/"},
@@ -297,26 +311,26 @@ const D=[
 {n:"MAI-Code-1.1-Flash",k:["text:code"],d:"Aug 2026",x:"Higher code quality at 25% greater token efficiency and a quarter of the price of 1.0, with the gains concentrated on CLI and .NET work; serving in GitHub Copilot and VS Code",u:"https://microsoft.ai/news/mai-code-1-1-flash-br-better-faster-at-a-quarter-of-the-cost/"},
 {n:"MAI-Cyber-1-Flash",k:["text:code"],d:"Aug 2026",x:"A compact, code-heavy security model out of the MAI-Thinking-1 lineage; 96% on CyberGym at half the cost of leading models, covering around 90% of the work inside MDASH with the hardest tenth routed to larger models",u:"https://microsoft.ai/news/introducing-mai-cyber-1-flash-inside-mdash/"}]},
 {c:"IBM",r:"US",f:"1911",n:"NYSE",u:"https://www.ibm.com/granite",m:[
-{n:"Granite 3.0",k:["text:chat","text:code"],d:"Oct 2024",x:"Apache 2.0 weights across the whole family"},
-{n:"Granite 4.2",k:["text:chat","text:code"],d:"Aug 2026",x:"Apache 2.0 weights; dense 3B, 8B and 30B models with a thinking switch, so one checkpoint either reasons step by step or answers straight, aimed at tool calling and agentic work",u:"https://research.ibm.com/blog/introducing-granite-4-2"},
-{n:"Granite Speech 4.1",k:["audio:speech"],d:"Apr 2026",x:"Two open 2B speech recognition models with translation and keyword biasing; the non-autoregressive variant drops both for roughly 1800x real-time on a single H100",u:"https://huggingface.co/ibm-granite/granite-speech-4.1-2b"},
-{n:"Granite Embedding R2",k:["text:embed"],d:"Apr 2026",x:"97M and 311M bi-encoders for retrieval, 200+ languages, 32K context",u:"https://www.ibm.com/granite/docs/models/embedding"}]},
+{n:"Granite 3.0",k:["text:chat","text:code"],d:"Oct 2024",x:"Apache 2.0 weights across the whole family",o:{l:"Apache 2.0",h:"https://huggingface.co/ibm-granite/granite-3.0-8b-instruct",p:[1,8]}},
+{n:"Granite 4.2",k:["text:chat","text:code"],d:"Aug 2026",x:"Apache 2.0 weights; dense 3B, 8B and 30B models with a thinking switch, so one checkpoint either reasons step by step or answers straight, aimed at tool calling and agentic work",u:"https://research.ibm.com/blog/introducing-granite-4-2",o:{l:"Apache 2.0",h:"https://huggingface.co/ibm-granite/granite-4.2-30b",p:[3.7,29]}},
+{n:"Granite Speech 4.1",k:["audio:speech"],d:"Apr 2026",x:"Two open 2B speech recognition models with translation and keyword biasing; the non-autoregressive variant drops both for roughly 1800x real-time on a single H100",u:"https://huggingface.co/ibm-granite/granite-speech-4.1-2b",o:{l:"Apache 2.0",h:"https://huggingface.co/ibm-granite/granite-speech-4.1-2b",p:2.3}},
+{n:"Granite Embedding R2",k:["text:embed"],d:"Apr 2026",x:"97M and 311M bi-encoders for retrieval, 200+ languages, 32K context",u:"https://www.ibm.com/granite/docs/models/embedding",o:{l:"Apache 2.0",h:"https://huggingface.co/ibm-granite/granite-embedding-english-r2",p:[0.1,0.3]}}]},
 {c:"NVIDIA",r:"US",f:"1993",n:"NASDAQ",u:"https://www.nvidia.com",m:[
-{n:"Cosmos",k:["world","robotics","video","audio:sfx"],d:"Jan 2025",x:"World foundation models for robotics and simulation",u:"https://www.nvidia.com/en-us/ai/cosmos/"},
-{n:"Cosmos 3",k:["world","robotics","video","audio:sfx"],d:"Jun 2026",x:"Omnimodal world foundation models for robotics and simulation",u:"https://www.nvidia.com/en-us/ai/cosmos/"},
-{n:"Cosmos 3 Edge",k:["world"],d:"Jul 2026",x:"4B parameters, runs on-device, open weights",u:"https://www.nvidia.com/en-us/ai/cosmos/"},
+{n:"Cosmos",k:["world","robotics","video","audio:sfx"],d:"Jan 2025",x:"World foundation models for robotics and simulation",u:"https://www.nvidia.com/en-us/ai/cosmos/",o:{l:"NVIDIA Open Model",h:"https://huggingface.co/nvidia/Cosmos-Predict1-7B-Text2World",p:[4,12]}},
+{n:"Cosmos 3",k:["world","robotics","video","audio:sfx"],d:"Jun 2026",x:"Omnimodal world foundation models for robotics and simulation",u:"https://www.nvidia.com/en-us/ai/cosmos/",o:{l:"OpenMDW 1.1",h:"https://huggingface.co/nvidia/Cosmos3-Super",p:[16,65]}},
+{n:"Cosmos 3 Edge",k:["world"],d:"Jul 2026",x:"4B parameters, runs on-device, open weights",u:"https://www.nvidia.com/en-us/ai/cosmos/",o:{l:"OpenMDW 1.1",h:"https://huggingface.co/nvidia/Cosmos3-Edge",p:3.9}},
 {n:"Audio2Face / Riva",k:["avatar","audio:speech"],d:"2023 →",x:"Facial animation and speech in the ACE stack",u:"https://developer.nvidia.com/ace"},
-{n:"Isaac GR00T N1",k:["robotics"],d:"Mar 2025",x:"Open vision-language-action model for humanoids",u:"https://github.com/NVIDIA/Isaac-GR00T"},
-{n:"Isaac GR00T N1.7",k:["robotics"],d:"Jun 2026",x:"3B parameters on a Cosmos Reason backbone",u:"https://github.com/NVIDIA/Isaac-GR00T"},
+{n:"Isaac GR00T N1",k:["robotics"],d:"Mar 2025",x:"Open vision-language-action model for humanoids",u:"https://github.com/NVIDIA/Isaac-GR00T",o:{l:"NVIDIA non-commercial",h:"https://huggingface.co/nvidia/GR00T-N1-2B",p:2.2}},
+{n:"Isaac GR00T N1.7",k:["robotics"],d:"Jun 2026",x:"3B parameters on a Cosmos Reason backbone",u:"https://github.com/NVIDIA/Isaac-GR00T",o:{l:"NVIDIA Open Model",h:"https://huggingface.co/nvidia/GR00T-N1.7-3B",p:3.1}},
 {n:"Isaac GR00T N2",k:["robotics"],d:"expected 2026",x:"Currently first on MolmoSpaces and RoboArena for generalist robot policies",u:"https://developer.nvidia.com/isaac/gr00t"},
-{n:"Nemotron 3.5 Lightning",k:["text:chat"],d:"Aug 2026",x:"30B mixture of experts with 3B active on a hybrid Mamba-2 backbone, 1M-token context; weights, training data and recipes under OpenMDW-1.1, aimed at long-running agents",u:"https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/"}]},
+{n:"Nemotron 3.5 Lightning",k:["text:chat"],d:"Aug 2026",x:"30B mixture of experts with 3B active on a hybrid Mamba-2 backbone, 1M-token context; weights, training data and recipes under OpenMDW-1.1, aimed at long-running agents",u:"https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",o:{l:"OpenMDW 1.1",h:"https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",p:32}}]},
 {c:"Black Forest Labs",r:"DE",f:"2024",n:"independent",u:"https://bfl.ai",m:[
-{n:"FLUX.1",k:["image"],d:"Aug 2024",x:"",u:"https://bfl.ai/models/flux-pro"},
-{n:"FLUX.1 Kontext",k:["image"],d:"May 2025",x:"In-context image editing",u:"https://bfl.ai/models/flux-kontext"},
-{n:"FLUX.2",k:["image"],d:"Nov 2025",x:"",u:"https://bfl.ai/models/flux-2"},
+{n:"FLUX.1",k:["image"],d:"Aug 2024",x:"",u:"https://bfl.ai/models/flux-pro",o:{l:"FLUX.1 dev non-commercial",h:"https://huggingface.co/black-forest-labs/FLUX.1-dev",p:12}},
+{n:"FLUX.1 Kontext",k:["image"],d:"May 2025",x:"In-context image editing",u:"https://bfl.ai/models/flux-kontext",o:{l:"FLUX.1 dev non-commercial",h:"https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev",p:12}},
+{n:"FLUX.2",k:["image"],d:"Nov 2025",x:"",u:"https://bfl.ai/models/flux-2",o:{l:"FLUX non-commercial",h:"https://huggingface.co/black-forest-labs/FLUX.2-dev",p:32}},
 {n:"FLUX 3",k:["video","image","audio:sfx"],d:"Jul 2026 → video GA Aug 2026",x:"One backbone for image, 20s video with dialogue, and robot actions",u:"https://bfl.ai/models/flux-3"},
 {n:"FLUX-mimic",k:["robotics"],d:"Jul 2026",x:"Robot action prediction from the FLUX 3 backbone",u:"https://bfl.ai/models/flux-3"},
-{n:"FLUX 3 Dev",k:["image","video"],d:"announced, open weights later in 2026",x:"Last tier in the FLUX 3 rollout, licence undecided",u:"https://bfl.ai/models/flux-3"}]},
+{n:"FLUX 3 Dev",k:["image","video"],d:"announced, open weights later in 2026",x:"Last tier in the FLUX 3 rollout, licence undecided",u:"https://bfl.ai/models/flux-3",o:{l:"undecided"}}]},
 {c:"Runway",r:"US",f:"2018",n:"independent",u:"https://runwayml.com",m:[
 {n:"Gen-1",k:["video"],d:"2023",x:"",u:"https://runwayml.com/research/introducing-runway-gen-4"},
 {n:"Gen-4.5",k:["video","audio:sfx"],d:"2026",x:"Audio added May 2026",u:"https://runwayml.com/research/introducing-runway-gen-4"},
@@ -343,13 +357,13 @@ const D=[
 {n:"Midjourney Video V8",k:["video"],d:"Apr 2026",x:"",u:"https://www.midjourney.com/updates"},
 {n:"World model (unnamed)",k:["world"],d:"announced Jun 2025",x:"Published roadmap after video: 3D, then real-time, then one unified system",u:"https://www.midjourney.com/updates"}]},
 {c:"Stability AI",r:"UK",f:"2019",n:"independent",u:"https://stability.ai",m:[
-{n:"Stable Diffusion",k:["image"],d:"Aug 2022",x:"Open weights; the model most later open image work forked from",u:"https://stability.ai/stable-image"},
-{n:"SD 3.5",k:["image"],d:"Oct 2024",x:"Last image model Stability shipped",u:"https://stability.ai/news/introducing-stable-diffusion-3-5"},
-{n:"Stable Video Diffusion",k:["video"],d:"Nov 2023",x:"",u:"https://stability.ai/stable-video"},
-{n:"Stable Audio 3.0",k:["audio:music","audio:sfx"],d:"May 2026",x:"Section-level song structure",u:"https://stability.ai/stable-audio"}]},
+{n:"Stable Diffusion",k:["image"],d:"Aug 2022",x:"Open weights; the model most later open image work forked from",u:"https://stability.ai/stable-image",o:{l:"CreativeML OpenRAIL-M",h:"https://huggingface.co/CompVis/stable-diffusion-v1-4",p:0.9}},
+{n:"SD 3.5",k:["image"],d:"Oct 2024",x:"Last image model Stability shipped",u:"https://stability.ai/news/introducing-stable-diffusion-3-5",o:{l:"Stability community",h:"https://huggingface.co/stabilityai/stable-diffusion-3.5-large",p:[2.5,8]}},
+{n:"Stable Video Diffusion",k:["video"],d:"Nov 2023",x:"",u:"https://stability.ai/stable-video",o:{l:"Stability community",h:"https://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt",p:1.5}},
+{n:"Stable Audio 3.0",k:["audio:music","audio:sfx"],d:"May 2026",x:"Section-level song structure",u:"https://stability.ai/stable-audio",o:{l:"Stability community",h:"https://huggingface.co/stabilityai/stable-audio-3-medium",p:[0.6,2.3]}}]},
 {c:"Ideogram",r:"US",f:"2022",n:"independent",u:"https://ideogram.ai",m:[
 {n:"Ideogram 1.0",k:["image"],d:"2023",x:"Strongest at text inside images",u:"https://about.ideogram.ai"},
-{n:"Ideogram 4.0",k:["image"],d:"Jun 2026",x:"Open weights; strongest at text inside images",u:"https://about.ideogram.ai"}]},
+{n:"Ideogram 4.0",k:["image"],d:"Jun 2026",x:"Open weights; strongest at text inside images",u:"https://about.ideogram.ai",o:{l:"Ideogram 4 non-commercial",h:"https://huggingface.co/ideogram-ai/ideogram-4-fp8",p:9.3}}]},
 {c:"Recraft",r:"US",f:"2022",n:"independent",u:"https://www.recraft.ai",m:[
 {n:"Recraft V3",k:["image"],d:"2024",x:"Vector output and brand-style control",u:"https://www.recraft.ai"},
 {n:"Recraft V4.1",k:["image"],d:"2026",x:"Vector output and brand-style control",u:"https://www.recraft.ai"}]},
@@ -357,12 +371,12 @@ const D=[
 {n:"Phoenix / Lucid",k:["image"],d:"2024 →",x:"",u:"https://leonardo.ai/news/"}]},
 {c:"Krea",r:"US",f:"2022",n:"independent",u:"https://www.krea.ai",m:[
 {n:"Krea 1 / Krea Realtime",k:["image"],d:"2025 →",x:"",u:"https://www.krea.ai"},
-{n:"Krea 2",k:["image"],d:"May 2026, open weights Jun 2026",x:"12.9B parameters",u:"https://www.krea.ai/blog/krea-2-technical-report"}]},
+{n:"Krea 2",k:["image"],d:"May 2026, open weights Jun 2026",x:"12.9B parameters",u:"https://www.krea.ai/blog/krea-2-technical-report",o:{l:"Krea 2 community",h:"https://huggingface.co/krea/Krea-2-Raw",p:13}}]},
 {c:"Lightricks / LTX",r:"IL",f:"2013",n:"independent",u:"https://www.lightricks.com",m:[
-{n:"LTX Video",k:["video"],d:"Nov 2024",x:"Open weights",u:"https://github.com/Lightricks/LTX-Video"},
-{n:"LTX-2",k:["video","audio:sfx"],d:"Jan 2026",x:"Open weights, synced audio",u:"https://ltx.io"},
-{n:"LTX-2.3",k:["video","audio:sfx"],d:"Mar 2026",x:"",u:"https://ltx.io"},
-{n:"LTX-2.5",k:["video","audio:sfx"],d:"Aug 2026",x:"22B, single pass, 10s of 1080p in about 24 seconds",u:"https://ltx.io"}]},
+{n:"LTX Video",k:["video"],d:"Nov 2024",x:"Open weights",u:"https://github.com/Lightricks/LTX-Video",o:{l:"LTX community",h:"https://huggingface.co/Lightricks/LTX-Video",p:[1.9,13]}},
+{n:"LTX-2",k:["video","audio:sfx"],d:"Jan 2026",x:"Open weights, synced audio",u:"https://ltx.io",o:{l:"LTX-2 community",h:"https://huggingface.co/Lightricks/LTX-2",p:19}},
+{n:"LTX-2.3",k:["video","audio:sfx"],d:"Mar 2026",x:"",u:"https://ltx.io",o:{l:"LTX-2 community",h:"https://huggingface.co/Lightricks/LTX-2.3",p:22}},
+{n:"LTX-2.5",k:["video","audio:sfx"],d:"Aug 2026",x:"22B, single pass, 10s of 1080p in about 24 seconds",u:"https://ltx.io",o:{l:"LTX-2.x community",h:"https://huggingface.co/Lightricks/LTX-2.5",p:22}}]},
 {c:"World Labs",r:"US",f:"2024",n:"independent",u:"https://www.worldlabs.ai",m:[
 {n:"Marble",k:["world"],d:"Nov 2025",x:"Editable, downloadable 3D worlds from text, photos or panoramas",u:"https://marble.worldlabs.ai"},
 {n:"Marble 1.1",k:["world"],d:"Apr 2026",x:"Editable, downloadable 3D worlds from text, photos or panoramas",u:"https://marble.worldlabs.ai"},
@@ -372,7 +386,7 @@ const D=[
 {c:"Visko",r:"US",f:"2025",n:"independent",u:"https://www.visko.ai",m:[
 {n:"Orbis",k:["world","video"],d:"Sep 2026",x:"A \"live model\" that runs a world rather than rendering a clip: 4K at 24fps streamed in real time, hour-scale generation without visible quality or colour drift, persistent memory and physics-grounded dynamics, and the prompt can be changed mid-generation with the stream updating as it continues",u:"https://www.visko.ai/news/visko-closes-10-million-pre-seed-round-and-launches-orbis"}]},
 {c:"Decart",r:"IL/US",f:"2023",n:"independent",u:"https://www.decart.ai",m:[
-{n:"Oasis",k:["world"],d:"2024",x:"Photorealistic driving simulation",u:"https://oasis.decart.ai"},
+{n:"Oasis",k:["world"],d:"2024",x:"Photorealistic driving simulation",u:"https://oasis.decart.ai",o:{l:"MIT",h:"https://huggingface.co/Etched/oasis-500m",p:0.5}},
 {n:"Oasis 3",k:["world"],d:"Jun 2026",x:"Photorealistic driving simulation, available via API",u:"https://oasis.decart.ai"},
 {n:"Lucy 2",k:["video"],d:"Jan 2026",x:"Live 1080p video editing",u:"https://decart.ai/blog"},
 {n:"Lucy 2.5",k:["video"],d:"Jul 2026",x:"Live 1080p video editing",u:"https://decart.ai/blog"}]},
@@ -386,14 +400,14 @@ const D=[
 {c:"Manycore Tech",r:"CN",f:"2011",n:"HKEX Apr 2026",u:"https://www.aholo3d.com",m:[
 {n:"Lux3D",k:["world"],d:"Aug 2026",x:"Text or a reference image to a PBR-ready 3D asset, trained on a mix of generated and reconstructed real-world data so glass, metal, ceramic and plastic hold up under light; a Turbo mode returns a draft in about twenty seconds and a Harness mode batches generation over the API",u:"https://lux3d.aholo3d.com/lux3d/home"}]},
 {c:"Mistral AI",r:"FR",f:"2023",n:"independent",u:"https://mistral.ai",m:[
-{n:"Voxtral",k:["audio:speech"],d:"Jul 2025",x:"Speech understanding",u:"https://mistral.ai/news/voxtral"},
-{n:"Voxtral TTS",k:["audio:speech"],d:"Mar 2026",x:"4B, open weights, priced against ElevenLabs",u:"https://mistral.ai/news/voxtral-tts/"},
-{n:"Mistral Large 3",k:["text:chat","text:code"],d:"Dec 2025",x:"675B sparse mixture of experts with 41B active, Apache 2.0, 256K context",u:"https://mistral.ai/news"},
+{n:"Voxtral",k:["audio:speech"],d:"Jul 2025",x:"Speech understanding",u:"https://mistral.ai/news/voxtral",o:{l:"Apache 2.0",h:"https://huggingface.co/mistralai/Voxtral-Small-24B-2507",p:[3,24]}},
+{n:"Voxtral TTS",k:["audio:speech"],d:"Mar 2026",x:"4B, open weights, priced against ElevenLabs",u:"https://mistral.ai/news/voxtral-tts/",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/mistralai/Voxtral-4B-TTS-2603",p:4}},
+{n:"Mistral Large 3",k:["text:chat","text:code"],d:"Dec 2025",x:"675B sparse mixture of experts with 41B active, Apache 2.0, 256K context",u:"https://mistral.ai/news",o:{l:"Apache 2.0",h:"https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512",p:675}},
 {n:"Mistral Medium 3",k:["text:code","text:chat"],d:"May 2025",x:"The tier Mistral points at for coding work",u:"https://mistral.ai/news/mistral-medium-3"},
 {n:"Mistral Medium 3.5",k:["text:code","text:chat"],d:"Apr 2026",x:"The tier Mistral points at for coding work"},
-{n:"Mistral Small 4",k:["text:chat","text:code"],d:"Mar 2026",x:"119B sparse mixture of experts with 6B active, Apache 2.0, 256K context; folds Magistral's reasoning, Pixtral's vision and Devstral's agentic coding into one model instead of three",u:"https://mistral.ai/news/mistral-small-4/"},
-{n:"Leanstral",k:["text:code"],d:"Mar 2026",x:"Lean 4 proof agent trained to work natively in formal repositories rather than wrapping a generalist model around the syntax"},
-{n:"Leanstral 1.5",k:["text:code"],d:"Jun 2026, Labs hosting ends 30 Sep 2026",x:"119B sparse mixture of experts with 6B active, Apache 2.0, 256K context, free in the experimental Labs tier; the open weights stay up after the hosted endpoint closes",u:"https://mistral.ai/news/leanstral-1-5/"}]},
+{n:"Mistral Small 4",k:["text:chat","text:code"],d:"Mar 2026",x:"119B sparse mixture of experts with 6B active, Apache 2.0, 256K context; folds Magistral's reasoning, Pixtral's vision and Devstral's agentic coding into one model instead of three",u:"https://mistral.ai/news/mistral-small-4/",o:{l:"Apache 2.0",h:"https://huggingface.co/mistralai/Mistral-Small-4-119B-2603",p:119}},
+{n:"Leanstral",k:["text:code"],d:"Mar 2026",x:"Lean 4 proof agent trained to work natively in formal repositories rather than wrapping a generalist model around the syntax",o:{l:"Apache 2.0",h:"https://huggingface.co/mistralai/Leanstral-2603"}},
+{n:"Leanstral 1.5",k:["text:code"],d:"Jun 2026, Labs hosting ends 30 Sep 2026",x:"119B sparse mixture of experts with 6B active, Apache 2.0, 256K context, free in the experimental Labs tier; the open weights stay up after the hosted endpoint closes",u:"https://mistral.ai/news/leanstral-1-5/",o:{l:"Apache 2.0",h:"https://huggingface.co/mistralai/Leanstral-1.5-119B-A6B",p:119}}]},
 {c:"ElevenLabs",r:"UK/US",f:"2022",n:"independent",u:"https://elevenlabs.io",m:[
 {n:"Eleven TTS",k:["audio:speech"],d:"2023",x:"",u:"https://elevenlabs.io/text-to-speech"},
 {n:"Eleven v3",k:["audio:speech"],d:"2025",x:"",u:"https://elevenlabs.io/text-to-speech"},
@@ -428,16 +442,16 @@ const D=[
 {n:"Cassette music model",k:["audio:music"],d:"2023",x:"Stems and MIDI output",u:"https://cassetteai.com"},
 {n:"Cassette SFX",k:["audio:sfx"],d:"2025",x:"Sub-50ms on-device SDK",u:"https://cassetteai.com"}]},
 {c:"Multimodal Art Projection",r:"International",f:"2022",n:"non-profit research community",u:"https://m-a-p.ai",m:[
-{n:"YuE2-3B",k:["audio:music"],d:"Sep 2026",x:"Plans a song as an editable melody-and-chord score in ABC notation before rendering it, so the composition can be revised between the two steps; a 3B AR-NAR mixture-of-transformers writes the score and semantic tokens, flow matching and a VAE decode them to 48 kHz stereo with vocals and accompaniment. Runs on one 24GB GPU; code Apache 2.0, weights CC BY-NC 4.0",u:"https://github.com/multimodal-art-projection/YuE"}]},
+{n:"YuE2-3B",k:["audio:music"],d:"Sep 2026",x:"Plans a song as an editable melody-and-chord score in ABC notation before rendering it, so the composition can be revised between the two steps; a 3B AR-NAR mixture-of-transformers writes the score and semantic tokens, flow matching and a VAE decode them to 48 kHz stereo with vocals and accompaniment. Runs on one 24GB GPU; code Apache 2.0, weights CC BY-NC 4.0",u:"https://github.com/multimodal-art-projection/YuE",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/m-a-p/YuE2-3B",p:3.6}}]},
 {c:"Sony AI",r:"JP",f:"2020",n:"Sony Group",u:"https://ai.sony",m:[
-{n:"Woosh",k:["audio:sfx"],d:"May 2026",x:"Sound effect foundation model for games and film, text-to-audio and video-to-audio; a studio model trained on licensed libraries stays private, while the same architecture trained on public data ships as open weights under CC-BY-NC",u:"https://github.com/SonyResearch/Woosh"}]},
+{n:"Woosh",k:["audio:sfx"],d:"May 2026",x:"Sound effect foundation model for games and film, text-to-audio and video-to-audio; a studio model trained on licensed libraries stays private, while the same architecture trained on public data ships as open weights under CC-BY-NC",u:"https://github.com/SonyResearch/Woosh",o:{l:"CC BY-NC 4.0"}}]},
 {c:"Autodesk",r:"US",f:"1982",n:"NASDAQ",u:"https://www.autodesk.com",m:[
 {n:"Wonder 3D",k:["world","image"],d:"Mar 2026",x:"Text to 3D, image to 3D and text to image inside Flow Studio, built by Wonder Dynamics: editable characters, creatures and props with geometry and textures, exported as USD, STL or OBJ",u:"https://adsknews.autodesk.com/en/news/autodesk-flow-studio-launches-wonder-3d-gen-ai-model-to-help-creators-make-3d-characters-and-objects-faster-and-easier/"}]},
 {c:"Desert Ant Labs",r:"NL",f:"unknown",n:"independent",u:"https://desertant.com",m:[
-{n:"Voz / Clear / Uhm / Align / Ear",k:["audio:speech"],d:"Sep 2026",x:"The speech half of the launch suite, all running locally with nothing sent to a server: transcription at ten minutes of audio in two seconds on an iPhone, studio-grade cleanup, filler-word removal, word-level timestamps and spoken language detection from 30 seconds of audio",u:"https://desertant.com/blog/introducing-desert-ant-labs/"},
-{n:"Clips / Title",k:["text:chat"],d:"Sep 2026",x:"The pair behind the Auto Edit feature in Detail, the lab's own video app, both running on device: Clips scores every sentence of a transcript for editorial value in one encoder pass and marks where a short should start and end, 284MB standing in for a Claude Sonnet call at ten times the speed and 470x less energy; Title then names and describes each clip it returns, about a second each",u:"https://desertant.com/blog/detail-auto-edit-on-device/"},
-{n:"Redact / Tongue / Gist / Emo",k:["text:chat"],d:"Sep 2026",x:"The rest of the stable text suite, all local: Redact masks names, addresses and card numbers in 27 languages in real time, catching 88.8% of the personal data in a text from 12MB against a 2.3GB GLiNER-PII's 91.1; Tongue names one of 84 languages from three words at 2MB; Gist tags topics for posts and articles and Emo suggests emoji as you type",u:"https://desertant.com/blog/introducing-desert-ant-labs/"},
-{n:"Shapes",k:["image"],d:"Sep 2026",x:"Turns a rough sketch into a clean shape on device",u:"https://desertant.com/blog/introducing-desert-ant-labs/"},
+{n:"Voz / Clear / Uhm / Align / Ear",k:["audio:speech"],d:"Sep 2026",x:"The speech half of the launch suite, all running locally with nothing sent to a server: transcription at ten minutes of audio in two seconds on an iPhone, studio-grade cleanup, filler-word removal, word-level timestamps and spoken language detection from 30 seconds of audio",u:"https://desertant.com/blog/introducing-desert-ant-labs/",o:{l:"Desert Ant source-available 1.0",h:"https://huggingface.co/desert-ant-labs"}},
+{n:"Clips / Title",k:["text:chat"],d:"Sep 2026",x:"The pair behind the Auto Edit feature in Detail, the lab's own video app, both running on device: Clips scores every sentence of a transcript for editorial value in one encoder pass and marks where a short should start and end, 284MB standing in for a Claude Sonnet call at ten times the speed and 470x less energy; Title then names and describes each clip it returns, about a second each",u:"https://desertant.com/blog/detail-auto-edit-on-device/",o:{l:"Desert Ant source-available 1.0",h:"https://huggingface.co/desert-ant-labs"}},
+{n:"Redact / Tongue / Gist / Emo",k:["text:chat"],d:"Sep 2026",x:"The rest of the stable text suite, all local: Redact masks names, addresses and card numbers in 27 languages in real time, catching 88.8% of the personal data in a text from 12MB against a 2.3GB GLiNER-PII's 91.1; Tongue names one of 84 languages from three words at 2MB; Gist tags topics for posts and articles and Emo suggests emoji as you type",u:"https://desertant.com/blog/introducing-desert-ant-labs/",o:{l:"Desert Ant source-available 1.0",h:"https://huggingface.co/desert-ant-labs"}},
+{n:"Shapes",k:["image"],d:"Sep 2026",x:"Turns a rough sketch into a clean shape on device",u:"https://desertant.com/blog/introducing-desert-ant-labs/",o:{l:"Desert Ant source-available 1.0",h:"https://huggingface.co/desert-ant-labs"}},
 {n:"Eye / Face / Moderator / Who / Schemer / Toxic",k:["image","audio:speech","text:chat"],d:"Sep 2026",x:"The six models the launch shipped in beta beside the twelve stable ones: Eye tags and ranks images on aesthetics and content, Face finds people in photos without the photos leaving the phone, Moderator flags nudity before an upload, Who labels who said what in audio and video, Schemer extracts typed JSON from any text and Toxic catches hate speech before it posts",u:"https://desertant.com/blog/introducing-desert-ant-labs/"}]},
 {c:"Sonilo",r:"US",f:"unknown",n:"independent",u:"https://sonilo.com",m:[
 {n:"Sonilo v1.0",k:["audio:music"],d:"May 2026",x:"Video-to-music with no text prompt: reads a clip's pacing, motion and emotional arc, then scores it to the exact duration so nothing has to be trimmed or looped; trained only on licensed catalogues, Shutterstock's among them"},
@@ -454,7 +468,7 @@ const D=[
 {n:"Live Avatars",k:["avatar"],d:"Jul 2025",x:"Sub-100ms; pipes any third-party voice through LiveKit",u:"https://www.hedra.com"},
 {n:"Omnia",k:["avatar","video"],d:"2026",x:"Full scene control",u:"https://www.hedra.com"}]},
 {c:"Avaturn",r:"US",f:"2019",n:"independent",u:"https://avaturn.me",m:[
-{n:"AVTR-1",k:["avatar"],d:"2026",x:"Open-weights full-duplex avatar model: a 153M-parameter flow-matching transformer turns an audio stream into motion for a portrait image and renders every frame of the face at 25fps, rather than stitching a talking mouth onto a pre-recorded loop, and it keeps listening and reacting while the other side is still speaking. Weights, inference code and the serving stack ship together under a community licence free below $10M of revenue",u:"https://github.com/avaturn-live/avtr-1"}]},
+{n:"AVTR-1",k:["avatar"],d:"2026",x:"Open-weights full-duplex avatar model: a 153M-parameter flow-matching transformer turns an audio stream into motion for a portrait image and renders every frame of the face at 25fps, rather than stitching a talking mouth onto a pre-recorded loop, and it keeps listening and reacting while the other side is still speaking. Weights, inference code and the serving stack ship together under a community licence free below $10M of revenue",u:"https://github.com/avaturn-live/avtr-1",o:{l:"AVTR-1 community",h:"https://huggingface.co/avaturn-live/avtr-1",p:0.15}}]},
 {c:"D-ID",r:"IL",f:"2017",n:"independent",u:"https://www.d-id.com",m:[
 {n:"Talking photo",k:["avatar"],d:"2022 →",x:"",u:"https://www.d-id.com"},
 {n:"V4 Expressive Visual Agents",k:["avatar"],d:"Mar 2026",x:"Real-time 4K, connected to an LLM",u:"https://www.d-id.com/news/v4-expressive-visual-agents-real-time-llm-connected-interaction/"}]},
@@ -476,40 +490,40 @@ const D=[
 {c:"Kuaishou",r:"CN",f:"2011",n:"HKEX 2021",u:"https://www.kuaishou.com",m:[
 {n:"Kling",k:["video"],d:"Jun 2024",x:"",u:"https://klingai.com"},
 {n:"Kling v3",k:["video","audio:sfx"],d:"2026",x:"",u:"https://klingai.com"},
-{n:"Kolors",k:["image"],d:"2024",x:"Open weights",u:"https://github.com/Kwai-Kolors/Kolors"},
+{n:"Kolors",k:["image"],d:"2024",x:"Open weights",u:"https://github.com/Kwai-Kolors/Kolors",o:{l:"Apache 2.0",h:"https://huggingface.co/Kwai-Kolors/Kolors",p:2.6}},
 {n:"Kling Image 3.0",k:["image"],d:"Jan 2026",x:"Kolors renamed into the Kling line"}]},
 {c:"MiniMax",r:"CN",f:"2021",n:"HKEX Jan 2026",u:"https://www.minimax.io",m:[
 {n:"Hailuo Video-01",k:["video"],d:"Sep 2024",x:"",u:"https://hailuoai.video"},
 {n:"Hailuo 2.3",k:["video"],d:"Oct 2025",x:"",u:"https://hailuoai.video"},
-{n:"Hailuo H3",k:["video","audio:sfx"],d:"Jul 2026 → open weights Aug 2026",x:"33B omni-modal, 2K, native stereo audio in one pipeline; the 2K upscale stays API-only",u:"https://hailuoai.video"},
+{n:"Hailuo H3",k:["video","audio:sfx"],d:"Jul 2026 → open weights Aug 2026",x:"33B omni-modal, 2K, native stereo audio in one pipeline; the 2K upscale stays API-only",u:"https://hailuoai.video",o:{l:"MiniMax H3 community",h:"https://huggingface.co/MiniMaxAI/MiniMax-H3",p:33}},
 {n:"Speech 2.6",k:["audio:speech"],d:"2025 →",x:"",u:"https://www.minimax.io/audio"},
 {n:"Speech 2.8",k:["audio:speech"],d:"Jan 2026",x:"Native sound tags for breaths, hesitations and fillers, voice cloning from a ten-second sample, and background noise stripped out of the take",u:"https://www.minimax.io/news/minimax-speech-28"},
 {n:"Music 2.0",k:["audio:music"],d:"2025",x:"",u:"https://www.minimax.io/audio"},
-{n:"Music 3.0",k:["audio:music"],d:"Aug 2026",x:"Open weights; composes, arranges and produces a full song of up to five minutes in one generation",u:"https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model"},
-{n:"MiniMax M2",k:["text:chat","text:code"],d:"2025",x:"",u:"https://www.minimax.io"},
-{n:"MiniMax M3",k:["text:chat","text:code"],d:"Jun 2026",x:"428B mixture of experts with sparse attention, 1M-token context, open weights",u:"https://www.minimax.io"}]},
+{n:"Music 3.0",k:["audio:music"],d:"Aug 2026",x:"Open weights; composes, arranges and produces a full song of up to five minutes in one generation",u:"https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model",o:{l:"MiniMax Music3 community",h:"https://huggingface.co/MiniMaxAI/MiniMax-Music3",p:2.4}},
+{n:"MiniMax M2",k:["text:chat","text:code"],d:"2025",x:"",u:"https://www.minimax.io",o:{l:"MIT (modified)",h:"https://huggingface.co/MiniMaxAI/MiniMax-M2",p:229}},
+{n:"MiniMax M3",k:["text:chat","text:code"],d:"Jun 2026",x:"428B mixture of experts with sparse attention, 1M-token context, open weights",u:"https://www.minimax.io",o:{l:"MiniMax community",h:"https://huggingface.co/MiniMaxAI/MiniMax-M3",p:427}}]},
 {c:"Alibaba",r:"CN",f:"1999",n:"NYSE / HKEX",u:"https://www.alibabacloud.com",m:[
-{n:"Wan (Wanxiang)",k:["video"],d:"2025",x:"Wan 2.2 is the last open-weights release in the line",u:"https://wan.video"},
+{n:"Wan (Wanxiang)",k:["video"],d:"2025",x:"Wan 2.2 is the last open-weights release in the line",u:"https://wan.video",o:{l:"Apache 2.0",h:"https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B",p:[5,27]}},
 {n:"Wan 3.0",k:["video","audio:sfx"],d:"Aug 2026",x:"30-second 1080p clips with audio in one pass, prompted from documents, slides or web pages; the first Wan flagship with closed weights",u:"https://wan.video"},
 {n:"HappyHorse 1.0",k:["video","audio:sfx"],d:"Apr 2026",x:"15B unified transformer from the Taotian Future Life Lab that generates a clip and its soundtrack in one pass, lip-synced across seven languages; 1080p up to 15 seconds, prompted by text, a first frame or a set of reference subjects"},
 {n:"HappyHorse 1.1",k:["video","audio:sfx"],d:"Jun 2026",x:"Took the top Elo on the Artificial Analysis video arena while still entered anonymously",u:"https://www.alibabacloud.com/blog/happyhorse-gets-stronger-motion-expressiveness-higher-generation-consistency-and-enhanced-visual-quality_603293"},
-{n:"Qwen-Image",k:["image"],d:"2025",x:"",u:"https://qwen.ai"},
+{n:"Qwen-Image",k:["image"],d:"2025",x:"",u:"https://qwen.ai",o:{l:"Apache 2.0",h:"https://huggingface.co/Qwen/Qwen-Image",p:20}},
 {n:"Qwen-Image 3.0",k:["image"],d:"Aug 2026",x:"",u:"https://qwen.ai"},
 {n:"Qwen-MT-Image 2.0",k:["image"],d:"Aug 2026",x:"Translates the text inside an image and re-renders it in place, holding the original layout, fonts and background; covers 55 languages and drops the first version's rule that Chinese or English had to be one side of the pair, with terminology overrides, sensitive-word filtering and subject detection to leave text on faces, products and logos alone",u:"https://www.alibabacloud.com/help/en/model-studio/qwen-mt-image-api"},
-{n:"CosyVoice",k:["audio:speech"],d:"2024",x:"Open weights",u:"https://github.com/FunAudioLLM/CosyVoice"},
+{n:"CosyVoice",k:["audio:speech"],d:"2024",x:"Open weights",u:"https://github.com/FunAudioLLM/CosyVoice",o:{l:"Apache 2.0",h:"https://huggingface.co/FunAudioLLM/CosyVoice2-0.5B",p:0.5}},
 {n:"HappyShrimp 1.0",k:["audio:music"],d:"beta Aug 2026",x:"One prompt to melody, arrangement, lyrics and vocals, with no BPM or key to specify; Taihe Music Group signed for artist co-creation",u:"https://www.happyshrimp.ai"},
-{n:"Qwen3",k:["text:chat","text:code"],d:"Apr 2025",x:"Open weights from 0.8B up to 397B with 17B active",u:"https://qwen.ai"},
-{n:"Qwen3.8",k:["text:chat","text:code"],d:"Aug 2026 → Max snapshot Sep 2026",x:"Natively vision-language since the 3.5 generation; the Flash-Next release runs 125B with 6B active and previews the Qwen4 architecture. The Qwen3.8-Max-0902 snapshot post-trains the 2.4T Max tier for coding and agentic work and takes first place on Code Arena WebDev",u:"https://qwen.ai"},
+{n:"Qwen3",k:["text:chat","text:code"],d:"Apr 2025",x:"Open weights from 0.8B up to 397B with 17B active",u:"https://qwen.ai",o:{l:"Apache 2.0",h:"https://huggingface.co/Qwen/Qwen3-235B-A22B",p:[0.6,235]}},
+{n:"Qwen3.8",k:["text:chat","text:code"],d:"Aug 2026 → Max snapshot Sep 2026",x:"Natively vision-language since the 3.5 generation; the Flash-Next release runs 125B with 6B active and previews the Qwen4 architecture. The Qwen3.8-Max-0902 snapshot post-trains the 2.4T Max tier for coding and agentic work and takes first place on Code Arena WebDev",u:"https://qwen.ai",o:{l:"Apache 2.0 at 27B, Qwen community and Qwen3.8-Max licences above",h:"https://huggingface.co/Qwen/Qwen3.8-27B",p:[28,2446]}},
 {n:"Qwen3.8-Omni-Flash",k:["text:chat"],d:"Sep 2026",x:"Omni-modal understanding tier taking text, images, audio and video in and answering in text over a 1M-token context, with thinking and non-thinking modes, function calling, web search and context caching; aimed at meeting summaries and content analysis rather than the speech output the Qwen3.5-Omni tiers carry",u:"https://www.alibabacloud.com/help/en/model-studio/qwen-omni"},
-{n:"Qwen-Drive-1.0",k:["robotics"],d:"Sep 2026",x:"Vision-language-action model for driving, built with Huazhong University of Science and Technology on a Qwen3.5-4B backbone: a bird's-eye-view head handles 3D detection, occupancy and map segmentation while a planning expert emits a five-second ego trajectory of 50 waypoints, shipped in imitation-learned and RL-tuned variants under Apache 2.0 and keeping most of the base model's general visual question answering",u:"https://github.com/QwenLM/Qwen-Drive-1.0"}]},
+{n:"Qwen-Drive-1.0",k:["robotics"],d:"Sep 2026",x:"Vision-language-action model for driving, built with Huazhong University of Science and Technology on a Qwen3.5-4B backbone: a bird's-eye-view head handles 3D detection, occupancy and map segmentation while a planning expert emits a five-second ego trajectory of 50 waypoints, shipped in imitation-learned and RL-tuned variants under Apache 2.0 and keeping most of the base model's general visual question answering",u:"https://github.com/QwenLM/Qwen-Drive-1.0",o:{l:"Apache 2.0",h:"https://huggingface.co/Qwen/Qwen-Drive-1.0-4B",p:4.5}}]},
 {c:"Tencent",r:"CN",f:"1998",n:"HKEX",u:"https://www.tencent.com",m:[
-{n:"HunyuanVideo",k:["video"],d:"Dec 2024",x:"Open weights",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo"},
-{n:"HunyuanVideo 1.5",k:["video"],d:"Nov 2025",x:"Open weights",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo"},
-{n:"HunyuanImage 3.0",k:["image"],d:"Jan 2026",x:"80B mixture of experts, open weights",u:"https://github.com/Tencent-Hunyuan"},
-{n:"Hunyuan3D / HunyuanWorld",k:["world"],d:"2024 → 2026",x:"Open weights",u:"https://3d.hunyuan.tencent.com"},
-{n:"HunyuanVideo-Avatar",k:["avatar"],d:"2025",x:"",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo-Avatar"},
+{n:"HunyuanVideo",k:["video"],d:"Dec 2024",x:"Open weights",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo",p:13}},
+{n:"HunyuanVideo 1.5",k:["video"],d:"Nov 2025",x:"Open weights",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo-1.5",p:8.3}},
+{n:"HunyuanImage 3.0",k:["image"],d:"Jan 2026",x:"80B mixture of experts, open weights",u:"https://github.com/Tencent-Hunyuan",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanImage-3.0",p:83}},
+{n:"Hunyuan3D / HunyuanWorld",k:["world"],d:"2024 → 2026",x:"Open weights",u:"https://3d.hunyuan.tencent.com",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/Hunyuan3D-2"}},
+{n:"HunyuanVideo-Avatar",k:["avatar"],d:"2025",x:"",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo-Avatar",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo-Avatar"}},
 {n:"Hunyuan 2.0",k:["text:chat","text:code"],d:"Dec 2025",x:"Deployed in over 900 Tencent products"},
-{n:"Hy4 preview",k:["text:chat","text:code"],d:"Aug 2026",x:"The Hy4 rename opens the line up at 770B with 49B active and a 1M-token context under Apache 2.0",u:"https://github.com/Tencent-Hunyuan/Hy4-preview"}]},
+{n:"Hy4 preview",k:["text:chat","text:code"],d:"Aug 2026",x:"The Hy4 rename opens the line up at 770B with 49B active and a 1M-token context under Apache 2.0",u:"https://github.com/Tencent-Hunyuan/Hy4-preview",o:{l:"Apache 2.0",h:"https://huggingface.co/tencent/Hy4-preview",p:780}}]},
 {c:"ShengShu",r:"CN",f:"2023",n:"independent",u:"https://www.shengshu-ai.com",m:[
 {n:"Vidu",k:["video"],d:"2024",x:"",u:"https://www.vidu.com"},
 {n:"Vidu Q3",k:["video","audio:sfx"],d:"Jan 2026",x:"16-second clips with audio",u:"https://www.vidu.com"},
@@ -520,35 +534,35 @@ const D=[
 {n:"ERNIE 5.0",k:["text:chat"],d:"Jan 2026",x:"2.4T parameters, natively omnimodal, trained on Baidu's own Kunlun chips",u:"https://yiyan.baidu.com"},
 {n:"ERNIE 5.1",k:["text:chat"],d:"May 2026",x:"2.4T parameters, natively omnimodal, trained on Baidu's own Kunlun chips",u:"https://yiyan.baidu.com"}]},
 {c:"Zhipu / Z.ai",r:"CN",f:"2019",n:"listed 2025",u:"https://z.ai",m:[
-{n:"CogVideoX",k:["video"],d:"2024",x:"Open weights",u:"https://github.com/THUDM/CogVideo"},
-{n:"GLM-5",k:["text:chat","text:code"],d:"Feb 2026",x:"Open weights",u:"https://z.ai"},
-{n:"GLM-5.3",k:["text:chat","text:code"],d:"Aug 2026",x:"744B mixture of experts with 40B active, open weights; the 5.2 release added a 1M-token context under MIT",u:"https://z.ai"},
-{n:"GLM-5.3-Flash",k:["text:chat","text:code"],d:"Aug 2026",x:"320B with 18B active under MIT, the first natively multimodal GLM-5 and a tenth the price of 5.2; previewed anonymously as Ox Alpha and trained entirely on Chinese chips",u:"https://huggingface.co/zai-org/GLM-5.3-Flash"}]},
+{n:"CogVideoX",k:["video"],d:"2024",x:"Open weights",u:"https://github.com/THUDM/CogVideo",o:{l:"CogVideoX licence",h:"https://huggingface.co/zai-org/CogVideoX-5b",p:[2,5.6]}},
+{n:"GLM-5",k:["text:chat","text:code"],d:"Feb 2026",x:"Open weights",u:"https://z.ai",o:{l:"MIT",h:"https://huggingface.co/zai-org/GLM-5-FP8",p:754}},
+{n:"GLM-5.3",k:["text:chat","text:code"],d:"Aug 2026",x:"744B mixture of experts with 40B active, open weights; the 5.2 release added a 1M-token context under MIT",u:"https://z.ai",o:{l:"GLM-5.3 licence",h:"https://huggingface.co/zai-org/GLM-5.3",p:753}},
+{n:"GLM-5.3-Flash",k:["text:chat","text:code"],d:"Aug 2026",x:"320B with 18B active under MIT, the first natively multimodal GLM-5 and a tenth the price of 5.2; previewed anonymously as Ox Alpha and trained entirely on Chinese chips",u:"https://huggingface.co/zai-org/GLM-5.3-Flash",o:{l:"MIT",h:"https://huggingface.co/zai-org/GLM-5.3-Flash",p:321}}]},
 {c:"inclusionAI",r:"CN",f:"2025",n:"Ant Group",u:"https://www.inclusion-ai.org",m:[
-{n:"Ling 3.0 Flash Fin",k:["text:chat"],d:"Sep 2026",x:"The first finance-tuned model in Ant Group's Ling family, continued-trained on financial data from the 124B Ling 3.0 Flash backbone and activating 5.1B parameters per token over a 256K context; built for end-to-end financial research that retrieves, reasons across documents and writes the report, with valuation modelling and spreadsheet work alongside, and shipped as MIT weights with fp8 and int4 builds",u:"https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin"},
-{n:"LLaDA-Image / LLaDA-Image-Turbo",k:["image"],d:"Sep 2026",x:"6B diffusion transformer that generates and edits from a single checkpoint, with reference-image editing and Chinese-English text rendering; Apache 2.0 weights shipped with the inference code and the full training recipe, and the distilled Turbo variant draws in four sampling steps against the base model's fifty",u:"https://github.com/inclusionAI/LLaDA-Image"}]},
+{n:"Ling 3.0 Flash Fin",k:["text:chat"],d:"Sep 2026",x:"The first finance-tuned model in Ant Group's Ling family, continued-trained on financial data from the 124B Ling 3.0 Flash backbone and activating 5.1B parameters per token over a 256K context; built for end-to-end financial research that retrieves, reasons across documents and writes the report, with valuation modelling and spreadsheet work alongside, and shipped as MIT weights with fp8 and int4 builds",u:"https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin",o:{l:"MIT",h:"https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin",p:128}},
+{n:"LLaDA-Image / LLaDA-Image-Turbo",k:["image"],d:"Sep 2026",x:"6B diffusion transformer that generates and edits from a single checkpoint, with reference-image editing and Chinese-English text rendering; Apache 2.0 weights shipped with the inference code and the full training recipe, and the distilled Turbo variant draws in four sampling steps against the base model's fifty",u:"https://github.com/inclusionAI/LLaDA-Image",o:{l:"Apache 2.0",h:"https://huggingface.co/inclusionAI/LLaDA-Image",p:6.5}}]},
 {c:"StepFun",r:"CN",f:"2023",n:"independent",u:"https://www.stepfun.com",m:[
-{n:"Step-Video",k:["video"],d:"2025",x:"Open weights",u:"https://github.com/stepfun-ai/Step-Video-T2V"}]},
+{n:"Step-Video",k:["video"],d:"2025",x:"Open weights",u:"https://github.com/stepfun-ai/Step-Video-T2V",o:{l:"MIT",h:"https://huggingface.co/stepfun-ai/stepvideo-t2v",p:29}}]},
 {c:"Shanghai AI Laboratory",r:"CN",f:"2020",n:"state-backed non-profit",u:"https://www.shlab.org.cn",m:[
-{n:"Atria Dawn Preview",k:["text:chat","text:code"],d:"Sep 2026",x:"The lab's agentic post-training of Z.ai's open-weights GLM-5.2, 744B mixture of experts with a 256K context under MIT, trained through a Verifiable Experience Pipeline that grades tool use against executable environments; aimed at scientific and engineering work and competitive with frontier agents across 16 benchmarks, it appeared on Hugging Face and ModelScope with a free preview API and no announcement post, the paper following three days later",u:"https://huggingface.co/internlm/Atria-Dawn-Preview"}]},
+{n:"Atria Dawn Preview",k:["text:chat","text:code"],d:"Sep 2026",x:"The lab's agentic post-training of Z.ai's open-weights GLM-5.2, 744B mixture of experts with a 256K context under MIT, trained through a Verifiable Experience Pipeline that grades tool use against executable environments; aimed at scientific and engineering work and competitive with frontier agents across 16 benchmarks, it appeared on Hugging Face and ModelScope with a free preview API and no announcement post, the paper following three days later",u:"https://huggingface.co/internlm/Atria-Dawn-Preview",o:{l:"MIT",h:"https://huggingface.co/internlm/Atria-Dawn-Preview",p:753}}]},
 {c:"PixVerse",r:"CN",f:"2023",n:"independent",u:"https://pixverse.ai",m:[
 {n:"PixVerse V1",k:["video"],d:"2024",x:"",u:"https://pixverse.ai"},
 {n:"PixVerse V6",k:["video","audio:sfx"],d:"2026",x:"",u:"https://pixverse.ai"}]},
 {c:"DeepSeek",r:"China",f:"2023",n:"High-Flyer",u:"https://www.deepseek.com",m:[
-{n:"DeepSeek-V3",k:["text:chat","text:code"],d:"Dec 2024",x:"MIT licence",u:"https://api-docs.deepseek.com"},
-{n:"DeepSeek-V4",k:["text:chat","text:code"],d:"Apr 2026 → vision Aug 2026, Flash tiers removed Sep 2026",x:"V4-Pro was 1.6T with 49B active, V4-Flash 284B; MIT licence, 1M-token context. The V4-Flash and V4-Flash-Vision-Exp tiers are gone and their names now route to V4.1-Flash; V4-Pro was to go the same way on 14 September, but DeepSeek withdrew that in response to user demand and keeps serving it at unchanged pricing",u:"https://api-docs.deepseek.com/updates"},
-{n:"DeepSeek-V4.1-Flash",k:["text:chat","text:code"],d:"Sep 2026",x:"Rebuilds the line as a causal encoder-decoder of 552B backbone parameters activating 8B per token in prefill and 16B in decode, the first DeepSeek model multimodal in the architecture rather than through a bolted-on vision tier, and it benchmarks above V4-Pro on quality, cost and speed",u:"https://api-docs.deepseek.com/news/news260910/"},
-{n:"DeepSeek-R1",k:["text:chat"],d:"Jan 2025",x:"Open reasoning model; the R2 successor was held back over performance and a failed training run on Ascend hardware",u:"https://api-docs.deepseek.com"}]},
+{n:"DeepSeek-V3",k:["text:chat","text:code"],d:"Dec 2024",x:"MIT licence",u:"https://api-docs.deepseek.com",o:{l:"MIT since V3-0324, DeepSeek model licence before",h:"https://huggingface.co/deepseek-ai/DeepSeek-V3",p:685}},
+{n:"DeepSeek-V4",k:["text:chat","text:code"],d:"Apr 2026 → vision Aug 2026, Flash tiers removed Sep 2026",x:"V4-Pro was 1.6T with 49B active, V4-Flash 284B; MIT licence, 1M-token context. The V4-Flash and V4-Flash-Vision-Exp tiers are gone and their names now route to V4.1-Flash; V4-Pro was to go the same way on 14 September, but DeepSeek withdrew that in response to user demand and keeps serving it at unchanged pricing",u:"https://api-docs.deepseek.com/updates",o:{l:"MIT",h:"https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",p:[291,1599]}},
+{n:"DeepSeek-V4.1-Flash",k:["text:chat","text:code"],d:"Sep 2026",x:"Rebuilds the line as a causal encoder-decoder of 552B backbone parameters activating 8B per token in prefill and 16B in decode, the first DeepSeek model multimodal in the architecture rather than through a bolted-on vision tier, and it benchmarks above V4-Pro on quality, cost and speed",u:"https://api-docs.deepseek.com/news/news260910/",o:{l:"MIT",h:"https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",p:763}},
+{n:"DeepSeek-R1",k:["text:chat"],d:"Jan 2025",x:"Open reasoning model; the R2 successor was held back over performance and a failed training run on Ascend hardware",u:"https://api-docs.deepseek.com",o:{l:"MIT",h:"https://huggingface.co/deepseek-ai/DeepSeek-R1",p:685}}]},
 {c:"Moonshot AI",r:"China",f:"2023",n:"independent",u:"https://www.moonshot.ai",m:[
-{n:"Kimi K2",k:["text:chat","text:code"],d:"Jul 2025, hosted endpoints discontinued May 2026",x:"Open weights under a modified MIT licence; the kimi-k2 preview, turbo and thinking endpoints were pulled from the Kimi platform",u:"https://platform.kimi.ai/docs/models"},
-{n:"Kimi K2.7 Code",k:["text:code"],d:"Jun 2026",x:"Agentic coding tier; 62.0 on Kimi Code Bench V2 against K2.6's 50.9 and 81.1 on MCP Mark Verified, spending about 30% fewer thinking tokens than K2.6",u:"https://forum.moonshot.ai/t/here-comes-kimi-k2-7-code-better-coding-with-more-efficiency/441"},
+{n:"Kimi K2",k:["text:chat","text:code"],d:"Jul 2025, hosted endpoints discontinued May 2026",x:"Open weights under a modified MIT licence; the kimi-k2 preview, turbo and thinking endpoints were pulled from the Kimi platform",u:"https://platform.kimi.ai/docs/models",o:{l:"MIT (modified)",h:"https://huggingface.co/moonshotai/Kimi-K2-Instruct",p:1026}},
+{n:"Kimi K2.7 Code",k:["text:code"],d:"Jun 2026",x:"Agentic coding tier; 62.0 on Kimi Code Bench V2 against K2.6's 50.9 and 81.1 on MCP Mark Verified, spending about 30% fewer thinking tokens than K2.6",u:"https://forum.moonshot.ai/t/here-comes-kimi-k2-7-code-better-coding-with-more-efficiency/441",o:{l:"MIT (modified)",h:"https://huggingface.co/moonshotai/Kimi-K2.7-Code",p:1027}},
 {n:"Kimi K2.8 Preview",k:["text:code"],d:"Sep 2026",x:"Mid-tier coding and agentic model sitting between K2.7 Code and K3, rolled out in Kimi Code under the unchanged kimi-for-coding model ID; Moonshot puts it close to K3 with more efficient thinking, gives it K3's low, high and max thinking levels with max the default, and opens the 1M-token context to every membership tier",u:"https://www.kimi.com/code/docs/en/kimi-code/whats-new.html"},
-{n:"Kimi K3",k:["text:chat","text:code"],d:"Jul 2026",x:"2.8T parameters with 104B active, the largest open-weights release so far, under a modified MIT licence",u:"https://forum.moonshot.ai/t/kimi-k3-is-here-our-most-capable-model/480"}]},
+{n:"Kimi K3",k:["text:chat","text:code"],d:"Jul 2026",x:"2.8T parameters with 104B active, the largest open-weights release so far, under a modified MIT licence",u:"https://forum.moonshot.ai/t/kimi-k3-is-here-our-most-capable-model/480",o:{l:"Kimi K3 licence",h:"https://huggingface.co/moonshotai/Kimi-K3",p:2780}}]},
 {c:"Institute of Foundation Models",r:"AE",f:"2025",n:"MBZUAI",u:"https://ifm.ai",m:[
-{n:"K2 Horizon",k:["text:chat","text:code"],d:"Sep 2026",x:"Six models from 0.9B to 375B under Apache 2.0, shipped with weights, code and training data",u:"https://ifm.ai/k2/press-release/"}]},
+{n:"K2 Horizon",k:["text:chat","text:code"],d:"Sep 2026",x:"Six models from 0.9B to 375B under Apache 2.0, shipped with weights, code and training data",u:"https://ifm.ai/k2/press-release/",o:{l:"Apache 2.0",h:"https://huggingface.co/IFM/K2-Horizon-7B",p:[1,375]}}]},
 {c:"Thinking Machines Lab",r:"US",f:"2025",n:"independent",u:"https://thinkingmachines.ai",m:[
-{n:"Inkling",k:["text:chat","text:code"],d:"Jul 2026",x:"First in-house model: 975B mixture of experts with 41B active, open weights, reasoning natively over text, image, audio and video",u:"https://thinkingmachines.ai/news/introducing-inkling/"},
-{n:"Inkling-Small",k:["text:chat","text:code"],d:"Jul 2026",x:"276B with 12B active under Apache 2.0, one point behind Inkling on the Artificial Analysis index at a quarter the size",u:"https://thinkingmachines.ai/news/inkling-small/"}]},
+{n:"Inkling",k:["text:chat","text:code"],d:"Jul 2026",x:"First in-house model: 975B mixture of experts with 41B active, open weights, reasoning natively over text, image, audio and video",u:"https://thinkingmachines.ai/news/introducing-inkling/",o:{l:"Apache 2.0",h:"https://huggingface.co/thinkingmachines/Inkling",p:952}},
+{n:"Inkling-Small",k:["text:chat","text:code"],d:"Jul 2026",x:"276B with 12B active under Apache 2.0, one point behind Inkling on the Artificial Analysis index at a quarter the size",u:"https://thinkingmachines.ai/news/inkling-small/",o:{l:"Apache 2.0",h:"https://huggingface.co/thinkingmachines/Inkling-Small",p:266}}]},
 {c:"Cursor",r:"US",f:"2022",n:"independent",u:"https://cursor.com",m:[
 {n:"Composer",k:["text:code"],d:"Oct 2025",x:"",u:"https://cursor.com/blog"},
 {n:"Composer 2.5",k:["text:code"],d:"May 2026",x:"Trained on top of Kimi K2.5; matches Opus 4.7 and GPT-5.5 on SWE-Bench Multilingual at a tenth of the cost",u:"https://cursor.com/blog"}]},
@@ -564,22 +578,22 @@ const D=[
 {c:"Cohere",r:"CA/US",f:"2019",n:"independent",u:"https://cohere.com",m:[
 {n:"Embed v3",k:["text:embed"],d:"Nov 2023",x:""},
 {n:"Embed v4",k:["text:embed"],d:"Apr 2025",x:"Text, images and mixed PDF pages in one call; 128k context, Matryoshka dimensions from 256 to 1536",u:"https://cohere.com/blog/embed-4"},
-{n:"Command A",k:["text:chat"],d:"Mar 2025",x:"Open weights"},
-{n:"Command A+",k:["text:chat"],d:"May 2026",x:"218B sparse mixture of experts, 25B active, Apache 2.0 weights; folds the separate reasoning, vision and translate variants into one model",u:"https://cohere.com/blog/command-a-plus"},
-{n:"Aya Expanse / Aya Vision",k:["text:chat"],d:"Oct 2024 → Mar 2025",x:"Open-weights multilingual research family from Cohere Labs, 23 languages",u:"https://cohere.com/research/aya"},
-{n:"North Mini Code",k:["text:code"],d:"Jun 2026",x:"Cohere's first agentic coding model, 30B sparse mixture of experts with 3B active and Apache 2.0 weights; 256k context, 64k generation, and small enough to serve from a single H100",u:"https://cohere.com/blog/north-mini-code"},
-{n:"North Small Translate",k:["text:chat"],d:"Sep 2026",x:"Machine translation over 50+ languages, 218B sparse mixture of experts with 25B active, open weights under CC BY-NC 4.0; scores 83.6 on WMT26 against DeepL's 81.37 and Google Translate's 68.20, and ships to enterprises through RWS Language Weaver",u:"https://cohere.com/blog/north-small-translate"}]},
+{n:"Command A",k:["text:chat"],d:"Mar 2025",x:"Open weights",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/CohereLabs/c4ai-command-a-03-2025",p:111}},
+{n:"Command A+",k:["text:chat"],d:"May 2026",x:"218B sparse mixture of experts, 25B active, Apache 2.0 weights; folds the separate reasoning, vision and translate variants into one model",u:"https://cohere.com/blog/command-a-plus",o:{l:"Apache 2.0",h:"https://huggingface.co/CohereLabs/command-a-plus-05-2026-bf16",p:219}},
+{n:"Aya Expanse / Aya Vision",k:["text:chat"],d:"Oct 2024 → Mar 2025",x:"Open-weights multilingual research family from Cohere Labs, 23 languages",u:"https://cohere.com/research/aya",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/CohereLabs/aya-expanse-32b",p:[8,32]}},
+{n:"North Mini Code",k:["text:code"],d:"Jun 2026",x:"Cohere's first agentic coding model, 30B sparse mixture of experts with 3B active and Apache 2.0 weights; 256k context, 64k generation, and small enough to serve from a single H100",u:"https://cohere.com/blog/north-mini-code",o:{l:"Apache 2.0",h:"https://huggingface.co/CohereLabs/North-Mini-Code-1.0",p:30}},
+{n:"North Small Translate",k:["text:chat"],d:"Sep 2026",x:"Machine translation over 50+ languages, 218B sparse mixture of experts with 25B active, open weights under CC BY-NC 4.0; scores 83.6 on WMT26 against DeepL's 81.37 and Google Translate's 68.20, and ships to enterprises through RWS Language Weaver",u:"https://cohere.com/blog/north-small-translate",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/CohereLabs/North-Small-Translate-1.0",p:218}}]},
 {c:"Sakana AI",r:"JP",f:"2023",n:"independent",u:"https://sakana.ai",m:[
 {n:"Sakana Namazu",k:["text:chat"],d:"Aug 2026",x:"Japanese-specialised LLM post-trained from Moonshot's open-weights Kimi K2.6, with web search and code execution as built-in tools; lifts FairPoliticsQA from 34.1% to 56.3% over the base while holding AIME26, MMLU-Pro and LiveCodeBench v6",u:"https://sakana.ai/namazu-api/"},
 {n:"Fugu Max / Fugu Ultra v2",k:["text:chat","text:code"],d:"Sep 2026",x:"One orchestration architecture in two tiers, each a model trained to route a task across a pool of open-weights and specialist models behind a single API: Max is the cost tier at $2 and $6 per million input and output tokens and comes top on Terminal Bench 2.1, GPQAD, AA-LCR, AutomationBench and SWEFish, while Ultra v2 takes the capability tier with 48.3 on Chartography against Opus 5's 27.3 and Fable 5's 29.5",u:"https://sakana.ai/fugu-max-release/"}]},
 {c:"Agnes AI",r:"SG",f:"2025",n:"independent",u:"https://agnes-ai.com",m:[
-{n:"Agnes-3.0-Flash Preview",k:["text:chat"],d:"Sep 2026",x:"Open-weights multimodal model built for flagship-class reasoning on hardware that is not flagship-class: 33B parameters, a 262,144-token context, text, image and video in and text out, with adjustable reasoning effort and tool calling. Hybrid attention holds the long-context memory cost down — three of every four decoder layers run a recurrent gated delta rule and only the fourth carries a KV cache that grows with the input — and the weights are Apache 2.0",u:"https://huggingface.co/Agnes-AI/Agnes-3.0-Flash"}]},
+{n:"Agnes-3.0-Flash Preview",k:["text:chat"],d:"Sep 2026",x:"Open-weights multimodal model built for flagship-class reasoning on hardware that is not flagship-class: 33B parameters, a 262,144-token context, text, image and video in and text out, with adjustable reasoning effort and tool calling. Hybrid attention holds the long-context memory cost down — three of every four decoder layers run a recurrent gated delta rule and only the fourth carries a KV cache that grows with the input — and the weights are Apache 2.0",u:"https://huggingface.co/Agnes-AI/Agnes-3.0-Flash",o:{l:"Apache 2.0",h:"https://huggingface.co/Agnes-AI/Agnes-3.0-Flash",p:33}}]},
 {c:"Voyage AI",r:"US",f:"2023",n:"MongoDB (Feb 2025)",u:"https://www.voyageai.com",m:[
 {n:"voyage-3",k:["text:embed"],d:"2024",x:""},
 {n:"voyage-4",k:["text:embed"],d:"Jan 2026",x:"Mixture of experts with one shared embedding space across the family",u:"https://blog.voyageai.com/2026/01/15/voyage-4/"},
 {n:"voyage-code-4",k:["text:embed"],d:"Aug 2026",x:"Code retrieval built for coding agents",u:"https://blog.voyageai.com/2026/08/13/voyage-code-4/"}]},
 {c:"Physical Intelligence",r:"US",f:"2024",n:"independent",u:"https://www.pi.website",m:[
-{n:"π0",k:["robotics"],d:"2024",x:"Actions come out of a diffusion flow",u:"https://www.pi.website/blog"},
+{n:"π0",k:["robotics"],d:"2024",x:"Actions come out of a diffusion flow",u:"https://www.pi.website/blog",o:{l:"Apache 2.0",h:"https://huggingface.co/lerobot/pi0_base",p:3.5}},
 {n:"π0.7",k:["robotics"],d:"Apr 2026",x:"The 0.6 release learns from its own corrections through RECAP",u:"https://www.pi.website/blog"}]},
 {c:"Figure",r:"US",f:"2022",n:"independent",u:"https://www.figure.ai",m:[
 {n:"Helix",k:["robotics"],d:"Feb 2025",x:"One network for walking, balance and manipulation straight from raw sensor data"},
@@ -588,8 +602,8 @@ const D=[
 {n:"Skild Brain 1.0",k:["robotics"],d:"May 2026",x:"500B parameters meant to drive a robot from any maker after 15 seconds of calibration"},
 {n:"Skild S1",k:["robotics"],d:"Aug 2026",x:"Learns an unseen task up to ten minutes long from a single demonstration video held in context, with the shipped weights frozen rather than fine-tuned",u:"https://skild.ai/blogs/s1"}]},
 {c:"Xiaomi",r:"CN",f:"2010",n:"HKEX",u:"https://www.mi.com",m:[
-{n:"Xiaomi-Robotics-0",k:["robotics"],d:"Feb 2026",x:"Vision-language-action model with open weights"},
-{n:"Xiaomi-Robotics-1",k:["robotics"],d:"Aug 2026",x:"Pre-trained on over 100K hours of real manipulation trajectories; 5B, Apache 2.0 open weights",u:"https://github.com/XiaomiRobotics/Xiaomi-Robotics-1"}]},
+{n:"Xiaomi-Robotics-0",k:["robotics"],d:"Feb 2026",x:"Vision-language-action model with open weights",o:{l:"Apache 2.0",h:"https://huggingface.co/XiaomiRobotics/Xiaomi-Robotics-0-Pretrain",p:5}},
+{n:"Xiaomi-Robotics-1",k:["robotics"],d:"Aug 2026",x:"Pre-trained on over 100K hours of real manipulation trajectories; 5B, Apache 2.0 open weights",u:"https://github.com/XiaomiRobotics/Xiaomi-Robotics-1",o:{l:"Apache 2.0",h:"https://huggingface.co/XiaomiRobotics/Xiaomi-Robotics-1-5B",p:5}}]},
 {c:"Adobe",r:"US",f:"1982",n:"NASDAQ",u:"https://www.adobe.com",m:[
 {n:"Firefly Image",k:["image"],d:"2023",x:"",u:"https://www.adobe.com/products/firefly.html"},
 {n:"Firefly Image 5",k:["image"],d:"Oct 2025",x:"Native 4MP output",u:"https://www.adobe.com/products/firefly.html"},
@@ -969,7 +983,7 @@ const badge=d=>{const s=status(d);if(!s)return"";const c=ncol(s);
 // and the search box all apply to whichever view is showing, so switching view
 // keeps the question you were asking and changes only what answers it.
 let view="models",filt="all",term="";
-const VIEWS=[["models","Models"],["log","Changelog"]];
+const VIEWS=[["models","All"],["open","Open weights"],["log","Changelog"]];
 // The changelog names its three states as nouns, where the model list uses
 // adjectives. The model list says what a model *is* right now; a changelog row
 // *is* an addition, an announcement or a retirement. The grammar alone tells a
@@ -978,6 +992,7 @@ const VIEWS=[["models","Models"],["log","Changelog"]];
 // they keep the same three colours.
 const STATF={
  models:STATS,
+ open:[],
  log:[["added","Additions"],["announced","Announcements"],["retired","Retirements"]]};
 const STATC={new:"new",added:"new",announced:"announced",retired:"retired"};
 // Singular beside a card, because one entry is one of these; plural on the
@@ -1007,19 +1022,44 @@ function dayCol(y,today){
  return a<=0?ageCol("fresh"):a<=7?ageCol("recent"):"";}
 // Any-of, unlike the category row: an empty set means everything. Each view
 // keeps its own set, because the row belongs to the view it sits under.
-const stats={models:new Set(),log:new Set()};
+const stats={models:new Set(),open:new Set(),log:new Set()};
+
+// The open-weights view. A model is open when it carries `o`; `l` is the
+// licence as the vendor names it, `h` the Hugging Face page, `p` the size in
+// billions of parameters, or [smallest, largest] for a family. The licence
+// filter groups the vendor names into four buckets by rule, so a new name
+// needs no new button; the RAM filter reads the weights at 16 bits, 2 GB per
+// billion parameters, against the smallest size on the card.
+const LGRP=l=>!l?"":/apache/i.test(l)?"apache":/^mit/i.test(l)?"mit":/non-commercial|BY-NC/i.test(l)?"nc":"other";
+const LICF=[["apache","Apache 2.0"],["mit","MIT"],["nc","Non-commercial"],["other","Vendor"]];
+const RAMF=[8,16,32,64,128];
+let lic="all",hf=false,ram=0;
+const pmin=p=>Array.isArray(p)?p[0]:p;
+const gb=p=>Math.round(p*2);
+function matchOpen(m){const o=m.o;if(!o)return false;
+ if(lic!=="all"&&LGRP(o.l)!==lic)return false;
+ if(hf&&!o.h)return false;
+ if(ram&&!(o.p&&gb(pmin(o.p))<=ram))return false;
+ return true;}
+function openLine(o){
+ const bits=[`<span title="Licence">${icon("licence")}${esc(o.l||"licence not recorded")}</span>`];
+ if(o.p)bits.push(`<span title="Size, and RAM for the weights at 16-bit">${icon("ram")}`
+  +(Array.isArray(o.p)?`${o.p[0]}–${o.p[1]}B · from ~`:`${o.p}B · ~`)+gb(pmin(o.p))+" GB</span>");
+ if(o.h)bits.push(`<a href="${o.h}" target="_blank" rel="noopener" title="Weights on Hugging Face">${icon("hf")}Hugging Face</a>`);
+ return bits.join("");}
 const $=id=>document.getElementById(id);
 const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`:esc(t);
 
 $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</button>`).join("");
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
-$("stamp").textContent="Compiled 18 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
-$("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+// The compile stamp lives in the footer; check.js reads this literal and
+// fails if it disagrees with NOW, so bump the two together.
+$("foot").innerHTML="Compiled 18 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
-function matchStat(m){const s=stats.models;return !s.size||s.has(status(m.d))}
+function matchStat(m){const s=stats[view];return !s.size||s.has(status(m.d))}
 function matchTerm(co,m){
  if(!term)return true;
  return (co.c+" "+co.n+" "+m.n+" "+m.d+" "+m.x).toLowerCase().includes(term);}
@@ -1037,6 +1077,7 @@ function paintBar(){
   b.setAttribute("aria-selected",b.dataset.v===view));
  // Status buttons wear their own badge colour, the same way the category
  // buttons wear theirs: outlined when off, filled when on.
+ $("badges").style.display=STATF[view].length?"flex":"none";
  $("badges").innerHTML=STATF[view].map(([v,l])=>view==="log"
   ?`<button class="mk" data-s="${v}"><span class="dot"></span>${l}</button>`
   :`<button data-s="${v}">${l}</button>`).join("");
@@ -1047,6 +1088,12 @@ function paintBar(){
    :`color:${c.fill};border-color:${c.ln}`;
   const d=b.querySelector(".dot");
   if(d)d.style.background=on?c.on:c.fill;});
+ $("ofilt").style.display=view==="open"?"flex":"none";
+ const row=(ic,l,b)=>`<div class="orow"><span class="olab" title="${l}">${icon(ic)}<b>${l}</b></span>${b}</div>`;
+ if(view==="open")$("ofilt").innerHTML=
+  row("licence","Licence",LICF.map(([v,l])=>`<button data-l="${v}" aria-pressed="${lic===v}">${l}</button>`).join(""))
+  +row("hf","Download",`<button data-h="1" aria-pressed="${hf}">On Hugging Face</button>`)
+  +row("ram","RAM",RAMF.map(g=>`<button data-r="${g}" aria-pressed="${ram===g}">≤${g} GB</button>`).join(""));
  // Each filter button is tinted with its own category colour; "all" has none and keeps the default.
  document.querySelectorAll("#filters button,#subs button").forEach(b=>{
   const on=b.dataset.f===filt;
@@ -1072,7 +1119,6 @@ const cardOf=e=>CARD.get(e.c+"\0"+e.n)||CARD.get(e.c+"\0"+e.n.split(" → ").pop
 function renderLog(){
  const es=H.filter(matchEv),n=new Date();
  const today=new Date(n.getFullYear(),n.getMonth(),n.getDate());
- $("count").textContent=es.length+" change"+(es.length===1?"":"s");
  $("out").innerHTML=es.length?`<div class="grid">${es.map(e=>{
   const c=col(e.k[0]),nc=ncol(STATC[e.t]),dc=dayCol(e.y,today);
   return `<div class="evrow">
@@ -1089,30 +1135,31 @@ function render(){
  // The sub row is rebuilt whenever the base category changes, so it has to exist before aria-pressed is set.
  paintBar();
  if(view==="log")return renderLog();
- let nc=0,nm=0;
+ const open=view==="open";
  const cards=D.map(co=>{
-  const ms=co.m.filter(m=>matchCat(m)&&matchStat(m)&&matchTerm(co,m)).sort((a,b)=>cmpDate(a.d,b.d));
-  const nameHit=term&&co.c.toLowerCase().includes(term);
-  if((filt!=="all"||term||stats.models.size)&&!ms.length&&!(nameHit&&!co.m.length))return null;
-  nc++;nm+=ms.length;
+  const ms=co.m.filter(m=>(!open||matchOpen(m))&&matchCat(m)&&matchStat(m)&&matchTerm(co,m)).sort((a,b)=>cmpDate(a.d,b.d));
+  const nameHit=!open&&term&&co.c.toLowerCase().includes(term);
+  if((open||filt!=="all"||term||stats[view].size)&&!ms.length&&!(nameHit&&!co.m.length))return null;
   const body=ms.length?ms.map(m=>{const c=col(m.k[0]);
    return `<div class="m" style="border-color:${c.ln}">
     <div class="l"><div class="n" style="color:${c.fg}">${link(m.n,m.u||co.u)}${badge(m.d)}</div>
     <div class="d" style="color:${c.fg}">${esc(m.d)}</div>
-    ${m.x?`<div class="x" style="color:${c.fg}">${esc(m.x)}</div>`:""}</div>
+    ${m.x?`<div class="x" style="color:${c.fg}">${esc(m.x)}</div>`:""}
+    ${open?`<div class="o" style="color:${c.fg}">${openLine(m.o)}</div>`:""}</div>
     <div class="tags">${tagsOf(m.k)}</div></div>`}).join("")
    :`<p class="none">No models listed yet</p>`;
   return {d:ms.length?ms[0].d:"",
    h:`<article class="co"><div class="hd"><h2>${link(co.c,co.u)}</h2><span class="rg">${esc(co.r)}</span></div>
    <div class="meta">Founded ${esc(co.f)} · ${esc(co.n)}</div>${body}</article>`}})
   .filter(Boolean).sort((a,b)=>cmpDate(a.d,b.d)).map(c=>c.h).join("");
- $("count").textContent=nc+" companies · "+nm+" models shown";
  $("out").innerHTML=cards?`<div class="grid">${cards}</div>`
   :`<p class="none">Nothing matches that. Try a different term or clear the filter.</p>`;}
 
 $("views").onclick=e=>{if(e.target.dataset.v){view=e.target.dataset.v;render()}};
 $("filters").onclick=e=>{if(e.target.dataset.f){filt=e.target.dataset.f;render()}};
 $("subs").onclick=e=>{if(e.target.dataset.f){filt=e.target.dataset.f;render()}};
+$("ofilt").onclick=e=>{const d=e.target.dataset;if(e.target.tagName!=="BUTTON")return;
+ if(d.l)lic=lic===d.l?"all":d.l;else if(d.h)hf=!hf;else if(d.r)ram=ram===+d.r?0:+d.r;render()};
 $("badges").onclick=e=>{const s=e.target.dataset.s;
  if(s){const S=stats[view];S.has(s)?S.delete(s):S.add(s);render()}};
 $("q").oninput=e=>{term=e.target.value.trim().toLowerCase();render()};

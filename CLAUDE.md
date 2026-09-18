@@ -26,7 +26,8 @@ model in any of these categories still gets a card with an empty `m: []`.
 Two arrays near the top of the script block, one per view.
 
 - `D` — companies. `{c, r, f, n, u, m}`: company, region, founded, ownership,
-  official site, models. Renders the **Models** view.
+  official site, models. Renders the **All** view, and the **Open weights**
+  view, which is the same list narrowed to models carrying `o`.
 - `H` — the changelog. `{t, y, c, n, k, x, u}`: type, day, company, model,
   tags, detail, link. Renders the **Changelog** view.
 
@@ -150,6 +151,34 @@ parameter count or a link for the older version to make its card look full.
 A version-specific `u` follows its version; a line-level product page can sit
 on both cards.
 
+### Open weights: `o`
+
+A model whose weights can be downloaded carries `o`, and only those models
+show in the **Open weights** tab. `{l, h, p}`, every key optional:
+
+- `l` — the licence as the vendor names it: `Apache 2.0`, `MIT`, `CC BY-NC
+  4.0`, `Tencent Hunyuan community`, `FLUX.1 dev non-commercial`. The tab's
+  licence filter groups these by rule (`LGRP`): anything containing "apache",
+  anything starting with "MIT", anything saying non-commercial or BY-NC, and
+  the rest as **Vendor licence**. A new licence name needs no new button.
+- `h` — the Hugging Face page for the weights, and `check.js` insists it is
+  on huggingface.co. The tab's **On Hugging Face** filter is "has `h`".
+- `p` — size in billions of parameters, or `[smallest, largest]` for a family
+  shipped in several sizes (`Gemma 4` is `[5,31]`). The RAM filter turns the
+  smallest size into gigabytes at 16-bit weights, 2 GB per billion, and the
+  card prints the same number. That is the download size, not a benchmark:
+  a reader running 4-bit quantised weights needs about a quarter of it.
+
+`o:{}` with no keys is legitimate for a model the vendor calls open but whose
+licence, page and size have not been verified (Llama 5 at the time of
+writing). It shows in the tab as "licence not recorded" and matches no
+licence, Hugging Face or RAM filter.
+
+The values were read from the Hugging Face API (the `license` tag and the
+`safetensors.total` count) in September 2026, not from memory. Verify a new
+entry the same way; the HF licence tag is `other` for every vendor community
+licence, and the real name is then in the model card's `license_name`.
+
 ### Category tags
 
 `image`, `video`, `world`, `avatar`, `robotics`, `audio:speech`,
@@ -173,7 +202,7 @@ in `SUBF` keyed by base. Only `audio` and `text` have one; a base missing from
 
 `NOW` is the current month as `year*12+month`. It drives every badge and the
 cap on bare years. `check.js` fails if `NOW` disagrees with the "Compiled …"
-date printed in the header — bump both together or neither.
+date printed in the footer — bump both together or neither.
 
 `RETIRED` strips any clause following a retirement word (`retired`, `EOL`,
 `wind-down`, `closed`, `ends`, `discontinued`, `shut down`, `removed`) up to the
