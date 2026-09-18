@@ -456,6 +456,8 @@ const D=[
 {c:"D-ID",r:"IL",f:"2017",n:"independent",u:"https://www.d-id.com",m:[
 {n:"Talking photo",k:["avatar"],d:"2022 →",x:"",u:"https://www.d-id.com"},
 {n:"V4 Expressive Visual Agents",k:["avatar"],d:"Mar 2026",x:"Real-time 4K, connected to an LLM",u:"https://www.d-id.com/news/v4-expressive-visual-agents-real-time-llm-connected-interaction/"}]},
+{c:"Unith",r:"AU",f:"2009 as Crowd Mobile",n:"ASX / Frankfurt",u:"https://www.unith.ai",m:[
+{n:"DEVA-1",k:["avatar"],d:"announced Aug 2026",x:"Next generation of Unith's digital humans: deeper facial lighting and depth, a wider range of natural movement while speaking, micro-expressions, and lip sync across more than 50 languages, generated from a single image or video and streamed in real time off the tone of incoming speech. An alpha went to eight selected customers in August and a beta for paying clients was scheduled for September; the product page still reads Coming Soon behind an early-access request",u:"https://www.unith.ai/lp/deva-1"}]},
 {c:"ByteDance",r:"CN",f:"2012",n:"private",u:"https://www.bytedance.com",m:[
 {n:"Seedream",k:["image"],d:"2024",x:"",u:"https://seed.bytedance.com/en/seedream"},
 {n:"Seedream 5",k:["image"],d:"2026",x:"",u:"https://seed.bytedance.com/en/seedream"},
@@ -567,6 +569,8 @@ const D=[
 {c:"Sakana AI",r:"JP",f:"2023",n:"independent",u:"https://sakana.ai",m:[
 {n:"Sakana Namazu",k:["text:chat"],d:"Aug 2026",x:"Japanese-specialised LLM post-trained from Moonshot's open-weights Kimi K2.6, with web search and code execution as built-in tools; lifts FairPoliticsQA from 34.1% to 56.3% over the base while holding AIME26, MMLU-Pro and LiveCodeBench v6",u:"https://sakana.ai/namazu-api/"},
 {n:"Fugu Max / Fugu Ultra v2",k:["text:chat","text:code"],d:"Sep 2026",x:"One orchestration architecture in two tiers, each a model trained to route a task across a pool of open-weights and specialist models behind a single API: Max is the cost tier at $2 and $6 per million input and output tokens and comes top on Terminal Bench 2.1, GPQAD, AA-LCR, AutomationBench and SWEFish, while Ultra v2 takes the capability tier with 48.3 on Chartography against Opus 5's 27.3 and Fable 5's 29.5",u:"https://sakana.ai/fugu-max-release/"}]},
+{c:"Agnes AI",r:"SG",f:"2025",n:"independent",u:"https://agnes-ai.com",m:[
+{n:"Agnes-3.0-Flash Preview",k:["text:chat"],d:"Sep 2026",x:"Open-weights multimodal model built for flagship-class reasoning on hardware that is not flagship-class: 33B parameters, a 262,144-token context, text, image and video in and text out, with adjustable reasoning effort and tool calling. Hybrid attention holds the long-context memory cost down — three of every four decoder layers run a recurrent gated delta rule and only the fourth carries a KV cache that grows with the input — and the weights are Apache 2.0",u:"https://huggingface.co/Agnes-AI/Agnes-3.0-Flash"}]},
 {c:"Voyage AI",r:"US",f:"2023",n:"MongoDB (Feb 2025)",u:"https://www.voyageai.com",m:[
 {n:"voyage-3",k:["text:embed"],d:"2024",x:""},
 {n:"voyage-4",k:["text:embed"],d:"Jan 2026",x:"Mixture of experts with one shared embedding space across the family",u:"https://blog.voyageai.com/2026/01/15/voyage-4/"},
@@ -599,6 +603,8 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-18",c:"Agnes AI",n:"Agnes-3.0-Flash Preview",k:["text:chat"],x:"Open-weights multimodal model built for flagship-class reasoning on hardware that is not flagship-class: 33B parameters, a 262,144-token context, text, image and video in and text out, with adjustable reasoning effort and tool calling. Hybrid attention holds the long-context memory cost down — three of every four decoder layers run a recurrent gated delta rule and only the fourth carries a KV cache that grows with the input — and the weights are Apache 2.0",u:"https://huggingface.co/Agnes-AI/Agnes-3.0-Flash"},
+{t:"announced",y:"2026-09-18",c:"Unith",n:"DEVA-1",k:["avatar"],x:"Next generation of Unith's digital humans: deeper facial lighting and depth, a wider range of natural movement while speaking, micro-expressions, and lip sync across more than 50 languages, generated from a single image or video and streamed in real time off the tone of incoming speech. An alpha went to eight selected customers in August and a beta for paying clients was scheduled for September; the product page still reads Coming Soon behind an early-access request",u:"https://www.unith.ai/lp/deva-1"},
 {t:"added",y:"2026-09-17",c:"inclusionAI",n:"Ling 3.0 Flash Fin",k:["text:chat"],x:"The first finance-tuned model in Ant Group's Ling family, continued-trained on financial data from the 124B Ling 3.0 Flash backbone and activating 5.1B parameters per token over a 256K context; built for end-to-end financial research that retrieves, reasons across documents and writes the report, with valuation modelling and spreadsheet work alongside, and shipped as MIT weights with fp8 and int4 builds",u:"https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin"},
 {t:"added",y:"2026-09-17",c:"Avaturn",n:"AVTR-1",k:["avatar"],x:"Open-weights full-duplex avatar model: a 153M-parameter flow-matching transformer turns an audio stream into motion for a portrait image and renders every frame of the face at 25fps, rather than stitching a talking mouth onto a pre-recorded loop, and it keeps listening and reacting while the other side is still speaking. Weights, inference code and the serving stack ship together under a community licence free below $10M of revenue",u:"https://github.com/avaturn-live/avtr-1"},
 {t:"announced",y:"2026-09-16",c:"TypeSafe AI",n:"Jev",k:["text:chat"],x:"First of what the lab calls System One models: unstructured state in, a typed decision with a calibrated probability out, trained by Reinforcement Learning for Calibrated Decisions. Giving up free-form generation is the point — it cannot make a type error or invent a field — and the lab puts end-to-end latency at 70 to 500ms, input at four cents per million tokens and output at nothing at all",u:"https://typesafe.ai/blog/introducing-system-one-models-and-jev"},
@@ -1002,7 +1008,7 @@ const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>
 
 $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</button>`).join("");
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
-$("stamp").textContent="Compiled 17 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
+$("stamp").textContent="Compiled 18 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models";
 $("foot").innerHTML="Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.

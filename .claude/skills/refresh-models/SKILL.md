@@ -85,7 +85,9 @@ changelog names the exact model ID with the exact date:
 - https://mimo.mi.com/docs/en-US/updates/model
 
 Also read https://platform.claude.com/docs/en/about-claude/model-deprecations
-for Anthropic retirement dates; it lists every model with its status.
+for Anthropic retirement dates; it lists every model with its status, and
+https://developers.openai.com/api/docs/deprecations for OpenAI's, which dates
+each announcement and gives the shutdown date and replacement.
 
 When a page comes back `EGRESS_BLOCKED` or 403, run `WebSearch` for
 `<vendor> releases` with that vendor's domain in `allowed_domains`, which
