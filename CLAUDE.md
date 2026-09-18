@@ -111,6 +111,14 @@ in `x` unless it is worded as a feature note ("Audio added May 2026").
 `d` holds the lifecycle and nothing else: when it shipped, when later versions
 shipped, when it dies. `x` holds what it is and why it matters.
 
+**`x` is at most 180 characters, and 160 is the size to aim for.** `check.js`
+fails above 180. The GPT Image 2.5 card is the reference: one sentence on what
+the model is, a second clause on the one thing that sets it apart, and
+nothing else. Benchmark tables, pricing, rollout stages, the list of every
+feature and the history of the announcement all go; a reader who wants them
+follows the link. On a phone a 400-character `x` is a card taller than the
+screen, and fifty of them were before September 2026.
+
 ### One card per version
 
 **A card is one release.** A new version gets its own card. Never append

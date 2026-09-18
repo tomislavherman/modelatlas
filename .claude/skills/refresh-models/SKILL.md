@@ -325,6 +325,12 @@ Follow the schema in CLAUDE.md. The parts most often got wrong:
 
 - Dates go in `d`, prose goes in `x`. A date in `x` is invisible to the sort
   and to every badge.
+- `x` is at most 180 characters, and about 160 is right — `check.js` fails
+  above the cap. Write what the model is and the one thing that sets it
+  apart, then stop: no benchmark scores beyond one, no price, no rollout
+  stages, no announcement history. Model it on the GPT Image 2.5 card in
+  `index.html`. The changelog entry copies `x`, so a short card gives a short
+  entry for free.
 - One card per version — a new version is a new card, never `→` appended to
   the card already there. Names spelled out in full.
 - `k[0]` sets the card colour — primary modality first.

@@ -53,6 +53,9 @@ for (const co of D) {
     // A detail line is prose; a date in there is invisible to the sort and the badges.
     check(!/\b(19|20)\d\d\b/.test(m.x) || /\b(added|since|until|after|from)\b/i.test(m.x),
       `${at}: x names a year that nothing reads — move it to d, or word it as a feature note. x="${m.x}"`);
+    // A card is a glance, not a paragraph: 180 characters is the ceiling, and
+    // the GPT Image 2.5 card at 160 is the size to aim for.
+    check(m.x.length <= 180, `${at}: x is ${m.x.length} characters — keep it under 180. x="${m.x}"`);
     if (m.u) check(m.u.startsWith("https://"), `${at}: link is not https — ${m.u}`);
     // Open weights: licence text, a Hugging Face page, and a size in billions
     // of parameters (a number, or [smallest, largest] for a family).

@@ -35,7 +35,8 @@ nouns for what a row records — and each view remembers its own selection.
 - **Models** — each is `{n, k, d, x, u}` and renders as three lines: `n` the
   model name or names, `d` the dates, `x` the detail note. Keep them separate —
   `d` is the only field the ordering and badge code reads, so a date belongs
-  there and prose belongs in `x`. `x` may be `""`. `u` is optional; a model
+  there and prose belongs in `x`. `x` may be `""`, and is at most 180
+  characters — the GPT Image 2.5 card is the size to aim for. `u` is optional; a model
   without one links to its company's `u` instead, and a company without `u`
   renders as plain text.
 - **Open weights** — a model whose weights can be downloaded carries `o`,
