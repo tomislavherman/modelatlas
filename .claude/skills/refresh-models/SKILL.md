@@ -11,7 +11,9 @@ the date-parsing traps. This skill is the procedure; that file is the reference.
 
 The output is an edit to the `D` and `H` arrays in `index.html` plus a bumped
 compile date, and — when the sweep turns one up — a new source appended to
-this file's own lists. Finish with `node check.js` passing.
+this file's own lists. A model whose weights can be downloaded also carries
+`o` (licence, Hugging Face page, size), read from the weights repository and
+never from memory. Finish with `node check.js` passing.
 
 ## 1. Establish the window
 
@@ -89,6 +91,44 @@ for Anthropic retirement dates; it lists every model with its status, and
 https://developers.openai.com/api/docs/deprecations for OpenAI's, which dates
 each announcement and gives the shutdown date and replacement.
 
+### Weights repositories
+
+Open-weights releases often land on Hugging Face before, or instead of, a
+blog post — a repository appears, and the announcement follows hours or days
+later. The Hugging Face API is a dated index per organisation, so read it the
+same way as a newsroom, one call per organisation:
+
+```sh
+for a in openai google facebook meta-llama meta-models ibm-granite nvidia \
+  black-forest-labs stabilityai ideogram-ai krea Lightricks mistralai \
+  Kwai-Kolors MiniMaxAI Wan-AI Qwen FunAudioLLM tencent zai-org inclusionAI \
+  stepfun-ai internlm deepseek-ai moonshotai IFM thinkingmachines CohereLabs \
+  Agnes-AI XiaomiRobotics lerobot m-a-p desert-ant-labs avaturn-live; do
+  curl -s -A "Mozilla/5.0" "https://huggingface.co/api/models?author=$a&sort=createdAt&direction=-1&limit=8&expand[]=createdAt&expand[]=tags&expand[]=safetensors" \
+  | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{for(const m of JSON.parse(s))console.log(m.id,m.createdAt.slice(0,10),(m.tags||[]).filter(t=>t.startsWith("license:")).join(",")||"-",m.safetensors?.total?(m.safetensors.total/1e9).toFixed(1)+"B":"-")})'
+done
+```
+
+Read the repositories created inside the window. Ignore quantised copies,
+LoRAs, GGUF conversions and fine-tunes by other accounts; a first-party
+repository for a model or version not in `index.html` is a finding. The same
+call gives the three values `o` needs — see step 5a.
+
+When huggingface.co is unreachable, ModelScope carries the Chinese labs'
+repositories, usually the same day. Its listing is a name search rather than
+an organisation feed, and its per-model page has the licence and the storage
+size:
+
+```sh
+curl -s -X PUT -H "Content-Type: application/json" "https://www.modelscope.cn/api/v1/dolphin/models" \
+  -d '{"PageSize":10,"PageNumber":1,"SortBy":"GmtModified","Target":"","Name":"deepseek-ai","SingleCriterion":[]}'
+curl -s "https://www.modelscope.cn/api/v1/models/deepseek-ai/DeepSeek-V4.1-Flash"   # .Data.License, .Data.StorageSize, .Data.CreatedTime
+```
+
+A ModelScope page confirms that weights exist and what the licence is, but
+`o.h` is still the Hugging Face page: leave `h` out when a model is on
+ModelScope only, and say so in the report.
+
 When a page comes back `EGRESS_BLOCKED` or 403, run `WebSearch` for
 `<vendor> releases` with that vendor's domain in `allowed_domains`, which
 returns the vendor's own pages rather than aggregators.
@@ -117,8 +157,9 @@ docs beat aggregator blogs; aggregators disagree with each other on dates
 
 ### Grow the source list
 
-**The two lists above are part of the output, not just the input.** They are
-the fastest-staling thing in this file: labs appear, newsrooms move, a vendor
+**The three lists above — newsrooms, API changelogs and Hugging Face
+organisations — are part of the output, not just the input.** They are the
+fastest-staling thing in this file: labs appear, newsrooms move, a vendor
 quiet for a year starts shipping monthly. Every run leaves them a little
 better than it found them, by editing this file.
 
@@ -140,6 +181,10 @@ Three cheaper triggers, worth a look every run:
 - **A source that has moved.** A 404, or a redirect landing somewhere generic,
   means the newsroom has a new home. Find it and fix the URL in place rather
   than deleting the line.
+- **An `o.h` whose organisation is not in the loop.** Every Hugging Face page
+  written into `index.html` names an organisation; if that organisation is
+  missing from the shell loop above, add it. Write the name exactly as the URL
+  spells it — `Qwen`, `CohereLabs`, `zai-org` — since the API is case-sensitive.
 
 Then **one dedicated query per run**, no more, aimed at labs rather than
 models: something like `AI lab launches first model <Month> <Year>`. One query
@@ -160,8 +205,10 @@ is the budget; this is a background task, not the point of the run.
   the same posts twice, and fetching both costs a slot for nothing.
 
 Append it as one line in the same format as its neighbours, to whichever list
-it belongs to — newsrooms, or API changelogs. No commentary, no "added on"
-note; git already records that.
+it belongs to — newsrooms, API changelogs, or the Hugging Face loop. No
+commentary, no "added on" note; git already records that. For the loop the
+test is simpler: the organisation exists (the API call above returns models)
+and it is the vendor's own account, not a mirror or a quantiser.
 
 **A source you could not reach is not a dead source.** A 403 or an
 `EGRESS_BLOCKED` is a property of the sandbox on the day, not of the page —
@@ -172,7 +219,8 @@ a failed fetch.
 #### Keep the lists bounded
 
 Every entry is a fetch on every future run, so the lists cannot only grow.
-Roughly **24 newsrooms and 8 changelogs** is the ceiling. At the ceiling,
+Roughly **24 newsrooms, 8 changelogs and 40 Hugging Face organisations** is
+the ceiling. At the ceiling,
 adding one means dropping one, and the one to drop is decided from data you
 already have in front of you: the listed vendor whose newest model in `D` is
 oldest. A lab that has shipped nothing in a year does not need a daily fetch.
@@ -183,8 +231,8 @@ company folded into another that is already listed.
 #### What must never change
 
 This is the one section of this skill that a run may edit, and it may edit
-**only the two source lists** — adding a line, fixing a moved URL, removing a
-dead or superseded one. Never rewrite the procedure, the thresholds, the
+**only the three source lists** — adding a line or an organisation, fixing a
+moved URL, removing a dead or superseded one. Never rewrite the procedure, the thresholds, the
 schema rules or this section itself from inside a run, unattended or not. How
 the job works is a decision for a person; which pages the job reads is
 maintenance, and that is the whole difference.
@@ -214,7 +262,13 @@ as already listed. The right edit was a new `Gemini Omni 1.1 Flash` card on
 | Company absent entirely | new card — Microsoft was missing with four shipped models |
 | Announced, not shipped | `d: "announced …"`, no invented ship date |
 | Retired or shut down | add the retirement clause to the **retired version's own card** |
+| Weights published for a listed model | add `o` to that version's card, and `open weights <Mon YYYY>` in its `d` |
 | A product wrapping someone else's model | skip |
+
+A genuinely new model or version whose weights are downloadable gets `o` on
+the day it is added, not later. Check every addition against Hugging Face
+before writing it, even one found through a newsroom — the loop in step 2
+only reads the organisations it knows about.
 
 **One card is one release.** A new version never extends the card of the
 version before it — see "One card per version" in CLAUDE.md for why, and for
@@ -276,6 +330,39 @@ Follow the schema in CLAUDE.md. The parts most often got wrong:
 - `k[0]` sets the card colour — primary modality first.
 - Link the page for that model, never a `/models` listing page.
 
+#### `o` — open weights
+
+`{l, h, p}`, every key optional, on any model whose weights can be
+downloaded; the Open weights tab shows only cards that carry it. CLAUDE.md
+has the field's rules. Every value is read from the repository, never typed
+from memory:
+
+```sh
+curl -s -A "Mozilla/5.0" "https://huggingface.co/api/models/<org>/<repo>" \
+  | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const j=JSON.parse(s),c=j.cardData||{};console.log("license:",c.license,"| name:",c.license_name,"| params:",j.safetensors?.total?(j.safetensors.total/1e9).toFixed(1)+"B":"none")})'
+```
+
+- `l` is the licence as the vendor names it. The tag is `apache-2.0`, `mit`,
+  `cc-by-nc-4.0` and so on, written on the card as `Apache 2.0`, `MIT`,
+  `CC BY-NC 4.0`. When the tag is `other`, the real name is `license_name`
+  (`tencent-hunyuan-community`, `flux-1-dev-non-commercial-license`), written
+  as `Tencent Hunyuan community`, `FLUX.1 dev non-commercial`. A modified MIT
+  is `MIT (modified)`. No tag and no name means leave `l` out.
+- `h` is the repository page, `https://huggingface.co/<org>/<repo>`. For a
+  family in several sizes, link the largest first-party repository. Never a
+  quantiser's copy, a GGUF conversion or a mirror.
+- `p` is `safetensors.total` in billions, rounded to what the vendor says
+  (`29.8B` on the API is `30`). A family in several sizes is
+  `[smallest, largest]`. When the repository has no safetensors count — many
+  diffusion and speech models ship `.pt` or `.pth` files — use the count the
+  vendor states in the model card or announcement, and leave `p` out when
+  nobody states one. Never estimate it.
+
+A vendor that calls a model open but has not published the weights yet gets
+`o:{}` (Llama 5 in September 2026) or `o:{l:"undecided"}` for an announced
+release; the card then shows "licence not recorded" and no size. Fill the
+keys in the run that finds the repository.
+
 ### 5b. `H` — the changelog
 
 One entry at the **top** of `H` for each change you just made, newest first:
@@ -316,7 +403,7 @@ Never edit or delete an existing entry. Correct a wrong one by appending.
 Update **both** together or `check.js` fails:
 
 - `NOW` in the script (`2026*12+8` for August 2026)
-- the `"Compiled 25 Aug 2026 · "` string in the header
+- the `"Compiled 25 Aug 2026 · "` string written into the footer
 
 Also update the "Compiled …" line at the bottom of `README.md`.
 
@@ -336,17 +423,25 @@ Then look at the page, since `check.js` cannot see layout:
 python3 -m http.server 8731    # Chrome blocks file:// URLs
 ```
 
-`check.js` prints both arrays' counts. Confirm the new entries sit where
-expected, the badge counts match what you added, and nothing old picked up a
-badge by accident. Check the links you added actually resolve to that model's
-page, not a listing.
+`check.js` prints both arrays' counts and the open-weights totals (models,
+on Hugging Face, with a size). Confirm the new entries sit where expected, the
+badge counts match what you added, and nothing old picked up a badge by
+accident. Check the links you added actually resolve to that model's page,
+not a listing.
+
+Then open the **Open weights** tab. Every model you gave `o` should be there
+with its licence, its size and RAM, and a Hugging Face link that lands on the
+repository; a card missing one of the three means a key you left out. Press
+the licence button that matches what you wrote and confirm the card stays —
+the buttons group licence names by rule, and a name the rule cannot place
+falls under Vendor.
 
 Then open the **Changelog** tab and confirm today's entries are at the top,
-one per change and no more. Category and search are shared across the tabs, so
-check one category in both — a tag you got wrong in `H` will hide the entry
-under a filter where its model still shows. The status rows are per-view, so
-check the changelog's own Additions / Announcements / Retirements row
-separately.
+one per change and no more, each wearing the same badge its card wears on the
+**All** tab. Category and search are shared across the tabs, so check one
+category in both — a tag you got wrong in `H` will hide the entry under a
+filter where its model still shows. The status rows are per-view, so check the
+changelog's own Additions / Announcements / Retirements row separately.
 
 The two counts are not meant to match. The model list shows current state and
 the changelog shows what happened, so a retirement logged once against a
@@ -400,6 +495,9 @@ A scheduled run has nobody to ask, so:
   version bump of a listed one — take the smaller edit and flag it.
 - If `check.js` fails and the fix is not obvious, revert the working tree and
   report rather than pushing a guess.
+- Never write an `o` key you did not read from a repository page. A model
+  the announcement calls open but whose repository you could not reach gets
+  `o:{}` and a line in the report, and the next run fills it in.
 - The source lists in step 2 may be edited unattended; nothing else in this
   file may. A run that finds itself wanting to change a rule has found
   something to report, not something to edit.
@@ -423,7 +521,9 @@ entry. Flag anything you could not source rather than writing a confident
 version number.
 
 State the changelog entries you appended, and say so explicitly when you
-appended none. A run that edited `D` and reported nothing about `H` is the
+appended none. List every card that gained or changed `o`, with the repository
+each value came from, and name any open-weights model left at `o:{}` because
+its repository could not be read. A run that edited `D` and reported nothing about `H` is the
 failure mode to watch for: the two arrays drift apart silently, and the
 history cannot be reconstructed afterwards from the page alone.
 
