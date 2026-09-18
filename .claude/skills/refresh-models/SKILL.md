@@ -486,6 +486,34 @@ git push origin HEAD:main
 checkout with no branch name, where plain `git push origin main` fails. It
 does the same thing from a normal branch, so one command works either way.
 
+### Leave no branch behind
+
+The scheduled run works on a branch named `claude/<something>`, and the
+harness pushes that branch to origin as well as whatever you push yourself.
+Nineteen of them had piled up by 18 September 2026, fifteen of them holding
+nothing that was not already on `main`. So after the push to `main`, and on
+every run whether or not anything changed, delete your own branch and any
+earlier ones that are fully merged:
+
+```sh
+b=$(git symbolic-ref --short -q HEAD)
+[ -n "$b" ] && [ "$b" != main ] && git push origin --delete "$b"
+git fetch --prune -q
+for r in $(git branch -r --format='%(refname:short)' | grep '^origin/claude/'); do
+  [ "$(git rev-list --count origin/main..$r)" = 0 ] && git push origin --delete "${r#origin/}"
+done
+```
+
+One branch at a time, as written: zsh does not split an unquoted variable
+into words, so `git push origin --delete $list` sends the whole list as one
+branch name and deletes nothing.
+
+The merged test is the safeguard. A branch with a commit `main` does not have
+is a run whose push to `main` failed, and its data exists nowhere else — four
+such branches held Robostral Navigate and poolside's Laguna models that never
+reached the page. Leave those alone and name them in the report, so a person
+can decide whether to salvage or drop them.
+
 Match the existing commit style: `feat:`, lowercase, one specific change named
 in the subject rather than "update models".
 
@@ -525,6 +553,10 @@ Say what changed and what you looked for and did not find — "no new music
 models in August" is a result. Name the sources for each added or changed
 entry. Flag anything you could not source rather than writing a confident
 version number.
+
+Name any `claude/*` branch on origin you left in place because it holds a
+commit `main` does not, with the commit subject, so the data in it is not
+forgotten.
 
 State the changelog entries you appended, and say so explicitly when you
 appended none. List every card that gained or changed `o`, with the repository
