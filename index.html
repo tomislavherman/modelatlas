@@ -601,6 +601,7 @@ const D=[
 {c:"Voyage AI",r:"US",f:"2023",n:"MongoDB (Feb 2025)",u:"https://www.voyageai.com",m:[
 {n:"voyage-3",k:["text:embed"],d:"2024",x:""},
 {n:"voyage-4",k:["text:embed"],d:"Jan 2026",x:"Mixture of experts with one shared embedding space across the family",u:"https://blog.voyageai.com/2026/01/15/voyage-4/"},
+{n:"voyage-context-4",k:["text:embed"],d:"Jun 2026",x:"Contextualised chunk embeddings: each chunk is embedded with the whole document in view, so retrieval works without a hand-tuned chunking strategy",u:"https://blog.voyageai.com/2026/06/29/voyage-context-4/"},
 {n:"voyage-code-4",k:["text:embed"],d:"Aug 2026",x:"Code retrieval built for coding agents",u:"https://blog.voyageai.com/2026/08/13/voyage-code-4/"}]},
 {c:"Physical Intelligence",r:"US",f:"2024",n:"independent",u:"https://www.pi.website",m:[
 {n:"π0",k:["robotics"],d:"2024",x:"Actions come out of a diffusion flow",u:"https://www.pi.website/blog",o:{l:"Apache 2.0",h:"https://huggingface.co/lerobot/pi0_base",p:3.5}},
@@ -630,6 +631,7 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-19",c:"Voyage AI",n:"voyage-context-4",k:["text:embed"],x:"Contextualised chunk embeddings: each chunk is embedded with the whole document in view, so retrieval works without a hand-tuned chunking strategy",u:"https://blog.voyageai.com/2026/06/29/voyage-context-4/"},
 {t:"added",y:"2026-09-18",c:"Alibaba",n:"HappyOyster 1.0 Adventure / Directing / Acting",k:["world"],x:"Streaming world model in three modes: Adventure explores an endless scene, Directing drives one from a script at 720p, Acting holds a portrait video call in character",u:"https://www.alibabacloud.com/help/en/model-studio/happyoyster-overview"},
 {t:"added",y:"2026-09-18",c:"poolside",n:"Laguna S 2.1",k:["text:code"],x:"118B with 8B active and a 1M-token context under OpenMDW-1.1; matches models several times its size on Terminal-Bench 2.1 and SWE-Bench Pro",u:"https://poolside.ai/blog/introducing-laguna-s-2-1"},
 {t:"added",y:"2026-09-18",c:"poolside",n:"Laguna XS.2 / Laguna M.1",k:["text:code"],x:"First public models from a lab that trains on code from scratch; XS.2 is 33B with 3B active under Apache 2.0 and runs on one GPU, M.1 the 225B flagship for long-horizon work",u:"https://poolside.ai/blog/introducing-laguna-xs2-m1"},
@@ -1069,7 +1071,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 18 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 19 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
