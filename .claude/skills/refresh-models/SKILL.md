@@ -67,7 +67,7 @@ they make is in scope.
 - https://poolside.ai/blog
 - https://cohere.com/blog
 - https://sakana.ai/blog/
-- https://thinkingmachines.ai/news/
+- https://www.tavus.io/blog
 - https://desertant.com/blog/
 - https://www.worldlabs.ai/blog
 - https://www.visko.ai/news
