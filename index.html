@@ -556,7 +556,8 @@ const D=[
 {n:"Step-Video",k:["video"],d:"2025",x:"Open weights",u:"https://github.com/stepfun-ai/Step-Video-T2V",o:{l:"MIT",h:"https://huggingface.co/stepfun-ai/stepvideo-t2v",p:29}}]},
 {c:"Shanghai AI Laboratory",r:"CN",f:"2020",n:"state-backed non-profit",u:"https://www.shlab.org.cn",m:[
 {n:"Atria Dawn Preview",k:["text:chat","text:code"],d:"Sep 2026",x:"Agentic post-training of Z.ai's GLM-5.2, 744B mixture of experts under MIT, graded on tool use in executable environments; appeared on Hugging Face with no announcement post",u:"https://huggingface.co/internlm/Atria-Dawn-Preview",o:{l:"MIT",h:"https://huggingface.co/internlm/Atria-Dawn-Preview",p:753}},
-{n:"Intern-S2-397B",k:["text:chat"],d:"Sep 2026",x:"Multimodal model for scientific work, pre-trained on raw pages of literature rather than parsed text; 397B mixture of experts with long-horizon agent reinforcement learning",u:"https://huggingface.co/internlm/Intern-S2-397B",o:{l:"Apache 2.0",h:"https://huggingface.co/internlm/Intern-S2-397B",p:403}}]},
+{n:"Intern-S2-397B",k:["text:chat"],d:"Sep 2026",x:"Multimodal model for scientific work, pre-trained on raw pages of literature rather than parsed text; 397B mixture of experts with long-horizon agent reinforcement learning",u:"https://huggingface.co/internlm/Intern-S2-397B",o:{l:"Apache 2.0",h:"https://huggingface.co/internlm/Intern-S2-397B",p:403}},
+{n:"InternLumina-U2",k:["image","text:chat"],d:"Sep 2026",x:"Unified 16B-A1B mixture of experts doing text QA, image generation and editing, and video and 3D understanding, over an eight-codebook discrete visual representation",u:"https://internlm.github.io/InternLumina-U2/",o:{l:"Apache 2.0",h:"https://huggingface.co/internlm/InternLumina-U2",p:16}}]},
 {c:"PixVerse",r:"CN",f:"2023",n:"independent",u:"https://pixverse.ai",m:[
 {n:"PixVerse V1",k:["video"],d:"2024",x:"",u:"https://pixverse.ai"},
 {n:"PixVerse V6",k:["video","audio:sfx"],d:"2026",x:"",u:"https://pixverse.ai"}]},
@@ -638,6 +639,7 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-20",c:"Shanghai AI Laboratory",n:"InternLumina-U2",k:["image","text:chat"],x:"Unified 16B-A1B mixture of experts doing text QA, image generation and editing, and video and 3D understanding, over an eight-codebook discrete visual representation",u:"https://internlm.github.io/InternLumina-U2/"},
 {t:"added",y:"2026-09-19",c:"poolside",n:"Laguna XS 2.1",k:["text:code"],x:"Same 33B architecture as XS.2 with 3B active, relicensed to OpenMDW-1.1; up 5.4 points to 63.1% on SWE-bench Multilingual, with FP8, INT4 and NVFP4 checkpoints",u:"https://poolside.ai/blog/introducing-laguna-xs-2-1"},
 {t:"added",y:"2026-09-19",c:"inclusionAI",n:"Realtime-Venus",k:["audio:speech","text:chat"],x:"Full-duplex audio-visual model that keeps watching and listening while it speaks; 9B Omni and Audio checkpoints delegate tool calls in-stream so they never block the exchange",u:"https://realtime-venus.github.io/"},
 {t:"added",y:"2026-09-19",c:"Shanghai AI Laboratory",n:"Intern-S2-397B",k:["text:chat"],x:"Multimodal model for scientific work, pre-trained on raw pages of literature rather than parsed text; 397B mixture of experts with long-horizon agent reinforcement learning",u:"https://huggingface.co/internlm/Intern-S2-397B"},
@@ -1085,7 +1087,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 19 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 20 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
