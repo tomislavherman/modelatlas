@@ -86,7 +86,7 @@ changelog names the exact model ID with the exact date:
 - https://platform.vidu.com/docs/update
 - https://www.kimi.com/code/docs/en/kimi-code/whats-new.html
 - https://www.alibabacloud.com/help/en/model-studio/newly-released-models
-- https://mimo.mi.com/docs/en-US/updates/model
+- https://docs.qwencloud.com/changelog/models
 
 Also read https://platform.claude.com/docs/en/about-claude/model-deprecations
 for Anthropic retirement dates; it lists every model with its status, and
@@ -105,7 +105,7 @@ for a in openai google facebook meta-llama meta-models ibm-granite nvidia \
   black-forest-labs stabilityai ideogram-ai krea Lightricks mistralai \
   Kwai-Kolors MiniMaxAI Wan-AI Qwen FunAudioLLM tencent zai-org inclusionAI \
   stepfun-ai internlm deepseek-ai moonshotai IFM thinkingmachines CohereLabs \
-  Agnes-AI XiaomiRobotics lerobot m-a-p desert-ant-labs avaturn-live poolside CompVis decart-ai; do
+  Agnes-AI XiaomiRobotics lerobot m-a-p desert-ant-labs avaturn-live poolside CompVis decart-ai robbyant; do
   curl -s -A "Mozilla/5.0" "https://huggingface.co/api/models?author=$a&sort=createdAt&direction=-1&limit=8&expand[]=createdAt&expand[]=tags&expand[]=safetensors" \
   | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{for(const m of JSON.parse(s))console.log(m.id,m.createdAt.slice(0,10),(m.tags||[]).filter(t=>t.startsWith("license:")).join(",")||"-",m.safetensors?.total?(m.safetensors.total/1e9).toFixed(1)+"B":"-")})'
 done
