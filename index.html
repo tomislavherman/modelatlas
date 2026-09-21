@@ -529,6 +529,7 @@ const D=[
 {n:"Qwen3",k:["text:chat","text:code"],d:"Apr 2025",x:"Open weights from 0.8B up to 397B with 17B active",u:"https://qwen.ai",o:{l:"Apache 2.0",h:"https://huggingface.co/Qwen/Qwen3-235B-A22B",p:[0.6,235]}},
 {n:"Qwen3.8",k:["text:chat","text:code"],d:"Aug 2026 → Max snapshot Sep 2026",x:"Natively vision-language since the 3.5 generation; Flash-Next runs 125B with 6B active and previews the Qwen4 architecture, and the Max-0902 snapshot tops Code Arena WebDev",u:"https://qwen.ai",o:{l:"Apache 2.0 at 27B, Qwen community and Qwen3.8-Max licences above",h:"https://huggingface.co/Qwen/Qwen3.8-27B",p:[28,2446]}},
 {n:"Qwen3.8-Omni-Flash",k:["text:chat"],d:"Sep 2026",x:"Omni-modal understanding tier taking text, images, audio and video in and answering in text over a 1M-token context; for meeting summaries and content analysis, no speech output",u:"https://www.alibabacloud.com/help/en/model-studio/qwen-omni"},
+{n:"Qwen-AgentWorld",k:["text:chat"],d:"Jun 2026",x:"Language world model for agents: predicts the next environment observation from an action and the history, across MCP, search, terminal, SWE, Android, web and OS",u:"https://huggingface.co/Qwen/Qwen-AgentWorld-35B-A3B",o:{l:"Apache 2.0",h:"https://huggingface.co/Qwen/Qwen-AgentWorld-35B-A3B",p:35}},
 {n:"Qwen-Drive-1.0",k:["robotics"],d:"Sep 2026",x:"Vision-language-action model for driving on a Qwen3.5-4B backbone, built with Huazhong University: 3D detection, map segmentation and a five-second trajectory of 50 waypoints",u:"https://github.com/QwenLM/Qwen-Drive-1.0",o:{l:"Apache 2.0",h:"https://huggingface.co/Qwen/Qwen-Drive-1.0-4B",p:4.5}},
 {n:"Qwen3.8-LiveTranslate-Flash-Realtime",k:["audio:speech"],d:"Sep 2026",x:"Real-time interpretation that takes audio and images and returns text and speech: understands 60 languages and speaks 29",u:"https://www.alibabacloud.com/help/en/model-studio/qwen3-8-livetranslate-flash-realtime"},
 {n:"Qwen-Audio 3.1 Realtime Plus",k:["audio:speech"],d:"Sep 2026",x:"Full-duplex speech chat on the same protocol as 3.0 Plus; adds eight system voices and keeps voice cloning, function calling and web search over a 262k-token context",u:"https://www.alibabacloud.com/help/en/model-studio/qwen-audio-realtime-user-guides"}]},
@@ -652,6 +653,7 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-21",c:"Alibaba",n:"Qwen-AgentWorld",k:["text:chat"],x:"Language world model for agents: predicts the next environment observation from an action and the history, across MCP, search, terminal, SWE, Android, web and OS",u:"https://huggingface.co/Qwen/Qwen-AgentWorld-35B-A3B"},
 {t:"added",y:"2026-09-20",c:"Tavus",n:"Phoenix-4.5",k:["avatar"],x:"Renders the full frame — head, shoulders, torso, clothing and surroundings — at 134ms audio-to-video, and takes on a new identity in about a minute with no training",u:"https://www.tavus.io/blog/phoenix-4-5"},
 {t:"added",y:"2026-09-20",c:"Tavus",n:"Sparrow-2",k:["audio:speech"],x:"Conversational-state model that reads turn-taking, interruptions and backchannels from the whole acoustic scene, updating 100 times a second at 7ms per 80ms of audio",u:"https://www.tavus.io/blog/sparrow-2"},
 {t:"added",y:"2026-09-20",c:"Tavus",n:"Phoenix-4",k:["avatar"],x:"Real-time human rendering at 40fps and 1080p, pairing diffusion with 3D Gaussian splatting to drive ten-plus emotional states, micro-expressions and eye blinks",u:"https://www.tavus.io/blog/phoenix-4-real-time-human-rendering-with-emotional-intelligence"},
@@ -1111,7 +1113,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 20 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 21 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
