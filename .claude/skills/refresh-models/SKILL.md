@@ -64,7 +64,7 @@ they make is in scope.
 - https://suno.com/blog
 - https://sonilo.com/news
 - https://cognition.com/blog
-- https://poolside.ai/blog
+- https://www.inceptionlabs.ai/blog
 - https://cohere.com/blog
 - https://sakana.ai/blog/
 - https://www.tavus.io/blog
