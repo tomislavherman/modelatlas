@@ -282,7 +282,7 @@ const D=[
 {n:"Grok Voice Transcribe 2.0",k:["audio:speech"],d:"Sep 2026",x:"Speech-to-text across 24 languages, taking files up to 500 MB in mono, stereo or up to eight channels; 1.0 stays the default when no model is named",u:"https://docs.x.ai/developers/model-capabilities/audio/speech-to-text"},
 {n:"Grok 3",k:["text:chat","text:code"],d:"Feb 2025",x:""},
 {n:"Grok 4.6",k:["text:chat","text:code"],d:"Aug 2026",x:"500K-token context; a post-training pass over the same V9 base as 4.5, aimed at long-running agents",u:"https://x.ai/news/grok-4-6"},
-{n:"Grok 4.7",k:["text:chat","text:code"],d:"announced Sep 2026",x:"Musk put it at 2.1T parameters against 4.6's 1.5T; xAI has published no launch page, model card, API ID or price, and the date it named passed without a release"},
+{n:"Grok 4.7",k:["text:chat","text:code"],d:"Sep 2026",x:"Frontier coding and agentic model on a larger base than 4.6 with a longer RL run; 500k context, and 46.3% on CursorBench 4.0 against 4.6's 40.4%",u:"https://x.ai/news/grok-4-7"},
 {n:"Grok 5",k:["text:chat"],d:"announced Jan 2026",x:"Confirmed as in training in the funding announcement; no model card, spec sheet or public benchmark",u:"https://x.ai/news"}]},
 {c:"Meta",r:"US",f:"2004",n:"NASDAQ",u:"https://ai.meta.com",m:[
 {n:"Emu / Imagine",k:["image"],d:"2023 →",x:"Image generation and editing research",u:"https://ai.meta.com/blog/emu-text-to-video-generation-image-editing-research/"},
@@ -655,6 +655,7 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-22",c:"SpaceXAI",n:"Grok 4.7",k:["text:chat","text:code"],x:"Frontier coding and agentic model on a larger base than 4.6 with a longer RL run; 500k context, and 46.3% on CursorBench 4.0 against 4.6's 40.4%",u:"https://x.ai/news/grok-4-7"},
 {t:"added",y:"2026-09-21",c:"Xiaomi",n:"MiMo-V2.6-Pro / MiMo-V2.6-Flash",k:["text:chat","text:code"],x:"Hybrid sliding-window MoE with vision and audio encoders, RL-trained for coding and agentic work; the 524B Pro scores 72.57 on DeepSWE v1.1 and the 159B Flash 65.68",u:"https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL"},
 {t:"added",y:"2026-09-21",c:"Alibaba",n:"Qwen3.8-Omni-Flash-Realtime",k:["audio:speech","text:chat"],x:"Speech-to-speech sibling of Qwen3.8-Omni-Flash: takes streaming audio and video frames, answers in text and voice, and adds multichannel audio and remote MCP tools",u:"https://www.alibabacloud.com/help/en/model-studio/qwen3-8-omni-flash-realtime"},
 {t:"added",y:"2026-09-21",c:"Alibaba",n:"Qwen-AgentWorld",k:["text:chat"],x:"Language world model for agents: predicts the next environment observation from an action and the history, across MCP, search, terminal, SWE, Android, web and OS",u:"https://huggingface.co/Qwen/Qwen-AgentWorld-35B-A3B"},
@@ -1117,7 +1118,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 21 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 22 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
