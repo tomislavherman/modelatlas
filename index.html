@@ -231,6 +231,7 @@ const D=[
 {n:"gpt-oss-120b / gpt-oss-20b",k:["text:chat","text:code"],d:"Aug 2025",x:"OpenAI's first open-weights language models since GPT-2; the 120B runs on one 80GB GPU and the 20B on 16GB, both with three selectable reasoning-effort levels",u:"https://openai.com/index/introducing-gpt-oss/",o:{l:"Apache 2.0",h:"https://huggingface.co/openai/gpt-oss-120b",p:[21,117]}},
 {n:"GPT-5.6",k:["text:chat","text:code"],d:"Jul 2026",x:"Sixth point release of the GPT-5 line in eleven months; ships in three sizes, Luna, Terra and Sol",u:"https://openai.com/index/gpt-5-6/"},
 {n:"GPT-6 Astra",k:["text:chat","text:code"],d:"Sep 2026",x:"The generation after Sol, Terra and Luna, and the first model OpenAI rates Critical for cyber capability; state of the art on computer use, browsing and software engineering",u:"https://openai.com/index/gpt-6-astra/"},
+{n:"GPT-6 Sol / GPT-6 Luna",k:["text:chat","text:code"],d:"Sep 2026",x:"Lower-cost reasoning tiers trained with the methods behind GPT-6 Astra, text and image in over a 272K context; Luna runs at a twentieth of Sol's price",u:"https://openai.com/index/introducing-gpt-6-sol-and-luna/"},
 {n:"GPT-5-Codex",k:["text:code"],d:"Sep 2025",x:"Agentic coding variant of GPT-5"},
 {n:"GPT-5.2-Codex",k:["text:code"],d:"Dec 2025",x:"Agentic coding variant of GPT-5.2, tuned for long-horizon work with context compaction and stronger on large refactors, Windows environments and cybersecurity",u:"https://openai.com/index/introducing-gpt-5-2-codex/"},
 {n:"GPT-5.3-Codex",k:["text:code"],d:"Feb 2026",x:"The base model behind GitHub Copilot Business and Enterprise",u:"https://openai.com/index/gpt-5-3-codex-system-card/"},
@@ -271,7 +272,8 @@ const D=[
 {n:"Claude Mythos 5 / Claude Fable 5",k:["text:chat","text:code"],d:"Jun 2026",x:"Frontier tier; Mythos is the same model under lighter safeguards for vetted cyber and life-science orgs"},
 {n:"Claude Mythos 5.1 / Claude Fable 5.1",k:["text:chat","text:code"],d:"Sep 2026",x:"Matches Fable 5 at low effort and cuts cache reads to a quarter of the price",u:"https://www.anthropic.com/claude-fable-and-mythos-5-1"},
 {n:"Claude Sonnet 5",k:["text:chat","text:code"],d:"Jun 2026",x:"",u:"https://www.anthropic.com/news"},
-{n:"Claude Opus 5",k:["text:chat","text:code"],d:"Jul 2026",x:"Close to Fable 5 at half the price, with a low, medium or high effort setting per request",u:"https://www.anthropic.com/news/claude-opus-5"}]},
+{n:"Claude Opus 5",k:["text:chat","text:code"],d:"Jul 2026",x:"Close to Fable 5 at half the price, with a low, medium or high effort setting per request",u:"https://www.anthropic.com/news/claude-opus-5"},
+{n:"Claude Opus 5.5",k:["text:chat","text:code"],d:"Sep 2026",x:"Matches Fable 5.1 on most work at 40% less to run and 30% faster output than Opus 5; 1M-token context by default and always-on adaptive thinking",u:"https://www.anthropic.com/news/claude-opus-5-5"}]},
 {c:"SpaceXAI",r:"US",f:"xAI 2023",n:"SpaceX (Feb 2026)",u:"https://x.ai",m:[
 {n:"Aurora",k:["image"],d:"Dec 2024",x:"First in-house Grok image model",u:"https://x.ai/news/grok-image-generation-release"},
 {n:"Grok Imagine",k:["image"],d:"Jul 2025",x:""},
@@ -657,6 +659,8 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-22",c:"Anthropic",n:"Claude Opus 5.5",k:["text:chat","text:code"],x:"Matches Fable 5.1 on most work at 40% less to run and 30% faster output than Opus 5; 1M-token context by default and always-on adaptive thinking",u:"https://www.anthropic.com/news/claude-opus-5-5"},
+{t:"added",y:"2026-09-22",c:"OpenAI",n:"GPT-6 Sol / GPT-6 Luna",k:["text:chat","text:code"],x:"Lower-cost reasoning tiers trained with the methods behind GPT-6 Astra, text and image in over a 272K context; Luna runs at a twentieth of Sol's price",u:"https://openai.com/index/introducing-gpt-6-sol-and-luna/"},
 {t:"added",y:"2026-09-22",c:"Tencent",n:"Hy Image 3.5 Preview",k:["image"],x:"Unifies generation with multi-round conversational editing, takes up to 20 reference images against 3.0's three, and renders directly at 4096×4096"},
 {t:"added",y:"2026-09-22",c:"OpenAI",n:"GPT-5.2-Codex",k:["text:code"],x:"Agentic coding variant of GPT-5.2, tuned for long-horizon work with context compaction and stronger on large refactors, Windows environments and cybersecurity",u:"https://openai.com/index/introducing-gpt-5-2-codex/"},
 {t:"added",y:"2026-09-22",c:"SpaceXAI",n:"Grok 4.7",k:["text:chat","text:code"],x:"Frontier coding and agentic model on a larger base than 4.6 with a longer RL run; 500k context, and 46.3% on CursorBench 4.0 against 4.6's 40.4%",u:"https://x.ai/news/grok-4-7"},
