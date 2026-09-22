@@ -232,6 +232,7 @@ const D=[
 {n:"GPT-5.6",k:["text:chat","text:code"],d:"Jul 2026",x:"Sixth point release of the GPT-5 line in eleven months; ships in three sizes, Luna, Terra and Sol",u:"https://openai.com/index/gpt-5-6/"},
 {n:"GPT-6 Astra",k:["text:chat","text:code"],d:"Sep 2026",x:"The generation after Sol, Terra and Luna, and the first model OpenAI rates Critical for cyber capability; state of the art on computer use, browsing and software engineering",u:"https://openai.com/index/gpt-6-astra/"},
 {n:"GPT-5-Codex",k:["text:code"],d:"Sep 2025",x:"Agentic coding variant of GPT-5"},
+{n:"GPT-5.2-Codex",k:["text:code"],d:"Dec 2025",x:"Agentic coding variant of GPT-5.2, tuned for long-horizon work with context compaction and stronger on large refactors, Windows environments and cybersecurity",u:"https://openai.com/index/introducing-gpt-5-2-codex/"},
 {n:"GPT-5.3-Codex",k:["text:code"],d:"Feb 2026",x:"The base model behind GitHub Copilot Business and Enterprise",u:"https://openai.com/index/gpt-5-3-codex-system-card/"},
 {n:"GPT-Rosalind",k:["text:chat"],d:"Apr 2026 → GA Sep 2026",x:"Frontier reasoning model for life sciences, tuned for chemistry, genomics and protein engineering; five months as a trusted-access research preview before the API",u:"https://openai.com/index/introducing-gpt-rosalind/"},
 {n:"Privacy Filter",k:["text:chat"],d:"Apr 2026",x:"Open-weights token classifier that masks eight kinds of personal data in one forward pass; 1.5B total but only 50M active, so redaction can run locally",u:"https://openai.com/index/introducing-openai-privacy-filter/",o:{l:"Apache 2.0",h:"https://huggingface.co/openai/privacy-filter",p:1.5}},
@@ -538,6 +539,7 @@ const D=[
 {n:"HunyuanVideo",k:["video"],d:"Dec 2024",x:"Open weights",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo",p:13}},
 {n:"HunyuanVideo 1.5",k:["video"],d:"Nov 2025",x:"Open weights",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo-1.5",p:8.3}},
 {n:"HunyuanImage 3.0",k:["image"],d:"Jan 2026",x:"80B mixture of experts, open weights",u:"https://github.com/Tencent-Hunyuan",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanImage-3.0",p:83}},
+{n:"Hy Image 3.5 Preview",k:["image"],d:"Sep 2026",x:"Unifies generation with multi-round conversational editing, takes up to 20 reference images against 3.0's three, and renders directly at 4096×4096"},
 {n:"Hunyuan3D / HunyuanWorld",k:["world"],d:"2024 → 2026",x:"Open weights",u:"https://3d.hunyuan.tencent.com",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/Hunyuan3D-2"}},
 {n:"HunyuanVideo-Avatar",k:["avatar"],d:"2025",x:"",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo-Avatar",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo-Avatar"}},
 {n:"Hunyuan 2.0",k:["text:chat","text:code"],d:"Dec 2025",x:"Deployed in over 900 Tencent products"},
@@ -655,6 +657,8 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-22",c:"Tencent",n:"Hy Image 3.5 Preview",k:["image"],x:"Unifies generation with multi-round conversational editing, takes up to 20 reference images against 3.0's three, and renders directly at 4096×4096"},
+{t:"added",y:"2026-09-22",c:"OpenAI",n:"GPT-5.2-Codex",k:["text:code"],x:"Agentic coding variant of GPT-5.2, tuned for long-horizon work with context compaction and stronger on large refactors, Windows environments and cybersecurity",u:"https://openai.com/index/introducing-gpt-5-2-codex/"},
 {t:"added",y:"2026-09-22",c:"SpaceXAI",n:"Grok 4.7",k:["text:chat","text:code"],x:"Frontier coding and agentic model on a larger base than 4.6 with a longer RL run; 500k context, and 46.3% on CursorBench 4.0 against 4.6's 40.4%",u:"https://x.ai/news/grok-4-7"},
 {t:"added",y:"2026-09-21",c:"Xiaomi",n:"MiMo-V2.6-Pro / MiMo-V2.6-Flash",k:["text:chat","text:code"],x:"Hybrid sliding-window MoE with vision and audio encoders, RL-trained for coding and agentic work; the 524B Pro scores 72.57 on DeepSWE v1.1 and the 159B Flash 65.68",u:"https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL"},
 {t:"added",y:"2026-09-21",c:"Alibaba",n:"Qwen3.8-Omni-Flash-Realtime",k:["audio:speech","text:chat"],x:"Speech-to-speech sibling of Qwen3.8-Omni-Flash: takes streaming audio and video frames, answers in text and voice, and adds multichannel audio and remote MCP tools",u:"https://www.alibabacloud.com/help/en/model-studio/qwen3-8-omni-flash-realtime"},
