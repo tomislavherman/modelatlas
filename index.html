@@ -341,6 +341,7 @@ const D=[
 {n:"FLUX.2",k:["image"],d:"Nov 2025",x:"",u:"https://bfl.ai/models/flux-2",o:{l:"FLUX non-commercial",h:"https://huggingface.co/black-forest-labs/FLUX.2-dev",p:32}},
 {n:"FLUX 3",k:["video","image","audio:sfx"],d:"Jul 2026 → video GA Aug 2026",x:"One backbone for image, 20s video with dialogue, and robot actions",u:"https://bfl.ai/models/flux-3"},
 {n:"FLUX-mimic",k:["robotics"],d:"Jul 2026",x:"Robot action prediction from the FLUX 3 backbone",u:"https://bfl.ai/models/flux-3"},
+{n:"FLUX 3 Action",k:["robotics","world"],d:"Sep 2026",x:"World-action model: camera frames, robot state and a text instruction in, the next action chunk denoised alongside the next video frames; distilled checkpoints for speed",u:"https://bfl.ai/models/flux-3-action",o:{l:"FLUX Kommunity",h:"https://huggingface.co/black-forest-labs/flux-3-action-base",p:7}},
 {n:"FLUX 3 Dev",k:["image","video"],d:"announced, open weights later in 2026",x:"Last tier in the FLUX 3 rollout, licence undecided",u:"https://bfl.ai/models/flux-3",o:{l:"undecided"}}]},
 {c:"Runway",r:"US",f:"2018",n:"independent",u:"https://runwayml.com",m:[
 {n:"Gen-1",k:["video"],d:"2023",x:"",u:"https://runwayml.com/research/introducing-runway-gen-4"},
@@ -669,6 +670,7 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-23",c:"Black Forest Labs",n:"FLUX 3 Action",k:["robotics","world"],x:"World-action model: camera frames, robot state and a text instruction in, the next action chunk denoised alongside the next video frames; distilled checkpoints for speed",u:"https://bfl.ai/models/flux-3-action"},
 {t:"added",y:"2026-09-23",c:"Google DeepMind",n:"Gemini 3.8 Flash TTS / Gemini 3.8 Flash-Lite TTS",k:["audio:speech"],x:"Builds a new voice from a natural-language prompt across 100-plus languages, and replicates one from a 30-second sample; Flash-Lite trades fidelity for throughput",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/"},
 {t:"added",y:"2026-09-23",c:"Speechmatics",n:"Linden",k:["audio:speech"],x:"Speech-to-text built for voice agents, not transcription: finalises a spoken segment in under 350ms across 55-plus languages, with diarisation and turn signals by default",u:"https://www.speechmatics.com/voice-agents"},
 {t:"added",y:"2026-09-23",c:"VAST",n:"Tripo P2.0",k:["world"],x:"First AI 3D generator to output native quad meshes instead of triangles, up to 25K quads or 50K triangles, auto-separating body, clothing and accessories for rigging"},
