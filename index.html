@@ -260,6 +260,7 @@ const D=[
 {n:"Gemma 4",k:["text:chat","text:code"],d:"Apr 2026",x:"Open-weights family under Apache 2.0 in four sizes from a 2B-effective edge model to a 31B dense one, with native vision and audio input",u:"https://deepmind.google/models/gemma/gemma-4/",o:{l:"Apache 2.0",h:"https://huggingface.co/google/gemma-4-31B-it",p:[5,31]}},
 {n:"Gemini 3.5 Transcribe",k:["audio:speech"],d:"Aug 2026",x:"Speech-to-text successor to Chirp 3 in public preview: 2.6% word error rate against 5%, live and batch variants, 85 languages",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe/"},
 {n:"Gemini 3.8 Live / Gemini 3.8 Live Extended Thinking",k:["audio:speech","text:chat"],d:"Sep 2026",x:"Audio-to-audio voice models that switch between 97 languages mid-conversation and run tools without breaking the exchange; Extended Thinking reasons aloud in multiple steps",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/"},
+{n:"Gemini 3.8 Flash TTS / Gemini 3.8 Flash-Lite TTS",k:["audio:speech"],d:"Sep 2026",x:"Builds a new voice from a natural-language prompt across 100-plus languages, and replicates one from a 30-second sample; Flash-Lite trades fidelity for throughput",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/"},
 {n:"Gemini 3.5 Pro",k:["text:chat"],d:"expected 2026",x:"Testing with partners; three announced launch windows have come and gone",u:"https://deepmind.google/models/gemini/pro/"},
 {n:"Gemini Embedding",k:["text:embed"],d:"2025",x:"",u:"https://ai.google.dev/gemini-api/docs/embeddings"},
 {n:"Gemini Embedding 2",k:["text:embed"],d:"Mar 2026",x:"Natively multimodal, in preview",u:"https://ai.google.dev/gemini-api/docs/embeddings"},
@@ -436,6 +437,8 @@ const D=[
 {c:"Hume AI",r:"US",f:"2021",n:"independent",u:"https://www.hume.ai",m:[
 {n:"Octave / EVI",k:["audio:speech"],d:"2024",x:"Emotionally aware text-to-speech",u:"https://www.hume.ai/blog/octave-the-first-text-to-speech-model-that-understands-what-its-saying"},
 {n:"Octave 2",k:["audio:speech"],d:"2025",x:"11 languages, voice conversion",u:"https://www.hume.ai/blog/octave-2-launch"}]},
+{c:"Speechmatics",r:"UK",f:"2006",n:"independent",u:"https://www.speechmatics.com",m:[
+{n:"Linden",k:["audio:speech"],d:"Sep 2026",x:"Speech-to-text built for voice agents, not transcription: finalises a spoken segment in under 350ms across 55-plus languages, with diarisation and turn signals by default",u:"https://www.speechmatics.com/voice-agents"}]},
 {c:"Deepgram",r:"US",f:"2015",n:"independent",u:"https://deepgram.com",m:[
 {n:"Aura 2 / Nova 3",k:["audio:speech"],d:"2024 → 2025",x:"Aura is text-to-speech, Nova is speech-to-text",u:"https://deepgram.com/product/text-to-speech"},
 {n:"Flux TTS",k:["audio:speech"],d:"2026",x:"Conversation-native turn handling",u:"https://deepgram.com/product/text-to-speech"}]},
@@ -666,6 +669,8 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-23",c:"Google DeepMind",n:"Gemini 3.8 Flash TTS / Gemini 3.8 Flash-Lite TTS",k:["audio:speech"],x:"Builds a new voice from a natural-language prompt across 100-plus languages, and replicates one from a 30-second sample; Flash-Lite trades fidelity for throughput",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/"},
+{t:"added",y:"2026-09-23",c:"Speechmatics",n:"Linden",k:["audio:speech"],x:"Speech-to-text built for voice agents, not transcription: finalises a spoken segment in under 350ms across 55-plus languages, with diarisation and turn signals by default",u:"https://www.speechmatics.com/voice-agents"},
 {t:"added",y:"2026-09-23",c:"VAST",n:"Tripo P2.0",k:["world"],x:"First AI 3D generator to output native quad meshes instead of triangles, up to 25K quads or 50K triangles, auto-separating body, clothing and accessories for rigging"},
 {t:"added",y:"2026-09-23",c:"TypeSafe AI",n:"Jev 1.13",k:["text:chat"],x:"First of what the lab calls System One models: unstructured state in, a typed decision with a calibrated probability out; it cannot make a type error or invent a field",u:"https://typesafe.ai/blog/introducing-system-one-models-and-jev"},
 {t:"added",y:"2026-09-23",c:"inclusionAI",n:"Ming-Image-0.1-Design / Ming-Image-0.1-Design-Layer",k:["image"],x:"6B pair for graphic design: one renders UI, infographics and posters with legible text at 2048px, the other splits a flat design back into editable RGBA layers",u:"https://github.com/inclusionAI/Ming-Image"},
