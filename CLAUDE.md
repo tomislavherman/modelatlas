@@ -505,6 +505,28 @@ Deliberate gaps, do not "fix" them without asking:
   test requires an explicit one — this is checked separately from `dates()` so
   it stays correct if `NOW` ever lands in December.
 
+## Visit counting
+
+A GoatCounter block sits at the end of `index.html`, after the main script.
+It needs one thing: the site code, the subdomain of the GoatCounter
+dashboard, set in the `code` variable at the top of the block. **While that
+string is empty nothing loads at all** — an unconfigured page makes no
+third-party request rather than failing one on every visit, which is what a
+pasted snippet with a placeholder hostname would do.
+
+No cookies, and nothing written to the reader's machine, so there is no
+consent banner to maintain. Removing it is deleting the block; it touches
+nothing else.
+
+GoatCounter records pathname and search, not the hash, and the tab lives in
+the hash — so `window.goatcounter.path` appends it and a link to `#history`
+is filed under `#history` instead of the front page. That labels the single
+hit the script already sends. It does not send more: a reader moving between
+tabs is still one visit, because the tab is a `replaceState`, not a
+navigation. If per-tab-click counting is ever wanted it is a deliberate
+`goatcounter.count()` call in `writeNav`, and it will multiply the visit
+numbers — decide that knowingly rather than discovering it in the charts.
+
 ## Links
 
 Point at the page that documents **that model**, not a listing page. Vendor

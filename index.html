@@ -1462,5 +1462,31 @@ matchMedia("(prefers-color-scheme:dark)").addEventListener("change",render);
 readNav();loadFilters();
 render();
 </script>
+
+<!-- Visit counting, via GoatCounter. No cookies and nothing written to the
+     reader's machine, so there is no consent banner to add and nothing to
+     clean up if this is removed: delete this block and the page is exactly
+     what it was.
+
+     SET THE SITE CODE BELOW. It is the subdomain of your GoatCounter
+     dashboard — for https://modelatlas.goatcounter.com that is "modelatlas".
+     While it is empty nothing is loaded at all, so an unconfigured page makes
+     no third-party request rather than failing one on every visit. -->
+<script>
+(function(){
+ var code="";                        // <-- your GoatCounter site code
+ if(!code)return;
+ // The tab lives in the hash and GoatCounter records pathname and search
+ // only, so a link to #history would otherwise be filed under the front
+ // page. This labels the one hit it already sends; it does not send more,
+ // and a reader moving between tabs is still a single visit.
+ window.goatcounter={path:function(p){return p+location.hash}};
+ var t=document.createElement("script");
+ t.async=true;
+ t.src="https://gc.zgo.at/count.js";
+ t.setAttribute("data-goatcounter","https://"+code+".goatcounter.com/count");
+ document.head.appendChild(t);
+})();
+</script>
 </body>
 </html>

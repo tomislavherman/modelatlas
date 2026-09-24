@@ -24,6 +24,10 @@ belongs to its view: **New / Announced / Retired** for the model list, and
 are the same three states named differently — adjectives for what a model is,
 nouns for what a row records — and each view remembers its own selection.
 
+Visits are counted with GoatCounter — no cookies, nothing stored on your
+machine. The block at the end of `index.html` is inert until a site code is
+set in it, and deleting the block removes it completely.
+
 - **Companies and models** — the `D` array. Each entry is `{c, r, f, n, u, m}`: company, region, founded, ownership, official site, models.
 - **Changelog** — the `H` array. Each entry is `{t, y, f, c, n, k, x, u}`: type
   (`added` / `announced` / `retired`), the day the source did it, the day this
