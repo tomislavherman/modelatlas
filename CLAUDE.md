@@ -28,8 +28,9 @@ Two arrays near the top of the script block, one per view.
 - `D` — companies. `{c, r, f, n, u, m}`: company, region, founded, ownership,
   official site, models. Renders the **All** view, and the **Open weights**
   view, which is the same list narrowed to models carrying `o`.
-- `H` — the changelog. `{t, y, c, n, k, x, u}`: type, day, company, model,
-  tags, detail, link. Renders the **Changelog** view.
+- `H` — the changelog. `{t, y, f, c, n, k, x, u}`: type, the day the source
+  did it, the day this page found out, company, model, tags, detail, link.
+  Renders the **Changelog** view.
 
 The page carried a third array once: an `R` list of acquisitions, spinouts,
 investments and lawsuits between these companies, with an `EXTRA` map of names
@@ -37,16 +38,39 @@ that had no card of their own. That view and both its arrays were removed in
 August 2026 and are not coming back. The tab bar returned in September 2026
 for the changelog.
 
-### The changelog: `{t, y, c, n, k, x, u}`
+### The changelog: `{t, y, f, c, n, k, x, u}`
 
-`H` is **append-only history**, and the one place in this repo where the date
-is not a release date. `y` is the day the change landed *in this page*,
-`YYYY-MM-DD`, which is why a model released in 2024 can carry a 2026 entry: it
-records when the atlas learned of it, not when the vendor shipped it.
+`H` is **append-only history** carrying two dates, and the difference between
+them is the whole design:
+
+- **`y` — the day the source did it.** The day the vendor shipped, announced
+  or switched the thing off. This is what the view sorts and prints, and it is
+  only as precise as the source: `2026-09-22`, `2026-09` or `2026`. Never pad
+  a month out to a day to make it look exact.
+- **`f` — the day this page found out.** Always `YYYY-MM-DD`, always known.
+  This is the order `H` is physically stored in, so appending is still a line
+  at the top with nothing below it moving.
+
+`y` was the only date until September 2026, and it meant `f`. A model released
+in 2024 and noticed in 2026 was filed under 2026, so the changelog was sorted
+by how late the atlas was rather than by what happened — Whisper sat above
+models that shipped three years after it. Splitting the two fixed the order
+and kept the audit trail: `f` still answers "when did the sweep catch this",
+which is how a missed release gets spotted.
+
+(`D` also has an `f`. There it is a company's founding year. Different array,
+different field, no relation.)
+
+**The changelog is exactly as precise as `D` is.** `y` is derived from the
+model's own `d` line, so every bare year in `D` is a vague changelog row too.
+Today that is 34 rows dated to the day against 245 to the month — working the
+date backlog in `D` sharpens both views at once.
 
 `t` is `added`, `announced` or `retired` in the data, and the page shows those
-three as **Addition**, **Announcement** and **Retirement** — nouns, where the
-model list uses adjectives. That is the whole trick: the model list says what
+three as **Release**, **Announcement** and **Retirement** — nouns, where the
+model list uses adjectives. "Release" rather than "Addition" since `y` started
+meaning the day the vendor shipped: the row is the release itself, not this
+page's filing of it. The data key stays `added`. That is the whole trick: the model list says what
 a model *is* right now, and a changelog row *is* an addition, an announcement
 or a retirement. The grammar tells a reader which of the two they are looking
 at, so the words themselves can stay plain instead of reaching for synonyms.
@@ -78,12 +102,28 @@ That duplication is deliberate: an entry is a record of what the page said at
 the time, so it must not shift when the model card is later reworded, renamed
 or split.
 
-Newest first, and `check.js` fails if the array falls out of order.
+**Stored newest-`f` first; shown newest-`y` first.** `check.js` fails if the
+array falls out of `f` order, and `renderLog` sorts by `y` for the view. Plain
+descending string compare does it, so `2026-09-22` beats `2026-09`, which
+beats `2026` — a vaguer date falls to the end of the period it names, the same
+rule `d` follows.
+
+So a new entry is still appended at the **top** of the array whatever date it
+carries. Do not try to slot it in by `y`.
 
 **Never rewrite or delete an entry.** A wrong entry is corrected by appending a
 new one, the same way you would not rewrite a commit that is already pushed.
 The one thing that legitimately edits `H` is a bug in how an entry was
 generated on the day it was written, caught before it ships.
+
+`y` and `f` were split across all 346 entries in September 2026. That was a
+schema migration rather than a correction — every `f` kept the value its `y`
+had, so nothing on the record was lost or reinterpreted. A migration on that
+scale is the owner's call, not a run's.
+
+`check.js` prints, without failing, every entry filed before the date it
+carries (`f < y`). Most are a shutdown logged ahead of its effective date; the
+rest are a card date and a log date that disagree, which is worth a look.
 
 The counts in the two views will not agree, and should not. The model list
 shows 12 Retired badges against 9 retired entries in the changelog, because

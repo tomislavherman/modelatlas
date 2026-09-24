@@ -18,17 +18,18 @@ left of each card rather than inside it.
 Category, subcategory and search sit above the tabs and are shared, so
 switching views keeps your question. The status row sits under the tabs and
 belongs to its view: **New / Announced / Retired** for the model list, and
-**Additions / Announcements / Retirements** for the changelog. The two sets
+**Releases / Announcements / Retirements** for the changelog. The two sets
 are the same three states named differently — adjectives for what a model is,
 nouns for what a row records — and each view remembers its own selection.
 
 - **Companies and models** — the `D` array. Each entry is `{c, r, f, n, u, m}`: company, region, founded, ownership, official site, models.
-- **Changelog** — the `H` array. Each entry is `{t, y, c, n, k, x, u}`: type
-  (`added` / `announced` / `retired`), day, company, model, tags, detail,
-  link. `y` is the day the change landed in this page, `YYYY-MM-DD` — not the
-  model's release date, so a model that shipped in 2024 can carry a 2026 entry
-  recording when the atlas picked it up. `H` is append-only: entries are added
-  at the top and never rewritten, and `k`/`x`/`u` are copied from the model
+- **Changelog** — the `H` array. Each entry is `{t, y, f, c, n, k, x, u}`: type
+  (`added` / `announced` / `retired`), the day the source did it, the day this
+  page found out, company, model, tags, detail, link. `y` is the vendor's own
+  date and is only as precise as the vendor was — `2026-09-22`, `2026-09` or
+  `2026` — and it is what the view sorts and prints. `f` is always a full day
+  and is the order the array is stored in. `H` is append-only: entries are
+  added at the top and never rewritten, and `k`/`x`/`u` are copied from the model
   card rather than referenced, so an entry keeps saying what the page said on
   the day. The two views deliberately disagree on counts — one shows state,
   the other shows history.

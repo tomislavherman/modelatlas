@@ -441,19 +441,25 @@ keys in the run that finds the repository.
 One entry at the **top** of `H` for each change you just made, newest first:
 
 ```js
-{t:"added",y:"2026-09-10",c:"OpenAI",n:"GPT-Live-1 / GPT-Live-1 mini",
+{t:"added",y:"2026-09-10",f:"2026-09-11",c:"OpenAI",n:"GPT-Live-1 / GPT-Live-1 mini",
  k:["audio:speech"],x:"Full-duplex speech-to-speech …",u:"https://…"},
 ```
 
-- `y` is **today**, the day this run is writing the page — not the model's
-  release date. The changelog answers "when did the atlas learn this", and it
-  is the only date in the repo that works that way. A model that shipped in
-  July and that you are recording in September gets `2026-09`.
+- **`y` is the day the vendor did it**, copied from the same source that gave
+  you the model's `d`, and written to whatever precision that source had:
+  `2026-09-10`, `2026-09` or `2026`. Never pad a month out to a day. A model
+  that shipped in July and that you are recording in September gets `2026-07`,
+  not today — the changelog is a timeline of releases, not of your sweep.
+- **`f` is today**, the day this run is writing the page, always a full
+  `YYYY-MM-DD`. It is how a late catch stays visible: `y` says the vendor
+  shipped in July, `f` says the atlas only noticed in September.
+- The entry goes at the **top** of the array regardless of its `y`, because
+  the array is stored in `f` order. The view sorts by `y` itself.
 - `t` is `added` for a model or version now listed as shipped, `announced` for
   one recorded before it ships, `retired` for one whose shutdown date has
   **passed** — a future shutdown is not a retirement and earns no entry, the
   same way it earns no badge. Log it when the date arrives.
-  The page renders those three as **Addition**, **Announcement** and
+  The page renders those three as **Release**, **Announcement** and
   **Retirement** (plural on the filter buttons); that is display only, and
   `t` in the data keeps the three names above.
 - An announced model that ships later gets a second entry, `added`, on the day

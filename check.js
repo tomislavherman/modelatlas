@@ -120,17 +120,24 @@ for (const co of D) {
 // array stays sorted newest first, which is the order the view renders in.
 const EVT = ["added", "announced", "retired"];
 const companies = new Set(D.map(co => co.c));
-let prevDay = null;
+let prevFound = null;
 for (const e of H) {
   const at = `changelog ${e.y} ${e.c} / ${e.n}`;
   check(EVT.includes(e.t), `${at}: type "${e.t}" is not one of ${EVT.join(" / ")}`);
-  check(/^20\d\d-\d\d-\d\d$/.test(e.y), `${at}: date is not YYYY-MM-DD — "${e.y}"`);
+  // y is the day the source did the thing, and is only as precise as the
+  // source was: a day, a month, or a year. f is the day this page found out,
+  // which is always known exactly.
+  check(/^20\d\d(-\d\d(-\d\d)?)?$/.test(e.y),
+    `${at}: y must be YYYY-MM-DD, YYYY-MM or YYYY — "${e.y}"`);
+  check(/^20\d\d-\d\d-\d\d$/.test(e.f), `${at}: f must be YYYY-MM-DD — "${e.f}"`);
   check(companies.has(e.c), `${at}: no company card named "${e.c}"`);
   check(e.n && typeof e.x === "string", `${at}: needs a model name and an x (use "")`);
   check(e.k.length && e.k.every(t => TAGS.includes(t)), `${at}: bad category tag in ${JSON.stringify(e.k)}`);
   if (e.u) check(e.u.startsWith("https://"), `${at}: link is not https — ${e.u}`);
-  if (prevDay) check(e.y <= prevDay, `${at}: out of order — the changelog runs newest first`);
-  prevDay = e.y;
+  // The array is the append log, so it runs newest-found first. The view
+  // sorts by y instead; the array order is what keeps appending cheap.
+  if (prevFound) check(e.f <= prevFound, `${at}: out of order — H runs newest-found first`);
+  prevFound = e.f;
 }
 
 const counts = {};
@@ -153,6 +160,16 @@ console.log(`changelog: ${H.length} entries, ${new Set(H.map(e => e.y)).size} da
 for (const co of D) for (const m of co.m) {
   const l = label(m.d);
   if (l) console.log(`  ${l.padEnd(9)} ${co.c} / ${m.n}  [${m.d}]`);
+}
+
+// An entry can legitimately be filed before its own date — a shutdown
+// announced for next month, a backfill that listed a model early — so this is
+// a note rather than a failure. It is still worth reading: the other thing it
+// catches is a card date and a log date that disagree.
+const early = H.filter(e => e.f < e.y.slice(0, e.f.length));
+if (early.length) {
+  console.log(`\nfiled before the date they carry (${early.length}) — scheduled, or a date to check:`);
+  for (const e of early) console.log(`  ${e.t.padEnd(9)} ${e.c} / ${e.n}  dated ${e.y}, filed ${e.f}`);
 }
 
 console.log(failed ? `\n${failed} problem(s)` : "\nall checks passed");
