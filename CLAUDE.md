@@ -440,38 +440,46 @@ Ordering: company cards rank on the newest model **currently shown**, so
 filtering to Audio reorders the page around audio releases. A card showing no
 dated model sorts last.
 
-## State in the URL
+## Navigation and the selection
 
-Every choice a reader makes — view, category, sub-category, search, the status
-set for each view, and all four open-weights controls — is written to the
-hash, so a reload keeps it and a link carries it:
+Two different lifetimes, so two different homes.
 
-```
-#v=open&c=audio%3Amusic&r=24        audio music, open weights, under 24 GB
-#v=log&sl=added                     History, releases only
-```
+**The tab is navigation and lives in the URL.** `#open-weights`, `#history`,
+and a bare URL for All. Back works, and a link opens the view it names.
 
-Only values that differ from the default are written, so an untouched page
-keeps a bare URL and a shared link says exactly what was changed and nothing
-more. `writeHash` runs at the top of `render`, which is the single point every
-handler already funnels through.
+**The filters are the reader's own working state and live in
+`localStorage`**, under `modelatlas:filters:1`: category and sub-category,
+search, the status set for each view, and all four open-weights controls.
 
-**`history.replaceState`, never `location.hash =`.** The search box renders on
-every keystroke, so assigning the hash would push one history entry per
-letter. replaceState also never fires `hashchange`, so writing the URL cannot
-loop back into reading it. The cost is that Back does not step through filter
-changes; it leaves the page, which is the ordinary expectation for a filter
-bar.
+The split is the point. A link someone sends should open **History**, not
+History narrowed to whatever that person happened to have set — the recipient
+would have no idea why half the page was missing. Equally, a reader who has
+dialled in "audio, open weights, Apache, under 24 GB" should find it again on
+the next visit without having kept a URL. Sharing and remembering are
+different jobs and the two stores do one each.
 
-**`readHash` validates everything.** A hash can be hand-edited, or come from a
-link written before a category was renamed, so each value is checked against
-what the page actually offers — `CATS` and `SUBF` for the category, `STATS`
+`writeNav` and `saveFilters` both run at the top of `render`, the one point
+every handler already funnels through. `history.replaceState`, never
+`location.hash =`: it cannot push a history entry from a render that was not a
+tab click, and it never fires `hashchange`, so writing the URL cannot loop
+back into reading it.
+
+**Every stored value is validated on the way in.** What comes back can be
+stale, from an older build, or hand-edited in devtools, so each is checked
+against what the page offers now — `CATS` and `SUBF` for the category, `STATS`
 and `STATF` for the status sets, `LICF`, `RAMF` and `QUANT` for the rest — and
-falls back to the default rather than filtering on something that does not
-exist. A junk hash renders the default page and rewrites itself to nothing.
+falls back to the default rather than filtering on something that is gone. An
+unknown hash renders the default view and rewrites itself to a bare URL.
 
-The per-view status sets are separate keys, `sm` for the model list and `sl`
-for History, because they are separate selections and always were.
+**Every `localStorage` access is wrapped in try/catch.** It is per-browser and
+per-origin, and it can be switched off outright: a private window, blocked
+site data, a full quota. With the store throwing on every access the page is
+still completely usable — the right view opens, the filters work for the
+session — and only the remembering is lost. That is the whole cost, and it is
+the correct one.
+
+The per-view status sets are stored as separate keys, `sm` for the model list
+and `sl` for History, because they are separate selections and always were.
 
 ## Badges
 

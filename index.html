@@ -1376,7 +1376,7 @@ function renderLog(){
      yet. Try a different term or clear the filter.</p>`;}
 
 function render(){
- writeHash();
+ writeNav();saveFilters();
  // The sub row is rebuilt whenever the base category changes, so it has to exist before aria-pressed is set.
  paintBar();
  if(view==="log")return renderLog();
@@ -1400,44 +1400,50 @@ function render(){
  $("out").innerHTML=cards?`<div class="grid">${cards}</div>`
   :`<p class="none">Nothing matches that. Try a different term or clear the filter.</p>`;}
 
-// ---------------------------------------------------------------- the URL
-// Everything the reader has chosen lives in the hash, so a reload keeps it and
-// a link carries it — "audio models with open weights under 24 GB" is a URL
-// someone can send. Only values that differ from the default are written, so
-// an untouched page keeps a bare URL and a shared link says exactly what was
-// changed and nothing more.
-//
-// replaceState rather than assigning location.hash: the search box calls
-// render() on every keystroke, which would otherwise be one history entry per
-// letter. It also means replaceState never fires hashchange, so writing the
-// URL cannot loop back into reading it.
-const DEF={v:"models",c:"all",q:"",sm:"",sl:"",l:"all",hf:"",r:"0",p:"ship"};
+// ------------------------------------------- navigation and the selection
+// Two different lifetimes, so two different homes. The **tab is navigation**:
+// it belongs in the URL, where Back works and a link opens the view it names.
+// The **filters are the reader's own working state**, so they follow the
+// reader and not the link — a shared #history is History for whoever opens
+// it, not History narrowed to whatever the sender had set at the time.
+const SLUG={models:"",open:"open-weights",log:"history"};
+const VIEWOF=Object.fromEntries(Object.entries(SLUG).filter(([,g])=>g).map(([v,g])=>[g,v]));
+const KEY="modelatlas:filters:1";
 const CATV=new Set([...CATS.map(c=>c[0]),...Object.values(SUBF).flat().map(c=>c[0])]);
 const STATV=new Set(STATS.map(s=>s[0]).concat(Object.values(STATF).flat().map(s=>s[0])));
-function writeHash(){
- const cur={v:view,c:filt,q:term,sm:[...stats.models].join(","),sl:[...stats.log].join(","),
-  l:lic,hf:hf?"1":"",r:String(ram),p:String(prec)};
- const h=Object.entries(cur).filter(([k,v])=>v!==DEF[k])
-  .map(([k,v])=>k+"="+encodeURIComponent(v)).join("&");
- if(location.hash.replace(/^#/,"")!==h)
-  history.replaceState(null,"",location.pathname+location.search+(h?"#"+h:""));}
-// A hash can be hand-edited or come from an older link, so every value is
-// checked against what the page actually offers and falls back to the default
-// rather than filtering on a category or a status that does not exist.
-function readHash(){
- const u=new URLSearchParams(location.hash.replace(/^#/,"")),g=k=>u.has(k)?u.get(k):DEF[k];
- view=VIEWS.some(v=>v[0]===g("v"))?g("v"):DEF.v;
- filt=CATV.has(g("c"))?g("c"):DEF.c;
- term=g("q").trim().toLowerCase();
- const set=v=>new Set(v.split(",").filter(x=>STATV.has(x)));
- stats.models=set(g("sm"));stats.log=set(g("sl"));
- lic=LICF.some(l=>l[0]===g("l"))?g("l"):DEF.l;
- hf=g("hf")==="1";
- ram=RAMF.some(r=>r[0]===+g("r"))?+g("r"):0;
- prec=g("p")==="ship"?"ship":(QUANT.some(q=>q[0]===+g("p"))?+g("p"):"ship");
+
+// replaceState rather than assigning location.hash, so a render triggered by
+// something other than a tab click cannot push a history entry; it also never
+// fires hashchange, so writing the URL cannot loop back into reading it.
+function writeNav(){
+ const h=SLUG[view]?"#"+SLUG[view]:"";
+ if(location.hash!==h)history.replaceState(null,"",location.pathname+location.search+h);}
+function readNav(){view=VIEWOF[decodeURIComponent(location.hash.replace(/^#/,""))]||"models";}
+
+// localStorage is per-browser, per-origin, and can be switched off outright —
+// a private window, blocked site data, a full quota. Every access is wrapped,
+// because failing to remember a filter must cost the reader nothing at all.
+function saveFilters(){
+ try{localStorage.setItem(KEY,JSON.stringify({c:filt,q:term,
+  sm:[...stats.models],sl:[...stats.log],l:lic,hf:hf,r:ram,p:prec}))}catch(e){}}
+// Anything read back can be stale, from an older build, or hand-edited in
+// devtools, so each value is checked against what the page offers now and
+// falls back to the default rather than filtering on something that is gone.
+function loadFilters(){
+ let o={};try{o=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){o={}}
+ if(typeof o!=="object"||!o)o={};
+ filt=CATV.has(o.c)?o.c:"all";
+ term=typeof o.q==="string"?o.q.trim().toLowerCase():"";
+ const set=a=>new Set(Array.isArray(a)?a.filter(x=>STATV.has(x)):[]);
+ stats.models=set(o.sm);stats.log=set(o.sl);
+ lic=LICF.some(l=>l[0]===o.l)?o.l:"all";
+ hf=o.hf===true;
+ ram=RAMF.some(r=>r[0]===o.r)?o.r:0;
+ prec=o.p==="ship"?"ship":(QUANT.some(q=>q[0]===o.p)?o.p:"ship");
  const q=$("q");if(q)q.value=term;}
-// Back, forward, or a link pasted into the same tab.
-addEventListener("hashchange",()=>{readHash();render()});
+// Back, forward, or a link pasted into the same tab. Only the view moves;
+// the filters are the reader's and stay put.
+addEventListener("hashchange",()=>{readNav();render()});
 
 $("views").onclick=e=>{if(e.target.dataset.v){view=e.target.dataset.v;render()}};
 $("filters").onclick=e=>{if(e.target.dataset.f){filt=e.target.dataset.f;render()}};
@@ -1453,7 +1459,7 @@ $("badges").onclick=e=>{const s=e.target.dataset.s;
  if(s){const S=stats[view];S.has(s)?S.delete(s):S.add(s);render()}};
 $("q").oninput=e=>{term=e.target.value.trim().toLowerCase();render()};
 matchMedia("(prefers-color-scheme:dark)").addEventListener("change",render);
-readHash();
+readNav();loadFilters();
 render();
 </script>
 </body>
