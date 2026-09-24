@@ -80,9 +80,7 @@ accent-color:var(--tx2);cursor:pointer}
 #ramr::-webkit-slider-thumb{cursor:grab}
 #ramv{font-family:var(--mono);font-size:12px;color:var(--tx);
 min-width:84px;flex:none}
-.qgrp{display:inline-flex;align-items:center;gap:6px}
-.qlab{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.07em;
-text-transform:uppercase;color:var(--tx3)}
+.qgrp{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}
 #ofilt .orow button{font-size:12px;padding:4px 9px}
 /* On a phone the label shrinks to its icon and the buttons tighten, so each
    row still fits on one line at 360px. */
@@ -1205,7 +1203,12 @@ const RAMF=[[8,"8 GB"],[16,"16 GB"],[24,"24 GB"],[48,"48 GB"],[80,"80 GB"],
 // width the vendor actually published — and is the default, because that is
 // the file a reader would download. The fixed widths override it, which is
 // the other question worth asking: what if I quantise it myself.
-const QUANT=[["ship","As shipped"],[16,"16-bit"],[8,"8-bit"],[4,"4-bit"]];
+// "If" is load-bearing. The fixed widths are arithmetic — p times the width —
+// and the page has no idea whether a build at that width exists. For text it
+// usually does; outside text it often does not, and for some categories it
+// almost never does. So the control asks a question rather than making a
+// claim, and the tooltip says the rest.
+const QUANT=[["ship","As shipped"],[16,"If 16-bit"],[8,"If 8-bit"],[4,"If 4-bit"]];
 let lic="all",hf=false,ram=0,prec="ship",ofiltBuilt=0;
 const pmin=p=>Array.isArray(p)?p[0]:p;
 // The width a model counts at. A model with no `q` had no safetensors index to
@@ -1226,7 +1229,9 @@ function openLine(o){
  if(o.p){const w=qOf(o),as=prec==="ship";
   const t=as?(o.q?`Shipped at ${w}-bit — this is the download`
    :"No safetensors index to read the width from, so this assumes 16-bit")
-   :`RAM for the weights at ${w}-bit`;
+   :`The weights if quantised to ${w}-bit. A ${w}-bit build may not exist — `
+    +"common for text models, rare for most others. Weights only: context and "
+    +"activations need more on top.";
   bits.push(`<span title="${t}">${icon("ram")}`
   +(Array.isArray(o.p)?`${o.p[0]}–${o.p[1]}B · from ~`:`${o.p}B · ~`)+gb(pmin(o.p),o)+" GB"
   +(as?` · ${w}-bit${o.q?"":"?"}`:"")+"</span>");}
@@ -1291,13 +1296,13 @@ function paintBar(){
  if(view==="open"&&!ofiltBuilt)$("ofilt").innerHTML=
   row("licence","Licence",LICF.map(([v,l])=>`<button data-l="${v}" aria-pressed="${lic===v}">${l}</button>`).join(""))
   +row("hf","Download",`<button data-h="1" aria-pressed="${hf}">On Hugging Face</button>`)
-  +row("ram","RAM",
+  +row("ram","Weights",
    `<input type="range" id="ramr" min="0" max="${RAMF.length}" step="1" list="ramticks"
      aria-label="Maximum RAM for the weights">
     <datalist id="ramticks">${RAMF.map((r,i)=>`<option value="${i}" label="${r[1]}"></option>`).join("")
      }<option value="${RAMF.length}" label="Unlimited"></option></datalist>
     <output id="ramv" for="ramr"></output>
-    <span class="qgrp"><span class="qlab">at</span>${
+    <span class="qgrp">${
      QUANT.map(([v,l])=>`<button data-b="${v}">${l}</button>`).join("")}</span>`),ofiltBuilt=1;
  if(view==="open")syncOpen();
  // Each filter button is tinted with its own category colour; "all" has none and keeps the default.

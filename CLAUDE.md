@@ -312,10 +312,20 @@ is 2.5 TB rather than a tidier 2 TB because Kimi K2 needs 2052 GB at 16-bit
 and 2048 would miss it by four gigabytes; above that the data is empty until
 Kimi K3 at 5.5 TB, which is what Unlimited is for.
 
-`QUANT` is the precision control. **As shipped** is the default and reads each
-model's own `q`, so the number on the card is the download; the fixed widths
-override it and answer the other question, what this would take if you
-quantised it yourself. Both feed `gb()`, which the filter and the card line
+`QUANT` is the precision control, and the row is labelled **Weights**, not
+RAM, because that is all any of these numbers are. **As shipped** is the
+default and reads each model's own `q`, so the number on the card is the
+download. The other three are written **If 16-bit / If 8-bit / If 4-bit**, and
+the "If" is load-bearing: they are arithmetic, `p` times the width, and the
+page has no idea whether a build at that width exists.
+
+It often does not. Counting quantised derivatives on Hugging Face, a 4-bit
+build exists for most text models and for a minority of everything else —
+around one robotics model in eight, and neither of the two avatar models. So
+the control asks a question instead of making a claim, and the tooltip carries
+the two things the number cannot: that a build at that width may not exist,
+and that weights are not the whole of it, since context and activations need
+more on top. Do not reword those into a promise. Both feed `gb()`, which the filter and the card line
 share, so the toggle visibly rewrites every size on the page — that is the
 point, and it is why it sits inside the RAM row rather than somewhere else.
 Under 560px it takes a second line **within that row**, indented to start
