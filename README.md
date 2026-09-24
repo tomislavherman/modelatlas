@@ -69,10 +69,12 @@ nouns for what a row records — and each view remembers its own selection.
   follow a retirement word, since those are the end of a model's life rather
   than a release. Sora 2's `Sep 2025 – app closed Apr 2026, API ends Sep 2026`
   therefore sorts on September 2025. Within a month the later day comes first.
-  A bare year only tells us the year, so it is read as December of that year
-  but never later than the current month; where two dates land on the same
-  month, the one written more precisely comes first — a day beats a month,
-  and a month beats a bare year. A card showing no dated model sorts last.
+  A bare year only tells us the year, so it is read as January of that year:
+  it sorts last among that year's releases rather than first, and never
+  outranks a model that year which we can actually date. Where two dates land
+  on the same month, the one written more precisely comes first — a day beats
+  a month, and a month beats a bare year. A card showing no dated model sorts
+  last.
 - **Badges** — read off the `d` line, never typed into the data. A model gets at
   most one, and they are tested in this order:
   - **Retired**, when a retirement date the line names has already passed, or

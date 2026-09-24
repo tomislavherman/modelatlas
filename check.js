@@ -52,9 +52,14 @@ const eqJ = (got, want, msg) => check(JSON.stringify(got) === JSON.stringify(wan
 const SEP26 = 2026 * 12 + 9;
 eqJ(newest("22 Sep 2026"), { v: SEP26, x: 2, dy: 22 }, 'a day is read off "22 Sep 2026"');
 eqJ(newest("Sep 2026"), { v: SEP26, x: 1, dy: 0 }, "a month-only date keeps precision 1");
-eqJ(newest("2026"), { v: Math.min(2026 * 12 + 12, NOW), x: 0, dy: 0 }, "a bare year is capped at NOW");
-eqJ(newest("Gen-3 2026"), { v: Math.min(2026 * 12 + 12, NOW), x: 0, dy: 0 },
+eqJ(newest("2026"), { v: 2026 * 12 + 1, x: 0, dy: 0 }, "a bare year reads as January of that year");
+eqJ(newest("Gen-3 2026"), { v: 2026 * 12 + 1, x: 0, dy: 0 },
   "a stray digit with no month after it is not a day");
+// The point of reading a bare year as January: it must never outrank a model
+// we can actually date inside the same year, and must still beat last year.
+eqJ(["Feb 2024", "2024", "15 Nov 2024", "Dec 2023", "Jan 2024"].sort(cmpDate),
+  ["15 Nov 2024", "Feb 2024", "Jan 2024", "2024", "Dec 2023"],
+  "a bare year sorts last in its own year, and above the year before");
 eqJ(newest("2 Jul 2026 → video GA 14 Aug 2026"), { v: 2026 * 12 + 8, x: 2, dy: 14 },
   "the newest of two day-qualified dates wins");
 // Newest first, later day first, and the better-written date first on a tie.

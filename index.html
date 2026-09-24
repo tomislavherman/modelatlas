@@ -1032,15 +1032,24 @@ const NOW=2026*12+9;   // September 2026, the compile date in the header
 // Every release date a line names, as year*12+month, oldest first, with the
 // day kept beside it for ordering. x is how precisely the date was written:
 // 2 a day ("22 Sep 2026"), 1 a month ("Sep 2026"), 0 a bare year or a span
-// written "2024–26". A bare year is read as December of that year but never
-// later than the current month, since a model cannot have shipped in the
-// future. A day counts only when a month follows it, so the stray digits in
-// a line like "Gen-3 2026" cannot be mistaken for one.
+// written "2024–26".
+//
+// A bare year is read as **January** of that year, which puts it last among
+// that year's releases rather than first: paired with the precision tie-break
+// in cmpDate it sorts below a dated January and above the December before it.
+// All a bare year tells us is the year, so it must not outrank a model we can
+// actually date inside that same year. It was read as December until September
+// 2026, which did the opposite — a bare "2024" outranked a real Nov 2024 — and
+// left every undated model of the current year tied at the top of the page.
+// The cap at NOW survives for a bare year still in the future.
+//
+// A day counts only when a month follows it, so the stray digits in a line
+// like "Gen-3 2026" cannot be mistaken for one.
 const dates=d=>[...d.replace(RETIRED,"")
  .matchAll(/(?:(\d{1,2})\s+)?(?:([A-Za-z]{3})[a-z]*\s+)?(20\d\d)(?:[–-](\d\d))?/g)]
  .map(([,dy,mo,y,end])=>{const m=MON[(mo||"").toLowerCase()];
-  return end?{v:Math.min((2000+ +end)*12+12,NOW),x:0,dy:0}
-   :m?{v:y*12+m,x:dy?2:1,dy:dy?+dy:0}:{v:Math.min(y*12+12,NOW),x:0,dy:0};})
+  return end?{v:Math.min((2000+ +end)*12+1,NOW),x:0,dy:0}
+   :m?{v:y*12+m,x:dy?2:1,dy:dy?+dy:0}:{v:Math.min(y*12+1,NOW),x:0,dy:0};})
  .sort((a,b)=>a.v-b.v||a.dy-b.dy||a.x-b.x);
 // The newest release the line names; v is its month, dy its day (0 when the
 // line named none) and x how precisely it was written. A line naming no date

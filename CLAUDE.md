@@ -233,7 +233,7 @@ as a future *release* and wrongly earns the Announced badge.
 |---|---|---|---|
 | 2 | day, month, year | `22 Sep 2026` | that day |
 | 1 | month and year | `Sep 2026` | that month, day unknown |
-| 0 | bare year, or a span like `2024–26` | `2026` | December, **capped at `NOW`** |
+| 0 | bare year, or a span like `2024–26` | `2026` | **January** of that year, so it sorts last within it |
 
 **Write the day whenever a source gives one.** `d` is the only field ordering
 reads, and a month is not precise enough to order a busy month: 65 models
@@ -249,12 +249,21 @@ A day counts only when a month follows it, so the stray digits in a line like
 `Gen-3 2026` cannot be read as one. `check.js` rejects a day outside 1–31 and
 a number sitting in front of a year with no month between them.
 
-**Why the cap on bare years:** without it a bare `2026` scored December 2026
-and outranked a real `Aug 2026`, which put 17 vaguely-dated companies above
-precisely-dated ones at the top of the page. The cap has a cost of its own,
-which is the reason to avoid bare years rather than tolerate them: it lands
-every undated 2026 model on the current month, where it then ties with the
-models that actually shipped this month.
+**Why January:** all a bare year tells us is the year, so it must not outrank
+a model we *can* date inside that same year. January plus the precision
+tie-break puts it below a dated January and above the December before it —
+last among its own year's releases, and no lower.
+
+It was read as December until September 2026, which did the exact opposite: a
+bare `2024` scored December 2024 and outranked a real `15 Nov 2024`. Worse,
+the cap at `NOW` that stopped a bare `2026` scoring a future December landed
+every undated model of the current year on the current month, tied with the
+models that really shipped there. Both faults are gone; the cap survives only
+for a bare year still in the future.
+
+The cost of the fix is that a bare year now sinks out of sight instead of
+floating to the top, so the backlog stops nagging. `check.js` prints the
+count for that reason — the page no longer shows you the problem.
 
 `cmpDate` orders newest first, then the later day first, then the better
 written date first — of two dates landing on one month, the one that named a
