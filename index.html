@@ -80,6 +80,7 @@ accent-color:var(--tx2);cursor:pointer}
 #ramr::-webkit-slider-thumb{cursor:grab}
 #ramv{font-family:var(--mono);font-size:12px;color:var(--tx);
 min-width:84px;flex:none}
+.qgrp{display:inline-flex;align-items:center;gap:6px}
 .qlab{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.07em;
 text-transform:uppercase;color:var(--tx3)}
 #ofilt .orow button{font-size:12px;padding:4px 9px}
@@ -93,8 +94,13 @@ text-transform:uppercase;color:var(--tx3)}
 .olab{width:auto}
 .olab b{display:none}
 #ofilt .orow{gap:4px}
-#ramr{flex:1 1 90px;min-width:80px}
-#ramv{font-size:11px;min-width:74px}
+/* The precision group takes a line of its own so the slider gets the whole
+   width instead of the ~90px left over beside three buttons. It is indented
+   to start under the track rather than under the row icon, so it still reads
+   as part of the RAM control and not as a fourth filter. */
+.qgrp{flex:1 0 100%;gap:4px;box-sizing:border-box;padding-left:26px}
+#ramr{flex:1 1 auto;min-width:0;max-width:none}
+#ramv{font-size:11px;min-width:70px}
 #ofilt .orow button{font-size:11px;padding:3px 6px}}
 .tags{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
 .tag{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;
@@ -1274,8 +1280,8 @@ function paintBar(){
     <datalist id="ramticks">${RAMF.map((r,i)=>`<option value="${i}" label="${r[1]}"></option>`).join("")
      }<option value="${RAMF.length}" label="Unlimited"></option></datalist>
     <output id="ramv" for="ramr"></output>
-    <span class="qlab">at</span>
-    ${QUANT.map(([b])=>`<button data-b="${b}">${b}-bit</button>`).join("")}`),ofiltBuilt=1;
+    <span class="qgrp"><span class="qlab">at</span>${
+     QUANT.map(([b])=>`<button data-b="${b}">${b}-bit</button>`).join("")}</span>`),ofiltBuilt=1;
  if(view==="open")syncOpen();
  // Each filter button is tinted with its own category colour; "all" has none and keeps the default.
  document.querySelectorAll("#filters button,#subs button").forEach(b=>{

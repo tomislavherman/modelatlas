@@ -294,7 +294,10 @@ Kimi K3 at 5.5 TB, which is what Unlimited is for.
 4-bit. It feeds `gb()`, which both the filter and the card line use, so
 flipping the toggle visibly rewrites every size on the page — that is the
 point, and it is why the toggle sits inside the RAM row rather than somewhere
-else. It is the difference between a model fitting and not: Kimi K2 is 2052 GB
+else. Under 560px it takes a second line **within that row**, indented to
+start under the track, so the slider gets the full width instead of the ~90px
+left over beside three buttons; it must stay in the row rather than become a
+fourth filter, because it is not one. It is the difference between a model fitting and not: Kimi K2 is 2052 GB
 at 16-bit and 513 GB at 4-bit, which is two different machines.
 
 Under 10 GB `gb()` keeps one decimal. At 4-bit a 0.5B model is a quarter of
