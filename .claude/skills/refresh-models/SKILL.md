@@ -473,7 +473,14 @@ One entry at the **top** of `H` for each change you just made, newest first:
   **Retirement** (plural on the filter buttons); that is display only, and
   `t` in the data keeps the three names above.
 - An announced model that ships later gets a second entry, `added`, on the day
-  it ships. Both stay: that is the history.
+  it ships. Both stay: that is the history. A model collects a row per thing
+  that happens to it — announced, released, retired — so several rows naming
+  one model is right.
+- **Never log the same event twice.** The same company, name and `t` appearing
+  twice is one event recorded on two days, and `check.js` fails on it. This is
+  the failure mode of a daily run: the sweep finds a model, does not recognise
+  the row already at the top of `H`, and files it again. Grep `H` for the name
+  before appending — the check will catch it, but after you have written it.
 - `c` has to match a company `c` in `D` exactly, and `n` names the version
   that changed, not the whole line.
 - Copy `k`, `x` and `u` from the card as you just wrote it. They are a

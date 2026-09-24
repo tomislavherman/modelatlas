@@ -168,6 +168,18 @@ for (const co of D) for (const m of co.m) {
   if (l) console.log(`  ${l.padEnd(9)} ${co.c} / ${m.n}  [${m.d}]`);
 }
 
+// A model earns one entry per thing that happens to it — announced, then
+// released, then retired — so several entries naming one model is the design,
+// not a fault. The same (company, name, type) twice is not: that is one event
+// logged on two different days, which no amount of history makes true.
+const seen = new Map();
+for (const e of H) {
+  const k = `${e.c}\0${e.n}\0${e.t}`;
+  if (seen.has(k)) check(false,
+    `changelog: ${e.c} / ${e.n} is logged "${e.t}" twice — ${seen.get(k)} and ${e.y} (filed ${e.f})`);
+  else seen.set(k, e.y);
+}
+
 // An entry can legitimately be filed before its own date — a shutdown
 // announced for next month, a backfill that listed a model early — so this is
 // a note rather than a failure. It is still worth reading: the other thing it

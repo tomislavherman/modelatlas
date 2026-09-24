@@ -148,10 +148,30 @@ scale is the owner's call, not a run's.
 carries (`f < y`). Most are a shutdown logged ahead of its effective date; the
 rest are a card date and a log date that disagree, which is worth a look.
 
-The counts in the two views will not agree, and should not. The model list
-shows 12 Retired badges against 9 retired entries in the changelog, because
-one retirement of a grouped card in August covered two versions that are
-separate cards today. State and history answer different questions.
+### A model is not a row
+
+The two views are **not** one-to-one in either direction, and neither is a bug.
+
+**One model, several rows.** A model earns a row for each thing that happens to
+it: announced, then released when it ships, then retired when it is switched
+off. Grok 4.7 has an announcement and a release; five models have a release and
+a retirement. That is the point of a changelog — the model list says what a
+thing *is*, and the log says what has *happened* to it.
+
+What is never right is the same (company, name, type) twice: one event logged
+on two days. `check.js` fails on it, because a daily run appending to the top
+of `H` is exactly how it would happen.
+
+**One row, several models.** It runs the other way too, for entries written
+before the September split, when one card carried a whole line. `Imagen →
+Imagen 4` is a single row retiring two models that are separate cards today.
+Some of those old names are shorthand that no longer expands — `DALL·E → 3`
+means DALL·E and DALL·E 3, and `Suno v1 → v5.5` means Suno v5.5 — so matching a
+card to its row by name alone will miss them. They are covered; they are just
+written the way they were written, and `H` is not rewritten to tidy that up.
+
+So the counts will not agree and should not: 14 Retired badges against 11
+retirement entries today. State and history answer different questions.
 
 ### A model: `{n, k, d, x, u}`
 
