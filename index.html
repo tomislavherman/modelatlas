@@ -1023,24 +1023,30 @@ const MON={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,d
 // before any date is read out of the line, for both the sort and the badge.
 const RETIRED=/\b(?:retired?|EOL|wind-?down|closed|ends?|discontinued|shut down|removed?|removal)\b[^,]*/gi;
 const NOW=2026*12+9;   // September 2026, the compile date in the header
-// Every release date a line names, as year*12+month, oldest first. A date
-// written with a month is exact. A bare year, or a span written "2024–26",
-// only tells us the year: it is read as December of that year but never later
-// than the current month, since a model cannot have shipped in the future.
+// Every release date a line names, as year*12+month, oldest first, with the
+// day kept beside it for ordering. x is how precisely the date was written:
+// 2 a day ("22 Sep 2026"), 1 a month ("Sep 2026"), 0 a bare year or a span
+// written "2024–26". A bare year is read as December of that year but never
+// later than the current month, since a model cannot have shipped in the
+// future. A day counts only when a month follows it, so the stray digits in
+// a line like "Gen-3 2026" cannot be mistaken for one.
 const dates=d=>[...d.replace(RETIRED,"")
- .matchAll(/(?:([A-Za-z]{3})[a-z]*\s+)?(20\d\d)(?:[–-](\d\d))?/g)]
- .map(([,mo,y,end])=>{const m=MON[(mo||"").toLowerCase()];
-  return end?{v:Math.min((2000+ +end)*12+12,NOW),x:0}
-   :m?{v:y*12+m,x:1}:{v:Math.min(y*12+12,NOW),x:0};})
- .sort((a,b)=>a.v-b.v||a.x-b.x);
-// The newest release the line names; v is its month, x is 1 when that date was
-// written with a month rather than as a bare year. A line naming no date at
-// all gives v 0, which sorts last.
-const newest=d=>dates(d).pop()||{v:0,x:0};
-// Newest first. Two lines can land on the same month — "Aug 2026" and a bare
-// "2026" both do, once the bare year is capped — and the one that named a
-// month is the better dated of the two, so it comes first.
-const cmpDate=(a,b)=>{const p=newest(a),q=newest(b);return q.v-p.v||q.x-p.x};
+ .matchAll(/(?:(\d{1,2})\s+)?(?:([A-Za-z]{3})[a-z]*\s+)?(20\d\d)(?:[–-](\d\d))?/g)]
+ .map(([,dy,mo,y,end])=>{const m=MON[(mo||"").toLowerCase()];
+  return end?{v:Math.min((2000+ +end)*12+12,NOW),x:0,dy:0}
+   :m?{v:y*12+m,x:dy?2:1,dy:dy?+dy:0}:{v:Math.min(y*12+12,NOW),x:0,dy:0};})
+ .sort((a,b)=>a.v-b.v||a.dy-b.dy||a.x-b.x);
+// The newest release the line names; v is its month, dy its day (0 when the
+// line named none) and x how precisely it was written. A line naming no date
+// at all gives v 0, which sorts last.
+const newest=d=>dates(d).pop()||{v:0,x:0,dy:0};
+// Newest first, and within a month the later day first — which is the whole
+// reason the day is parsed at all, since a busy month otherwise lands every
+// release on one heap in array order. A line that named no day sorts after
+// the ones that did, on the same rule that puts "Aug 2026" above a bare
+// "2026" once the capped year has landed them on the same month: of two
+// dates on one month, the better written of the two is the better evidence.
+const cmpDate=(a,b)=>{const p=newest(a),q=newest(b);return q.v-p.v||q.dy-p.dy||q.x-p.x};
 // "New" badge: the line names an explicit month falling in the current month.
 // A bare year carries no month, so "2024 → 2026" is never badged.
 const fresh=d=>[...d.replace(RETIRED,"").matchAll(/([A-Za-z]{3})[a-z]*\s+(20\d\d)/g)]
@@ -1059,6 +1065,10 @@ const announced=d=>{const t=d.replace(RETIRED,"");
 // reads the same function as the badge, so the two can never disagree about
 // what a model is: a retired model is not also offered under Announced.
 const status=d=>retired(d)?"retired":announced(d)?"announced":fresh(d)?"new":"";
+// The day is ordering data, not reading matter: "22 Sep 2026" prints as
+// "Sep 2026", so a line reads the same width it always has and the page
+// keeps one granularity across four years of releases.
+const dsp=d=>d.replace(/\b\d{1,2}\s+([A-Za-z]{3}[a-z]*\s+20\d\d)/g,"$1");
 // The model list's three words, used by the badge on a card and by the status
 // row under the Models tab. The changelog's three are in STATF below.
 const STATS=[["new","New"],["announced","Announced"],["retired","Retired"]];
@@ -1238,7 +1248,7 @@ function render(){
   const body=ms.length?ms.map(m=>{const c=col(m.k[0]);
    return `<div class="m" style="border-color:${c.ln}">
     <div class="l"><div class="n" style="color:${c.fg}">${link(m.n,m.u||co.u)}${badge(m.d)}</div>
-    <div class="d" style="color:${c.fg}">${esc(m.d)}</div>
+    <div class="d" style="color:${c.fg}">${esc(dsp(m.d))}</div>
     ${m.x?`<div class="x" style="color:${c.fg}">${esc(m.x)}</div>`:""}
     ${open?`<div class="o" style="color:${c.fg}">${openLine(m.o)}</div>`:""}</div>
     <div class="tags">${tagsOf(m.k)}</div></div>`}).join("")

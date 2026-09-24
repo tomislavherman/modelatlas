@@ -11,7 +11,8 @@ const src = html.slice(html.indexOf("const KC="), html.indexOf("let view="));
 // matchMedia. It reports light; the label badge() returns is the same either way.
 const evalPage = names =>
   new Function("matchMedia", `${src}; return {${names}}`)(() => ({ matches: false }));
-const { D, H, NOW, badge, fresh, retired, dates } = evalPage("D,H,NOW,badge,fresh,retired,dates");
+const { D, H, NOW, badge, fresh, retired, dates, newest, cmpDate, dsp, status, RETIRED } =
+  evalPage("D,H,NOW,badge,fresh,retired,dates,newest,cmpDate,dsp,status,RETIRED");
 
 const TAGS = ["image", "video", "world", "avatar", "robotics",
   "audio:speech", "audio:music", "audio:sfx",
@@ -43,6 +44,28 @@ if (printed) {
   check(want === NOW, `NOW is ${stamp(NOW)} but the footer says "Compiled ${printed[1]} ${printed[2]} ${printed[3]}" — bump both together`);
 }
 
+// The date parser is the load-bearing part of the page: ordering and every
+// badge read it. A day is stored for ordering and never printed, so a bug in
+// either half is invisible on the page — these pin both down.
+const eqJ = (got, want, msg) => check(JSON.stringify(got) === JSON.stringify(want),
+  `date parser: ${msg} — got ${JSON.stringify(got)}, want ${JSON.stringify(want)}`);
+const SEP26 = 2026 * 12 + 9;
+eqJ(newest("22 Sep 2026"), { v: SEP26, x: 2, dy: 22 }, 'a day is read off "22 Sep 2026"');
+eqJ(newest("Sep 2026"), { v: SEP26, x: 1, dy: 0 }, "a month-only date keeps precision 1");
+eqJ(newest("2026"), { v: Math.min(2026 * 12 + 12, NOW), x: 0, dy: 0 }, "a bare year is capped at NOW");
+eqJ(newest("Gen-3 2026"), { v: Math.min(2026 * 12 + 12, NOW), x: 0, dy: 0 },
+  "a stray digit with no month after it is not a day");
+eqJ(newest("2 Jul 2026 → video GA 14 Aug 2026"), { v: 2026 * 12 + 8, x: 2, dy: 14 },
+  "the newest of two day-qualified dates wins");
+// Newest first, later day first, and the better-written date first on a tie.
+eqJ(["10 Sep 2026", "22 Sep 2026", "Sep 2026", "2026"].sort(cmpDate),
+  ["22 Sep 2026", "10 Sep 2026", "Sep 2026", "2026"], "day > day > month > bare year");
+// A day must not disturb any badge.
+eqJ([fresh("22 Sep 2026"), fresh("22 Aug 2026")], [true, false], "fresh() ignores the day");
+eqJ(status("2 Sep 2025, API ends 24 Sep 2026"), "retired", "a day inside a retirement clause");
+eqJ(dsp("2 Jul 2026 → video GA 14 Aug 2026"), "Jul 2026 → video GA Aug 2026", "the card prints months");
+eqJ(dsp("2024 → 2026"), "2024 → 2026", "bare years are left alone");
+
 for (const co of D) {
   for (const m of co.m) {
     const at = `${co.c} / ${m.n}`;
@@ -50,6 +73,13 @@ for (const co of D) {
     check(m.k.length && m.k.every(t => TAGS.includes(t)), `${at}: bad category tag in ${JSON.stringify(m.k)}`);
     // d is the only field the ordering and badge code reads, so it must carry a date.
     check(/20\d\d|announced/.test(m.d), `${at}: d has no date and does not say "announced" — d="${m.d}"`);
+    // A day is written "22 Sep 2026" — day, month, year. A number sitting in
+    // front of a year with no month between them is almost always a typo for
+    // that, and would silently parse as a bare year.
+    for (const [, dy] of m.d.matchAll(/\b(\d{1,2})\s+(?:[A-Za-z]{3})[a-z]*\s+20\d\d/g))
+      check(+dy >= 1 && +dy <= 31, `${at}: "${dy}" is not a day of the month — d="${m.d}"`);
+    check(!/\b\d{1,2}\s+20\d\d/.test(m.d.replace(RETIRED, "")),
+      `${at}: a number sits in front of a year with no month — write "22 Sep 2026". d="${m.d}"`);
     // A detail line is prose; a date in there is invisible to the sort and the badges.
     check(!/\b(19|20)\d\d\b/.test(m.x) || /\b(added|since|until|after|from)\b/i.test(m.x),
       `${at}: x names a year that nothing reads — move it to d, or word it as a feature note. x="${m.x}"`);
@@ -104,6 +134,13 @@ const evc = H.reduce((a, e) => (a[e.t] = (a[e.t] || 0) + 1, a), {});
 
 console.log(`${D.length} companies, ${D.reduce((a, c) => a + c.m.length, 0)} models, NOW = ${stamp(NOW)}`);
 console.log(`badges: ${Object.entries(counts).map(([k, v]) => `${k} ${v}`).join(", ")}`);
+// Precision drives ordering: a bare year is read as December, capped at NOW,
+// so an undated 2026 model outranks a real one dated earlier this year. This
+// line is the backlog — it should fall, never rise.
+const prec = D.flatMap(co => co.m).map(m => newest(m.d).x);
+console.log(`dates: ${prec.filter(x => x === 2).length} to the day, `
+  + `${prec.filter(x => x === 1).length} to the month, `
+  + `${prec.filter(x => x === 0).length} bare year`);
 const om = D.flatMap(co => co.m).filter(m => m.o);
 console.log(`open weights: ${om.length} models, ${om.filter(m => m.o.h).length} on Hugging Face, ${om.filter(m => m.o.p).length} with a size`);
 console.log(`changelog: ${H.length} entries, ${new Set(H.map(e => e.y)).size} days, `

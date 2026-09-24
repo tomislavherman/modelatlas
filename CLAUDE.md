@@ -108,6 +108,10 @@ without `u` renders as plain text.
 `x` is invisible to every sort and every badge. `check.js` fails on a bare year
 in `x` unless it is worded as a feature note ("Audio added May 2026").
 
+Write `d` to the day when a source gives one — `22 Sep 2026`, not `Sep 2026`.
+The card still prints `Sep 2026`; the day exists so that a month full of
+releases orders correctly. See "How dates are read".
+
 `d` holds the lifecycle and nothing else: when it shipped, when later versions
 shipped, when it dies. `x` holds what it is and why it matters.
 
@@ -222,19 +226,43 @@ actually released in Jul 2026. If you add a new way of saying "this is going
 away", add the word to `RETIRED` too — otherwise a future shutdown date reads
 as a future *release* and wrongly earns the Announced badge.
 
-`dates()` reads every remaining date. A month-qualified date is exact (`x:1`).
-A bare year, or a span like `2024–26`, is imprecise (`x:0`): read as December of
-that year but **capped at `NOW`**, because a shipped model cannot have shipped
-in the future.
+`dates()` reads every remaining date at one of three precisions, which is what
+`x` records:
 
-**Why the cap:** without it a bare `2026` scored December 2026 and outranked a
-real `Aug 2026`, which put 17 vaguely-dated companies above precisely-dated
-ones at the top of the page. `cmpDate` then breaks ties on precision, so an
-exact date beats a bare year landing on the same month.
+| `x` | written | example | read as |
+|---|---|---|---|
+| 2 | day, month, year | `22 Sep 2026` | that day |
+| 1 | month and year | `Sep 2026` | that month, day unknown |
+| 0 | bare year, or a span like `2024–26` | `2026` | December, **capped at `NOW`** |
+
+**Write the day whenever a source gives one.** `d` is the only field ordering
+reads, and a month is not precise enough to order a busy month: 65 models
+carried `Sep 2026` in September 2026, so every one of them tied and fell back
+to array order. That is why Claude Opus 5.5 did not lead the page on the day
+it shipped. A day breaks the tie; nothing else does.
+
+**The day is stored, not shown.** `dsp()` strips it for rendering, so a card
+dated `22 Sep 2026` still prints `Sep 2026` and the page keeps one granularity
+across four years. Do not add the day to `x` prose to make it visible.
+
+A day counts only when a month follows it, so the stray digits in a line like
+`Gen-3 2026` cannot be read as one. `check.js` rejects a day outside 1–31 and
+a number sitting in front of a year with no month between them.
+
+**Why the cap on bare years:** without it a bare `2026` scored December 2026
+and outranked a real `Aug 2026`, which put 17 vaguely-dated companies above
+precisely-dated ones at the top of the page. The cap has a cost of its own,
+which is the reason to avoid bare years rather than tolerate them: it lands
+every undated 2026 model on the current month, where it then ties with the
+models that actually shipped this month.
+
+`cmpDate` orders newest first, then the later day first, then the better
+written date first — of two dates landing on one month, the one that named a
+day, or named a month rather than a bare year, is the better evidence.
 
 Ordering: company cards rank on the newest model **currently shown**, so
 filtering to Audio reorders the page around audio releases. A card showing no
-dated model sorts last (Anthropic).
+dated model sorts last.
 
 ## Badges
 
