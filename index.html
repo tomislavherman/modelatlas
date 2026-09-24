@@ -381,7 +381,11 @@ const D=[
 {c:"Pika",r:"US",f:"2023",n:"independent",u:"https://pika.art",m:[
 {n:"Pika 1.0",k:["video"],d:"2023",x:"",u:"https://pika.art"},
 {n:"Pika 2.5",k:["video"],d:"2026",x:"",u:"https://pika.art"},
-{n:"PikaStream",k:["video"],d:"Apr 2026",x:"Real-time 24 fps",u:"https://pika.art"}]},
+{n:"PikaStream",k:["video"],d:"Apr 2026",x:"Real-time 24 fps",u:"https://pika.art"},
+{n:"Pika Soundtrack",k:["audio:sfx","audio:music","audio:speech"],d:"18 Aug 2026",x:"Video-to-audio latent diffusion transformer that scores a clip with motion-aware effects, voice, music and ambience in one pass; distillation and caching halve the cost",u:"https://pika.art/blog/pika-soundtrack"},
+{n:"Pika Music",k:["audio:music"],d:"18 Aug 2026",x:"Latent diffusion transformer taking a prompt, lyrics, a reference voice or an existing track in any combination; a 90-second song in 6.21 seconds, 14.5x faster than playback",u:"https://pika.art/blog/pika-music"},
+{n:"Pika SFX",k:["audio:sfx"],d:"18 Aug 2026",x:"Text-to-sound-effect diffusion transformer in a compressed acoustic latent space: 1 to 20 seconds of 44.1 kHz stereo in 0.847s, against 2.5s for the models it benchmarks",u:"https://pika.art/blog/pika-sfx"},
+{n:"Pika Speech",k:["audio:speech"],d:"18 Aug 2026",x:"3B flow-matching transformer generating 48 kHz speech at a 0.02 real-time factor, cloning a voice from five seconds of audio; Pika puts it at nine times cheaper than Eleven v3",u:"https://pika.art/blog/pika-speech"}]},
 {c:"Moonvalley",r:"CA/US",f:"2021",n:"independent",u:"https://www.moonvalley.com",m:[
 {n:"Marey",k:["video"],d:"2025",x:"Trained only on licensed footage",u:"https://www.moonvalley.com/marey"}]},
 {c:"Midjourney",r:"US",f:"2022",n:"independent",u:"https://www.midjourney.com",m:[
@@ -531,7 +535,7 @@ const D=[
 {n:"Mureka V9.5",k:["audio:music"],d:"Aug 2026",x:"Plans a track's structure before rendering audio, with O3 previewed alongside",u:"https://www.mureka.ai"}]},
 {c:"Kuaishou",r:"CN",f:"2011",n:"HKEX 2021",u:"https://www.kuaishou.com",m:[
 {n:"Kling",k:["video"],d:"Jun 2024",x:"",u:"https://klingai.com"},
-{n:"Kling v3",k:["video","audio:sfx"],d:"2026",x:"",u:"https://klingai.com"},
+{n:"Kling v3",k:["video","audio:sfx"],d:"Feb 2026",x:"Launched as Video 3.0 and Video 3.0 Omni: 15-second clips with native audio across languages, dialects and accents, and reference videos to hold characters and scenes consistent",u:"https://klingai.com"},
 {n:"Kolors",k:["image"],d:"Jun 2024",x:"Open weights",u:"https://github.com/Kwai-Kolors/Kolors",o:{l:"Apache 2.0",h:"https://huggingface.co/Kwai-Kolors/Kolors",q:32,p:2.6}},
 {n:"Kling Image 3.0",k:["image"],d:"Jan 2026",x:"Kolors renamed into the Kling line"}]},
 {c:"MiniMax",r:"CN",f:"2021",n:"HKEX Jan 2026",u:"https://www.minimax.io",m:[
@@ -566,7 +570,8 @@ const D=[
 {n:"Qwen-Drive-1.0",k:["robotics"],d:"Sep 2026",x:"Vision-language-action model for driving on a Qwen3.5-4B backbone, built with Huazhong University: 3D detection, map segmentation and a five-second trajectory of 50 waypoints",u:"https://github.com/QwenLM/Qwen-Drive-1.0",o:{l:"Apache 2.0",h:"https://huggingface.co/Qwen/Qwen-Drive-1.0-4B",q:16,p:4.5}},
 {n:"Qwen3.8-LiveTranslate-Flash-Realtime",k:["audio:speech"],d:"17 Sep 2026",x:"Real-time interpretation that takes audio and images and returns text and speech: understands 60 languages and speaks 29",u:"https://www.alibabacloud.com/help/en/model-studio/qwen3-8-livetranslate-flash-realtime"},
 {n:"Qwen-Audio 3.1 Realtime Plus",k:["audio:speech"],d:"20 Sep 2026",x:"Full-duplex speech chat on the same protocol as 3.0 Plus; adds eight system voices and keeps voice cloning, function calling and web search over a 262k-token context",u:"https://www.alibabacloud.com/help/en/model-studio/qwen-audio-realtime-user-guides"},
-{n:"Qwen-Audio-3.1-TTS-Next",k:["audio:speech","audio:sfx"],d:"announced Sep 2026",x:"Generates a whole cinematic soundscape from one text script, blending dialogue and ambient sound in a single pass instead of layering separate takes"}]},
+{n:"Qwen-Audio-3.1-TTS-Next",k:["audio:speech","audio:sfx"],d:"announced Sep 2026",x:"Generates a whole cinematic soundscape from one text script, blending dialogue and ambient sound in a single pass instead of layering separate takes"},
+{n:"decision-model-preview",k:["text:chat"],d:"24 Sep 2026",x:"Structured decision model for high-frequency business calls: classifies, decides yes or no and scores in parallel from text or context, returning probabilities and confidence",u:"https://www.alibabacloud.com/help/en/model-studio/newly-released-models"}]},
 {c:"Tencent",r:"CN",f:"1998",n:"HKEX",u:"https://www.tencent.com",m:[
 {n:"HunyuanVideo",k:["video"],d:"Dec 2024",x:"Open weights",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo",p:13}},
 {n:"HunyuanVideo 1.5",k:["video"],d:"Nov 2025",x:"Open weights",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo-1.5",p:8.3}},
@@ -702,6 +707,11 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-24",f:"2026-09-24",c:"Alibaba",n:"decision-model-preview",k:["text:chat"],x:"Structured decision model for high-frequency business calls: classifies, decides yes or no and scores in parallel from text or context, returning probabilities and confidence",u:"https://www.alibabacloud.com/help/en/model-studio/newly-released-models"},
+{t:"added",y:"2026-08-18",f:"2026-09-24",c:"Pika",n:"Pika Soundtrack",k:["audio:sfx","audio:music","audio:speech"],x:"Video-to-audio latent diffusion transformer that scores a clip with motion-aware effects, voice, music and ambience in one pass; distillation and caching halve the cost",u:"https://pika.art/blog/pika-soundtrack"},
+{t:"added",y:"2026-08-18",f:"2026-09-24",c:"Pika",n:"Pika Music",k:["audio:music"],x:"Latent diffusion transformer taking a prompt, lyrics, a reference voice or an existing track in any combination; a 90-second song in 6.21 seconds, 14.5x faster than playback",u:"https://pika.art/blog/pika-music"},
+{t:"added",y:"2026-08-18",f:"2026-09-24",c:"Pika",n:"Pika SFX",k:["audio:sfx"],x:"Text-to-sound-effect diffusion transformer in a compressed acoustic latent space: 1 to 20 seconds of 44.1 kHz stereo in 0.847s, against 2.5s for the models it benchmarks",u:"https://pika.art/blog/pika-sfx"},
+{t:"added",y:"2026-08-18",f:"2026-09-24",c:"Pika",n:"Pika Speech",k:["audio:speech"],x:"3B flow-matching transformer generating 48 kHz speech at a 0.02 real-time factor, cloning a voice from five seconds of audio; Pika puts it at nine times cheaper than Eleven v3",u:"https://pika.art/blog/pika-speech"},
 {t:"added",y:"2026-07-09",f:"2026-09-24",c:"Dexmal",n:"DM0.5",k:["robotics"],x:"Open-world vision-language-action model for multi-embodiment robot control, open-sourced as OpenDM; swept all four RoboColiseum leaderboards",u:"https://github.com/dexmal/opendm"},
 {t:"added",y:"2026-09-22",f:"2026-09-24",c:"PixVerse",n:"PixVerse R2",k:["world"],x:"Real-time world model that stays navigable as it generates, remembering earlier events in a session and taking text, references, audio and action input as it runs",u:"https://www.pixverse.ai/en/blog/pixverse-introduces-r2-real-time-world-model"},
 {t:"added",y:"2026-01",f:"2026-09-24",c:"PixVerse",n:"PixVerse R1",k:["world"],x:"PixVerse's first real-time world model"},
