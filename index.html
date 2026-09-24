@@ -689,13 +689,18 @@ const D=[
 {n:"Tripo P2.0",k:["world"],d:"Aug 2026 → GA Sep 2026",x:"First AI 3D generator to output native quad meshes instead of triangles, up to 25K quads or 50K triangles, auto-separating body, clothing and accessories for rigging"}]}
 ];
 
-// Every change the atlas has recorded, newest first: a model added, a model
-// announced before it shipped, a model marked retired. `y` is the day the
-// change landed in this page, not the day the vendor made it — the changelog
-// is the atlas's own history, which is why a model released in 2024 can carry
-// a 2026 date here. `t` is one of added / announced / retired; `n` names the
-// version that changed, and `k`, `x` and `u` are that model's tags, detail and
-// link as they read at the time.
+// Every change the atlas has recorded: a model released, a model announced
+// before it shipped, a model retired. Two dates, and the difference is the
+// design. `y` is the day the **vendor** did it — shipped, announced, or said
+// the thing was going away — written to whatever precision the source had, so
+// `2026-09-22`, `2026-09` or `2026`. `f` is the day **this page** found out,
+// always a full date. The array is stored newest-`f` first, which is why a new
+// entry is always a line at the top; the view sorts by `y` and shows only the
+// rows pinned to a day.
+//
+// `t` is one of added / announced / retired, shown as Release / Announcement /
+// Retirement; `n` names the version that changed, and `k`, `x` and `u` are
+// that model's tags, detail and link as they read at the time.
 const H=[
 {t:"added",y:"2026-09-22",f:"2026-09-24",c:"PixVerse",n:"PixVerse R2",k:["world"],x:"Real-time world model that stays navigable as it generates, remembering earlier events in a session and taking text, references, audio and action input as it runs",u:"https://www.pixverse.ai/en/blog/pixverse-introduces-r2-real-time-world-model"},
 {t:"added",y:"2026-01",f:"2026-09-24",c:"PixVerse",n:"PixVerse R1",k:["world"],x:"PixVerse's first real-time world model"},
@@ -1125,7 +1130,7 @@ const badge=d=>{const s=status(d);if(!s)return"";const c=ncol(s);
 // and the search box all apply to whichever view is showing, so switching view
 // keeps the question you were asking and changes only what answers it.
 let view="models",filt="all",term="";
-const VIEWS=[["models","All"],["open","Open weights"],["log","Changelog"]];
+const VIEWS=[["models","All"],["open","Open weights"],["log","History"]];
 // The changelog names its three states as nouns, where the model list uses
 // adjectives. The model list says what a model *is* right now; a changelog row
 // *is* an addition, an announcement or a retirement. The grammar alone tells a
@@ -1349,7 +1354,7 @@ function renderLog(){
    <div class="n" style="color:${c.fg}">${link(e.n,e.u)}${evBadge(e)}</div>
    ${e.x?`<div class="x" style="color:${c.fg}">${esc(e.x)}</div>`:""}</div>
    <div class="tags">${tagsOf(e.k)}</div></article></div>`}).join("")}</div>`
-  :`<p class="none">No dated changes match that. The changelog shows only entries
+  :`<p class="none">No dated changes match that. History shows only entries
      pinned to a day, so a change whose date is known to the month is not here
      yet. Try a different term or clear the filter.</p>`;}
 
