@@ -440,6 +440,39 @@ Ordering: company cards rank on the newest model **currently shown**, so
 filtering to Audio reorders the page around audio releases. A card showing no
 dated model sorts last.
 
+## State in the URL
+
+Every choice a reader makes — view, category, sub-category, search, the status
+set for each view, and all four open-weights controls — is written to the
+hash, so a reload keeps it and a link carries it:
+
+```
+#v=open&c=audio%3Amusic&r=24        audio music, open weights, under 24 GB
+#v=log&sl=added                     History, releases only
+```
+
+Only values that differ from the default are written, so an untouched page
+keeps a bare URL and a shared link says exactly what was changed and nothing
+more. `writeHash` runs at the top of `render`, which is the single point every
+handler already funnels through.
+
+**`history.replaceState`, never `location.hash =`.** The search box renders on
+every keystroke, so assigning the hash would push one history entry per
+letter. replaceState also never fires `hashchange`, so writing the URL cannot
+loop back into reading it. The cost is that Back does not step through filter
+changes; it leaves the page, which is the ordinary expectation for a filter
+bar.
+
+**`readHash` validates everything.** A hash can be hand-edited, or come from a
+link written before a category was renamed, so each value is checked against
+what the page actually offers — `CATS` and `SUBF` for the category, `STATS`
+and `STATF` for the status sets, `LICF`, `RAMF` and `QUANT` for the rest — and
+falls back to the default rather than filtering on something that does not
+exist. A junk hash renders the default page and rewrites itself to nothing.
+
+The per-view status sets are separate keys, `sm` for the model list and `sl`
+for History, because they are separate selections and always were.
+
 ## Badges
 
 At most one per model, tested in this order by `badge()`:
