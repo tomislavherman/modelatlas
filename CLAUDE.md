@@ -279,9 +279,31 @@ show in the **Open weights** tab. `{l, h, p}`, every key optional:
   on huggingface.co. The tab's **On Hugging Face** filter is "has `h`".
 - `p` — size in billions of parameters, or `[smallest, largest]` for a family
   shipped in several sizes (`Gemma 4` is `[5,31]`). The RAM filter turns the
-  smallest size into gigabytes at 16-bit weights, 2 GB per billion, and the
-  card prints the same number. That is the download size, not a benchmark:
-  a reader running 4-bit quantised weights needs about a quarter of it.
+  smallest size into gigabytes, and the card prints the same number, so the
+  two can never disagree.
+
+**The RAM control is a slider over `RAMF` plus a precision toggle.** The stops
+are machines rather than round numbers — a laptop, a 4090, one H100, an
+8-GPU node — and the last position is Unlimited, which is the default and is
+the same `ram=0` "no filter" state the page starts in. The top numbered stop
+is 2.5 TB rather than a tidier 2 TB because Kimi K2 needs 2052 GB at 16-bit
+and 2048 would miss it by four gigabytes; above that the data is empty until
+Kimi K3 at 5.5 TB, which is what Unlimited is for.
+
+`QUANT` sets gigabytes per billion parameters: 2 at 16-bit, 1 at 8-bit, 0.5 at
+4-bit. It feeds `gb()`, which both the filter and the card line use, so
+flipping the toggle visibly rewrites every size on the page — that is the
+point, and it is why the toggle sits inside the RAM row rather than somewhere
+else. It is the difference between a model fitting and not: Kimi K2 is 2052 GB
+at 16-bit and 513 GB at 4-bit, which is two different machines.
+
+Under 10 GB `gb()` keeps one decimal. At 4-bit a 0.5B model is a quarter of
+what it was, and whole numbers printed "0 GB".
+
+The filter row is **built once and then synced**, not re-rendered: rebuilding
+`#ofilt` on every render would replace the range input mid-drag and drop the
+thumb on the first input event. `syncOpen` pushes state onto the controls that
+already exist.
 
 `o:{}` with no keys is legitimate for a model the vendor calls open but whose
 licence, page and size have not been verified (Llama 5 at the time of

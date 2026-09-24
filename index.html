@@ -70,6 +70,19 @@ opacity:.82;margin-top:5px;line-height:1.4}
 .olab{display:inline-flex;align-items:center;gap:5px;width:96px;flex:none;
 font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.07em;
 text-transform:uppercase;color:var(--tx3)}
+/* The RAM row is a slider, its reading, and the precision it is read at, in
+   that order, so it says "RAM <= 80 GB at 4-bit" left to right. The precision
+   buttons sit inside the same row as the slider on purpose: they change what
+   every GB number on the page means, and a control that does that should not
+   be somewhere else. */
+#ramr{flex:1 1 150px;min-width:110px;max-width:240px;height:20px;margin:0;
+accent-color:var(--tx2);cursor:pointer}
+#ramr::-webkit-slider-thumb{cursor:grab}
+#ramv{font-family:var(--mono);font-size:12px;color:var(--tx);
+min-width:84px;flex:none}
+.qlab{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.07em;
+text-transform:uppercase;color:var(--tx3)}
+#ofilt .orow button{font-size:12px;padding:4px 9px}
 /* On a phone the label shrinks to its icon and the buttons tighten, so each
    row still fits on one line at 360px. */
 @media (max-width:560px){
@@ -79,7 +92,10 @@ text-transform:uppercase;color:var(--tx3)}
 .subs{margin-left:8px;padding-left:8px}
 .olab{width:auto}
 .olab b{display:none}
-#ofilt .orow{gap:4px}}
+#ofilt .orow{gap:4px}
+#ramr{flex:1 1 90px;min-width:80px}
+#ramv{font-size:11px;min-width:74px}
+#ofilt .orow button{font-size:11px;padding:3px 6px}}
 .tags{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
 .tag{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;
 letter-spacing:.02em;white-space:nowrap;padding:2px 7px;border-radius:4px}
@@ -1162,10 +1178,26 @@ const stats={models:new Set(),open:new Set(),log:new Set()};
 // billion parameters, against the smallest size on the card.
 const LGRP=l=>!l?"":/apache/i.test(l)?"apache":/^mit/i.test(l)?"mit":/non-commercial|BY-NC/i.test(l)?"nc":"other";
 const LICF=[["apache","Apache 2.0"],["mit","MIT"],["nc","Non-commercial"],["other","Vendor"]];
-const RAMF=[8,16,32,64,128];
-let lic="all",hf=false,ram=0;
+// RAM stops, smallest first, each one a machine a reader might actually have:
+// a laptop, a 4090, one H100, an 8-GPU node. The slider's last position is
+// Unlimited and is the default. 2.5 TB rather than a tidy 2 TB because Kimi
+// K2 needs 2052 GB at 16-bit and 2048 would miss it by four gigabytes; above
+// 2.5 TB the data is empty until Kimi K3 at 5.5 TB, which is what Unlimited
+// is for. Labels are written out so nothing has to guess at TB vs TiB.
+const RAMF=[[8,"8 GB"],[16,"16 GB"],[24,"24 GB"],[48,"48 GB"],[80,"80 GB"],
+ [256,"256 GB"],[640,"640 GB"],[1536,"1.5 TB"],[2560,"2.5 TB"]];
+// Gigabytes per billion parameters at each precision. 16-bit is what the
+// vendor shipped and what `p` describes; 8- and 4-bit are what a reader runs
+// at home, and the difference decides whether a model fits: Kimi K2 is 2052 GB
+// at 16-bit and 513 GB at 4-bit, which is two different machines.
+const QUANT=[[16,2],[8,1],[4,.5]];
+let lic="all",hf=false,ram=0,bits=16,ofiltBuilt=0;
 const pmin=p=>Array.isArray(p)?p[0]:p;
-const gb=p=>Math.round(p*2);
+const perB=()=>QUANT.find(q=>q[0]===bits)[1];
+// Under 10 GB a whole number is too coarse once 4-bit halves everything twice
+// — a 0.5B model would print "0 GB" — so small sizes keep one decimal.
+const gb=p=>{const v=p*perB();return v<10?Math.round(v*10)/10:Math.round(v)};
+const ramLab=g=>(RAMF.find(r=>r[0]===g)||[,g+" GB"])[1];
 function matchOpen(m){const o=m.o;if(!o)return false;
  if(lic!=="all"&&LGRP(o.l)!==lic)return false;
  if(hf&&!o.h)return false;
@@ -1177,6 +1209,16 @@ function openLine(o){
   +(Array.isArray(o.p)?`${o.p[0]}–${o.p[1]}B · from ~`:`${o.p}B · ~`)+gb(pmin(o.p))+" GB</span>");
  if(o.h)bits.push(`<a href="${o.h}" target="_blank" rel="noopener" title="Weights on Hugging Face">${icon("hf")}Hugging Face</a>`);
  return bits.join("");}
+// Pushes the filter state onto controls that already exist, so the range
+// input keeps its identity (and the thumb keeps the pointer) across renders.
+function syncOpen(){const f=$("ofilt");if(!f)return;
+ f.querySelectorAll("[data-l]").forEach(b=>b.setAttribute("aria-pressed",lic===b.dataset.l));
+ f.querySelectorAll("[data-h]").forEach(b=>b.setAttribute("aria-pressed",hf));
+ f.querySelectorAll("[data-b]").forEach(b=>b.setAttribute("aria-pressed",bits===+b.dataset.b));
+ const i=ram?RAMF.findIndex(r=>r[0]===ram):RAMF.length,r=f.querySelector("#ramr");
+ if(r&&+r.value!==i)r.value=i;
+ const o=f.querySelector("#ramv");
+ if(o)o.textContent=ram?"\u2264 "+ramLab(ram):"Unlimited";}
 const $=id=>document.getElementById(id);
 const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 const link=(t,u)=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`:esc(t);
@@ -1220,10 +1262,21 @@ function paintBar(){
   if(d)d.style.background=on?c.on:c.fill;});
  $("ofilt").style.display=view==="open"?"flex":"none";
  const row=(ic,l,b)=>`<div class="orow"><span class="olab" title="${l}">${icon(ic)}<b>${l}</b></span>${b}</div>`;
- if(view==="open")$("ofilt").innerHTML=
+ // Built once and then kept in sync, never re-innerHTML'd on every render:
+ // rebuilding it would replace the range input mid-drag, and the thumb would
+ // be dropped the moment the first input event fired.
+ if(view==="open"&&!ofiltBuilt)$("ofilt").innerHTML=
   row("licence","Licence",LICF.map(([v,l])=>`<button data-l="${v}" aria-pressed="${lic===v}">${l}</button>`).join(""))
   +row("hf","Download",`<button data-h="1" aria-pressed="${hf}">On Hugging Face</button>`)
-  +row("ram","RAM",RAMF.map(g=>`<button data-r="${g}" aria-pressed="${ram===g}">≤${g} GB</button>`).join(""));
+  +row("ram","RAM",
+   `<input type="range" id="ramr" min="0" max="${RAMF.length}" step="1" list="ramticks"
+     aria-label="Maximum RAM for the weights">
+    <datalist id="ramticks">${RAMF.map((r,i)=>`<option value="${i}" label="${r[1]}"></option>`).join("")
+     }<option value="${RAMF.length}" label="Unlimited"></option></datalist>
+    <output id="ramv" for="ramr"></output>
+    <span class="qlab">at</span>
+    ${QUANT.map(([b])=>`<button data-b="${b}">${b}-bit</button>`).join("")}`),ofiltBuilt=1;
+ if(view==="open")syncOpen();
  // Each filter button is tinted with its own category colour; "all" has none and keeps the default.
  document.querySelectorAll("#filters button,#subs button").forEach(b=>{
   const on=b.dataset.f===filt;
@@ -1322,7 +1375,11 @@ $("views").onclick=e=>{if(e.target.dataset.v){view=e.target.dataset.v;render()}}
 $("filters").onclick=e=>{if(e.target.dataset.f){filt=e.target.dataset.f;render()}};
 $("subs").onclick=e=>{if(e.target.dataset.f){filt=e.target.dataset.f;render()}};
 $("ofilt").onclick=e=>{const d=e.target.dataset;if(e.target.tagName!=="BUTTON")return;
- if(d.l)lic=lic===d.l?"all":d.l;else if(d.h)hf=!hf;else if(d.r)ram=ram===+d.r?0:+d.r;render()};
+ if(d.l)lic=lic===d.l?"all":d.l;else if(d.h)hf=!hf;else if(d.b)bits=+d.b;render()};
+// The last stop is Unlimited, which is ram=0 — the same "no RAM filter" state
+// the page starts in.
+$("ofilt").oninput=e=>{if(e.target.id!=="ramr")return;
+ const i=+e.target.value;ram=i>=RAMF.length?0:RAMF[i][0];render()};
 $("badges").onclick=e=>{const s=e.target.dataset.s;
  if(s){const S=stats[view];S.has(s)?S.delete(s):S.add(s);render()}};
 $("q").oninput=e=>{term=e.target.value.trim().toLowerCase();render()};
