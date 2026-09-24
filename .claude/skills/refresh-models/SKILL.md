@@ -553,8 +553,12 @@ falls under Vendor.
 Then open the **Changelog** tab. Your entries will **not** be at the top
 unless what you recorded happened today: the view sorts by `y`, so a July
 release lands in July however recently you filed it. Find each one where its
-date puts it, and check it wears the same badge its card wears on the **All**
-tab.
+date puts it.
+
+**Most rows carry no badge, and that is right.** A row states its own date and
+kind, so the model's current status is shown only where it differs — a release
+whose model has since been retired. A row with no badge is the normal case,
+not a miss.
 
 **An entry dated to the month will not be there at all** — the view shows only
 rows pinned to a day. That is expected, not a bug to chase; `check.js` prints

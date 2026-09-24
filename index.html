@@ -1237,12 +1237,26 @@ function tagsOf(k){return k.map(t=>{const tc=col(t);
  return `<span class="tag" style="background:${tc.fg};color:${dark()?tc.bg:"#fff"}">${icon(t)}${lab(t)}</span>`}).join("")}
 
 // A changelog entry has no lifecycle line of its own, so its badge is read
-// from the model's current card: the entry says what happened, the badge says
-// what the model is now. Matched by company and name, falling back to the last
-// name of an old grouped-card entry ("GPT-5 → GPT-5.6" finds GPT-5.6). An
-// entry whose model has since been renamed or removed gets no badge.
+// from the model's current card. Matched by company and name, falling back to
+// the last name of an old grouped-card entry ("GPT-5 → GPT-5.6" finds
+// GPT-5.6). An entry whose model has since been renamed or removed gets no
+// badge.
 const CARD=new Map(D.flatMap(co=>co.m.map(m=>[co.c+"\0"+m.n,m])));
 const cardOf=e=>CARD.get(e.c+"\0"+e.n)||CARD.get(e.c+"\0"+e.n.split(" → ").pop());
+// ...but only where it says something the row does not. The row already
+// carries its own date and its own kind, so a badge agreeing with both is
+// noise, and "New" is worse than noise: it means "this month", which on a row
+// dated last August reads as a contradiction. Qwen3.8 shipped 3 Aug and its
+// card went New again when the Max snapshot landed in September, so the
+// August row wore a New badge.
+//
+// What is worth showing is the model having moved on since: a release whose
+// model is retired today, or an announcement that was killed. So the badge
+// appears only when the card's current state differs from what the row
+// records, and never for New.
+const evBadge=e=>{const m=cardOf(e);if(!m)return "";
+ const st=status(m.d);
+ return st&&st!=="new"&&st!==STATC[e.t]?badge(m.d):"";};
 // One flat stream, newest first, with no company grouping: the unit here is the
 // change, not the company, and the same change can involve a company that has
 // nothing else happening that week.
@@ -1273,7 +1287,7 @@ function renderLog(){
    <span class="evmark" style="color:${nc.fill}"><span class="dot" style="background:${nc.fill}"></span>${LOGLAB[e.t]}</span></div>
    <article class="ev" style="border-color:${c.ln}">
    <div class="l"><span class="who">${esc(e.c)}</span>
-   <div class="n" style="color:${c.fg}">${link(e.n,e.u)}${(m=>m?badge(m.d):"")(cardOf(e))}</div>
+   <div class="n" style="color:${c.fg}">${link(e.n,e.u)}${evBadge(e)}</div>
    ${e.x?`<div class="x" style="color:${c.fg}">${esc(e.x)}</div>`:""}</div>
    <div class="tags">${tagsOf(e.k)}</div></article></div>`}).join("")}</div>`
   :`<p class="none">No dated changes match that. The changelog shows only entries

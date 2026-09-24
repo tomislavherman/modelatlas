@@ -89,6 +89,16 @@ date them from — they now sit at month precision, which is the honest shape of
 announcement date could not be sourced keeps the effective period the same way.
 Do not promote either to a day without a source.
 
+**A row wears a badge only when the badge says something the row does not.**
+A changelog row already states its own date and its own kind, so the model's
+current status is usually a restatement — and "New" is worse than that, since
+it means "this month" and lands on rows dated years ago. Qwen3.8 shipped on 3
+Aug and its card turned New again when the Max snapshot landed in September,
+so the August row wore a New badge. `evBadge` now shows the badge only when
+the card's state differs from what the row records, and never for New: a
+release whose model has since been **retired** is worth flagging, and a
+release whose card still reads Announced is a data bug worth seeing.
+
 `t` is `added`, `announced` or `retired` in the data, and the page shows those
 three as **Release**, **Announcement** and **Retirement** — nouns, where the
 model list uses adjectives. "Release" rather than "Addition" since `y` started
