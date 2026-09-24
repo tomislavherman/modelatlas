@@ -98,6 +98,12 @@ for (const co of D) {
       check(m.o && typeof m.o === "object", `${at}: o must be an object`);
       if (m.o.l !== undefined) check(typeof m.o.l === "string" && m.o.l, `${at}: o.l must be a non-empty string`);
       if (m.o.h !== undefined) check(/^https:\/\/huggingface\.co\/.+/.test(m.o.h), `${at}: o.h must be a huggingface.co link — ${m.o.h}`);
+      // q is the width the vendor shipped, read from the weights repo: 4, 8,
+      // 16 or 32. Absent means the repo had no safetensors index to read it
+      // from, and the page falls back to 16 and marks the card.
+      if (m.o.q !== undefined) check([4, 8, 16, 32].includes(m.o.q),
+        `${at}: o.q must be 4, 8, 16 or 32 bits — ${JSON.stringify(m.o.q)}`);
+      if (m.o.q !== undefined) check(m.o.h, `${at}: o.q without o.h — the width is read from the repo`);
       if (m.o.p !== undefined) check(typeof m.o.p === "number" ? m.o.p > 0
         : Array.isArray(m.o.p) && m.o.p.length === 2 && m.o.p[0] > 0 && m.o.p[0] < m.o.p[1],
         `${at}: o.p must be a positive number or [smallest, largest] — ${JSON.stringify(m.o.p)}`);
@@ -155,6 +161,12 @@ console.log(`dates: ${prec.filter(x => x === 2).length} to the day, `
   + `${prec.filter(x => x === 0).length} bare year`);
 const om = D.flatMap(co => co.m).filter(m => m.o);
 console.log(`open weights: ${om.length} models, ${om.filter(m => m.o.h).length} on Hugging Face, ${om.filter(m => m.o.p).length} with a size`);
+// A model with a repo but no q is one whose shipped width nobody could read,
+// so the page assumes 16-bit for it. That assumption should shrink, not grow.
+const qc = {};
+for (const m of om) qc[m.o.q || "assumed 16"] = (qc[m.o.q || "assumed 16"] || 0) + 1;
+console.log(`shipped precision: ${Object.entries(qc).sort((a, b) => (+b[0] || 0) - (+a[0] || 0))
+  .map(([k, v]) => `${v} at ${k}${+k ? "-bit" : ""}`).join(", ")}`);
 // The changelog view shows only entries pinned to a day, so this is coverage,
 // not decoration: every row dated to the month is a row nobody can see.
 const shown = H.filter(e => e.y.length === 10);

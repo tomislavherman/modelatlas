@@ -281,6 +281,28 @@ show in the **Open weights** tab. `{l, h, p}`, every key optional:
   shipped in several sizes (`Gemma 4` is `[5,31]`). The RAM filter turns the
   smallest size into gigabytes, and the card prints the same number, so the
   two can never disagree.
+- `q` — **the width the vendor actually shipped**, in bits: 4, 8, 16 or 32.
+  Read from the weights repository, never assumed. Absent means the repo had
+  no safetensors index to read it from; the page then falls back to 16 and
+  marks the card `16-bit?` rather than passing the guess off as known.
+
+  `p` alone does not give a download size, which is what the page claimed
+  until September 2026. A third of the catalogue does not ship at 16-bit:
+  Kimi K2 is FP8, so its real download is 1026 GB and not the 2052 GB the
+  page printed; Stable Diffusion is F32, so it is 3.6 GB and not 1.8. Both
+  errors were invisible because `p` is right in each case — it is the
+  multiplier that was wrong.
+
+  Three sources, in this order, and they disagree often enough that the order
+  matters: the repo's `config.quantization_config.quant_method` when it exists
+  (gpt-oss says `mxfp4`, which nothing else reveals); then the real bytes per
+  parameter, from the safetensors file sizes divided by the parameter count,
+  but **only when it comes out below** what the dtype implies, since a repo
+  that carries a text encoder its index does not count reads too high and a
+  packed one reads correctly low; then the dominant dtype. The middle step is
+  what catches Kimi K2.7 Code, whose weights are int4 packed into I32
+  containers: the dtype says 32-bit and the files say 0.58 bytes per
+  parameter, a sevenfold difference.
 
 **The RAM control is a slider over `RAMF` plus a precision toggle.** The stops
 are machines rather than round numbers — a laptop, a 4090, one H100, an
@@ -290,15 +312,23 @@ is 2.5 TB rather than a tidier 2 TB because Kimi K2 needs 2052 GB at 16-bit
 and 2048 would miss it by four gigabytes; above that the data is empty until
 Kimi K3 at 5.5 TB, which is what Unlimited is for.
 
-`QUANT` sets gigabytes per billion parameters: 2 at 16-bit, 1 at 8-bit, 0.5 at
-4-bit. It feeds `gb()`, which both the filter and the card line use, so
-flipping the toggle visibly rewrites every size on the page — that is the
-point, and it is why the toggle sits inside the RAM row rather than somewhere
-else. Under 560px it takes a second line **within that row**, indented to
-start under the track, so the slider gets the full width instead of the ~90px
-left over beside three buttons; it must stay in the row rather than become a
-fourth filter, because it is not one. It is the difference between a model fitting and not: Kimi K2 is 2052 GB
-at 16-bit and 513 GB at 4-bit, which is two different machines.
+`QUANT` is the precision control. **As shipped** is the default and reads each
+model's own `q`, so the number on the card is the download; the fixed widths
+override it and answer the other question, what this would take if you
+quantised it yourself. Both feed `gb()`, which the filter and the card line
+share, so the toggle visibly rewrites every size on the page — that is the
+point, and it is why it sits inside the RAM row rather than somewhere else.
+Under 560px it takes a second line **within that row**, indented to start
+under the track, so the slider gets the full width instead of the ~90px left
+over beside the buttons; it must stay in the row rather than become a fourth
+filter, because it is not one.
+
+Kimi K2 is 1026 GB as shipped, 2052 GB if you ran it at 16-bit and 513 GB at
+4-bit, which is three different machines.
+
+There is no 32-bit position, and that is deliberate: nine models *ship* at
+F32, which **As shipped** already shows, but nobody chooses to run a model at
+32-bit, so a position for it would only ever double a number for no reason.
 
 Under 10 GB `gb()` keeps one decimal. At 4-bit a 0.5B model is a quarter of
 what it was, and whole numbers printed "0 GB".

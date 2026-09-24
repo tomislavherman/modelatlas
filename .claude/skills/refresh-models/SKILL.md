@@ -430,6 +430,16 @@ curl -s -A "Mozilla/5.0" "https://huggingface.co/api/models/<org>/<repo>" \
 - `h` is the repository page, `https://huggingface.co/<org>/<repo>`. For a
   family in several sizes, link the largest first-party repository. Never a
   quantiser's copy, a GGUF conversion or a mirror.
+- `q` is the width the vendor shipped, in bits — 4, 8, 16 or 32 — and it is
+  what makes the size on the card a download rather than a guess. Take it from
+  `config.quantization_config.quant_method` if the repo has one, else from the
+  dominant `safetensors.parameters` dtype (`F32`/`I32` 32, `BF16`/`F16` 16,
+  `F8_*`/`I8`/`U8` 8, `F4`/`I4` 4). Then divide the safetensors file sizes by
+  `safetensors.total`: if that lands **well below** the dtype's bytes, the
+  weights are packed and the ratio wins — Kimi K2.7 Code reads I32 but ships
+  0.58 bytes per parameter. A ratio *above* the dtype means nothing; it is a
+  repo carrying files its index does not count. Leave `q` out when there is no
+  safetensors index, and the card will say `16-bit?`.
 - `p` is `safetensors.total` in billions, rounded to what the vendor says
   (`29.8B` on the API is `30`). A family in several sizes is
   `[smallest, largest]`. When the repository has no safetensors count — many
