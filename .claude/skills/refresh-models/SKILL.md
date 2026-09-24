@@ -445,11 +445,21 @@ One entry at the **top** of `H` for each change you just made, newest first:
  k:["audio:speech"],x:"Full-duplex speech-to-speech …",u:"https://…"},
 ```
 
-- **`y` is the day the vendor did it**, copied from the same source that gave
-  you the model's `d`, and written to whatever precision that source had:
-  `2026-09-10`, `2026-09` or `2026`. Never pad a month out to a day. A model
-  that shipped in July and that you are recording in September gets `2026-07`,
-  not today — the changelog is a timeline of releases, not of your sweep.
+- **`y` is the day the event in the row happened**, written to whatever
+  precision the source had: `2026-09-10`, `2026-09` or `2026`. Never pad a
+  month out to a day, and never use a date in the future:
+  - `added` — the day it shipped. A model that shipped in July and that you
+    are recording in September gets `2026-07`, not today.
+  - `announced` — the day of the announcement, not the expected ship date.
+  - `retired` — the day the retirement was **announced**. The vendor's
+    deprecation page carries it; the shutdown date itself goes in `d`, not
+    here. Sora 2's row is dated 24 Mar 2026, the day OpenAI said so, not the
+    24 Sep 2026 the API actually stopped.
+- **Only rows dated to the day are shown.** A row you can date to the month is
+  worth writing — it is still history — but it will not appear until someone
+  pins the day. So when a source gives you a day, use it: that is the
+  difference between an entry a reader sees and one they do not. `check.js`
+  prints how many of the rows are visible.
 - **`f` is today**, the day this run is writing the page, always a full
   `YYYY-MM-DD`. It is how a late catch stays visible: `y` says the vendor
   shipped in July, `f` says the atlas only noticed in September.

@@ -43,10 +43,19 @@ for the changelog.
 `H` is **append-only history** carrying two dates, and the difference between
 them is the whole design:
 
-- **`y` — the day the source did it.** The day the vendor shipped, announced
-  or switched the thing off. This is what the view sorts and prints, and it is
-  only as precise as the source: `2026-09-22`, `2026-09` or `2026`. Never pad
-  a month out to a day to make it look exact.
+- **`y` — the day the source did it**, which for each `t` is the day the
+  *event in the row* happened, never a date in the future:
+  - `added` — the day the model shipped.
+  - `announced` — the day of the announcement, **not** the date it is expected
+    to ship. `d` usually holds the expected date, so take the date in the
+    announce clause, which is the first one on the line.
+  - `retired` — the day the retirement was **announced**, not the day the
+    switch is thrown. Sora 2 was announced on 24 Mar 2026 for a 24 Sep 2026
+    shutdown, and the row belongs in March. A vendor's deprecation page is the
+    place to find it; `d` only carries the effective date.
+
+  It is only as precise as the source: `2026-09-22`, `2026-09` or `2026`.
+  Never pad a month out to a day to make it look exact.
 - **`f` — the day this page found out.** Always `YYYY-MM-DD`, always known.
   This is the order `H` is physically stored in, so appending is still a line
   at the top with nothing below it moving.
@@ -61,10 +70,24 @@ which is how a missed release gets spotted.
 (`D` also has an `f`. There it is a company's founding year. Different array,
 different field, no relation.)
 
-**The changelog is exactly as precise as `D` is.** `y` is derived from the
-model's own `d` line, so every bare year in `D` is a vague changelog row too.
-Today that is 34 rows dated to the day against 245 to the month — working the
-date backlog in `D` sharpens both views at once.
+**The view shows only rows pinned to a day.** `renderLog` drops anything whose
+`y` is a month or a year: a vague row sitting beside exact ones reads as though
+the two were equally known, and they are not. The entry stays in `H` and
+reappears the moment someone sources its date.
+
+That filter is strict — **39 of 346 rows are visible today** — and the number is
+the point. `check.js` prints it on every run, because a hidden row is a date
+nobody has done the work on yet. For an `added` row that work is the `d`
+backlog in `D`, which sharpens both views at once; for `announced` and
+`retired` it is finding the day the vendor said so.
+
+**`y` comes from a source, never from `f`.** If no source gives the day, write
+the month and let the row hide. Six entries carried their filing date as `y`
+after the September migration, because the model they name has no card left to
+date them from — they now sit at month precision, which is the honest shape of
+"we know the month this was filed and nothing more". A retirement whose
+announcement date could not be sourced keeps the effective period the same way.
+Do not promote either to a day without a source.
 
 `t` is `added`, `announced` or `retired` in the data, and the page shows those
 three as **Release**, **Announcement** and **Retirement** — nouns, where the

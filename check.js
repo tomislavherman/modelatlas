@@ -155,6 +155,12 @@ console.log(`dates: ${prec.filter(x => x === 2).length} to the day, `
   + `${prec.filter(x => x === 0).length} bare year`);
 const om = D.flatMap(co => co.m).filter(m => m.o);
 console.log(`open weights: ${om.length} models, ${om.filter(m => m.o.h).length} on Hugging Face, ${om.filter(m => m.o.p).length} with a size`);
+// The changelog view shows only entries pinned to a day, so this is coverage,
+// not decoration: every row dated to the month is a row nobody can see.
+const shown = H.filter(e => e.y.length === 10);
+console.log(`changelog shows ${shown.length} of ${H.length} rows — `
+  + `${H.filter(e => e.y.length === 7).length} dated only to the month and `
+  + `${H.filter(e => e.y.length === 4).length} only to the year are hidden`);
 console.log(`changelog: ${H.length} entries, ${new Set(H.map(e => e.y)).size} days, `
   + `${Object.entries(evc).map(([k, v]) => `${k} ${v}`).join(", ")}, newest ${H[0].y}`);
 for (const co of D) for (const m of co.m) {

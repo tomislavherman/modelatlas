@@ -27,8 +27,11 @@ nouns for what a row records — and each view remembers its own selection.
   (`added` / `announced` / `retired`), the day the source did it, the day this
   page found out, company, model, tags, detail, link. `y` is the vendor's own
   date and is only as precise as the vendor was — `2026-09-22`, `2026-09` or
-  `2026` — and it is what the view sorts and prints. `f` is always a full day
-  and is the order the array is stored in. `H` is append-only: entries are
+  `2026` — and it is what the view sorts by. For an announcement or a
+  retirement it is the day the vendor *said so*, not the future date the thing
+  takes effect. The view shows only rows pinned to a day, so a change dated to
+  the month is kept but not displayed. `f` is always a full day and is the
+  order the array is stored in. `H` is append-only: entries are
   added at the top and never rewritten, and `k`/`x`/`u` are copied from the model
   card rather than referenced, so an entry keeps saying what the page said on
   the day. The two views deliberately disagree on counts — one shows state,
