@@ -296,6 +296,7 @@ const D=[
 {n:"AudioGen",k:["audio:sfx"],d:"2023",x:"Text to sound effects, open weights",u:"https://audiocraft.metademolab.com/audiogen.html",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/facebook/audiogen-medium",p:1.5}},
 {n:"Voicebox / Seamless",k:["audio:speech"],d:"2023 →",x:"Speech generation and speech translation research",u:"https://ai.meta.com/research/seamless-communication/"},
 {n:"Muse Voice Transcribe",k:["audio:speech"],d:"Sep 2026",x:"First real-time audio perception model from Meta Superintelligence Labs: streaming speech-to-text, diarization across 20+ speakers and endpointing in one pass, 70 languages",u:"https://research.meta.ai/blog/introducing-muse-voice-transcribe"},
+{n:"Muse Realtime Avatar",k:["avatar"],d:"Sep 2026",x:"Interactive avatar from one still image, driven live by Meta's realtime voice; distillation to two denoising steps per chunk holds 448x768 at 25fps, 870ms latency",u:"https://research.meta.ai/blog/bringing-your-muse-to-life"},
 {n:"Llama 4",k:["text:chat","text:code"],d:"Apr 2025",x:"Open weights",u:"https://www.llama.com",o:{l:"Llama 4 community",h:"https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct",p:[109,402]}},
 {n:"Llama 5",k:["text:chat","text:code"],d:"Apr 2026",x:"Open weights; shipped the same morning as the closed Muse Spark",u:"https://www.llama.com",o:{}},
 {n:"Muse Spark",k:["text:chat","text:code"],d:"Apr 2026",x:"First closed-weights frontier model from Meta Superintelligence Labs; runs Meta AI across the apps",u:"https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/"},
@@ -670,6 +671,7 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-24",c:"Meta",n:"Muse Realtime Avatar",k:["avatar"],x:"Interactive avatar from one still image, driven live by Meta's realtime voice; distillation to two denoising steps per chunk holds 448x768 at 25fps, 870ms latency",u:"https://research.meta.ai/blog/bringing-your-muse-to-life"},
 {t:"added",y:"2026-09-23",c:"Black Forest Labs",n:"FLUX 3 Action",k:["robotics","world"],x:"World-action model: camera frames, robot state and a text instruction in, the next action chunk denoised alongside the next video frames; distilled checkpoints for speed",u:"https://bfl.ai/models/flux-3-action"},
 {t:"added",y:"2026-09-23",c:"Google DeepMind",n:"Gemini 3.8 Flash TTS / Gemini 3.8 Flash-Lite TTS",k:["audio:speech"],x:"Builds a new voice from a natural-language prompt across 100-plus languages, and replicates one from a 30-second sample; Flash-Lite trades fidelity for throughput",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/"},
 {t:"added",y:"2026-09-23",c:"Speechmatics",n:"Linden",k:["audio:speech"],x:"Speech-to-text built for voice agents, not transcription: finalises a spoken segment in under 350ms across 55-plus languages, with diarisation and turn signals by default",u:"https://www.speechmatics.com/voice-agents"},
@@ -1146,7 +1148,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 23 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 24 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
