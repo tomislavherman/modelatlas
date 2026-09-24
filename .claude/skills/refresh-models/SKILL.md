@@ -80,6 +80,18 @@ they make is in scope.
 - https://www.worldlabs.ai/blog
 - https://www.visko.ai/news
 - https://www.recraft.ai/blog
+- https://mistral.ai/news
+- https://stability.ai/news-updates
+- https://blogs.nvidia.com/blog/category/generative-ai/
+- https://updates.midjourney.com
+- https://www.krea.ai/blog
+- https://lumalabs.ai/news
+- https://pika.art/blog
+- https://www.pixverse.ai/en/blog
+- https://www.synthesia.io/blog
+- https://www.heygen.com/blog
+- https://www.hume.ai/blog
+- https://cartesia.ai/blog
 - https://blog.voyageai.com/
 - https://skild.ai/blogs
 
@@ -257,11 +269,17 @@ a failed fetch.
 #### Keep the lists bounded
 
 Every entry is a fetch on every future run, so the lists cannot only grow.
-Roughly **24 newsrooms, 8 changelogs and 40 Hugging Face organisations** is
+Roughly **40 newsrooms, 8 changelogs and 40 Hugging Face organisations** is
 the ceiling. At the ceiling,
 adding one means dropping one, and the one to drop is decided from data you
 already have in front of you: the listed vendor whose newest model in `D` is
 oldest. A lab that has shipped nothing in a year does not need a daily fetch.
+
+At 40 newsrooms a full pass is a lot of fetches, so **read them newest-first
+and in batches**, and do not let a slow tail eat the run: the vendors at the
+top of `D` ship weekly, the ones at the bottom ship twice a year. If the run
+is going long, the changelogs in the next section are the higher-yield half —
+they date a release to the day, which the newsrooms often do not.
 
 Drop a genuinely dead source at any time, ceiling or not — domain gone, or the
 company folded into another that is already listed.

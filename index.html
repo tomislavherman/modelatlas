@@ -437,7 +437,7 @@ const D=[
 {n:"Agents",k:["audio:speech"],d:"2024 →",x:"Conversational voice agents",u:"https://elevenlabs.io/conversational-ai"}]},
 {c:"Cartesia",r:"US",f:"2023",n:"independent",u:"https://cartesia.ai",m:[
 {n:"Sonic",k:["audio:speech"],d:"2024",x:"Low-latency state-space model",u:"https://cartesia.ai/sonic"},
-{n:"Sonic 3.6",k:["audio:speech"],d:"Aug 2026",x:"Low-latency state-space model",u:"https://cartesia.ai/sonic"}]},
+{n:"Sonic 3.6",k:["audio:speech"],d:"27 Aug 2026",x:"Low-latency state-space model",u:"https://cartesia.ai/sonic"}]},
 {c:"Hume AI",r:"US",f:"2021",n:"independent",u:"https://www.hume.ai",m:[
 {n:"Octave / EVI",k:["audio:speech"],d:"2024",x:"Emotionally aware text-to-speech",u:"https://www.hume.ai/blog/octave-the-first-text-to-speech-model-that-understands-what-its-saying"},
 {n:"Octave 2",k:["audio:speech"],d:"2025",x:"11 languages, voice conversion",u:"https://www.hume.ai/blog/octave-2-launch"}]},
@@ -585,7 +585,9 @@ const D=[
 {n:"InternLumina-U2",k:["image","text:chat"],d:"Sep 2026",x:"Unified 16B-A1B mixture of experts doing text QA, image generation and editing, and video and 3D understanding, over an eight-codebook discrete visual representation",u:"https://internlm.github.io/InternLumina-U2/",o:{l:"Apache 2.0",h:"https://huggingface.co/internlm/InternLumina-U2",p:16}}]},
 {c:"PixVerse",r:"CN",f:"2023",n:"independent",u:"https://pixverse.ai",m:[
 {n:"PixVerse V1",k:["video"],d:"2024",x:"",u:"https://pixverse.ai"},
-{n:"PixVerse V6",k:["video","audio:sfx"],d:"30 Mar 2026",x:"",u:"https://pixverse.ai"}]},
+{n:"PixVerse V6",k:["video","audio:sfx"],d:"30 Mar 2026",x:"",u:"https://pixverse.ai"},
+{n:"PixVerse R1",k:["world"],d:"Jan 2026",x:"PixVerse's first real-time world model"},
+{n:"PixVerse R2",k:["world"],d:"22 Sep 2026",x:"Real-time world model that stays navigable as it generates, remembering earlier events in a session and taking text, references, audio and action input as it runs",u:"https://www.pixverse.ai/en/blog/pixverse-introduces-r2-real-time-world-model"}]},
 {c:"DeepSeek",r:"China",f:"2023",n:"High-Flyer",u:"https://www.deepseek.com",m:[
 {n:"DeepSeek-V3",k:["text:chat","text:code"],d:"Dec 2024",x:"MIT licence",u:"https://api-docs.deepseek.com",o:{l:"MIT since V3-0324, DeepSeek model licence before",h:"https://huggingface.co/deepseek-ai/DeepSeek-V3",p:685}},
 {n:"DeepSeek-V4",k:["text:chat","text:code"],d:"Apr 2026 → vision Aug 2026, Flash tiers removed Sep 2026",x:"V4-Pro was 1.6T with 49B active, V4-Flash 284B; MIT licence, 1M-token context. The Flash tiers now route to V4.1-Flash; Pro was to follow but DeepSeek withdrew that on user demand",u:"https://api-docs.deepseek.com/updates",o:{l:"MIT",h:"https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",p:[291,1599]}},
@@ -673,6 +675,8 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-24",c:"PixVerse",n:"PixVerse R2",k:["world"],x:"Real-time world model that stays navigable as it generates, remembering earlier events in a session and taking text, references, audio and action input as it runs",u:"https://www.pixverse.ai/en/blog/pixverse-introduces-r2-real-time-world-model"},
+{t:"added",y:"2026-09-24",c:"PixVerse",n:"PixVerse R1",k:["world"],x:"PixVerse's first real-time world model"},
 {t:"added",y:"2026-09-24",c:"Recraft",n:"Recraft V4.1 Flash",k:["image"],x:"Fastest tier of the V4.1 line: a finished image in a median 1.3 seconds, with a Refine step that takes a pick up to 2048x2048 through V4.1 Pro",u:"https://www.recraft.ai/blog/meet-recraft-v4-1-flash"},
 {t:"added",y:"2026-09-24",c:"OpenAI",n:"GPT-5.6-Cyber",k:["text:code"],x:"Purpose-trained on GPT-5.6 Sol for authorized vulnerability research and exploit validation; completes 95.0% of advanced cyber requests where Sol manages 1.5%",u:"https://developers.openai.com/api/docs/models/gpt-5.6-cyber"},
 {t:"added",y:"2026-09-24",c:"Meta",n:"Muse Realtime Avatar",k:["avatar"],x:"Interactive avatar from one still image, driven live by Meta's realtime voice; distillation to two denoising steps per chunk holds 448x768 at 25fps, 870ms latency",u:"https://research.meta.ai/blog/bringing-your-muse-to-life"},
