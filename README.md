@@ -58,17 +58,21 @@ nouns for what a row records — and each view remembers its own selection.
 - **Dates in `d`** — the lifecycle only: when it shipped, when later versions
   shipped, and when it dies. `2023 → Jun 2026`, `Dec 2024, EOL Sep 2026`.
   A feature that arrived on its own date is a detail, so it goes in `x`
-  ("Audio added May 2026").
+  ("Audio added May 2026"). Write the day when a source gives one
+  (`22 Sep 2026`): the page prints `Sep 2026` either way, and the day is
+  there so that a month full of releases orders correctly instead of
+  falling back to the order the file happens to be in.
 - **Ordering** — company cards run newest first, each ranked by the newest
   model it is currently showing, so filtering to Audio reorders the page around
   audio releases. Models inside a card run newest first too. Both use the same
   reading of the `d` line: the newest release date it names, skipping dates that
   follow a retirement word, since those are the end of a model's life rather
   than a release. Sora 2's `Sep 2025 – app closed Apr 2026, API ends Sep 2026`
-  therefore sorts on September 2025. A bare year only tells us the year, so it
-  is read as December of that year but never later than the current month; and
-  where a bare year and an exact date land on the same month, the exact one
-  comes first. A card showing no dated model sorts last.
+  therefore sorts on September 2025. Within a month the later day comes first.
+  A bare year only tells us the year, so it is read as December of that year
+  but never later than the current month; where two dates land on the same
+  month, the one written more precisely comes first — a day beats a month,
+  and a month beats a bare year. A card showing no dated model sorts last.
 - **Badges** — read off the `d` line, never typed into the data. A model gets at
   most one, and they are tested in this order:
   - **Retired**, when a retirement date the line names has already passed, or

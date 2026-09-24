@@ -36,6 +36,14 @@ rather than padding the result. But a short window is not a reason to skip the
 newsroom pass below; a one-day window is exactly when the search engines have
 not indexed the release yet.
 
+**On a quiet run, spend the time on the date backlog instead.** `node check.js`
+prints how many models are still dated only to the year. Take the handful with
+the newest bare year — those do the most damage, since a bare `2026` is capped
+to the current month and outranks the models that really shipped there — and
+resolve them the way step 2 describes. Two or three a run is the right size;
+this is maintenance, not the point of the run. Say in the report which ones
+you resolved and what the count moved from and to.
+
 ## 2. Sweep
 
 ### Newsrooms first
@@ -71,6 +79,7 @@ they make is in scope.
 - https://desertant.com/blog/
 - https://www.worldlabs.ai/blog
 - https://www.visko.ai/news
+- https://www.recraft.ai/blog
 - https://blog.voyageai.com/
 - https://skild.ai/blogs
 
@@ -156,6 +165,33 @@ before concluding nothing shipped. Quiet months are real, but so are misses.
 cannot be written from memory. Vendor announcement pages and the vendor's own
 docs beat aggregator blogs; aggregators disagree with each other on dates
 (GPT Transcribe was reported as both 28 Jul and 5 Aug 2026).
+
+**Where an exact day comes from**, best first. Take the day from the first of
+these that has one, and fall back to the month rather than inventing a day:
+
+1. **The vendor's own dated changelog.** These date a model to the day by
+   construction: `platform.claude.com` release notes, OpenAI's API changelog
+   and deprecations page, `ai.google.dev`'s changelog, Alibaba Model Studio.
+   One pass over these dated every Anthropic, OpenAI, Google and Alibaba
+   release on the page.
+2. **The announcement post's byline.** Most vendor blogs print the date on
+   the post — Recraft, Midjourney, ElevenLabs, Runway and Synthesia all do.
+3. **The weights repository.** `createdAt` from the Hugging Face API, which
+   the loop in step 2 already returns. Use the **month**, not the day: a repo
+   is often created a few days before the public announcement, and it dates
+   the repo rather than the release. Only take the day when an announcement
+   corroborates it.
+
+**Use a vendor's changelog only for that vendor's own models.** A cloud
+platform's changelog dates availability on that platform, not release:
+Alibaba Model Studio lists Kimi K3 on 19 Aug where Moonshot announced it on
+22 Jul, and DeepSeek V4.1-Flash three days after DeepSeek shipped it.
+
+**A name match is not a version match here either.** Before taking a date
+off a weights repo, check the repo is the version the card names. Four cards
+are on a bare year for exactly this reason — `Wan (Wanxiang)` links a Wan2.2
+repo, `CosyVoice` links CosyVoice2, and `π0` links a `lerobot` port rather
+than Physical Intelligence's own.
 
 ### Grow the source list
 
@@ -327,6 +363,17 @@ Follow the schema in CLAUDE.md. The parts most often got wrong:
 
 - Dates go in `d`, prose goes in `x`. A date in `x` is invisible to the sort
   and to every badge.
+- **Date to the day whenever a source gives one** — `d:"22 Sep 2026"`. The
+  card still prints `Sep 2026`; the day exists only so that a busy month
+  orders correctly. Without it every release in a month ties and falls back
+  to array order, which is why Claude Opus 5.5 sat mid-page on the day it
+  shipped. Never guess a day to look precise: a wrong day is worse than an
+  honest month, and `check.js` counts what is left rather than failing.
+- **Never leave a new entry on a bare year.** A bare year is read as December
+  and then capped at `NOW`, so a model written `2026` lands on the current
+  month and outranks the ones that really shipped there. A month you can
+  source beats a year you can. If the only date you can find is a year, say
+  so in the report — that is a finding, not a default.
 - `x` is at most 180 characters, and about 160 is right — `check.js` fails
   above the cap. Write what the model is and the one thing that sets it
   apart, then stop: no benchmark scores beyond one, no price, no rollout
@@ -431,8 +478,11 @@ Then look at the page, since `check.js` cannot see layout:
 python3 -m http.server 8731    # Chrome blocks file:// URLs
 ```
 
-`check.js` prints both arrays' counts and the open-weights totals (models,
-on Hugging Face, with a size). Confirm the new entries sit where expected, the
+`check.js` prints both arrays' counts, the open-weights totals (models, on
+Hugging Face, with a size) and a `dates:` line splitting the catalogue into
+dates known to the day, to the month and to the bare year. **That last number
+is a backlog, and it should fall or hold, never rise.** It rises only if this
+run wrote a bare year, so if it did, go back and find the month. Confirm the new entries sit where expected, the
 badge counts match what you added, and nothing old picked up a badge by
 accident. Check the links you added actually resolve to that model's page,
 not a listing.
