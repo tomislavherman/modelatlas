@@ -508,11 +508,17 @@ Deliberate gaps, do not "fix" them without asking:
 ## Visit counting
 
 A GoatCounter block sits at the end of `index.html`, after the main script.
-It needs one thing: the site code, the subdomain of the GoatCounter
-dashboard, set in the `code` variable at the top of the block. **While that
-string is empty nothing loads at all** — an unconfigured page makes no
-third-party request rather than failing one on every visit, which is what a
-pasted snippet with a placeholder hostname would do.
+The site code — the subdomain of the dashboard — is the `code` variable at the
+top of it, currently `thisadev`, so hits go to
+`https://thisadev.goatcounter.com/count`.
+
+**Emptying that string turns the whole thing off**, and the block then loads
+nothing at all. That is why it builds its own script tag instead of being the
+snippet GoatCounter hands you: a tag with the code baked into its `src` cannot
+be switched off without deleting it, and a placeholder left in one fires a
+failed DNS lookup and request on every visit for every reader. The script is
+loaded over explicit `https:` rather than the protocol-relative `//` in the
+stock snippet, which has no reason to exist on a page served over TLS.
 
 No cookies, and nothing written to the reader's machine, so there is no
 consent banner to maintain. Removing it is deleting the block; it touches
