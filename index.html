@@ -235,6 +235,7 @@ const D=[
 {n:"GPT-5-Codex",k:["text:code"],d:"Sep 2025",x:"Agentic coding variant of GPT-5"},
 {n:"GPT-5.2-Codex",k:["text:code"],d:"Dec 2025",x:"Agentic coding variant of GPT-5.2, tuned for long-horizon work with context compaction and stronger on large refactors, Windows environments and cybersecurity",u:"https://openai.com/index/introducing-gpt-5-2-codex/"},
 {n:"GPT-5.3-Codex",k:["text:code"],d:"Feb 2026",x:"The base model behind GitHub Copilot Business and Enterprise",u:"https://openai.com/index/gpt-5-3-codex-system-card/"},
+{n:"GPT-5.6-Cyber",k:["text:code"],d:"Aug 2026",x:"Purpose-trained on GPT-5.6 Sol for authorized vulnerability research and exploit validation; completes 95.0% of advanced cyber requests where Sol manages 1.5%",u:"https://developers.openai.com/api/docs/models/gpt-5.6-cyber"},
 {n:"GPT-Rosalind",k:["text:chat"],d:"Apr 2026 → GA Sep 2026",x:"Frontier reasoning model for life sciences, tuned for chemistry, genomics and protein engineering; five months as a trusted-access research preview before the API",u:"https://openai.com/index/introducing-gpt-rosalind/"},
 {n:"Privacy Filter",k:["text:chat"],d:"Apr 2026",x:"Open-weights token classifier that masks eight kinds of personal data in one forward pass; 1.5B total but only 50M active, so redaction can run locally",u:"https://openai.com/index/introducing-openai-privacy-filter/",o:{l:"Apache 2.0",h:"https://huggingface.co/openai/privacy-filter",p:1.5}},
 {n:"text-embedding-3",k:["text:embed"],d:"Jan 2024",x:"Small and large tiers on the API",u:"https://platform.openai.com/docs/guides/embeddings"}]},
@@ -671,6 +672,7 @@ const D=[
 // version that changed, and `k`, `x` and `u` are that model's tags, detail and
 // link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-24",c:"OpenAI",n:"GPT-5.6-Cyber",k:["text:code"],x:"Purpose-trained on GPT-5.6 Sol for authorized vulnerability research and exploit validation; completes 95.0% of advanced cyber requests where Sol manages 1.5%",u:"https://developers.openai.com/api/docs/models/gpt-5.6-cyber"},
 {t:"added",y:"2026-09-24",c:"Meta",n:"Muse Realtime Avatar",k:["avatar"],x:"Interactive avatar from one still image, driven live by Meta's realtime voice; distillation to two denoising steps per chunk holds 448x768 at 25fps, 870ms latency",u:"https://research.meta.ai/blog/bringing-your-muse-to-life"},
 {t:"added",y:"2026-09-23",c:"Black Forest Labs",n:"FLUX 3 Action",k:["robotics","world"],x:"World-action model: camera frames, robot state and a text instruction in, the next action chunk denoised alongside the next video frames; distilled checkpoints for speed",u:"https://bfl.ai/models/flux-3-action"},
 {t:"added",y:"2026-09-23",c:"Google DeepMind",n:"Gemini 3.8 Flash TTS / Gemini 3.8 Flash-Lite TTS",k:["audio:speech"],x:"Builds a new voice from a natural-language prompt across 100-plus languages, and replicates one from a 30-second sample; Flash-Lite trades fidelity for throughput",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/"},
