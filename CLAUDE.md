@@ -75,9 +75,9 @@ different field, no relation.)
 the two were equally known, and they are not. The entry stays in `H` and
 reappears the moment someone sources its date.
 
-That filter is strict — **39 of 346 rows are visible today** — and the number is
-the point. `check.js` prints it on every run, because a hidden row is a date
-nobody has done the work on yet. For an `added` row that work is the `d`
+That filter is strict — most rows are hidden — and the proportion is the point.
+`check.js` prints it on every run, because a hidden row is a date nobody has
+done the work on yet. For an `added` row that work is the `d`
 backlog in `D`, which sharpens both views at once; for `announced` and
 `retired` it is finding the day the vendor said so.
 
@@ -154,9 +154,9 @@ The two views are **not** one-to-one in either direction, and neither is a bug.
 
 **One model, several rows.** A model earns a row for each thing that happens to
 it: announced, then released when it ships, then retired when it is switched
-off. Grok 4.7 has an announcement and a release; five models have a release and
-a retirement. That is the point of a changelog — the model list says what a
-thing *is*, and the log says what has *happened* to it.
+off. Grok 4.7 has both an announcement and a release; several models have a
+release and a retirement. That is the point of a changelog — the model list
+says what a thing *is*, and the log says what has *happened* to it.
 
 What is never right is the same (company, name, type) twice: one event logged
 on two days. `check.js` fails on it, because a daily run appending to the top
@@ -170,8 +170,17 @@ means DALL·E and DALL·E 3, and `Suno v1 → v5.5` means Suno v5.5 — so match
 card to its row by name alone will miss them. They are covered; they are just
 written the way they were written, and `H` is not rewritten to tidy that up.
 
-So the counts will not agree and should not: 14 Retired badges against 11
-retirement entries today. State and history answer different questions.
+So the two counts will not agree and should not. State and history answer
+different questions; `check.js` prints both if you want today's figures.
+
+**Do not pin a live count in this file.** Anything that moves — badge totals,
+row totals, how many dates are still vague — goes stale the week after it is
+written, silently, because prose has no test. This file carried "12 Retired
+badges against 9 retired entries" for weeks after the September split made it
+14 and 11, and the sentence explaining the visible-row filter shipped saying
+39 when it was 33. `check.js` prints every one of these on every run; cite it
+instead. A count describing a past event is fine, because it cannot drift —
+"the split moved 8 Retired badges to 12" is a fact about September.
 
 ### A model: `{n, k, d, x, u}`
 
@@ -319,9 +328,9 @@ as a future *release* and wrongly earns the Announced badge.
 | 0 | bare year, or a span like `2024–26` | `2026` | **January** of that year, so it sorts last within it |
 
 **Write the day whenever a source gives one.** `d` is the only field ordering
-reads, and a month is not precise enough to order a busy month: 65 models
-carried `Sep 2026` in September 2026, so every one of them tied and fell back
-to array order. That is why Claude Opus 5.5 did not lead the page on the day
+reads, and a month is not precise enough to order a busy month: at the time
+this changed, 65 models carried `Sep 2026`, so every one of them tied and fell
+back to array order. That is why Claude Opus 5.5 did not lead the page on the day
 it shipped. A day breaks the tie; nothing else does.
 
 **The day is stored, not shown.** `dsp()` strips it for rendering, so a card

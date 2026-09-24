@@ -12,8 +12,10 @@ The page has three tabbed views. **All** is the index of what exists,
 grouped by company. **Open weights** is the same index narrowed to models whose
 weights can be downloaded, with extra filters for licence, a Hugging Face page
 and the RAM the weights need. **Changelog** is the flat, dated stream of what
-changed — newest first, with the day and the kind of change in a gutter to the
-left of each card rather than inside it.
+changed — ordered by the day the vendor acted, newest first, with that day and
+the kind of change in a gutter to the left of each card rather than inside it.
+It shows only changes pinned to an exact day; one dated to the month is kept
+but not displayed, so the stream stays a list of things whose date is known.
 
 Category, subcategory and search sit above the tabs and are shared, so
 switching views keeps your question. The status row sits under the tabs and

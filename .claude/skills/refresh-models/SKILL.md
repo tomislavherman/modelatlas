@@ -37,12 +37,17 @@ newsroom pass below; a one-day window is exactly when the search engines have
 not indexed the release yet.
 
 **On a quiet run, spend the time on the date backlog instead.** `node check.js`
-prints how many models are still dated only to the year. Take the handful with
-the newest bare year — those do the most damage, since a bare `2026` is capped
-to the current month and outranks the models that really shipped there — and
-resolve them the way step 2 describes. Two or three a run is the right size;
-this is maintenance, not the point of the run. Say in the report which ones
-you resolved and what the count moved from and to.
+prints two lines that are both backlogs: `dates:` splits the catalogue into
+dates known to the day, the month and the bare year, and `changelog shows`
+says how many rows the changelog can display at all. They move together,
+because a changelog row is dated from the model's own `d`.
+
+Take the handful with the newest bare year — a recent model nobody can date is
+worth more than an old one — and resolve them the way step 2 describes. A day
+is worth more than a month here: it is what moves a row from hidden to
+visible. Two or three a run is the right size; this is maintenance, not the
+point of the run. Say in the report which ones you resolved and what the
+counts moved from and to.
 
 ## 2. Sweep
 
@@ -387,11 +392,12 @@ Follow the schema in CLAUDE.md. The parts most often got wrong:
   to array order, which is why Claude Opus 5.5 sat mid-page on the day it
   shipped. Never guess a day to look precise: a wrong day is worse than an
   honest month, and `check.js` counts what is left rather than failing.
-- **Never leave a new entry on a bare year.** A bare year is read as December
-  and then capped at `NOW`, so a model written `2026` lands on the current
-  month and outranks the ones that really shipped there. A month you can
-  source beats a year you can. If the only date you can find is a year, say
-  so in the report — that is a finding, not a default.
+- **Never leave a new entry on a bare year.** A bare year is read as January
+  of that year, so it sorts *last* among that year's releases — a model
+  written `2026` falls below everything this year that carries a month. It
+  will not be wrong, it will be buried, and nothing on the page will nag you
+  about it. A month you can source beats a year you can. If the only date you
+  can find is a year, say so in the report — that is a finding, not a default.
 - `x` is at most 180 characters, and about 160 is right — `check.js` fails
   above the cap. Write what the model is and the one thing that sets it
   apart, then stop: no benchmark scores beyond one, no price, no rollout
@@ -438,7 +444,9 @@ keys in the run that finds the repository.
 
 ### 5b. `H` — the changelog
 
-One entry at the **top** of `H` for each change you just made, newest first:
+One entry at the **top** of `H` for each change you just made. The array is
+stored in `f` order — newest *filed* first — so the top is always where a new
+entry goes, whatever `y` it carries:
 
 ```js
 {t:"added",y:"2026-09-10",f:"2026-09-11",c:"OpenAI",n:"GPT-Live-1 / GPT-Live-1 mini",
@@ -469,6 +477,13 @@ One entry at the **top** of `H` for each change you just made, newest first:
   one recorded before it ships, `retired` for one whose shutdown date has
   **passed** — a future shutdown is not a retirement and earns no entry, the
   same way it earns no badge. Log it when the date arrives.
+
+  **When you log it and how you date it are different questions.** A
+  retirement is logged once the switch has actually been thrown, but dated by
+  the day it was announced, which is usually months earlier. Sora 2 was
+  announced 24 Mar and stopped 24 Sep: the row is filed in September (`f`) and
+  dated March (`y`). Do not let "log it when the date arrives" pull `y`
+  forward to the shutdown.
   The page renders those three as **Release**, **Announcement** and
   **Retirement** (plural on the filter buttons); that is display only, and
   `t` in the data keeps the three names above.
@@ -535,12 +550,20 @@ the licence button that matches what you wrote and confirm the card stays —
 the buttons group licence names by rule, and a name the rule cannot place
 falls under Vendor.
 
-Then open the **Changelog** tab and confirm today's entries are at the top,
-one per change and no more, each wearing the same badge its card wears on the
-**All** tab. Category and search are shared across the tabs, so check one
-category in both — a tag you got wrong in `H` will hide the entry under a
-filter where its model still shows. The status rows are per-view, so check the
-changelog's own Additions / Announcements / Retirements row separately.
+Then open the **Changelog** tab. Your entries will **not** be at the top
+unless what you recorded happened today: the view sorts by `y`, so a July
+release lands in July however recently you filed it. Find each one where its
+date puts it, and check it wears the same badge its card wears on the **All**
+tab.
+
+**An entry dated to the month will not be there at all** — the view shows only
+rows pinned to a day. That is expected, not a bug to chase; `check.js` prints
+how many rows are visible, and that count is the thing to watch.
+
+Category and search are shared across the tabs, so check one category in both
+— a tag you got wrong in `H` will hide the entry under a filter where its
+model still shows. The status rows are per-view, so check the changelog's own
+Releases / Announcements / Retirements row separately.
 
 The two counts are not meant to match. The model list shows current state and
 the changelog shows what happened, so a retirement logged once against a
