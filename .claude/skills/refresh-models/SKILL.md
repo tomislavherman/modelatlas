@@ -113,6 +113,7 @@ changelog names the exact model ID with the exact date:
 - https://www.kimi.com/code/docs/en/kimi-code/whats-new.html
 - https://www.alibabacloud.com/help/en/model-studio/newly-released-models
 - https://docs.qwencloud.com/changelog/models
+- https://elevenlabs.io/docs/changelog
 
 Also read https://platform.claude.com/docs/en/about-claude/model-deprecations
 for Anthropic retirement dates; it lists every model with its status, and
