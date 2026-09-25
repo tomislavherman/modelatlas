@@ -332,7 +332,7 @@ const D=[
 {n:"Nova",k:["text:chat","text:code"],d:"Dec 2024",x:"Lite and Pro tiers on Bedrock; the first-generation text tiers moved to legacy status as the successors went GA",u:"https://aws.amazon.com/ai/generative-ai/nova/"},
 {n:"Nova 2",k:["text:chat","text:code"],d:"Dec 2025",x:"Lite and Pro tiers on Bedrock",u:"https://aws.amazon.com/ai/generative-ai/nova/"},
 {n:"Nova 2 Omni",k:["text:chat","image"],d:"preview Dec 2025",x:"Takes text, images, video and speech in and returns text and images, on a one-million-token context; still gated to Nova Forge customers",u:"https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-nova-2-omni-preview/"},
-{n:"Nova 2 Multimodal Embeddings",k:["text:embed"],d:"2026",x:"",u:"https://aws.amazon.com/ai/generative-ai/nova/"}]},
+{n:"Nova 2 Multimodal Embeddings",k:["text:embed"],d:"28 Oct 2025",x:"Unified embedding model for text, documents, images, video and audio in one vector space, so a query in one modality retrieves any of the others",u:"https://aws.amazon.com/blogs/aws/amazon-nova-multimodal-embeddings-now-available-in-amazon-bedrock/"}]},
 {c:"Microsoft",r:"US",f:"1975",n:"NASDAQ",u:"https://microsoft.ai",m:[
 {n:"MAI-Image-2.5 / MAI-Image-2.5-Flash",k:["image"],d:"Jun 2026",x:"",u:"https://microsoft.ai/news/introducing-mai-image-2-5/"},
 {n:"MAI-Image-2.6 / MAI-Image-2.6-Flash",k:["image"],d:"Aug 2026 → Flash Sep 2026",x:"No. 2 on Arena text-to-image behind GPT Image 2; adds multi-reference editing, web grounding and 360p-to-4K control, and the Flash tier runs twice as fast as GPT Image 2 Medium",u:"https://microsoft.ai/news/mai-image-2-6-launches-at-no-2-on-arena-ahead-of-google-meta-and-xai/"},
@@ -404,7 +404,7 @@ const D=[
 {n:"Ideogram 1.0",k:["image"],d:"2023",x:"Strongest at text inside images",u:"https://about.ideogram.ai"},
 {n:"Ideogram 4.0",k:["image"],d:"Jun 2026",x:"Open weights; strongest at text inside images",u:"https://about.ideogram.ai",o:{l:"Ideogram 4 non-commercial",h:"https://huggingface.co/ideogram-ai/ideogram-4-fp8",q:8,p:9.3}}]},
 {c:"Recraft",r:"US",f:"2022",n:"independent",u:"https://www.recraft.ai",m:[
-{n:"Recraft V3",k:["image"],d:"2024",x:"Vector output and brand-style control",u:"https://www.recraft.ai"},
+{n:"Recraft V3",k:["image"],d:"30 Oct 2024",x:"Vector and raster output from one model, with long in-image text and brand styles supplied as an input rather than a fine-tune",u:"https://www.recraft.ai/blog/recraft-introduces-a-revolutionary-ai-model-that-thinks-in-design-language"},
 {n:"Recraft V4.1",k:["image"],d:"14 May 2026",x:"Vector output and brand-style control",u:"https://www.recraft.ai/blog/recraft-v4-1-more-beautiful-by-nature"},
 {n:"Recraft V4.1 Flash",k:["image"],d:"23 Sep 2026",x:"Fastest tier of the V4.1 line: a finished image in a median 1.3 seconds, with a Refine step that takes a pick up to 2048x2048 through V4.1 Pro",u:"https://www.recraft.ai/blog/meet-recraft-v4-1-flash"}]},
 {c:"Leonardo.ai",r:"AU",f:"2022",n:"Canva (Jul 2024)",u:"https://leonardo.ai",m:[
@@ -480,7 +480,7 @@ const D=[
 {c:"Udio",r:"US",f:"2023",n:"independent",u:"https://www.udio.com",m:[
 {n:"Udio",k:["audio:music"],d:"Apr 2024 →",x:"Walled garden after the Universal settlement",u:"https://www.udio.com"}]},
 {c:"Klay",r:"US",f:"2023",n:"independent",u:"https://klay.vision",m:[
-{n:"Klay LMM",k:["audio:music"],d:"2026",x:"Licensed from day one",u:"https://klay.vision"}]},
+{n:"Klay LMM",k:["audio:music"],d:"announced Nov 2025, waitlist",x:"Licensed from day one: trained only on catalogue cleared with Universal, Sony and Warner, and still unreleased behind a waitlist",u:"https://klay.vision/press"}]},
 {c:"Riffusion",r:"US",f:"2022",n:"independent",u:"https://www.riffusion.com",m:[
 {n:"Fuzz",k:["audio:music"],d:"2024 →",x:"",u:"https://www.riffusion.com"}]},
 {c:"CassetteAI",r:"US",f:"2023",n:"Pixl Technologies",u:"https://cassetteai.com",m:[
@@ -712,6 +712,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"announced",y:"2025-11",f:"2026-09-25",c:"Klay",n:"Klay LMM",k:["audio:music"],x:"Licensed from day one: trained only on catalogue cleared with Universal, Sony and Warner, and still unreleased behind a waitlist",u:"https://klay.vision/press"},
 {t:"added",y:"2026-04-10",f:"2026-09-25",c:"MiniMax",n:"Music 2.6",k:["audio:music"],x:"Holds timing and silence as part of the arrangement, takes BPM, key and structure from the prompt, and covers an uploaded track in a new genre",u:"https://www.minimax.io/news/music-26"},
 {t:"added",y:"2026-01-16",f:"2026-09-25",c:"MiniMax",n:"Music 2.5",k:["audio:music"],x:"Paragraph-level control over a song's structure, directing arrangement and vocals section by section, on a higher-fidelity master",u:"https://www.minimax.io/news/minimax-music-25"},
 {t:"added",y:"2026-07-21",f:"2026-09-25",c:"Google DeepMind",n:"Gemini 3.5 Flash Cyber",k:["text:code"],x:"Tuned to find and fix security vulnerabilities below the price of the larger models, driven through CodeMender; a limited pilot for governments and trusted partners",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/"},
