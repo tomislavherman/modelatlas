@@ -63,6 +63,7 @@ they make is in scope.
 - https://openai.com/news/
 - https://deepmind.google/blog/ and https://blog.google/innovation-and-ai/models-and-research/
 - https://research.meta.ai/blog
+- https://about.fb.com/news/
 - https://x.ai/news
 - https://api-docs.deepseek.com/news/
 - https://qwen.ai/blog
@@ -94,7 +95,6 @@ they make is in scope.
 - https://pika.art/blog
 - https://www.pixverse.ai/en/blog
 - https://www.heygen.com/blog
-- https://www.hume.ai/blog
 - https://cartesia.ai/blog
 - https://blog.voyageai.com/
 - https://skild.ai/blogs
