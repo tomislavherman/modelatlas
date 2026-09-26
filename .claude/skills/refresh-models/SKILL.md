@@ -93,12 +93,12 @@ they make is in scope.
 - https://lumalabs.ai/news
 - https://pika.art/blog
 - https://www.pixverse.ai/en/blog
-- https://www.synthesia.io/blog
 - https://www.heygen.com/blog
 - https://www.hume.ai/blog
 - https://cartesia.ai/blog
 - https://blog.voyageai.com/
 - https://skild.ai/blogs
+- https://www.liquid.ai/news
 
 Then read the API changelogs. A point release such as Gemini Omni 1.1 Flash
 gets a developer-blog post and a changelog line, not a headline, and the
@@ -133,7 +133,7 @@ for a in openai google facebook meta-llama meta-models ibm-granite nvidia \
   black-forest-labs stabilityai ideogram-ai krea Lightricks mistralai \
   Kwai-Kolors MiniMaxAI Wan-AI Qwen FunAudioLLM tencent zai-org inclusionAI \
   stepfun-ai internlm deepseek-ai moonshotai IFM thinkingmachines CohereLabs \
-  Agnes-AI XiaomiRobotics XiaomiMiMo lerobot m-a-p desert-ant-labs avaturn-live poolside CompVis decart-ai robbyant Etched Dexmal; do
+  Agnes-AI XiaomiRobotics XiaomiMiMo lerobot m-a-p desert-ant-labs avaturn-live poolside CompVis decart-ai robbyant Dexmal LiquidAI; do
   curl -s -A "Mozilla/5.0" "https://huggingface.co/api/models?author=$a&sort=createdAt&direction=-1&limit=8&expand[]=createdAt&expand[]=tags&expand[]=safetensors" \
   | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{for(const m of JSON.parse(s))console.log(m.id,m.createdAt.slice(0,10),(m.tags||[]).filter(t=>t.startsWith("license:")).join(",")||"-",m.safetensors?.total?(m.safetensors.total/1e9).toFixed(1)+"B":"-")})'
 done
