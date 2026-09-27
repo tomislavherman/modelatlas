@@ -270,7 +270,8 @@ const D=[
 {n:"Veo 3.1",k:["video","audio:sfx"],d:"Oct 2025",x:"Native Foley sound generated with the picture",u:"https://deepmind.google/models/veo/"},
 {n:"Gemini Omni Flash",k:["video","audio:sfx"],d:"May 2026",x:"Video with sound from text, image or video input, edited by conversation",u:"https://ai.google.dev/gemini-api/docs/omni"},
 {n:"Gemini Omni 1.1 Flash",k:["video","audio:sfx"],d:"Aug 2026",x:"Adds scene extension to 40 s, first and last frame control, a cheaper 360p draft mode and 4K upscaling",u:"https://ai.google.dev/gemini-api/docs/omni"},
-{n:"Lyria",k:["audio:music"],d:"2023",x:""},
+{n:"Lyria",k:["audio:music"],d:"16 Nov 2023",x:"",u:"https://deepmind.google/blog/transforming-the-future-of-music-creation/"},
+{n:"Lyria 3",k:["audio:music"],d:"18 Feb 2026",x:"Writes its own lyrics from the prompt rather than taking them as input, with style, vocal and tempo control and SynthID watermarking on every track",u:"https://blog.google/innovation-and-ai/products/gemini-app/lyria-3/"},
 {n:"Lyria 3.5",k:["audio:music"],d:"Jul 2026 → Gemini app and API 3 Sep 2026",x:"Section-level song structure; the wider release adds full songs up to three minutes with duration control, 44.1 kHz stereo and SynthID watermarking",u:"https://blog.google/innovation-and-ai/products/gemini-app/better-tracks-lyria-gemini/"},
 {n:"Gemini Audio / Chirp",k:["audio:speech"],d:"2024 →",x:"Chirp 3 HD voices on Google Cloud",u:"https://cloud.google.com/text-to-speech/docs/chirp3-hd"},
 {n:"Genie 3",k:["world"],d:"Aug 2025 → Jan 2026",x:"Interactive 720p worlds at 24 fps; Project Genie for Ultra subscribers",u:"https://deepmind.google/discover/blog/genie-3-a-new-frontier-for-world-models/"},
@@ -294,6 +295,7 @@ const D=[
 {n:"Claude Opus 4",k:["text:chat","text:code"],d:"May 2025, retired 15 Jun 2026",x:"Deprecated Apr 2026 and pulled from the API in favour of Claude Opus 4.8",u:"https://platform.claude.com/docs/en/about-claude/model-deprecations"},
 {n:"Claude Opus 4.8",k:["text:chat","text:code"],d:"28 May 2026",x:"Eighth point release of the largest tier inside a year"},
 {n:"Claude Haiku 4.5",k:["text:chat"],d:"Oct 2025",x:"The small, fast tier",u:"https://www.anthropic.com/news/claude-haiku-4-5"},
+{n:"Claude Mythos Preview",k:["text:chat","text:code"],d:"7 Apr 2026",x:"Frontier model Anthropic will not release generally; Project Glasswing partners used it to find over ten thousand high- or critical-severity zero-days",u:"https://www.anthropic.com/news/mythos-preview"},
 {n:"Claude Mythos 5 / Claude Fable 5",k:["text:chat","text:code"],d:"9 Jun 2026",x:"Frontier tier; Mythos is the same model under lighter safeguards for vetted cyber and life-science orgs"},
 {n:"Claude Mythos 5.1 / Claude Fable 5.1",k:["text:chat","text:code"],d:"1 Sep 2026",x:"Matches Fable 5 at low effort and cuts cache reads to a quarter of the price",u:"https://www.anthropic.com/claude-fable-and-mythos-5-1"},
 {n:"Claude Sonnet 5",k:["text:chat","text:code"],d:"30 Jun 2026",x:"",u:"https://www.anthropic.com/news"},
@@ -475,7 +477,8 @@ const D=[
 {c:"Speechmatics",r:"UK",f:"2006",n:"independent",u:"https://www.speechmatics.com",m:[
 {n:"Linden",k:["audio:speech"],d:"Sep 2026",x:"Speech-to-text built for voice agents, not transcription: finalises a spoken segment in under 350ms across 55-plus languages, with diarisation and turn signals by default",u:"https://www.speechmatics.com/voice-agents"}]},
 {c:"Deepgram",r:"US",f:"2015",n:"independent",u:"https://deepgram.com",m:[
-{n:"Aura 2 / Nova 3",k:["audio:speech"],d:"2024 → 2025",x:"Aura is text-to-speech, Nova is speech-to-text",u:"https://deepgram.com/product/text-to-speech"},
+{n:"Nova 3",k:["audio:speech"],d:"12 Feb 2025",x:"Speech-to-text, and the first Deepgram model to transcribe multilingual speech in real time, code-switching across ten languages without routing",u:"https://deepgram.com/learn/introducing-nova-3-speech-to-text-api"},
+{n:"Aura 2",k:["audio:speech"],d:"Apr 2025",x:"Text-to-speech aimed at enterprise rather than performance: passwords, medical terms and alphanumeric identifiers read correctly, under 200ms",u:"https://deepgram.com/learn/introducing-aura-2-enterprise-text-to-speech"},
 {n:"Flux TTS",k:["audio:speech"],d:"12 Aug 2026",x:"Conversation-native turn handling",u:"https://deepgram.com/product/text-to-speech"}]},
 {c:"Suno",r:"US",f:"2022",n:"independent",u:"https://suno.com",m:[
 {n:"Suno v1",k:["audio:music"],d:"2023, retired Sep 2026",x:"Trained on unlicensed material",u:"https://suno.com"},
@@ -730,6 +733,8 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-04-07",f:"2026-09-27",c:"Anthropic",n:"Claude Mythos Preview",k:["text:chat","text:code"],x:"Frontier model Anthropic will not release generally; Project Glasswing partners used it to find over ten thousand high- or critical-severity zero-days",u:"https://www.anthropic.com/news/mythos-preview"},
+{t:"added",y:"2026-02-18",f:"2026-09-27",c:"Google DeepMind",n:"Lyria 3",k:["audio:music"],x:"Writes its own lyrics from the prompt rather than taking them as input, with style, vocal and tempo control and SynthID watermarking on every track",u:"https://blog.google/innovation-and-ai/products/gemini-app/lyria-3/"},
 {t:"added",y:"2026-09-24",f:"2026-09-27",c:"Liquid AI",n:"LFM2.5-VL-DSpark",k:["text:chat"],x:"Draft model for speculative decoding of LFM2.5-VL-3B: a 0.28B drafter proposes tokens the base model verifies, lifting decode throughput 2.66x on GPU and 3.13x on edge",u:"https://www.liquid.ai/blog/lfm2-5-vl-dspark"},
 {t:"added",y:"2026-06-30",f:"2026-09-27",c:"Google DeepMind",n:"Nano Banana 2 Lite",k:["image"],x:"Fastest and cheapest of the line, capped at 1K and without Search grounding or character-consistency references; built for high-volume work where cost is the constraint",u:"https://ai.google.dev/gemini-api/docs/image-generation"},
 {t:"added",y:"2026-05-28",f:"2026-09-27",c:"Google DeepMind",n:"Nano Banana Pro",k:["image"],x:"Premium tier of the line: highest world knowledge, up to six reference images, interleaved text-and-image output and 4K rendering for marketing assets and diagrams",u:"https://ai.google.dev/gemini-api/docs/image-generation"},
