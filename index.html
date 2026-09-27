@@ -358,7 +358,8 @@ const D=[
 {n:"Isaac GR00T N1",k:["robotics"],d:"Mar 2025",x:"Open vision-language-action model for humanoids",u:"https://github.com/NVIDIA/Isaac-GR00T",o:{l:"NVIDIA non-commercial",h:"https://huggingface.co/nvidia/GR00T-N1-2B",q:16,p:2.2}},
 {n:"Isaac GR00T N1.7",k:["robotics"],d:"Jun 2026",x:"3B parameters on a Cosmos Reason backbone",u:"https://github.com/NVIDIA/Isaac-GR00T",o:{l:"NVIDIA Open Model",h:"https://huggingface.co/nvidia/GR00T-N1.7-3B",q:16,p:3.1}},
 {n:"Isaac GR00T N2",k:["robotics"],d:"expected 2026",x:"Currently first on MolmoSpaces and RoboArena for generalist robot policies",u:"https://developer.nvidia.com/isaac/gr00t"},
-{n:"Nemotron 3.5 Lightning",k:["text:chat"],d:"Aug 2026",x:"30B mixture of experts with 3B active on a hybrid Mamba-2 backbone, 1M-token context; weights, training data and recipes under OpenMDW-1.1, aimed at long-running agents",u:"https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",o:{l:"OpenMDW 1.1",h:"https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",q:16,p:32}}]},
+{n:"Nemotron 3.5 Lightning",k:["text:chat"],d:"Aug 2026",x:"30B mixture of experts with 3B active on a hybrid Mamba-2 backbone, 1M-token context; weights, training data and recipes under OpenMDW-1.1, aimed at long-running agents",u:"https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",o:{l:"OpenMDW 1.1",h:"https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",q:16,p:32}},
+{n:"Nemotron 3 Diarization",k:["audio:speech"],d:"23 Sep 2026",x:"Open-weights speaker diarization: who spoke when, up to eight speakers with overlapping speech, streaming or offline; first on VoiceArena Diarization-Bench",u:"https://huggingface.co/blog/nvidia/nemotron-diarization",o:{l:"OpenMDW 1.1",h:"https://huggingface.co/nvidia/Nemotron-3-Diarization",q:32,p:0.1}}]},
 {c:"Black Forest Labs",r:"DE",f:"2024",n:"independent",u:"https://bfl.ai",m:[
 {n:"FLUX.1",k:["image"],d:"Aug 2024",x:"",u:"https://bfl.ai/models/flux-pro",o:{l:"FLUX.1 dev non-commercial",h:"https://huggingface.co/black-forest-labs/FLUX.1-dev",q:16,p:12}},
 {n:"FLUX.1 Kontext",k:["image"],d:"May 2025",x:"In-context image editing",u:"https://bfl.ai/models/flux-kontext",o:{l:"FLUX.1 dev non-commercial",h:"https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev",q:16,p:12}},
@@ -726,6 +727,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-23",f:"2026-09-27",c:"NVIDIA",n:"Nemotron 3 Diarization",k:["audio:speech"],x:"Open-weights speaker diarization: who spoke when, up to eight speakers with overlapping speech, streaming or offline; first on VoiceArena Diarization-Bench",u:"https://huggingface.co/blog/nvidia/nemotron-diarization"},
 {t:"added",y:"2026-09-23",f:"2026-09-26",c:"Meta",n:"Muse Realtime Voice",k:["audio:speech"],x:"Realtime voice for the Muse agent: the conversation carries on while it works in the background, and the voice is set by describing it — faster, slower, a particular accent",u:"https://www.meta.com/blog/meta-connect-2026-everything-we-announced/"},
 {t:"added",y:"2026-08-12",f:"2026-09-26",c:"Liquid AI",n:"LFM2.5-VL-3B",k:["text:chat"],x:"Edge vision-language model matching ones twice its size, and faster across CPU and GPU than some carrying fewer parameters",u:"https://www.liquid.ai/blog/lfm2-5-vl-3b"},
 {t:"added",y:"2026-08-04",f:"2026-09-26",c:"Liquid AI",n:"LFM2.5-2.6B",k:["text:chat"],x:"Agentic model running entirely on-device, decoding 220 tokens a second on consumer hardware against models near four times its size",u:"https://www.liquid.ai/blog/lfm2-5-2-6b"},
@@ -1306,7 +1308,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 26 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 27 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
