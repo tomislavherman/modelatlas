@@ -119,7 +119,10 @@ changelog names the exact model ID with the exact date:
 Also read https://platform.claude.com/docs/en/about-claude/model-deprecations
 for Anthropic retirement dates; it lists every model with its status, and
 https://developers.openai.com/api/docs/deprecations for OpenAI's, which dates
-each announcement and gives the shutdown date and replacement.
+each announcement and gives the shutdown date and replacement, and
+https://ai.google.dev/gemini-api/docs/deprecations for Google's, which gives a
+shutdown date and replacement per model ID and carries retirements the Gemini
+changelog does not.
 
 ### Weights repositories
 
