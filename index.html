@@ -462,7 +462,7 @@ const D=[
 {n:"Scribe v2",k:["audio:speech"],d:"9 Jan 2026",x:"Speech-to-text",u:"https://elevenlabs.io/blog/introducing-scribe-v2"},
 {n:"Scribe v2 Realtime",k:["audio:speech"],d:"11 Nov 2025",x:"Streaming speech-to-text for voice agents and live captioning: sub-150ms latency at 93.5% accuracy across 30 languages, with word prediction covering the lag",u:"https://elevenlabs.io/blog/introducing-scribe-v2-realtime"},
 {n:"Scribe v2 Medical",k:["audio:speech"],d:"Sep 2026",x:"Scribe v2 fine-tuned on clinical audio, now generally available on the API; around 35% lower word error rate on medical terminology than the base model",u:"https://elevenlabs.io/blog/scribe-v2-medical-is-now-available-to-everyone"},
-{n:"Sound Effects",k:["audio:sfx"],d:"2024",x:"Text to sound effects",u:"https://elevenlabs.io/sound-effects"},
+{n:"Sound Effects",k:["audio:sfx"],d:"31 May 2024",x:"Text to sound effects",u:"https://elevenlabs.io/sound-effects"},
 {n:"Eleven Music",k:["audio:music"],d:"5 Aug 2025",x:"Launched with major-label licensing in place",u:"https://elevenlabs.io/music"},
 {n:"Eleven Music v2",k:["audio:music"],d:"May 2026",x:"",u:"https://elevenlabs.io/music"},
 {n:"Eleven Music v2.5",k:["audio:music"],d:"Sep 2026",x:"Layered arrangements and more natural instruments than v2, now the default in ElevenMusic; shipped the day after a licensing agreement with Universal Music Group",u:"https://elevenlabs.io/blog/music-v2-5-model"},
@@ -1321,7 +1321,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 27 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 28 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
