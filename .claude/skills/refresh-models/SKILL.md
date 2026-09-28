@@ -122,7 +122,10 @@ https://developers.openai.com/api/docs/deprecations for OpenAI's, which dates
 each announcement and gives the shutdown date and replacement, and
 https://ai.google.dev/gemini-api/docs/deprecations for Google's, which gives a
 shutdown date and replacement per model ID and carries retirements the Gemini
-changelog does not.
+changelog does not, and
+https://docs.mistral.ai/getting-started/models/models_overview/ for Mistral's,
+whose legacy table dates the deprecation and the retirement per API id; the
+news blog announces releases and never mentions a shutdown.
 
 ### Weights repositories
 

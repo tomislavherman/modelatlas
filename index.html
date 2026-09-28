@@ -449,7 +449,7 @@ const D=[
 {n:"Voxtral",k:["audio:speech"],d:"Jul 2025",x:"Speech understanding",u:"https://mistral.ai/news/voxtral",o:{l:"Apache 2.0",h:"https://huggingface.co/mistralai/Voxtral-Small-24B-2507",q:16,p:[3,24]}},
 {n:"Voxtral TTS",k:["audio:speech"],d:"Mar 2026",x:"4B, open weights, priced against ElevenLabs",u:"https://mistral.ai/news/voxtral-tts/",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/mistralai/Voxtral-4B-TTS-2603",p:4}},
 {n:"Mistral Large 3",k:["text:chat","text:code"],d:"Dec 2025",x:"675B sparse mixture of experts with 41B active, Apache 2.0, 256K context",u:"https://mistral.ai/news",o:{l:"Apache 2.0",h:"https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512",p:675}},
-{n:"Mistral Medium 3",k:["text:code","text:chat"],d:"May 2025",x:"The tier Mistral points at for coding work",u:"https://mistral.ai/news/mistral-medium-3"},
+{n:"Mistral Medium 3",k:["text:code","text:chat"],d:"7 May 2025, retired 31 Aug 2026",x:"The tier Mistral pointed at for coding work until Medium 3.5 replaced it",u:"https://mistral.ai/news/mistral-medium-3"},
 {n:"Mistral Medium 3.5",k:["text:code","text:chat"],d:"Apr 2026",x:"The tier Mistral points at for coding work"},
 {n:"Mistral Small 4",k:["text:chat","text:code"],d:"Mar 2026",x:"119B sparse mixture of experts with 6B active, Apache 2.0, 256K context; folds Magistral's reasoning, Pixtral's vision and Devstral's agentic coding into one model instead of three",u:"https://mistral.ai/news/mistral-small-4/",o:{l:"Apache 2.0",h:"https://huggingface.co/mistralai/Mistral-Small-4-119B-2603",q:8,p:119}},
 {n:"Leanstral",k:["text:code"],d:"Mar 2026",x:"Lean 4 proof agent trained to work natively in formal repositories rather than wrapping a generalist model around the syntax",o:{l:"Apache 2.0",h:"https://huggingface.co/mistralai/Leanstral-2603"}},
@@ -734,6 +734,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"retired",y:"2026-05-22",f:"2026-09-28",c:"Mistral AI",n:"Mistral Medium 3",k:["text:code","text:chat"],x:"The tier Mistral pointed at for coding work until Medium 3.5 replaced it",u:"https://mistral.ai/news/mistral-medium-3"},
 {t:"added",y:"2026-09",f:"2026-09-27",c:"Shanghai AI Laboratory",n:"Intern-Decision-0.8B / Intern-Decision-2B / Intern-Decision-4B",k:["text:chat"],x:"Structured decision models on a Qwen3.5 backbone: a state, typed questions and optional images in, a calibrated answer distribution per field out in one forward pass",u:"https://github.com/internlm/Intern-Decision"},
 {t:"added",y:"2026-04-07",f:"2026-09-27",c:"Anthropic",n:"Claude Mythos Preview",k:["text:chat","text:code"],x:"Frontier model Anthropic will not release generally; Project Glasswing partners used it to find over ten thousand high- or critical-severity zero-days",u:"https://www.anthropic.com/news/mythos-preview"},
 {t:"added",y:"2026-02-18",f:"2026-09-27",c:"Google DeepMind",n:"Lyria 3",k:["audio:music"],x:"Writes its own lyrics from the prompt rather than taking them as input, with style, vocal and tempo control and SynthID watermarking on every track",u:"https://blog.google/innovation-and-ai/products/gemini-app/lyria-3/"},
