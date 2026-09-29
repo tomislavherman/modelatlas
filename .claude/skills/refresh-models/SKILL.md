@@ -80,7 +80,7 @@ they make is in scope.
 - https://cognition.com/blog
 - https://www.inceptionlabs.ai/blog
 - https://cohere.com/blog
-- https://allenai.org/blog
+- https://www.figure.ai/news
 - https://sakana.ai/blog/
 - https://www.tavus.io/blog
 - https://desertant.com/blog/
