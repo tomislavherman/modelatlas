@@ -387,7 +387,7 @@ const D=[
 {n:"Ray3.2",k:["video"],d:"9 Jun 2026",x:"Frame-level direction: up to 64 keyframes pinning what the output looks like at an exact frame, HDR and EXR out, and Modify Video V2 up to 20s of 1080p",u:"https://lumalabs.ai/news/introducing-ray-3-2"},
 {n:"Uni-1",k:["image"],d:"Mar 2026",x:"Reasoning and image generation in one model rather than two stitched at inference: text and images interleaved, up to nine reference inputs, doodle editing",u:"https://lumalabs.ai/uni-1"},
 {n:"Uni-1.1",k:["image"],d:"5 May 2026",x:"REST API for the Uni line: one generate endpoint and one natural-language modify endpoint, holding identity and composition across up to nine references",u:"https://lumalabs.ai/news/uni-1-1-api"},
-{n:"Genie (3D)",k:["world"],d:"2024",x:"Text to 3D mesh",u:"https://lumalabs.ai/genie"}]},
+{n:"Genie (3D)",k:["world"],d:"Jan 2024",x:"Text to 3D mesh",u:"https://lumalabs.ai/series-b"}]},
 {c:"Pika",r:"US",f:"2023",n:"independent",u:"https://pika.art",m:[
 {n:"Pika 1.0",k:["video"],d:"2023",x:"",u:"https://pika.art"},
 {n:"Pika 2.5",k:["video"],d:"2026",x:"",u:"https://pika.art"},
@@ -399,7 +399,7 @@ const D=[
 {c:"Moonvalley",r:"CA/US",f:"2021",n:"independent",u:"https://www.moonvalley.com",m:[
 {n:"Marey",k:["video"],d:"8 Jul 2025",x:"Trained only on licensed footage",u:"https://www.moonvalley.com/marey"}]},
 {c:"Midjourney",r:"US",f:"2022",n:"independent",u:"https://www.midjourney.com",m:[
-{n:"Midjourney v1",k:["image"],d:"2022",x:"",u:"https://www.midjourney.com/explore"},
+{n:"Midjourney v1",k:["image"],d:"Feb 2022",x:"",u:"https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version"},
 {n:"Midjourney v8.2",k:["image"],d:"24 Jul 2026",x:"",u:"https://updates.midjourney.com/version-8-2/"},
 {n:"Midjourney Video V1",k:["video"],d:"Jun 2025",x:"",u:"https://www.midjourney.com/updates"},
 {n:"Midjourney Video V8",k:["video"],d:"Apr 2026",x:"",u:"https://www.midjourney.com/updates"},
@@ -488,7 +488,9 @@ const D=[
 {c:"Deepgram",r:"US",f:"2015",n:"independent",u:"https://deepgram.com",m:[
 {n:"Nova 3",k:["audio:speech"],d:"12 Feb 2025",x:"Speech-to-text, and the first Deepgram model to transcribe multilingual speech in real time, code-switching across ten languages without routing",u:"https://deepgram.com/learn/introducing-nova-3-speech-to-text-api"},
 {n:"Aura 2",k:["audio:speech"],d:"Apr 2025",x:"Text-to-speech aimed at enterprise rather than performance: passwords, medical terms and alphanumeric identifiers read correctly, under 200ms",u:"https://deepgram.com/learn/introducing-aura-2-enterprise-text-to-speech"},
-{n:"Flux TTS",k:["audio:speech"],d:"12 Aug 2026",x:"Conversation-native turn handling",u:"https://deepgram.com/product/text-to-speech"}]},
+{n:"Flux STT",k:["audio:speech"],d:"29 Oct 2025 → multilingual GA 29 Apr 2026",x:"Conversational speech recognition with transcription and turn detection in one model, so a voice agent knows a speaker has finished rather than waiting out silence",u:"https://deepgram.com/learn/introducing-flux-conversational-speech-recognition"},
+{n:"Flux TTS",k:["audio:speech"],d:"12 Aug 2026",x:"Conversation-native turn handling",u:"https://deepgram.com/product/text-to-speech"},
+{n:"Nova 3 Pharma",k:["audio:speech"],d:"17 Sep 2026",x:"Nova-3 variant purpose-built for pharmaceutical vocabulary, tuned for accurate drug-name recognition; English only, across eight regional variants",u:"https://developers.deepgram.com/changelog/2026/9/17"}]},
 {c:"Suno",r:"US",f:"2022",n:"independent",u:"https://suno.com",m:[
 {n:"Suno v1",k:["audio:music"],d:"2023, retired Sep 2026",x:"Trained on unlicensed material",u:"https://suno.com"},
 {n:"Suno v5.5",k:["audio:music"],d:"Mar 2026, retired Sep 2026",x:"Deprecated after the Warner settlement; switched off the day v6 shipped, though songs already generated stay playable",u:"https://suno.com"},
@@ -522,7 +524,7 @@ const D=[
 {n:"Avatar IV",k:["avatar"],d:"Apr 2025",x:"Digital twin from a 15-second clip, lip-sync in 175+ languages",u:"https://www.heygen.com/avatars"},
 {n:"Avatar V",k:["avatar"],d:"Apr 2026",x:"Digital twin from a 15-second clip, lip-sync in 175+ languages",u:"https://www.heygen.com/avatars"}]},
 {c:"Synthesia",r:"UK",f:"2017",n:"independent",u:"https://www.synthesia.io",m:[
-{n:"Express",k:["avatar"],d:"2023",x:"Full-body gesture and voice cloning",u:"https://www.synthesia.io/features/avatars"},
+{n:"Express-1",k:["avatar"],d:"22 Apr 2024",x:"Full-body gesture and voice cloning",u:"https://www.synthesia.io/post/expressive-avatars-powered-by-synthesias-new-express1-model-are-here"},
 {n:"Express-2",k:["avatar"],d:"4 Sep 2025",x:"Full-body gesture and voice cloning",u:"https://www.synthesia.io/features/avatars"}]},
 {c:"Hedra",r:"US",f:"2023",n:"independent",u:"https://www.hedra.com",m:[
 {n:"Character-3",k:["avatar"],d:"Mar 2025",x:"Omnimodal character animation",u:"https://www.hedra.com/video-models/hedra-character-3"},
@@ -746,6 +748,8 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-17",f:"2026-09-29",c:"Deepgram",n:"Nova 3 Pharma",k:["audio:speech"],x:"Nova-3 variant purpose-built for pharmaceutical vocabulary, tuned for accurate drug-name recognition; English only, across eight regional variants",u:"https://developers.deepgram.com/changelog/2026/9/17"},
+{t:"added",y:"2025-10-29",f:"2026-09-29",c:"Deepgram",n:"Flux STT",k:["audio:speech"],x:"Conversational speech recognition with transcription and turn detection in one model, so a voice agent knows a speaker has finished rather than waiting out silence",u:"https://deepgram.com/learn/introducing-flux-conversational-speech-recognition"},
 {t:"announced",y:"2026-09-28",f:"2026-09-29",c:"Kuaishou",n:"Kling 4.0",k:["video","audio:sfx"],x:"Doubles Kling's maximum clip to 30 seconds and takes more than a dozen text, image and video references, plus up to ten keyframes fixing the look of each segment",u:"https://kling.ai"},
 {t:"added",y:"2026-09-28",f:"2026-09-28",c:"Anthropic",n:"Claude Sonnet 5.5",k:["text:chat","text:code"],x:"Fast tier at 1M-token context with adaptive thinking on by default; 30% faster and up to 30% cheaper than Sonnet 5, and forced tool use now returns an error",u:"https://www.anthropic.com/claude-sonnet-5-5"},
 {t:"added",y:"2026-09-28",f:"2026-09-28",c:"ElevenLabs",n:"Eleven v4 / Eleven v4 Turbo",k:["audio:speech"],x:"New architecture reading tone, pacing and character from the text across 90+ languages; Turbo trades some quality for ~150ms median time to first speech",u:"https://elevenlabs.io/blog/eleven-v4"},
