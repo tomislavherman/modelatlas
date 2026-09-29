@@ -261,7 +261,7 @@ const D=[
 {n:"text-embedding-3",k:["text:embed"],d:"Jan 2024",x:"Small and large tiers on the API",u:"https://platform.openai.com/docs/guides/embeddings"}]},
 {c:"Google DeepMind",r:"US",f:"2010 / merged 2023",n:"Alphabet",u:"https://deepmind.google",m:[
 {n:"Imagen",k:["image"],d:"2023, shut down Aug 2026",x:"",u:"https://deepmind.google/models/imagen/"},
-{n:"Imagen 4",k:["image"],d:"2025, shut down Aug 2026",x:"Endpoints closed; Gemini-native Nano Banana is the migration target",u:"https://deepmind.google/models/imagen/"},
+{n:"Imagen 4",k:["image"],d:"20 May 2025, shut down Aug 2026",x:"Endpoints closed; Gemini-native Nano Banana is the migration target",u:"https://deepmind.google/models/imagen/"},
 {n:"Nano Banana",k:["image"],d:"Aug 2025, shut down Oct 2026",x:"Gemini-native image generation and editing",u:"https://deepmind.google/models/gemini-image/"},
 {n:"Nano Banana 2",k:["image"],d:"26 Feb 2026",x:"",u:"https://deepmind.google/models/gemini-image/"},
 {n:"Nano Banana Pro",k:["image"],d:"28 May 2026",x:"Premium tier of the line: highest world knowledge, up to six reference images, interleaved text-and-image output and 4K rendering for marketing assets and diagrams",u:"https://ai.google.dev/gemini-api/docs/image-generation"},
@@ -464,7 +464,7 @@ const D=[
 {n:"Leanstral 1.5",k:["text:code"],d:"Jun 2026, Labs hosting ends 30 Sep 2026",x:"119B sparse mixture of experts with 6B active, Apache 2.0, 256K context, free in the experimental Labs tier; the open weights stay up after the hosted endpoint closes",u:"https://mistral.ai/news/leanstral-1-5/",o:{l:"Apache 2.0",h:"https://huggingface.co/mistralai/Leanstral-1.5-119B-A6B",p:119}},
  {n:"Robostral Navigate",k:["robotics"],d:"Jul 2026",x:"Mistral's first embodied model: 8B, driving a robot from one RGB camera and a plain-language instruction, no depth sensor; 76.6% on R2R-CE across wheeled, legged and flying bodies",u:"https://mistral.ai/news/robostral-navigate/"}]},
 {c:"ElevenLabs",r:"UK/US",f:"2022",n:"independent",u:"https://elevenlabs.io",m:[
-{n:"Eleven TTS",k:["audio:speech"],d:"2023",x:"",u:"https://elevenlabs.io/text-to-speech"},
+{n:"Eleven TTS",k:["audio:speech"],d:"23 Jan 2023",x:"",u:"https://elevenlabs.io/text-to-speech"},
 {n:"Eleven v3",k:["audio:speech"],d:"Jun 2025",x:"",u:"https://elevenlabs.io/text-to-speech"},
 {n:"Eleven v4 / Eleven v4 Turbo",k:["audio:speech"],d:"28 Sep 2026",x:"New architecture reading tone, pacing and character from the text across 90+ languages; Turbo trades some quality for ~150ms median time to first speech",u:"https://elevenlabs.io/blog/eleven-v4"},
 {n:"Scribe",k:["audio:speech"],d:"26 Feb 2025",x:"Speech-to-text",u:"https://elevenlabs.io/speech-to-text"},
@@ -557,6 +557,7 @@ const D=[
 {c:"Kuaishou",r:"CN",f:"2011",n:"HKEX 2021",u:"https://www.kuaishou.com",m:[
 {n:"Kling",k:["video"],d:"Jun 2024",x:"",u:"https://klingai.com"},
 {n:"Kling v3",k:["video","audio:sfx"],d:"Feb 2026",x:"Launched as Video 3.0 and Video 3.0 Omni: 15-second clips with native audio across languages, dialects and accents, and reference videos to hold characters and scenes consistent",u:"https://klingai.com"},
+{n:"Kling 4.0",k:["video","audio:sfx"],d:"announced 28 Sep 2026, expected Oct 2026",x:"Doubles Kling's maximum clip to 30 seconds and takes more than a dozen text, image and video references, plus up to ten keyframes fixing the look of each segment",u:"https://kling.ai"},
 {n:"Kolors",k:["image"],d:"Jun 2024",x:"Open weights",u:"https://github.com/Kwai-Kolors/Kolors",o:{l:"Apache 2.0",h:"https://huggingface.co/Kwai-Kolors/Kolors",q:32,p:2.6}},
 {n:"Kling Image 3.0",k:["image"],d:"Jan 2026",x:"Kolors renamed into the Kling line"}]},
 {c:"MiniMax",r:"CN",f:"2021",n:"HKEX Jan 2026",u:"https://www.minimax.io",m:[
@@ -745,6 +746,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"announced",y:"2026-09-28",f:"2026-09-29",c:"Kuaishou",n:"Kling 4.0",k:["video","audio:sfx"],x:"Doubles Kling's maximum clip to 30 seconds and takes more than a dozen text, image and video references, plus up to ten keyframes fixing the look of each segment",u:"https://kling.ai"},
 {t:"added",y:"2026-09-28",f:"2026-09-28",c:"Anthropic",n:"Claude Sonnet 5.5",k:["text:chat","text:code"],x:"Fast tier at 1M-token context with adaptive thinking on by default; 30% faster and up to 30% cheaper than Sonnet 5, and forced tool use now returns an error",u:"https://www.anthropic.com/claude-sonnet-5-5"},
 {t:"added",y:"2026-09-28",f:"2026-09-28",c:"ElevenLabs",n:"Eleven v4 / Eleven v4 Turbo",k:["audio:speech"],x:"New architecture reading tone, pacing and character from the text across 90+ languages; Turbo trades some quality for ~150ms median time to first speech",u:"https://elevenlabs.io/blog/eleven-v4"},
 {t:"added",y:"2025-11",f:"2026-09-28",c:"Ai2",n:"Olmo 3",k:["text:chat","text:code"],x:"Fully open: training data, code and weights all published, not just the weights. Olmo 3-Think is the reasoning tier, at 7B and 32B",u:"https://allenai.org/blog/olmo3"},
@@ -1343,7 +1345,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 28 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 29 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
