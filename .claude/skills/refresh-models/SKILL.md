@@ -112,8 +112,8 @@ changelog names the exact model ID with the exact date:
 - https://platform.vidu.com/docs/update
 - https://www.kimi.com/code/docs/en/kimi-code/whats-new.html
 - https://www.alibabacloud.com/help/en/model-studio/newly-released-models
-- https://docs.qwencloud.com/changelog/models
 - https://elevenlabs.io/docs/changelog
+- https://developers.deepgram.com/changelog
 - https://platform.minimax.io/docs/release-notes/models
 
 Also read https://platform.claude.com/docs/en/about-claude/model-deprecations
