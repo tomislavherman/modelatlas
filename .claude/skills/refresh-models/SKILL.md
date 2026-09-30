@@ -65,7 +65,7 @@ they make is in scope.
 - https://research.meta.ai/blog
 - https://about.fb.com/news/
 - https://x.ai/news
-- https://api-docs.deepseek.com/news/
+- https://api-docs.deepseek.com/updates
 - https://qwen.ai/blog
 - https://forum.moonshot.ai/c/announcement/5
 - https://seed.bytedance.com/en/blog
