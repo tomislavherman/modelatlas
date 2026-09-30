@@ -391,7 +391,7 @@ const D=[
 {n:"Uni-1.1",k:["image"],d:"5 May 2026",x:"REST API for the Uni line: one generate endpoint and one natural-language modify endpoint, holding identity and composition across up to nine references",u:"https://lumalabs.ai/news/uni-1-1-api"},
 {n:"Genie (3D)",k:["world"],d:"Jan 2024",x:"Text to 3D mesh",u:"https://lumalabs.ai/series-b"}]},
 {c:"Pika",r:"US",f:"2023",n:"independent",u:"https://pika.art",m:[
-{n:"Pika 1.0",k:["video"],d:"2023",x:"",u:"https://pika.art"},
+{n:"Pika 1.0",k:["video"],d:"Nov 2023",x:"",u:"https://pika.art"},
 {n:"Pika 2.5",k:["video"],d:"2026",x:"",u:"https://pika.art"},
 {n:"PikaStream",k:["video"],d:"Apr 2026",x:"Real-time 24 fps",u:"https://pika.art"},
 {n:"Pika Soundtrack",k:["audio:sfx","audio:music","audio:speech"],d:"18 Aug 2026",x:"Video-to-audio latent diffusion transformer that scores a clip with motion-aware effects, voice, music and ambience in one pass; distillation and caching halve the cost",u:"https://pika.art/blog/pika-soundtrack"},
@@ -670,7 +670,8 @@ const D=[
 {n:"SWE-2",k:["text:code"],d:"10 Sep 2026",x:"Post-trained from Kimi K3 with medium, high and max effort levels; 50.0% on FrontierCode 1.1 Main, within a point of Fable 5.1 at 64% less cost, and 92.8% on Terminal-Bench 2.1",u:"https://cognition.com/blog/swe-2"}]},
 {c:"Inception",r:"US",f:"2024",n:"independent",u:"https://www.inceptionlabs.ai",m:[
 {n:"Mercury",k:["text:chat","text:code"],d:"2025 → Feb 2026",x:"Diffusion language models: tokens are produced and refined in parallel instead of one at a time"},
-{n:"Mercury 2.5",k:["text:chat","text:code"],d:"Aug 2026 → GA 24 Sep 2026",x:"Past 1100 tokens a second on stock GPUs at cost-optimised frontier quality, with tunable reasoning and parallel tool calls; on Inception's API, Baseten and OpenRouter",u:"https://www.inceptionlabs.ai/blog/introducing-mercury-2-5"}]},
+{n:"Mercury 2.5",k:["text:chat","text:code"],d:"Aug 2026 → GA 24 Sep 2026",x:"Past 1100 tokens a second on stock GPUs at cost-optimised frontier quality, with tunable reasoning and parallel tool calls; on Inception's API, Baseten and OpenRouter",u:"https://www.inceptionlabs.ai/blog/introducing-mercury-2-5"},
+{n:"Mercury Voice",k:["text:chat"],d:"29 Sep 2026",x:"Diffusion LLM for the reasoning tier of a voice agent: calls tools and follows long system prompts at a 320ms median time to first token, 750ms at the 95th percentile",u:"https://www.inceptionlabs.ai/blog/introducing-mercury-voice"}]},
 {c:"TypeSafe AI",r:"US",f:"2024",n:"independent",u:"https://typesafe.ai",m:[
 {n:"Jev 1.13",k:["text:chat"],d:"Sep 2026",x:"First of what the lab calls System One models: unstructured state in, a typed decision with a calibrated probability out; it cannot make a type error or invent a field",u:"https://typesafe.ai/blog/introducing-system-one-models-and-jev"}]},
 {c:"Ai2",r:"US",f:"2014",n:"non-profit",u:"https://allenai.org",m:[
@@ -752,6 +753,8 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-29",f:"2026-09-30",c:"Inception",n:"Mercury Voice",k:["text:chat"],x:"Diffusion LLM for the reasoning tier of a voice agent: calls tools and follows long system prompts at a 320ms median time to first token, 750ms at the 95th percentile",u:"https://www.inceptionlabs.ai/blog/introducing-mercury-voice"},
+{t:"retired",y:"2026-08-27",f:"2026-09-30",c:"Google DeepMind",n:"Gemini Omni Flash",k:["video","audio:sfx"],x:"Video with sound from text, image or video input, edited by conversation; the preview endpoint was deprecated the day Gemini Omni 1.1 Flash reached GA and switched off on 30 Sep 2026",u:"https://ai.google.dev/gemini-api/docs/deprecations"},
 {t:"added",y:"2026-09-29",f:"2026-09-29",c:"OpenAI",n:"GPT-6.1 Sol",k:["text:chat","text:code"],x:"Near-Astra quality on complex coding, computer use and professional work for a fifth of Astra's token price; text and image in over a 1.05M-token context",u:"https://developers.openai.com/api/docs/models/gpt-6.1-sol"},
 {t:"added",y:"2026-09-17",f:"2026-09-29",c:"Figure",n:"Helix 2.5",k:["robotics"],x:"One Index-pretrained network tidying, folding towels and making beds zero-shot across 30 unseen homes, on half the task data a Helix 02 behaviour needed",u:"https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization"},
 {t:"added",y:"2026-02-17",f:"2026-09-29",c:"Cohere",n:"Tiny Aya Global / Tiny Aya Earth / Tiny Aya Fire / Tiny Aya Water",k:["text:chat"],x:"70+ languages offline on a laptop, many low-resource; Global balances them all, while Earth, Fire and Water specialise in African, South Asian and Asia-Pacific languages",u:"https://cohere.com/blog/cohere-labs-tiny-aya"},
@@ -1357,7 +1360,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 29 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 30 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
