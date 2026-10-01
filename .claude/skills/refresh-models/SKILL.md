@@ -135,7 +135,7 @@ later. The Hugging Face API is a dated index per organisation, so read it the
 same way as a newsroom, one call per organisation:
 
 ```sh
-for a in openai google facebook meta-llama meta-models ibm-granite nvidia \
+for a in openai google facebook meta-models ibm-granite nvidia \
   black-forest-labs stabilityai ideogram-ai krea Lightricks mistralai \
   Kwai-Kolors MiniMaxAI Wan-AI Qwen FunAudioLLM tencent zai-org inclusionAI \
   stepfun-ai internlm deepseek-ai moonshotai IFM thinkingmachines CohereLabs allenai \
