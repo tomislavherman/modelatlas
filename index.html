@@ -416,7 +416,8 @@ const D=[
 {n:"Stable Audio 3.0",k:["audio:music","audio:sfx"],d:"May 2026",x:"Section-level song structure",u:"https://stability.ai/stable-audio",o:{l:"Stability community",h:"https://huggingface.co/stabilityai/stable-audio-3-medium",q:32,p:[0.6,2.3]}}]},
 {c:"Ideogram",r:"US",f:"2022",n:"independent",u:"https://ideogram.ai",m:[
 {n:"Ideogram 1.0",k:["image"],d:"28 Feb 2024",x:"Strongest at text inside images",u:"https://about.ideogram.ai"},
-{n:"Ideogram 4.0",k:["image"],d:"Jun 2026",x:"Open weights; strongest at text inside images",u:"https://about.ideogram.ai",o:{l:"Ideogram 4 non-commercial",h:"https://huggingface.co/ideogram-ai/ideogram-4-fp8",q:8,p:9.3}}]},
+{n:"Ideogram 4.0",k:["image"],d:"Jun 2026",x:"Open weights; strongest at text inside images",u:"https://ideogram.ai/models/4.0/",o:{l:"Ideogram 4 non-commercial",h:"https://huggingface.co/ideogram-ai/ideogram-4-fp8",q:8,p:9.3}},
+{n:"Ideogram 4.5",k:["image"],d:"30 Sep 2026",x:"Precise-edit model: repeated edits without pixel shift or colour drift, and a 24MP crop edited at native resolution and stitched back into the original; open weights promised",u:"https://ideogram.ai/models/4.5/",o:{}}]},
 {c:"Recraft",r:"US",f:"2022",n:"independent",u:"https://www.recraft.ai",m:[
 {n:"Recraft V3",k:["image"],d:"30 Oct 2024",x:"Vector and raster output from one model, with long in-image text and brand styles supplied as an input rather than a fine-tune",u:"https://www.recraft.ai/blog/recraft-introduces-a-revolutionary-ai-model-that-thinks-in-design-language"},
 {n:"Recraft V4.1",k:["image"],d:"14 May 2026",x:"Vector output and brand-style control",u:"https://www.recraft.ai/blog/recraft-v4-1-more-beautiful-by-nature"},
@@ -613,7 +614,7 @@ const D=[
 {n:"HunyuanVideo-Avatar",k:["avatar"],d:"May 2025",x:"",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo-Avatar",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo-Avatar"}},
 {n:"AuK / AuK-Flash",k:["audio:speech"],d:"9 Sep 2026",x:"1.5B speech model driven by natural-language instructions: zero-shot TTS, content and emotion edits, de-accenting, enhancement and separation; Flash is a 4-step distill",u:"https://huggingface.co/tencent/AuK",o:{l:"MIT",h:"https://huggingface.co/tencent/AuK",p:1.5}},
 {n:"Hunyuan 2.0",k:["text:chat","text:code"],d:"Dec 2025",x:"Deployed in over 900 Tencent products"},
-{n:"Hy4 preview",k:["text:chat","text:code"],d:"Aug 2026",x:"The Hy4 rename opens the line up at 770B with 49B active and a 1M-token context under Apache 2.0",u:"https://github.com/Tencent-Hunyuan/Hy4-preview",o:{l:"Apache 2.0",h:"https://huggingface.co/tencent/Hy4-preview",q:16,p:780}},
+{n:"Hy4 preview",k:["text:chat","text:code"],d:"28 Aug 2026",x:"The Hy4 rename opens the line up at 770B with 49B active and a 1M-token context under Apache 2.0",u:"https://github.com/Tencent-Hunyuan/Hy4-preview",o:{l:"Apache 2.0",h:"https://huggingface.co/tencent/Hy4-preview",q:16,p:780}},
 {n:"EVIE-8B / EVIE-4.5B",k:["text:embed"],d:"Sep 2026",x:"Visual document retrievers with ColBERT-style late interaction over page images, built on Qwen3.5; 66.75 on ViDoRe V3, first on the leaderboard",u:"https://huggingface.co/tencent/EVIE-8B",o:{l:"Apache 2.0",h:"https://huggingface.co/tencent/EVIE-8B",q:16,p:[4.5,8]}}]},
 {c:"ShengShu",r:"CN",f:"2023",n:"independent",u:"https://www.shengshu-ai.com",m:[
 {n:"Vidu",k:["video"],d:"Apr 2024",x:"",u:"https://www.vidu.com"},
@@ -760,6 +761,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-30",f:"2026-10-01",c:"Ideogram",n:"Ideogram 4.5",k:["image"],x:"Precise-edit model: repeated edits without pixel shift or colour drift, and a 24MP crop edited at native resolution and stitched back into the original; open weights promised",u:"https://ideogram.ai/models/4.5/"},
 {t:"added",y:"2025-09-29",f:"2026-10-01",c:"Anthropic",n:"Claude Sonnet 4.5",k:["text:chat","text:code"],x:"The 4.5 generation's mid tier and the long-serving default for coding agents; Sonnet 5.5 is the recommended replacement",u:"https://www.anthropic.com/news/claude-sonnet-4-5"},
 {t:"added",y:"2026-09-09",f:"2026-10-01",c:"Tencent",n:"AuK / AuK-Flash",k:["audio:speech"],x:"1.5B speech model driven by natural-language instructions: zero-shot TTS, content and emotion edits, de-accenting, enhancement and separation; Flash is a 4-step distill",u:"https://huggingface.co/tencent/AuK"},
 {t:"added",y:"2026-04-23",f:"2026-10-01",c:"SpaceXAI",n:"Grok Voice Think Fast 1.0",k:["audio:speech"],x:"Full-duplex voice agent for multi-step support and sales workflows in 25+ languages; took the top spot on the τ-voice Bench leaderboard at release",u:"https://x.ai/news/grok-voice-think-fast-1"},
