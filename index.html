@@ -297,6 +297,7 @@ const D=[
 {n:"Claude Opus 4",k:["text:chat","text:code"],d:"May 2025, retired 15 Jun 2026",x:"Deprecated Apr 2026 and pulled from the API in favour of Claude Opus 4.8",u:"https://platform.claude.com/docs/en/about-claude/model-deprecations"},
 {n:"Claude Opus 4.8",k:["text:chat","text:code"],d:"28 May 2026",x:"Eighth point release of the largest tier inside a year"},
 {n:"Claude Haiku 4.5",k:["text:chat"],d:"Oct 2025",x:"The small, fast tier",u:"https://www.anthropic.com/news/claude-haiku-4-5"},
+{n:"Claude Sonnet 4.5",k:["text:chat","text:code"],d:"29 Sep 2025, retired 30 Nov 2026",x:"The 4.5 generation's mid tier and the long-serving default for coding agents; Sonnet 5.5 is the recommended replacement",u:"https://www.anthropic.com/news/claude-sonnet-4-5"},
 {n:"Claude Mythos Preview",k:["text:chat","text:code"],d:"7 Apr 2026",x:"Frontier model Anthropic will not release generally; Project Glasswing partners used it to find over ten thousand high- or critical-severity zero-days",u:"https://www.anthropic.com/news/mythos-preview"},
 {n:"Claude Mythos 5 / Claude Fable 5",k:["text:chat","text:code"],d:"9 Jun 2026",x:"Frontier tier; Mythos is the same model under lighter safeguards for vetted cyber and life-science orgs"},
 {n:"Claude Mythos 5.1 / Claude Fable 5.1",k:["text:chat","text:code"],d:"1 Sep 2026",x:"Matches Fable 5 at low effort and cuts cache reads to a quarter of the price",u:"https://www.anthropic.com/claude-fable-and-mythos-5-1"},
@@ -610,6 +611,7 @@ const D=[
 {n:"Hy Image 3.5 Preview",k:["image"],d:"Sep 2026",x:"Unifies generation with multi-round conversational editing, takes up to 20 reference images against 3.0's three, and renders directly at 4096×4096"},
 {n:"Hunyuan3D / HunyuanWorld",k:["world"],d:"2024 → 2026",x:"Open weights",u:"https://3d.hunyuan.tencent.com",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/Hunyuan3D-2"}},
 {n:"HunyuanVideo-Avatar",k:["avatar"],d:"May 2025",x:"",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo-Avatar",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo-Avatar"}},
+{n:"AuK / AuK-Flash",k:["audio:speech"],d:"9 Sep 2026",x:"1.5B speech model driven by natural-language instructions: zero-shot TTS, content and emotion edits, de-accenting, enhancement and separation; Flash is a 4-step distill",u:"https://huggingface.co/tencent/AuK",o:{l:"MIT",h:"https://huggingface.co/tencent/AuK",p:1.5}},
 {n:"Hunyuan 2.0",k:["text:chat","text:code"],d:"Dec 2025",x:"Deployed in over 900 Tencent products"},
 {n:"Hy4 preview",k:["text:chat","text:code"],d:"Aug 2026",x:"The Hy4 rename opens the line up at 770B with 49B active and a 1M-token context under Apache 2.0",u:"https://github.com/Tencent-Hunyuan/Hy4-preview",o:{l:"Apache 2.0",h:"https://huggingface.co/tencent/Hy4-preview",q:16,p:780}},
 {n:"EVIE-8B / EVIE-4.5B",k:["text:embed"],d:"Sep 2026",x:"Visual document retrievers with ColBERT-style late interaction over page images, built on Qwen3.5; 66.75 on ViDoRe V3, first on the leaderboard",u:"https://huggingface.co/tencent/EVIE-8B",o:{l:"Apache 2.0",h:"https://huggingface.co/tencent/EVIE-8B",q:16,p:[4.5,8]}}]},
@@ -758,6 +760,8 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2025-09-29",f:"2026-10-01",c:"Anthropic",n:"Claude Sonnet 4.5",k:["text:chat","text:code"],x:"The 4.5 generation's mid tier and the long-serving default for coding agents; Sonnet 5.5 is the recommended replacement",u:"https://www.anthropic.com/news/claude-sonnet-4-5"},
+{t:"added",y:"2026-09-09",f:"2026-10-01",c:"Tencent",n:"AuK / AuK-Flash",k:["audio:speech"],x:"1.5B speech model driven by natural-language instructions: zero-shot TTS, content and emotion edits, de-accenting, enhancement and separation; Flash is a 4-step distill",u:"https://huggingface.co/tencent/AuK"},
 {t:"added",y:"2026-04-23",f:"2026-10-01",c:"SpaceXAI",n:"Grok Voice Think Fast 1.0",k:["audio:speech"],x:"Full-duplex voice agent for multi-step support and sales workflows in 25+ languages; took the top spot on the τ-voice Bench leaderboard at release",u:"https://x.ai/news/grok-voice-think-fast-1"},
 {t:"added",y:"2026-02-10",f:"2026-10-01",c:"Tavus",n:"Raven-1",k:["audio:speech"],x:"Audio-visual perception model reading tone, expression and hesitation, then describing the speaker's state in plain language for an LLM to act on; under 600ms",u:"https://www.tavus.io/blog/raven-1-bringing-emotional-intelligence-to-artificial-intelligence"},
 {t:"added",y:"2026-09-30",f:"2026-09-30",c:"Google DeepMind",n:"Gemini 4 Argon",k:["text:chat","text:code"],x:"First of the Gemini 4 generation, trained for defensive security: patches the vulnerabilities it finds, tying first on CWE-bench v1 at 68%; Fairwind defenders first",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"},
