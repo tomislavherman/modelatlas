@@ -65,8 +65,10 @@ eqJ(newest("2 Jul 2026 → video GA 14 Aug 2026"), { v: 2026 * 12 + 8, x: 2, dy:
 // Newest first, later day first, and the better-written date first on a tie.
 eqJ(["10 Sep 2026", "22 Sep 2026", "Sep 2026", "2026"].sort(cmpDate),
   ["22 Sep 2026", "10 Sep 2026", "Sep 2026", "2026"], "day > day > month > bare year");
-// A day must not disturb any badge.
-eqJ([fresh("22 Sep 2026"), fresh("22 Aug 2026")], [true, false], "fresh() ignores the day");
+// A day must not disturb any badge. fresh() is the one helper here that reads
+// NOW, so these two dates are built from it rather than written out: pinned to a
+// literal month they passed only until the compile date rolled over.
+eqJ([fresh(`22 ${stamp(NOW)}`), fresh(`22 ${stamp(NOW - 1)}`)], [true, false], "fresh() ignores the day");
 eqJ(status("2 Sep 2025, API ends 24 Sep 2026"), "retired", "a day inside a retirement clause");
 eqJ(dsp("2 Jul 2026 → video GA 14 Aug 2026"), "Jul 2026 → video GA Aug 2026", "the card prints months");
 eqJ(dsp("2024 → 2026"), "2024 → 2026", "bare years are left alone");

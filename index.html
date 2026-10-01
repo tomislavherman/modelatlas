@@ -263,7 +263,7 @@ const D=[
 {c:"Google DeepMind",r:"US",f:"2010 / merged 2023",n:"Alphabet",u:"https://deepmind.google",m:[
 {n:"Imagen",k:["image"],d:"2023, shut down Aug 2026",x:"",u:"https://deepmind.google/models/imagen/"},
 {n:"Imagen 4",k:["image"],d:"20 May 2025, shut down Aug 2026",x:"Endpoints closed; Gemini-native Nano Banana is the migration target",u:"https://deepmind.google/models/imagen/"},
-{n:"Nano Banana",k:["image"],d:"Aug 2025, shut down Oct 2026",x:"Gemini-native image generation and editing",u:"https://deepmind.google/models/gemini-image/"},
+{n:"Nano Banana",k:["image"],d:"Aug 2025, shut down 2 Oct 2026",x:"Gemini-native image generation and editing",u:"https://ai.google.dev/gemini-api/docs/deprecations"},
 {n:"Nano Banana 2",k:["image"],d:"26 Feb 2026",x:"",u:"https://deepmind.google/models/gemini-image/"},
 {n:"Nano Banana Pro",k:["image"],d:"28 May 2026",x:"Premium tier of the line: highest world knowledge, up to six reference images, interleaved text-and-image output and 4K rendering for marketing assets and diagrams",u:"https://ai.google.dev/gemini-api/docs/image-generation"},
 {n:"Nano Banana 2 Lite",k:["image"],d:"30 Jun 2026",x:"Fastest and cheapest of the line, capped at 1K and without Search grounding or character-consistency references; built for high-volume work where cost is the constraint",u:"https://ai.google.dev/gemini-api/docs/image-generation"},
@@ -1164,7 +1164,7 @@ const MON={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,d
 // "wind-down Jul 2026"). Those are not releases, so the clause is dropped
 // before any date is read out of the line, for both the sort and the badge.
 const RETIRED=/\b(?:retired?|EOL|wind-?down|closed|ends?|discontinued|shut down|removed?|removal)\b[^,]*/gi;
-const NOW=2026*12+9;   // September 2026, the compile date in the header
+const NOW=2026*12+10;  // October 2026, the compile date in the header
 // Every release date a line names, as year*12+month, oldest first, with the
 // day kept beside it for ordering. x is how precisely the date was written:
 // 2 a day ("22 Sep 2026"), 1 a month ("Sep 2026"), 0 a bare year or a span
@@ -1366,7 +1366,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 30 Sep 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 1 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
