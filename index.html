@@ -372,7 +372,8 @@ const D=[
 {n:"Isaac GR00T N1.7",k:["robotics"],d:"Jun 2026",x:"3B parameters on a Cosmos Reason backbone",u:"https://github.com/NVIDIA/Isaac-GR00T",o:{l:"NVIDIA Open Model",h:"https://huggingface.co/nvidia/GR00T-N1.7-3B",q:16,p:3.1}},
 {n:"Isaac GR00T N2",k:["robotics"],d:"expected 2026",x:"Currently first on MolmoSpaces and RoboArena for generalist robot policies",u:"https://developer.nvidia.com/isaac/gr00t"},
 {n:"Nemotron 3.5 Lightning",k:["text:chat"],d:"Aug 2026",x:"30B mixture of experts with 3B active on a hybrid Mamba-2 backbone, 1M-token context; weights, training data and recipes under OpenMDW-1.1, aimed at long-running agents",u:"https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",o:{l:"OpenMDW 1.1",h:"https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",q:16,p:32}},
-{n:"Nemotron 3 Diarization",k:["audio:speech"],d:"23 Sep 2026",x:"Open-weights speaker diarization: who spoke when, up to eight speakers with overlapping speech, streaming or offline; first on VoiceArena Diarization-Bench",u:"https://huggingface.co/blog/nvidia/nemotron-diarization",o:{l:"OpenMDW 1.1",h:"https://huggingface.co/nvidia/Nemotron-3-Diarization",q:32,p:0.1}}]},
+{n:"Nemotron 3 Diarization",k:["audio:speech"],d:"23 Sep 2026",x:"Open-weights speaker diarization: who spoke when, up to eight speakers with overlapping speech, streaming or offline; first on VoiceArena Diarization-Bench",u:"https://huggingface.co/blog/nvidia/nemotron-diarization",o:{l:"OpenMDW 1.1",h:"https://huggingface.co/nvidia/Nemotron-3-Diarization",q:32,p:0.1}},
+{n:"PixelUMM",k:["image","video"],d:"29 Sep 2026, open weights Oct 2026",x:"Encoder-free: reads and writes raw pixels in one decoder-only Transformer with no VAE and no vision encoder, generating images and video as well as reading them",u:"https://nv-tlabs.github.io/PixelUMM/",o:{l:"NVIDIA One-Way non-commercial",h:"https://huggingface.co/nvidia/PixelUMM",p:15}}]},
 {c:"Black Forest Labs",r:"DE",f:"2024",n:"independent",u:"https://bfl.ai",m:[
 {n:"FLUX.1",k:["image"],d:"Aug 2024",x:"",u:"https://bfl.ai/models/flux-pro",o:{l:"FLUX.1 dev non-commercial",h:"https://huggingface.co/black-forest-labs/FLUX.1-dev",q:16,p:12}},
 {n:"FLUX.1 Kontext",k:["image"],d:"May 2025",x:"In-context image editing",u:"https://bfl.ai/models/flux-kontext",o:{l:"FLUX.1 dev non-commercial",h:"https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev",q:16,p:12}},
@@ -503,7 +504,8 @@ const D=[
 {c:"Suno",r:"US",f:"2022",n:"independent",u:"https://suno.com",m:[
 {n:"Suno v1",k:["audio:music"],d:"2023, retired Sep 2026",x:"Trained on unlicensed material",u:"https://suno.com"},
 {n:"Suno v5.5",k:["audio:music"],d:"Mar 2026, retired Sep 2026",x:"Deprecated after the Warner settlement; switched off the day v6 shipped, though songs already generated stay playable",u:"https://suno.com"},
-{n:"Suno v6 / v6-wild / v6-mini",k:["audio:music"],d:"9 Sep 2026",x:"First Suno family trained on catalogue licensed from Warner Music Group, BMG and Believe; v6 is the precise flagship, v6-wild the exploratory variant, v6-mini free to every user"}]},
+{n:"Suno v6 / v6-wild / v6-mini",k:["audio:music"],d:"9 Sep 2026",x:"First Suno family trained on catalogue licensed from Warner Music Group, BMG and Believe; v6 is the precise flagship, v6-wild the exploratory variant, v6-mini free to every user"},
+{n:"Suno Speech",k:["audio:speech","audio:music"],d:"1 Oct 2026",x:"Spoken audio over original background music composed for the words rather than mixed under them, voice and score in one pass; beta, with accents and timing uneven",u:"https://suno.com/blog/introducing-speech-beta"}]},
 {c:"Udio",r:"US",f:"2023",n:"independent",u:"https://www.udio.com",m:[
 {n:"Udio",k:["audio:music"],d:"Apr 2024 →",x:"Walled garden after the Universal settlement",u:"https://www.udio.com"}]},
 {c:"Klay",r:"US",f:"2023",n:"independent",u:"https://klay.vision",m:[
@@ -765,6 +767,8 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-01",f:"2026-10-02",c:"Suno",n:"Suno Speech",k:["audio:speech","audio:music"],x:"Spoken audio over original background music composed for the words rather than mixed under them, voice and score in one pass; beta, with accents and timing uneven",u:"https://suno.com/blog/introducing-speech-beta"},
+{t:"added",y:"2026-09-29",f:"2026-10-02",c:"NVIDIA",n:"PixelUMM",k:["image","video"],x:"Encoder-free: reads and writes raw pixels in one decoder-only Transformer with no VAE and no vision encoder, generating images and video as well as reading them",u:"https://nv-tlabs.github.io/PixelUMM/"},
 {t:"added",y:"2026-10-01",f:"2026-10-02",c:"Microsoft",n:"MAI-Transcribe-2-Streaming",k:["audio:speech"],x:"Streaming sibling of MAI-Transcribe-2: real-time transcripts in 60 languages with continuous automatic language detection, first hypotheses in just over 100ms",u:"https://microsoft.ai/news/our-first-streaming-transcription-model/"},
 {t:"added",y:"2026-10-01",f:"2026-10-02",c:"Microsoft",n:"MAI-Voice-2.1 / MAI-Voice-2.1-Flash",k:["audio:speech"],x:"23 languages and 26 locales, with one voice speaking all of them in a native accent; Flash is the tier for high-volume, latency-sensitive work",u:"https://microsoft.ai/news/our-first-streaming-transcription-model/"},
 {t:"announced",y:"2026-10-01",f:"2026-10-01",c:"Tavus",n:"Griffin",k:["avatar","audio:speech"],x:"Unified video-to-video model folding Phoenix rendering, Raven perception and Sparrow turn-taking into one: 720p at 25fps, 0.43s audio-to-video, interrupts mid-turn",u:"https://www.tavus.io/blog/griffin"},
