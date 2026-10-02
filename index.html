@@ -350,8 +350,10 @@ const D=[
 {n:"MAI-Image-2.6 / MAI-Image-2.6-Flash",k:["image"],d:"Aug 2026 → Flash Sep 2026",x:"No. 2 on Arena text-to-image behind GPT Image 2; adds multi-reference editing, web grounding and 360p-to-4K control, and the Flash tier runs twice as fast as GPT Image 2 Medium",u:"https://microsoft.ai/news/mai-image-2-6-launches-at-no-2-on-arena-ahead-of-google-meta-and-xai/"},
 {n:"MAI-Image-2.5-Pro",k:["image"],d:"Jul 2026",x:"In-image text and natural-language editing",u:"https://microsoft.ai/news/introducing-mai-image-2-5/"},
 {n:"MAI-Voice-2 / MAI-Voice-2-Flash",k:["audio:speech"],d:"Jun 2026 → Jul 2026",x:"15+ languages; Flash is the low-latency tier",u:"https://microsoft.ai/news/"},
+{n:"MAI-Voice-2.1 / MAI-Voice-2.1-Flash",k:["audio:speech"],d:"1 Oct 2026",x:"23 languages and 26 locales, with one voice speaking all of them in a native accent; Flash is the tier for high-volume, latency-sensitive work",u:"https://microsoft.ai/news/our-first-streaming-transcription-model/"},
 {n:"MAI-Transcribe-1.5",k:["audio:speech"],d:"Jun 2026",x:"Speech-to-text"},
 {n:"MAI-Transcribe-2",k:["audio:speech"],d:"3 Sep 2026",x:"Covers 60 languages and adds speaker diarization and word-level timestamps",u:"https://microsoft.ai/news/mai-transcribe-2-is-the-fastest-most-accurate-and-cheapest-speech-recognition-model-in-the-world/"},
+{n:"MAI-Transcribe-2-Streaming",k:["audio:speech"],d:"1 Oct 2026",x:"Streaming sibling of MAI-Transcribe-2: real-time transcripts in 60 languages with continuous automatic language detection, first hypotheses in just over 100ms",u:"https://microsoft.ai/news/our-first-streaming-transcription-model/"},
 {n:"MAI-Thinking-1",k:["text:chat"],d:"Jun 2026",x:"Microsoft's first reasoning model, announced at Build",u:"https://microsoft.ai/news/"},
 {n:"MAI-Code-1-Flash",k:["text:code"],d:"Jun 2026",x:"Trained on GitHub Copilot production workflows rather than benchmarks, with adaptive solution length; 16 points ahead of Claude Haiku 4.5 on SWE-Bench Pro using fewer tokens",u:"https://microsoft.ai/news/introducingmai-code-1-flash/"},
 {n:"MAI-Code-1.1-Flash",k:["text:code"],d:"Aug 2026",x:"Higher code quality at 25% greater token efficiency and a quarter of the price of 1.0, with the gains concentrated on CLI and .NET work; serving in GitHub Copilot and VS Code",u:"https://microsoft.ai/news/mai-code-1-1-flash-br-better-faster-at-a-quarter-of-the-cost/"},
@@ -763,6 +765,8 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-01",f:"2026-10-02",c:"Microsoft",n:"MAI-Transcribe-2-Streaming",k:["audio:speech"],x:"Streaming sibling of MAI-Transcribe-2: real-time transcripts in 60 languages with continuous automatic language detection, first hypotheses in just over 100ms",u:"https://microsoft.ai/news/our-first-streaming-transcription-model/"},
+{t:"added",y:"2026-10-01",f:"2026-10-02",c:"Microsoft",n:"MAI-Voice-2.1 / MAI-Voice-2.1-Flash",k:["audio:speech"],x:"23 languages and 26 locales, with one voice speaking all of them in a native accent; Flash is the tier for high-volume, latency-sensitive work",u:"https://microsoft.ai/news/our-first-streaming-transcription-model/"},
 {t:"announced",y:"2026-10-01",f:"2026-10-01",c:"Tavus",n:"Griffin",k:["avatar","audio:speech"],x:"Unified video-to-video model folding Phoenix rendering, Raven perception and Sparrow turn-taking into one: 720p at 25fps, 0.43s audio-to-video, interrupts mid-turn",u:"https://www.tavus.io/blog/griffin"},
 {t:"retired",y:"2026-09-11",f:"2026-10-01",c:"OpenAI",n:"GPT-5.4-Cyber",k:["text:code"],x:"Cyber-permissive variant of GPT-5.4 for vetted defenders, able to reverse-engineer compiled binaries; access gated to OpenAI’s Trusted Access for Cyber programme",u:"https://developers.openai.com/api/docs/deprecations"},
 {t:"added",y:"2026-04-14",f:"2026-10-01",c:"OpenAI",n:"GPT-5.4-Cyber",k:["text:code"],x:"Cyber-permissive variant of GPT-5.4 for vetted defenders, able to reverse-engineer compiled binaries; access gated to OpenAI’s Trusted Access for Cyber programme",u:"https://developers.openai.com/api/docs/deprecations"},
@@ -1381,7 +1385,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 1 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 2 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
