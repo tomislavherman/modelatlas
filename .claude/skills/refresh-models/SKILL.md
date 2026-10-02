@@ -125,7 +125,10 @@ shutdown date and replacement per model ID and carries retirements the Gemini
 changelog does not, and
 https://docs.mistral.ai/getting-started/models/models_overview/ for Mistral's,
 whose legacy table dates the deprecation and the retirement per API id; the
-news blog announces releases and never mentions a shutdown.
+news blog announces releases and never mentions a shutdown, and
+https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
+for Microsoft's, whose Microsoft section carries the MAI line's retirement
+dates that microsoft.ai/news never mentions.
 
 ### Weights repositories
 
