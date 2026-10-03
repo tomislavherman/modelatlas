@@ -618,7 +618,7 @@ const D=[
 {n:"HunyuanVideo 1.5",k:["video"],d:"Nov 2025",x:"Open weights",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo-1.5",p:8.3}},
 {n:"HunyuanImage 3.0",k:["image"],d:"Jan 2026",x:"80B mixture of experts, open weights",u:"https://github.com/Tencent-Hunyuan",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanImage-3.0",q:16,p:83}},
 {n:"Hy Image 3.5 Preview",k:["image"],d:"Sep 2026",x:"Unifies generation with multi-round conversational editing, takes up to 20 reference images against 3.0's three, and renders directly at 4096×4096"},
-{n:"Hunyuan3D / HunyuanWorld",k:["world"],d:"2024 → 2026",x:"Open weights",u:"https://3d.hunyuan.tencent.com",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/Hunyuan3D-2"}},
+{n:"Hunyuan3D / HunyuanWorld",k:["world"],d:"Nov 2024 → Apr 2026",x:"Open weights",u:"https://3d.hunyuan.tencent.com",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/Hunyuan3D-2"}},
 {n:"HunyuanVideo-Avatar",k:["avatar"],d:"May 2025",x:"",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo-Avatar",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo-Avatar"}},
 {n:"AuK / AuK-Flash",k:["audio:speech"],d:"9 Sep 2026",x:"1.5B speech model driven by natural-language instructions: zero-shot TTS, content and emotion edits, de-accenting, enhancement and separation; Flash is a 4-step distill",u:"https://huggingface.co/tencent/AuK",o:{l:"MIT",h:"https://huggingface.co/tencent/AuK",p:1.5}},
 {n:"Hunyuan 2.0",k:["text:chat","text:code"],d:"Dec 2025",x:"Deployed in over 900 Tencent products"},
@@ -1401,7 +1401,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 2 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 3 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
