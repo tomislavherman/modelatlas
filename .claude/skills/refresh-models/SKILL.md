@@ -88,10 +88,10 @@ they make is in scope.
 - https://hyper3d.ai/blog
 - https://www.visko.ai/news
 - https://www.recraft.ai/blog
+- https://blog.cloudflare.com/
 - https://mistral.ai/news
 - https://blogs.nvidia.com/blog/category/generative-ai/
 - https://updates.midjourney.com
-- https://www.krea.ai/blog
 - https://lumalabs.ai/news
 - https://pika.art/blog
 - https://www.pixverse.ai/en/blog
@@ -142,7 +142,7 @@ for a in openai google facebook meta-models meta-llama ibm-granite nvidia \
   black-forest-labs stabilityai ideogram-ai krea Lightricks mistralai \
   Kwai-Kolors MiniMaxAI Wan-AI Qwen FunAudioLLM tencent zai-org inclusionAI \
   stepfun-ai internlm deepseek-ai moonshotai IFM thinkingmachines CohereLabs openbmb \
-  Agnes-AI XiaomiRobotics XiaomiMiMo lerobot m-a-p desert-ant-labs poolside CompVis decart-ai robbyant Dexmal LiquidAI; do
+  Agnes-AI XiaomiRobotics XiaomiMiMo lerobot m-a-p desert-ant-labs poolside CompVis decart-ai robbyant Dexmal LiquidAI Cloudflare perplexity-ai; do
   curl -s -A "Mozilla/5.0" "https://huggingface.co/api/models?author=$a&sort=createdAt&direction=-1&limit=8&expand[]=createdAt&expand[]=tags&expand[]=safetensors" \
   | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{for(const m of JSON.parse(s))console.log(m.id,m.createdAt.slice(0,10),(m.tags||[]).filter(t=>t.startsWith("license:")).join(",")||"-",m.safetensors?.total?(m.safetensors.total/1e9).toFixed(1)+"B":"-")})'
 done
