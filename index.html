@@ -347,6 +347,7 @@ const D=[
 {n:"Nova",k:["text:chat","text:code"],d:"Dec 2024",x:"Lite and Pro tiers on Bedrock; the first-generation text tiers moved to legacy status as the successors went GA",u:"https://aws.amazon.com/ai/generative-ai/nova/"},
 {n:"Nova 2",k:["text:chat","text:code"],d:"Dec 2025",x:"Lite and Pro tiers on Bedrock",u:"https://aws.amazon.com/ai/generative-ai/nova/"},
 {n:"Nova 2 Omni",k:["text:chat","image"],d:"preview Dec 2025",x:"Takes text, images, video and speech in and returns text and images, on a one-million-token context; still gated to Nova Forge customers",u:"https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-nova-2-omni-preview/"},
+{n:"Strands Decider 2B",k:["text:chat"],d:"1 Oct 2026",x:"Decision model that picks among typed options instead of writing text: a Qwen3.5-2B torso with its language head swapped for a pointer head, a median 115ms on a laptop",u:"https://strandsagents.com/blog/introducing-strands-decider/",o:{l:"Apache 2.0",h:"https://huggingface.co/StrandsAgents/strands-decider-2B-hobson-v19",p:2}},
 {n:"Nova 2 Multimodal Embeddings",k:["text:embed"],d:"28 Oct 2025",x:"Unified embedding model for text, documents, images, video and audio in one vector space, so a query in one modality retrieves any of the others",u:"https://aws.amazon.com/blogs/aws/amazon-nova-multimodal-embeddings-now-available-in-amazon-bedrock/"}]},
 {c:"Microsoft",r:"US",f:"1975",n:"NASDAQ",u:"https://microsoft.ai",m:[
 {n:"MAI-Image-2.5 / MAI-Image-2.5-Flash",k:["image"],d:"Jun 2026, retired 1 Oct 2026",x:"",u:"https://microsoft.ai/news/introducing-mai-image-2-5/"},
@@ -777,6 +778,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-01",f:"2026-10-03",c:"Amazon",n:"Strands Decider 2B",k:["text:chat"],x:"Decision model that picks among typed options instead of writing text: a Qwen3.5-2B torso with its language head swapped for a pointer head, a median 115ms on a laptop",u:"https://strandsagents.com/blog/introducing-strands-decider/"},
 {t:"added",y:"2026-10-01",f:"2026-10-03",c:"Cloudflare",n:"Clef / Clef-flash",k:["text:chat"],x:"Decision models: a state and typed questions in, calibrated probabilities over fixed answers out. Post-trained on Qwen3.8-27B and Qwen3.5-9B, with a vision encoder and 64K context",u:"https://blog.cloudflare.com/clef-decision-models/"},
 {t:"added",y:"2026-10",f:"2026-10-03",c:"Perplexity",n:"Decider v1 27B",k:["text:chat"],x:"Decision model behind the Decisions API, a Qwen3.8-27B fine-tune reading text, JSON and images and answering yes/no, one of a set, or a rubric level, each with a probability",u:"https://docs.perplexity.ai/docs/decisions/quickstart"},
 {t:"added",y:"2026-05-29",f:"2026-10-03",c:"SpaceXAI",n:"Grok Build 0.1",k:["text:code"],x:"Coding model behind the Grok Build agent harness, trained for web development, debugging and MCP tool use; past 100 tokens a second in public beta on the API",u:"https://x.ai/news/grok-build-0-1"},
