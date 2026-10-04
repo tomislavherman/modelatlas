@@ -92,7 +92,6 @@ they make is in scope.
 - https://mistral.ai/news
 - https://blogs.nvidia.com/blog/category/generative-ai/
 - https://updates.midjourney.com
-- https://lumalabs.ai/news
 - https://pika.art/blog
 - https://www.pixverse.ai/en/blog
 - https://cartesia.ai/blog
@@ -100,6 +99,7 @@ they make is in scope.
 - https://skild.ai/blogs
 - https://www.liquid.ai/news
 - https://strandsagents.com/blog/
+- https://community.perplexity.ai/c/announcements
 
 Then read the API changelogs. A point release such as Gemini Omni 1.1 Flash
 gets a developer-blog post and a changelog line, not a headline, and the
