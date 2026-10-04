@@ -79,13 +79,13 @@ they make is in scope.
 - https://sonilo.com/news
 - https://cognition.com/blog
 - https://www.inceptionlabs.ai/blog
+- https://www.apodex.com/blog
 - https://cohere.com/blog
 - https://www.figure.ai/news
 - https://sakana.ai/blog/
 - https://www.tavus.io/blog
 - https://desertant.com/blog/
 - https://www.worldlabs.ai/blog
-- https://hyper3d.ai/blog
 - https://www.visko.ai/news
 - https://www.recraft.ai/blog
 - https://blog.cloudflare.com/
@@ -139,7 +139,7 @@ later. The Hugging Face API is a dated index per organisation, so read it the
 same way as a newsroom, one call per organisation:
 
 ```sh
-for a in openai google facebook meta-models meta-llama ibm-granite nvidia \
+for a in openai google facebook meta-models apodex ibm-granite nvidia \
   black-forest-labs stabilityai ideogram-ai krea Lightricks mistralai \
   Kwai-Kolors MiniMaxAI Wan-AI Qwen FunAudioLLM tencent zai-org inclusionAI \
   stepfun-ai internlm deepseek-ai moonshotai IFM thinkingmachines CohereLabs openbmb \
