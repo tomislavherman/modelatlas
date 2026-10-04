@@ -637,6 +637,11 @@ const D=[
 {n:"MuseSteamer → MuseSteamer 2.0",k:["video","audio:speech","audio:sfx"],d:"Jul 2025",x:"Image-to-video with Chinese dialogue"},
 {n:"ERNIE 5.0",k:["text:chat"],d:"Jan 2026",x:"2.4T parameters, natively omnimodal, trained on Baidu's own Kunlun chips",u:"https://yiyan.baidu.com"},
 {n:"ERNIE 5.1",k:["text:chat"],d:"May 2026",x:"2.4T parameters, natively omnimodal, trained on Baidu's own Kunlun chips",u:"https://yiyan.baidu.com"}]},
+{c:"Bilibili",r:"CN",f:"2009",n:"NASDAQ / HKEX",u:"https://www.bilibili.com",m:[
+{n:"Index-Translate",k:["text:chat"],d:"30 Sep 2026",x:"Translation across 150 languages on a Qwen3.5 backbone, following instructions on terminology, format and style; 2B and 9B dense, plus a 35B preview with 3B active",u:"https://index-translate.bilibili.com",o:{l:"Apache 2.0",h:"https://huggingface.co/IndexTeam/Index-Translate-35B-A3B-preview",q:16,p:[2,35]}},
+{n:"Index-Echo S2TT / Index-Echo S2ST",k:["audio:speech"],d:"30 Sep 2026",x:"Speech translation beside Index-Translate: S2TT writes subtitles, S2ST dubs in the source speaker's voice, both over six Chinese and English directions",u:"https://index-translate.bilibili.com",o:{l:"Apache 2.0",h:"https://huggingface.co/IndexTeam/Index-Echo-S2ST-9B"}},
+{n:"Index-Homura",k:["text:chat"],d:"30 Sep 2026",x:"Translation held to a target syllable count so a dubbed line fits the original timing; Chinese into four languages, in 2B and 9B",u:"https://index-translate.bilibili.com",o:{l:"Apache 2.0",h:"https://huggingface.co/IndexTeam/Index-Homura-9B",q:16,p:[2,9]}},
+{n:"Index-NativeLong",k:["text:chat"],d:"30 Sep 2026",x:"Whole documents translated in one generation rather than chunked, holding terminology and voice across a novel; Chinese, English and Japanese both ways",u:"https://index-translate.bilibili.com",o:{l:"Apache 2.0",h:"https://huggingface.co/IndexTeam/Index-Nailong-9B",q:16,p:[2,9]}}]},
 {c:"Zhipu / Z.ai",r:"CN",f:"2019",n:"listed 2025",u:"https://z.ai",m:[
 {n:"CogVideoX",k:["video"],d:"Aug 2024",x:"Open weights",u:"https://github.com/THUDM/CogVideo",o:{l:"CogVideoX licence",h:"https://huggingface.co/zai-org/CogVideoX-5b",q:16,p:[2,5.6]}},
 {n:"GLM-5",k:["text:chat","text:code"],d:"12 Feb 2026",x:"Open weights",u:"https://z.ai",o:{l:"MIT",h:"https://huggingface.co/zai-org/GLM-5-FP8",q:8,p:754}},
@@ -779,6 +784,10 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-30",f:"2026-10-04",c:"Bilibili",n:"Index-Translate",k:["text:chat"],x:"Translation across 150 languages on a Qwen3.5 backbone, following instructions on terminology, format and style; 2B and 9B dense, plus a 35B preview with 3B active",u:"https://index-translate.bilibili.com"},
+{t:"added",y:"2026-09-30",f:"2026-10-04",c:"Bilibili",n:"Index-Echo S2TT / Index-Echo S2ST",k:["audio:speech"],x:"Speech translation beside Index-Translate: S2TT writes subtitles, S2ST dubs in the source speaker's voice, both over six Chinese and English directions",u:"https://index-translate.bilibili.com"},
+{t:"added",y:"2026-09-30",f:"2026-10-04",c:"Bilibili",n:"Index-Homura",k:["text:chat"],x:"Translation held to a target syllable count so a dubbed line fits the original timing; Chinese into four languages, in 2B and 9B",u:"https://index-translate.bilibili.com"},
+{t:"added",y:"2026-09-30",f:"2026-10-04",c:"Bilibili",n:"Index-NativeLong",k:["text:chat"],x:"Whole documents translated in one generation rather than chunked, holding terminology and voice across a novel; Chinese, English and Japanese both ways",u:"https://index-translate.bilibili.com"},
 {t:"added",y:"2026-10-02",f:"2026-10-03",c:"Alibaba",n:"Qwen-Image-2.1-Pro",k:["image"],x:"Pro tier of Qwen-Image 2.1, keeping the 7B visual generation component: Alibaba positions it as the balance of generation quality, inference efficiency and cost, API-only on Model Studio",u:"https://huggingface.co/Qwen/Qwen-Image-2.1"},
 {t:"announced",y:"2026-07-07",f:"2026-10-03",c:"Meta",n:"Muse Video",k:["video"],x:"Shown beside Muse Image on the same backbone: text to video with native audio still to come",u:"https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/"},
 {t:"added",y:"2026-10-01",f:"2026-10-03",c:"Amazon",n:"Strands Decider 2B",k:["text:chat"],x:"Decision model that picks among typed options instead of writing text: a Qwen3.5-2B torso with its language head swapped for a pointer head, a median 115ms on a laptop",u:"https://strandsagents.com/blog/introducing-strands-decider/"},
@@ -1418,7 +1427,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 3 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 4 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
