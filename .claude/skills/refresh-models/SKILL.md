@@ -78,6 +78,7 @@ they make is in scope.
 - https://suno.com/blog
 - https://sonilo.com/news
 - https://cognition.com/blog
+- https://reflection.ai/blog
 - https://www.inceptionlabs.ai/blog
 - https://www.apodex.com/blog
 - https://cohere.com/blog
@@ -92,7 +93,6 @@ they make is in scope.
 - https://blog.cloudflare.com/
 - https://mistral.ai/news
 - https://blogs.nvidia.com/blog/category/generative-ai/
-- https://updates.midjourney.com
 - https://pika.art/blog
 - https://www.pixverse.ai/en/blog
 - https://cartesia.ai/blog
