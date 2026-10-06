@@ -235,8 +235,8 @@ function col(t){const b=base(t);return dark()?{bg:KCD[b][0],fg:KCD[b][1],ln:KCD[
 
 const D=[
 {c:"OpenAI",r:"US",f:"2015",n:"independent",u:"https://openai.com",m:[
-{n:"DALL·E",k:["image"],d:"2021, retired 2025",x:"The first text-to-image model OpenAI shipped"},
-{n:"DALL·E 3",k:["image"],d:"2023, retired 2025",x:"Superseded by GPT Image",u:"https://openai.com/dall-e-3"},
+{n:"DALL·E",k:["image"],d:"5 Jan 2021, retired 2025",x:"The first text-to-image model OpenAI shipped"},
+{n:"DALL·E 3",k:["image"],d:"20 Sep 2023, retired 2025",x:"Superseded by GPT Image",u:"https://openai.com/dall-e-3"},
 {n:"GPT Image 1",k:["image"],d:"Mar 2025, removed Dec 2026",x:"Native text rendering and prompt-driven editing; the mini and 1.5 tiers are being removed alongside it, with GPT Image 2 as the migration target"},
 {n:"GPT Image 2",k:["image"],d:"21 Apr 2026",x:"The tier the whole first generation was migrated onto"},
 {n:"GPT Image 2.5 Flare / GPT Image 2.5 Sunburst",k:["image"],d:"8 Sep 2026",x:"Lands in ChatGPT as Images 2.5 with two API tiers beside it, Flare as the default at half the latency of GPT Image 2 and Sunburst for edit-heavy production work",u:"https://openai.com/index/introducing-chatgpt-images-2-5/"},
@@ -340,7 +340,8 @@ const D=[
 {n:"Llama 5",k:["text:chat","text:code"],d:"Apr 2026",x:"Open weights; shipped the same morning as the closed Muse Spark",u:"https://www.llama.com",o:{}},
 {n:"Muse Spark",k:["text:chat","text:code"],d:"Apr 2026",x:"First closed-weights frontier model from Meta Superintelligence Labs; runs Meta AI across the apps",u:"https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/"},
 {n:"Muse Spark 1.3",k:["text:chat","text:code"],d:"2 Sep 2026",x:"The model behind the Muse Code terminal agent, cutting tool calls by a fifth against 1.2"},
-{n:"Muse Glimmer",k:["text:chat","text:code"],d:"Aug 2026",x:"30B distilled from Muse Spark and released under Apache 2.0; 4-bit quantisation fits the agentic loop into a single 24GB consumer GPU, so it runs offline",u:"https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",o:{l:"Apache 2.0",h:"https://huggingface.co/meta-models/Muse-Glimmer-30B",q:16,p:30}}]},
+{n:"Muse Glimmer",k:["text:chat","text:code"],d:"Aug 2026",x:"30B distilled from Muse Spark and released under Apache 2.0; 4-bit quantisation fits the agentic loop into a single 24GB consumer GPU, so it runs offline",u:"https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",o:{l:"Apache 2.0",h:"https://huggingface.co/meta-models/Muse-Glimmer-30B",q:16,p:30}},
+{n:"MetaEncoder-30B",k:["text:embed"],d:"Sep 2026",x:"Multimodal encoder fine-tuned from Muse Glimmer: a free-text task description ranks text, image and video candidates, with task and candidate embeddings cached separately",u:"https://huggingface.co/facebook/meta-encoder",o:{l:"Apache 2.0",h:"https://huggingface.co/facebook/meta-encoder",q:16,p:30}}]},
 {c:"Amazon",r:"US",f:"1994",n:"NASDAQ",u:"https://aws.amazon.com/ai/generative-ai/nova/",m:[
 {n:"Nova Canvas",k:["image"],d:"Dec 2024, wind-down Jul 2026",x:"",u:"https://aws.amazon.com/ai/generative-ai/nova/creative/"},
 {n:"Nova Reel",k:["video"],d:"Dec 2024, EOL Sep 2026",x:"Luma Ray named as the Bedrock successor",u:"https://aws.amazon.com/ai/generative-ai/nova/creative/"},
@@ -439,7 +440,7 @@ const D=[
 {n:"Reve 2.0",k:["image"],d:"3 Jun 2026, image generation shut down 27 Sep 2026",x:"Generates from a structured layout, so any element stays editable afterwards: move a subject, rewrite a sign, swap a background, at native 4K",u:"https://blog.reve.com/posts/announcing-reve-2.0/"},
 {n:"Reve 2.1",k:["image"],d:"9 Jul 2026 → API 14 Jul 2026, image generation shut down 27 Sep 2026",x:"Native 4K by 4K in one pass, a true 16 megapixels, with finer planning of how elements relate and stronger foreign-text rendering",u:"https://blog.reve.com/posts/launching-reve-2.1/"}]},
 {c:"Leonardo.ai",r:"AU",f:"2022",n:"Canva (Jul 2024)",u:"https://leonardo.ai",m:[
-{n:"Phoenix / Lucid",k:["image"],d:"2024 →",x:"",u:"https://leonardo.ai/news/"}]},
+{n:"Phoenix / Lucid",k:["image"],d:"Jun 2024 →",x:"",u:"https://leonardo.ai/news/"}]},
 {c:"Krea",r:"US",f:"2022",n:"independent",u:"https://www.krea.ai",m:[
 {n:"Krea 1 / Krea Realtime",k:["image"],d:"2025 → Realtime Oct 2025",x:"",u:"https://www.krea.ai"},
 {n:"Krea 2",k:["image"],d:"May 2026, open weights Jun 2026",x:"12.9B parameters",u:"https://www.krea.ai/blog/krea-2-technical-report",o:{l:"Krea 2 community",h:"https://huggingface.co/krea/Krea-2-Raw",q:16,p:13}}]},
@@ -797,6 +798,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-09",f:"2026-10-06",c:"Meta",n:"MetaEncoder-30B",k:["text:embed"],x:"Multimodal encoder fine-tuned from Muse Glimmer: a free-text task description ranks text, image and video candidates, with task and candidate embeddings cached separately",u:"https://huggingface.co/facebook/meta-encoder"},
 {t:"added",y:"2026-10-05",f:"2026-10-05",c:"Liquid AI",n:"d1",k:["text:chat"],x:"Decision model returning probabilities over a yes/no, multiple-choice or scored answer in one forward pass over text or images, rather than generating tokens; 200-300ms on text",u:"https://www.liquid.ai/blog/d1-decision-model"},
 {t:"added",y:"2026-08-12",f:"2026-10-05",c:"Cohere",n:"North Micro Vision",k:["text:chat"],x:"Cohere Labs' smallest vision-language model at 2.4B, taking images at native resolution rather than downscaling them, so fine detail survives in document understanding",u:"https://huggingface.co/blog/CohereLabs/meet-north-micro-vision-instruct"},
 {t:"added",y:"2026-07-07",f:"2026-10-05",c:"Cohere",n:"Cohere Transcribe Arabic",k:["audio:speech"],x:"Arabic fine-tune of Cohere Transcribe handling major dialects, Arabic-English code-switching and Arabic-accented English; Cohere calls it the most accurate open Arabic ASR model",u:"https://docs.cohere.com/docs/transcribe-arabic"},
