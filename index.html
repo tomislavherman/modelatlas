@@ -250,7 +250,7 @@ const D=[
 {n:"GPT-5",k:["text:chat","text:code"],d:"Aug 2025",x:"The generation that folded the o-series reasoning models into the main line"},
 {n:"gpt-oss-120b / gpt-oss-20b",k:["text:chat","text:code"],d:"Aug 2025",x:"OpenAI's first open-weights language models since GPT-2; the 120B runs on one 80GB GPU and the 20B on 16GB, both with three selectable reasoning-effort levels",u:"https://openai.com/index/introducing-gpt-oss/",o:{l:"Apache 2.0",h:"https://huggingface.co/openai/gpt-oss-120b",q:4,p:[21,117]}},
 {n:"GPT-5.6",k:["text:chat","text:code"],d:"9 Jul 2026",x:"Sixth point release of the GPT-5 line in eleven months; ships in three sizes, Luna, Terra and Sol",u:"https://openai.com/index/gpt-5-6/"},
-{n:"GPT-6 Astra",k:["text:chat","text:code"],d:"3 Sep 2026",x:"The generation after Sol, Terra and Luna, and the first model OpenAI rates Critical for cyber capability; state of the art on computer use, browsing and software engineering",u:"https://openai.com/index/gpt-6-astra/"},
+{n:"GPT-6 Astra",k:["text:chat","text:code"],d:"3 Sep 2026 → Ultrafast 29 Sep 2026",x:"The generation after Sol, Terra and Luna, and the first model OpenAI rates Critical for cyber capability; state of the art on computer use, browsing and software engineering",u:"https://openai.com/index/gpt-6-astra/"},
 {n:"GPT-6 Sol / GPT-6 Luna",k:["text:chat","text:code"],d:"22 Sep 2026",x:"Lower-cost reasoning tiers trained with the methods behind GPT-6 Astra, text and image in over a 272K context; Luna runs at a twentieth of Sol's price",u:"https://openai.com/index/introducing-gpt-6-sol-and-luna/"},
 {n:"GPT-6.1 Sol",k:["text:chat","text:code"],d:"29 Sep 2026",x:"Near-Astra quality on complex coding, computer use and professional work for a fifth of Astra's token price; text and image in over a 1.05M-token context",u:"https://developers.openai.com/api/docs/models/gpt-6.1-sol"},
 {n:"GPT-5-Codex",k:["text:code"],d:"Sep 2025",x:"Agentic coding variant of GPT-5"},
@@ -1450,7 +1450,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 5 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 6 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
