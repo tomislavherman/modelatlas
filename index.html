@@ -268,6 +268,7 @@ const D=[
 {n:"Nano Banana 2",k:["image"],d:"26 Feb 2026",x:"",u:"https://deepmind.google/models/gemini-image/"},
 {n:"Nano Banana Pro",k:["image"],d:"28 May 2026",x:"Premium tier of the line: highest world knowledge, up to six reference images, interleaved text-and-image output and 4K rendering for marketing assets and diagrams",u:"https://ai.google.dev/gemini-api/docs/image-generation"},
 {n:"Nano Banana 2 Lite",k:["image"],d:"30 Jun 2026",x:"Fastest and cheapest of the line, capped at 1K and without Search grounding or character-consistency references; built for high-volume work where cost is the constraint",u:"https://ai.google.dev/gemini-api/docs/image-generation"},
+{n:"Nano Banana 2.1",k:["image"],d:"6 Oct 2026",x:"High-efficiency image generation and conversational editing, succeeding Gemini 3.1 Flash Image; adds panoramic aspect ratios from 1:4 to 8:1 at 1K, 2K and 4K",u:"https://ai.google.dev/gemini-api/docs/image-generation"},
 {n:"Veo",k:["video"],d:"May 2024",x:"Silent video",u:"https://deepmind.google/models/veo/"},
 {n:"Veo 3.1",k:["video","audio:sfx"],d:"Oct 2025, API ends 22 Oct 2026",x:"Native Foley sound generated with the picture; Gemini Omni 1.1 Flash is the migration target",u:"https://deepmind.google/models/veo/"},
 {n:"Gemini Omni Flash",k:["video","audio:sfx"],d:"May 2026, API ends 30 Sep 2026",x:"Video with sound from text, image or video input, edited by conversation",u:"https://ai.google.dev/gemini-api/docs/omni"},
@@ -475,6 +476,7 @@ const D=[
 {n:"Voxtral",k:["audio:speech"],d:"Jul 2025",x:"Speech understanding",u:"https://mistral.ai/news/voxtral",o:{l:"Apache 2.0",h:"https://huggingface.co/mistralai/Voxtral-Small-24B-2507",q:16,p:[3,24]}},
 {n:"Voxtral TTS",k:["audio:speech"],d:"23 Mar 2026",x:"4B, open weights, priced against ElevenLabs",u:"https://mistral.ai/news/voxtral-tts/",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/mistralai/Voxtral-4B-TTS-2603",p:4}},
 {n:"Mistral Large 3",k:["text:chat","text:code"],d:"Dec 2025",x:"675B sparse mixture of experts with 41B active, Apache 2.0, 256K context",u:"https://mistral.ai/news",o:{l:"Apache 2.0",h:"https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512",p:675}},
+{n:"Mistral Large 4",k:["text:chat","text:code"],d:"6 Oct 2026",x:"1.05T parameters with 49B active, trained in Europe on Mistral's own cluster of 3,800 Grace Blackwell GPUs; top five on independent cybersecurity evaluations",u:"https://mistral.ai/news/mistral-large-4",o:{}},
 {n:"Mistral Medium 3",k:["text:code","text:chat"],d:"7 May 2025, retired 31 Aug 2026",x:"The tier Mistral pointed at for coding work until Medium 3.5 replaced it",u:"https://mistral.ai/news/mistral-medium-3"},
 {n:"Mistral Medium 3.5",k:["text:code","text:chat"],d:"Apr 2026",x:"The tier Mistral points at for coding work"},
 {n:"Mistral Small 4",k:["text:chat","text:code"],d:"16 Mar 2026",x:"119B sparse mixture of experts with 6B active, Apache 2.0, 256K context; folds Magistral's reasoning, Pixtral's vision and Devstral's agentic coding into one model instead of three",u:"https://mistral.ai/news/mistral-small-4/",o:{l:"Apache 2.0",h:"https://huggingface.co/mistralai/Mistral-Small-4-119B-2603",q:8,p:119}},
@@ -801,6 +803,8 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-06",f:"2026-10-06",c:"Google DeepMind",n:"Nano Banana 2.1",k:["image"],x:"High-efficiency image generation and conversational editing, succeeding Gemini 3.1 Flash Image; adds panoramic aspect ratios from 1:4 to 8:1 at 1K, 2K and 4K",u:"https://ai.google.dev/gemini-api/docs/image-generation"},
+{t:"added",y:"2026-10-06",f:"2026-10-06",c:"Mistral AI",n:"Mistral Large 4",k:["text:chat","text:code"],x:"1.05T parameters with 49B active, trained in Europe on Mistral's own cluster of 3,800 Grace Blackwell GPUs; top five on independent cybersecurity evaluations",u:"https://mistral.ai/news/mistral-large-4"},
 {t:"added",y:"2026-09-10",f:"2026-10-06",c:"inclusionAI",n:"Ling-3.0-flash-VL",k:["text:chat"],x:"Ling 3.0 Flash with vision: 124B mixture of experts, 5.5B active, image and video input over a 256K context, built for reading interfaces and acting on them",u:"https://huggingface.co/inclusionAI/Ling-3.0-flash-VL"},
 {t:"announced",y:"2026-10-05",f:"2026-10-06",c:"Reflection AI",n:"Beam",k:["text:chat","text:code"],x:"Reflection's first open-weight model: 501B sparse mixture of experts with 23B active, matching GLM-5.2 on reasoning at 3-4x less inference compute; weights promised",u:"https://reflection.ai/blog/introducing-beam"},
 {t:"added",y:"2026-09",f:"2026-10-06",c:"Meta",n:"MetaEncoder-30B",k:["text:embed"],x:"Multimodal encoder fine-tuned from Muse Glimmer: a free-text task description ranks text, image and video candidates, with task and candidate embeddings cached separately",u:"https://huggingface.co/facebook/meta-encoder"},
