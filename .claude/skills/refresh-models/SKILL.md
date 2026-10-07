@@ -111,7 +111,7 @@ changelog names the exact model ID with the exact date:
 - https://developers.openai.com/api/docs/changelog
 - https://docs.x.ai/developers/release-notes
 - https://docs.z.ai/release-notes/new-released
-- https://platform.vidu.com/docs/update
+- https://platform.vidu.com/docs/api-reference/updates
 - https://www.kimi.com/code/docs/en/kimi-code/whats-new.html
 - https://www.alibabacloud.com/help/en/model-studio/newly-released-models
 - https://elevenlabs.io/docs/changelog
