@@ -290,7 +290,7 @@ const D=[
 {n:"Gemini 3.5 Transcribe",k:["audio:speech"],d:"26 Aug 2026",x:"Speech-to-text successor to Chirp 3 in public preview: 2.6% word error rate against 5%, live and batch variants, 85 languages",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe/"},
 {n:"Gemini 3.8 Live / Gemini 3.8 Live Extended Thinking",k:["audio:speech","text:chat"],d:"15 Sep 2026 → Live Avatar 24 Sep 2026",x:"Audio-to-audio voice models that switch between 97 languages mid-conversation and run tools without breaking the exchange; Extended Thinking reasons aloud in multiple steps",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/"},
 {n:"Gemini 3.8 Flash TTS / Gemini 3.8 Flash-Lite TTS",k:["audio:speech"],d:"22 Sep 2026",x:"Builds a new voice from a natural-language prompt across 100-plus languages, and replicates one from a 30-second sample; Flash-Lite trades fidelity for throughput",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/"},
-{n:"DiarizationLM-Gemma-4-E4B-v1",k:["audio:speech"],d:"Oct 2026",x:"Post-processes a diarized transcript, fixing speaker labels across turn boundaries and backchannels without re-running the recogniser; a Gemma 4 E4B fine-tune",u:"https://huggingface.co/google/DiarizationLM-Gemma-4-E4B-v1",o:{l:"Apache 2.0",h:"https://huggingface.co/google/DiarizationLM-Gemma-4-E4B-v1",q:16,p:8}},
+{n:"DiarizationLM-Gemma-4-E4B-v1",k:["audio:speech"],d:"4 Oct 2026",x:"Post-processes a diarized transcript, fixing speaker labels across turn boundaries and backchannels without re-running the recogniser; a Gemma 4 E4B fine-tune",u:"https://huggingface.co/google/DiarizationLM-Gemma-4-E4B-v1",o:{l:"Apache 2.0",h:"https://huggingface.co/google/DiarizationLM-Gemma-4-E4B-v1",q:16,p:8}},
 {n:"Gemini 3.5 Pro",k:["text:chat"],d:"expected 2026",x:"Testing with partners; three announced launch windows have come and gone",u:"https://deepmind.google/models/gemini/pro/"},
 {n:"Gemini Embedding",k:["text:embed"],d:"14 Jul 2025",x:"",u:"https://ai.google.dev/gemini-api/docs/embeddings"},
 {n:"Gemini Embedding 2",k:["text:embed"],d:"Mar 2026",x:"Natively multimodal, in preview",u:"https://ai.google.dev/gemini-api/docs/embeddings"},
@@ -1478,7 +1478,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 7 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 8 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
