@@ -82,6 +82,7 @@ they make is in scope.
 - https://www.inceptionlabs.ai/blog
 - https://www.apodex.com/blog
 - https://cohere.com/blog
+- https://allenai.org/blog
 - https://aleph-alpha.com/en/blog/
 - https://www.figure.ai/news
 - https://sakana.ai/blog/

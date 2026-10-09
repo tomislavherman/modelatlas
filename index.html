@@ -718,7 +718,9 @@ const D=[
 {c:"TypeSafe AI",r:"US",f:"2024",n:"independent",u:"https://typesafe.ai",m:[
 {n:"Jev 1.13",k:["text:chat"],d:"15 Sep 2026",x:"First of what the lab calls System One models: unstructured state in, a typed decision with a calibrated probability out; it cannot make a type error or invent a field",u:"https://typesafe.ai/blog/introducing-system-one-models-and-jev"}]},
 {c:"Ai2",r:"US",f:"2014",n:"non-profit",u:"https://allenai.org",m:[
-{n:"Olmo 3",k:["text:chat","text:code"],d:"Nov 2025",x:"Fully open: training data, code and weights all published, not just the weights. Olmo 3-Think is the reasoning tier, at 7B and 32B",u:"https://allenai.org/blog/olmo3",o:{l:"Apache 2.0",h:"https://huggingface.co/allenai/Olmo-3-32B-Think",q:16,p:[7,32]}}]},
+{n:"Olmo 3",k:["text:chat","text:code"],d:"Nov 2025",x:"Fully open: training data, code and weights all published, not just the weights. Olmo 3-Think is the reasoning tier, at 7B and 32B",u:"https://allenai.org/blog/olmo3",o:{l:"Apache 2.0",h:"https://huggingface.co/allenai/Olmo-3-32B-Think",q:16,p:[7,32]}},
+{n:"Bolmo",k:["text:chat"],d:"15 Dec 2025",x:"Olmo retrofitted to read raw UTF-8 bytes instead of a subword vocabulary; Ai2 calls them the first fully open byte-level LMs, and character accuracy gains nearly 20 points",u:"https://allenai.org/blog/bolmo",o:{l:"Apache 2.0",h:"https://huggingface.co/allenai/Bolmo-7B",q:32,p:[1,7]}},
+{n:"AstaBrief",k:["text:chat"],d:"2 Oct 2026",x:"Writes a cited scientific report from a question and retrieved papers in one pass rather than step by step, cutting generation time nearly tenfold; an 8B Qwen3 fine-tune",u:"https://allenai.org/blog/astabrief",o:{l:"Apache 2.0",h:"https://huggingface.co/allenai/AstaBrief_8B",q:16,p:8}}]},
 {c:"Cohere",r:"CA/US",f:"2019",n:"independent",u:"https://cohere.com",m:[
 {n:"Embed v3",k:["text:embed"],d:"Nov 2023",x:""},
 {n:"Embed v4",k:["text:embed"],d:"Apr 2025",x:"Text, images and mixed PDF pages in one call; 128k context, Matryoshka dimensions from 256 to 1536",u:"https://cohere.com/blog/embed-4"},
@@ -816,6 +818,8 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-02",f:"2026-10-09",c:"Ai2",n:"AstaBrief",k:["text:chat"],x:"Writes a cited scientific report from a question and retrieved papers in one pass rather than step by step, cutting generation time nearly tenfold; an 8B Qwen3 fine-tune",u:"https://allenai.org/blog/astabrief"},
+{t:"added",y:"2025-12-15",f:"2026-10-09",c:"Ai2",n:"Bolmo",k:["text:chat"],x:"Olmo retrofitted to read raw UTF-8 bytes instead of a subword vocabulary; Ai2 calls them the first fully open byte-level LMs, and character accuracy gains nearly 20 points",u:"https://allenai.org/blog/bolmo"},
 {t:"added",y:"2026-10",f:"2026-10-09",c:"Tencent",n:"Youtu-Parsing-Omni",k:["text:chat"],x:"5B omni-modal parser reading document pages, charts, audio and video into one structured JSON of layout, text, tables, formulas and timestamps; 96.96 on OmniDocBench",u:"https://huggingface.co/tencent/Youtu-Parsing-Omni"},
 {t:"added",y:"2026-06-23",f:"2026-10-09",c:"ByteDance",n:"Doubao-Seed 2.1",k:["text:chat","text:code"],x:"Agent-focused successor to 2.0: multi-step tool use, end-to-end coding and stronger video understanding; the Pro tier tops GDPVal on real-world work tasks",u:"https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity"},
 {t:"added",y:"2026-03-18",f:"2026-10-08",c:"MiniMax",n:"MiniMax M2.7",k:["text:chat","text:code"],x:"The first MiniMax model to take part in its own training loop, aimed at agent harnesses, long-running software engineering and editing Office documents end to end",u:"https://www.minimax.io/news/minimax-m27-en"},
