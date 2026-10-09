@@ -577,7 +577,8 @@ const D=[
 {n:"Seed Audio 1.0",k:["audio:speech","audio:sfx","audio:music"],d:"20 Jul 2026",x:"Multi-speaker dialogue with a distinct voice each, music, foley and ambience generated together from one prompt or a video, zero-shot voice cloning, 20 languages",u:"https://seed.bytedance.com/en/blog/from-speech-to-audio-creation-introducing-the-seed-audio-1-0-audio-creation-model"},
 {n:"SeedRealtime",k:["audio:speech"],d:"Aug 2026",x:"Full-duplex model that watches, listens and speaks in one network and decides its own turn-taking; live in the Doubao app",u:"https://seed.bytedance.com/en/SeedRealtime"},
 {n:"Doubao 1.6",k:["text:chat","text:code"],d:"11 Jun 2025",x:"",u:"https://seed.bytedance.com"},
-{n:"Doubao-Seed 2.0",k:["text:chat","text:code"],d:"Feb 2026",x:"Pro, Lite and Mini agent tiers plus a separate code model",u:"https://seed.bytedance.com"}]},
+{n:"Doubao-Seed 2.0",k:["text:chat","text:code"],d:"14 Feb 2026",x:"Pro, Lite and Mini agent tiers plus a separate code model",u:"https://seed.bytedance.com"},
+{n:"Doubao-Seed 2.1",k:["text:chat","text:code"],d:"23 Jun 2026",x:"Agent-focused successor to 2.0: multi-step tool use, end-to-end coding and stronger video understanding; the Pro tier tops GDPVal on real-world work tasks",u:"https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity"}]},
 {c:"Kunlun Tech",r:"CN",f:"2008",n:"public (Shenzhen)",u:"https://www.mureka.ai",m:[
 {n:"Mureka V6",k:["audio:music"],d:"Mar 2025",x:"Lyrics-first song generation under the Skywork unit, with the O-series reasoning models alongside",u:"https://www.mureka.ai"},
 {n:"Mureka V9.5",k:["audio:music"],d:"Aug 2026",x:"Plans a track's structure before rendering audio, with O3 previewed alongside",u:"https://www.mureka.ai"}]},
@@ -814,6 +815,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-06-23",f:"2026-10-09",c:"ByteDance",n:"Doubao-Seed 2.1",k:["text:chat","text:code"],x:"Agent-focused successor to 2.0: multi-step tool use, end-to-end coding and stronger video understanding; the Pro tier tops GDPVal on real-world work tasks",u:"https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity"},
 {t:"added",y:"2026-03-18",f:"2026-10-08",c:"MiniMax",n:"MiniMax M2.7",k:["text:chat","text:code"],x:"The first MiniMax model to take part in its own training loop, aimed at agent harnesses, long-running software engineering and editing Office documents end to end",u:"https://www.minimax.io/news/minimax-m27-en"},
 {t:"added",y:"2026-02-12",f:"2026-10-08",c:"MiniMax",n:"MiniMax M2.5",k:["text:chat","text:code"],x:"Reinforcement learning across hundreds of thousands of real-world task environments; 80.2% on SWE-Bench Verified, with a high-speed tier beside the flagship",u:"https://www.minimax.io/blog/minimax-m25"},
 {t:"added",y:"2025-12-22",f:"2026-10-08",c:"MiniMax",n:"MiniMax M2.1",k:["text:chat","text:code"],x:"Multi-language programming beyond Python — Rust, Go, Kotlin and native Android and iOS — with more concise answers than M2; 88.6 aggregate on VIBE",u:"https://www.minimax.io/news/minimax-m21"},
@@ -1484,7 +1486,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 8 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 9 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
