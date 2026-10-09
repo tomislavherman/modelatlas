@@ -61,7 +61,7 @@ they make is in scope.
 
 - https://www.anthropic.com/news
 - https://openai.com/news/
-- https://deepmind.google/blog/ and https://blog.google/innovation-and-ai/models-and-research/
+- https://deepmind.google/blog/
 - https://research.meta.ai/blog
 - https://about.fb.com/news/
 - https://x.ai/news
@@ -79,6 +79,7 @@ they make is in scope.
 - https://sonilo.com/news
 - https://cognition.com/blog
 - https://reflection.ai/blog
+- https://celeris.ai/blog
 - https://www.inceptionlabs.ai/blog
 - https://www.apodex.com/blog
 - https://cohere.com/blog

@@ -444,7 +444,7 @@ const D=[
 {c:"Leonardo.ai",r:"AU",f:"2022",n:"Canva (Jul 2024)",u:"https://leonardo.ai",m:[
 {n:"Phoenix / Lucid",k:["image"],d:"Jun 2024 →",x:"",u:"https://leonardo.ai/news/"}]},
 {c:"Krea",r:"US",f:"2022",n:"independent",u:"https://www.krea.ai",m:[
-{n:"Krea 1 / Krea Realtime",k:["image"],d:"2025 → Realtime Oct 2025",x:"",u:"https://www.krea.ai"},
+{n:"Krea 1 / Krea Realtime",k:["image"],d:"10 Jun 2025 → Realtime Oct 2025",x:"",u:"https://www.krea.ai"},
 {n:"Krea 2",k:["image"],d:"May 2026, open weights Jun 2026",x:"12.9B parameters",u:"https://www.krea.ai/blog/krea-2-technical-report",o:{l:"Krea 2 community",h:"https://huggingface.co/krea/Krea-2-Raw",q:16,p:13}}]},
 {c:"Lightricks / LTX",r:"IL",f:"2013",n:"independent",u:"https://www.lightricks.com",m:[
 {n:"LTX Video",k:["video"],d:"Nov 2024",x:"Open weights",u:"https://github.com/Lightricks/LTX-Video",o:{l:"LTX community",h:"https://huggingface.co/Lightricks/LTX-Video",q:32,p:[1.9,13]}},
@@ -611,7 +611,7 @@ const D=[
 {n:"HappyOyster 1.0 Adventure / Directing / Acting",k:["world"],d:"Apr 2026 → API 18 Sep 2026",x:"Streaming world model in three modes: Adventure explores an endless scene, Directing drives one from a script at 720p, Acting holds a portrait video call in character",u:"https://www.alibabacloud.com/help/en/model-studio/happyoyster-overview"},
 {n:"Qwen-Image",k:["image"],d:"Aug 2025",x:"",u:"https://qwen.ai",o:{l:"Apache 2.0",h:"https://huggingface.co/Qwen/Qwen-Image",q:16,p:20}},
 {n:"Qwen-Image 3.0",k:["image"],d:"4 Aug 2026",x:"",u:"https://qwen.ai"},
-{n:"Qwen-Image 2.1",k:["image"],d:"Sep 2026 → Pro 2 Oct 2026",x:"Unified text-to-image and image editing at 7B with native RGBA transparency; takes up to 10 reference images and accepts edits marked with circles, doodles or masks",u:"https://huggingface.co/Qwen/Qwen-Image-2.1",o:{l:"Qwen Research",h:"https://huggingface.co/Qwen/Qwen-Image-2.1",q:16,p:7}},
+{n:"Qwen-Image 2.1",k:["image"],d:"Sep 2026 → Pro 2 Oct 2026 → Turbo 9 Oct 2026",x:"Unified text-to-image and image editing at 7B with native RGBA transparency; takes up to 10 reference images and accepts edits marked with circles, doodles or masks",u:"https://huggingface.co/Qwen/Qwen-Image-2.1",o:{l:"Qwen Research",h:"https://huggingface.co/Qwen/Qwen-Image-2.1",q:16,p:7}},
 {n:"Qwen-Image 3.1",k:["image"],d:"announced Sep 2026, expected 2026",x:"Image generation tuned for creative design and e-commerce marketing; named at the Apsara keynote with no specs, weights or price"},
 {n:"Qwen-MT-Image 2.0",k:["image"],d:"28 Aug 2026",x:"Translates the text inside an image and re-renders it in place, holding layout, fonts and background across 55 languages; leaves text on faces, products and logos alone",u:"https://www.alibabacloud.com/help/en/model-studio/qwen-mt-image-api"},
 {n:"CosyVoice",k:["audio:speech"],d:"Jul 2024",x:"Open weights",u:"https://github.com/FunAudioLLM/CosyVoice",o:{l:"Apache 2.0",h:"https://huggingface.co/FunAudioLLM/CosyVoice2-0.5B",p:0.5}},
@@ -762,6 +762,10 @@ const D=[
 {n:"Decider v1 27B",k:["text:chat"],d:"1 Oct 2026",x:"Decision model behind the Decisions API, a Qwen3.8-27B fine-tune reading text, JSON and images and answering yes/no, one of a set, or a rubric level, each with a probability",u:"https://docs.perplexity.ai/docs/decisions/quickstart",o:{l:"Apache 2.0",h:"https://huggingface.co/perplexity-ai/pplx-decider-v1-27b",q:16,p:27}},
 {n:"Decider v1.1 27B",k:["text:chat"],d:"6 Oct 2026",x:"Update of Decider v1 on the same Qwen3.8-27B backbone: lifting the causal mask and adding training data takes its Decision Index from 56.4 to 61.56",u:"https://huggingface.co/perplexity-ai/pplx-decider-v1.1-27b",o:{l:"Apache 2.0",h:"https://huggingface.co/perplexity-ai/pplx-decider-v1.1-27b",q:16,p:27}},
 {n:"pplx-embed-v2-late-0.6b / pplx-embed-v2-late-9b",k:["text:embed"],d:"7 Oct 2026",x:"Late-interaction retrievers scoring at token level across text, images and whole page scans; the two sizes share one embedding space, so one query can run over both",u:"https://community.perplexity.ai/t/were-releasing-pplx-embed-v2-late-two-late-interaction-embedding-models-that-retrieve-text-images-and-pages-with-a-shared-embedding-space-for-cross-model-querying/6296",o:{l:"MIT",h:"https://huggingface.co/perplexity-ai/pplx-embed-v2-late-9b",q:32,p:[0.6,9]}}]},
+{c:"Celeris",r:"US",f:"2026",n:"independent",u:"https://celeris.ai",m:[
+{n:"Celeris-1",k:["text:chat"],d:"Jul 2026",x:"Diffusion language model built for latency: complete answers in 158ms, 75.9% on MMLU-Pro and 81.4% with reasoning turned on; text only over a 131K context"},
+{n:"Celeris-1 Magnus",k:["text:chat"],d:"31 Aug 2026",x:"The agentic tier, taking text plus tools over the same 131K context: 41.2% on τ³-bench banking at a median 55s a task, against 27.8% with reasoning off",u:"https://celeris.ai/celeris-1-magnus"},
+{n:"Celeris-1 Decision",k:["text:chat"],d:"8 Oct 2026",x:"Decision model returning a probability per outcome on yes/no, choice or score questions over text, JSON or images, with an optional one-sentence reason; 67ms median",u:"https://celeris.ai/celeris-1-decision"}]},
 {c:"Voyage AI",r:"US",f:"2023",n:"MongoDB (Feb 2025)",u:"https://www.voyageai.com",m:[
 {n:"voyage-3",k:["text:embed"],d:"18 Sep 2024",x:"",u:"https://blog.voyageai.com/2024/09/18/voyage-3/"},
 {n:"voyage-4",k:["text:embed"],d:"15 Jan 2026",x:"Mixture of experts with one shared embedding space across the family",u:"https://blog.voyageai.com/2026/01/15/voyage-4/"},
@@ -818,6 +822,10 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-09",f:"2026-10-09",c:"Alibaba",n:"Qwen-Image-2.1-Turbo",k:["image"],x:"Accelerated checkpoint of Qwen-Image 2.1 on the same 7B visual generation architecture, generating and editing in 8 denoising steps with its sampling schedule baked in",u:"https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo"},
+{t:"added",y:"2026-10-08",f:"2026-10-09",c:"Celeris",n:"Celeris-1 Decision",k:["text:chat"],x:"Decision model returning a probability per outcome on yes/no, choice or score questions over text, JSON or images, with an optional one-sentence reason; 67ms median",u:"https://celeris.ai/celeris-1-decision"},
+{t:"added",y:"2026-08-31",f:"2026-10-09",c:"Celeris",n:"Celeris-1 Magnus",k:["text:chat"],x:"The agentic tier, taking text plus tools over the same 131K context: 41.2% on τ³-bench banking at a median 55s a task, against 27.8% with reasoning off",u:"https://celeris.ai/celeris-1-magnus"},
+{t:"added",y:"2026-07",f:"2026-10-09",c:"Celeris",n:"Celeris-1",k:["text:chat"],x:"Diffusion language model built for latency: complete answers in 158ms, 75.9% on MMLU-Pro and 81.4% with reasoning turned on; text only over a 131K context",u:"https://celeris.ai"},
 {t:"added",y:"2026-10-02",f:"2026-10-09",c:"Ai2",n:"AstaBrief",k:["text:chat"],x:"Writes a cited scientific report from a question and retrieved papers in one pass rather than step by step, cutting generation time nearly tenfold; an 8B Qwen3 fine-tune",u:"https://allenai.org/blog/astabrief"},
 {t:"added",y:"2025-12-15",f:"2026-10-09",c:"Ai2",n:"Bolmo",k:["text:chat"],x:"Olmo retrofitted to read raw UTF-8 bytes instead of a subword vocabulary; Ai2 calls them the first fully open byte-level LMs, and character accuracy gains nearly 20 points",u:"https://allenai.org/blog/bolmo"},
 {t:"added",y:"2026-10",f:"2026-10-09",c:"Tencent",n:"Youtu-Parsing-Omni",k:["text:chat"],x:"5B omni-modal parser reading document pages, charts, audio and video into one structured JSON of layout, text, tables, formulas and timestamps; 96.96 on OmniDocBench",u:"https://huggingface.co/tencent/Youtu-Parsing-Omni"},
