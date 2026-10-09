@@ -637,7 +637,8 @@ const D=[
 {n:"AuK / AuK-Flash",k:["audio:speech"],d:"9 Sep 2026",x:"1.5B speech model driven by natural-language instructions: zero-shot TTS, content and emotion edits, de-accenting, enhancement and separation; Flash is a 4-step distill",u:"https://huggingface.co/tencent/AuK",o:{l:"MIT",h:"https://huggingface.co/tencent/AuK",p:1.5}},
 {n:"Hunyuan 2.0",k:["text:chat","text:code"],d:"Dec 2025",x:"Deployed in over 900 Tencent products"},
 {n:"Hy4 preview",k:["text:chat","text:code"],d:"28 Aug 2026",x:"The Hy4 rename opens the line up at 770B with 49B active and a 1M-token context under Apache 2.0",u:"https://github.com/Tencent-Hunyuan/Hy4-preview",o:{l:"Apache 2.0",h:"https://huggingface.co/tencent/Hy4-preview",q:16,p:780}},
-{n:"EVIE-8B / EVIE-4.5B",k:["text:embed"],d:"Sep 2026",x:"Visual document retrievers with ColBERT-style late interaction over page images, built on Qwen3.5; 66.75 on ViDoRe V3, first on the leaderboard",u:"https://huggingface.co/tencent/EVIE-8B",o:{l:"Apache 2.0",h:"https://huggingface.co/tencent/EVIE-8B",q:16,p:[4.5,8]}}]},
+{n:"EVIE-8B / EVIE-4.5B",k:["text:embed"],d:"Sep 2026",x:"Visual document retrievers with ColBERT-style late interaction over page images, built on Qwen3.5; 66.75 on ViDoRe V3, first on the leaderboard",u:"https://huggingface.co/tencent/EVIE-8B",o:{l:"Apache 2.0",h:"https://huggingface.co/tencent/EVIE-8B",q:16,p:[4.5,8]}},
+{n:"Youtu-Parsing-Omni",k:["text:chat"],d:"Oct 2026",x:"5B omni-modal parser reading document pages, charts, audio and video into one structured JSON of layout, text, tables, formulas and timestamps; 96.96 on OmniDocBench",u:"https://huggingface.co/tencent/Youtu-Parsing-Omni",o:{l:"Youtu Parsing",h:"https://huggingface.co/tencent/Youtu-Parsing-Omni",q:16,p:5}}]},
 {c:"ShengShu",r:"CN",f:"2023",n:"independent",u:"https://www.shengshu-ai.com",m:[
 {n:"Vidu",k:["video"],d:"Apr 2024",x:"",u:"https://www.vidu.com"},
 {n:"Vidu Q3",k:["video","audio:sfx"],d:"Jan 2026",x:"16-second clips with audio",u:"https://www.vidu.com"},
@@ -815,6 +816,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10",f:"2026-10-09",c:"Tencent",n:"Youtu-Parsing-Omni",k:["text:chat"],x:"5B omni-modal parser reading document pages, charts, audio and video into one structured JSON of layout, text, tables, formulas and timestamps; 96.96 on OmniDocBench",u:"https://huggingface.co/tencent/Youtu-Parsing-Omni"},
 {t:"added",y:"2026-06-23",f:"2026-10-09",c:"ByteDance",n:"Doubao-Seed 2.1",k:["text:chat","text:code"],x:"Agent-focused successor to 2.0: multi-step tool use, end-to-end coding and stronger video understanding; the Pro tier tops GDPVal on real-world work tasks",u:"https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity"},
 {t:"added",y:"2026-03-18",f:"2026-10-08",c:"MiniMax",n:"MiniMax M2.7",k:["text:chat","text:code"],x:"The first MiniMax model to take part in its own training loop, aimed at agent harnesses, long-running software engineering and editing Office documents end to end",u:"https://www.minimax.io/news/minimax-m27-en"},
 {t:"added",y:"2026-02-12",f:"2026-10-08",c:"MiniMax",n:"MiniMax M2.5",k:["text:chat","text:code"],x:"Reinforcement learning across hundreds of thousands of real-world task environments; 80.2% on SWE-Bench Verified, with a high-speed tier beside the flagship",u:"https://www.minimax.io/blog/minimax-m25"},
