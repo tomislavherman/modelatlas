@@ -94,7 +94,7 @@ they make is in scope.
 - https://mistral.ai/news
 - https://blogs.nvidia.com/blog/category/generative-ai/
 - https://pika.art/blog
-- https://www.pixverse.ai/en/blog
+- https://pixverse.ai/en/news
 - https://cartesia.ai/blog
 - https://blog.voyageai.com/
 - https://skild.ai/blogs
