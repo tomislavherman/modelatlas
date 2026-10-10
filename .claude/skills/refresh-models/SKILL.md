@@ -72,11 +72,11 @@ they make is in scope.
 - https://www.minimax.io/blog
 - https://www.tencent.com/newsroom/
 - https://microsoft.ai/news/
+- https://techcommunity.microsoft.com/category/azure-ai-foundry/blog/azure-ai-foundry-blog
 - https://bfl.ai/blog
 - https://runway.com/research
 - https://elevenlabs.io/blog
 - https://suno.com/blog
-- https://sonilo.com/news
 - https://cognition.com/blog
 - https://reflection.ai/blog
 - https://celeris.ai/blog
