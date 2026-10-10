@@ -313,9 +313,10 @@ const D=[
 {c:"SpaceXAI",r:"US",f:"xAI 2023",n:"SpaceX (Feb 2026)",u:"https://x.ai",m:[
 {n:"Aurora",k:["image"],d:"Dec 2024",x:"First in-house Grok image model",u:"https://x.ai/news/grok-image-generation-release"},
 {n:"Grok Imagine",k:["image"],d:"Jul 2025",x:""},
-{n:"Grok Imagine 1.0",k:["image"],d:"Feb 2026, quality tier discontinued Nov 2026",x:"The higher-priced quality slug is being removed and rerouted to Grok Imagine Image 2.0 at low quality; the base tier is unaffected",u:"https://docs.x.ai/developers/release-notes"},
+{n:"Grok Imagine 1.0",k:["image"],d:"Feb 2026, quality tier discontinued 2 Nov 2026",x:"The higher-priced quality slug is being removed and rerouted to Grok Imagine Image 2.0 at low quality; the base tier is unaffected",u:"https://docs.x.ai/developers/release-notes"},
 {n:"Grok Imagine Image 2.0",k:["image"],d:"7 Aug 2026",x:"Region editing, multi-image input, smart resize",u:"https://x.ai/news/grok-imagine-image-2"},
 {n:"grok-imagine-video 1.5",k:["video","audio:sfx"],d:"16 Jun 2026",x:"Synced audio",u:"https://x.ai/news/grok-imagine-video-1-5"},
+{n:"grok-imagine-video 1.5 Lite",k:["video","audio:sfx"],d:"Oct 2026",x:"The cheapest tier of the Imagine video line: text- or image-to-video only, up to 15 seconds with native lip-synced audio, and 1080p upscaled from 720p rather than native",u:"https://docs.x.ai/developers/models/grok-imagine-video-1.5-lite"},
 {n:"Grok Voice",k:["audio:speech"],d:"2024",x:"Speech-to-speech in the Grok app and API"},
 {n:"Grok Voice Think Fast 1.0",k:["audio:speech"],d:"23 Apr 2026",x:"Full-duplex voice agent for multi-step support and sales workflows in 25+ languages; took the top spot on the τ-voice Bench leaderboard at release",u:"https://x.ai/news/grok-voice-think-fast-1"},
 {n:"Grok Voice Think Fast 2.0",k:["audio:speech"],d:"29 Jul 2026",x:"Reasons while speaking, and the API default from Aug 2026",u:"https://x.ai/news/grok-voice-think-fast-2"},
@@ -829,6 +830,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10",f:"2026-10-10",c:"SpaceXAI",n:"grok-imagine-video 1.5 Lite",k:["video","audio:sfx"],x:"The cheapest tier of the Imagine video line: text- or image-to-video only, up to 15 seconds with native lip-synced audio, and 1080p upscaled from 720p rather than native",u:"https://docs.x.ai/developers/models/grok-imagine-video-1.5-lite"},
 {t:"added",y:"2026-09-30",f:"2026-10-10",c:"Inception",n:"Mercury Decide",k:["text:chat"],x:"Typed decisions rather than prose: yes/no, choice and score questions answered against one shared state, each with a probability, at a claimed 14 decisions a second",u:"https://docs.inceptionlabs.ai/capabilities/decisions"},
 {t:"added",y:"2026-10-09",f:"2026-10-10",c:"Microsoft",n:"Microsoft-Decision-1",k:["text:chat"],x:"Decision model on Qwen3.5-9B: one of a predefined set with calibrated confidence rather than free text; Xbox clocked it 80-100x faster than GPT-5 at matching quality",u:"https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-microsoft-decision-1-in-microsoft-foundry-for-decision-and-classific/4562742"},
 {t:"added",y:"2026-10-09",f:"2026-10-10",c:"Amazon",n:"Strands Decider Gemma 4 v1",k:["text:chat"],x:"First Strands decider on Gemma 4, in four sizes: a LoRA adapter and readout head that score typed yes/no, choice and scale questions; 89.6% on JevBench at the 26B size",u:"https://huggingface.co/StrandsAgents/strands-decider-26B-A4B-gemma4-v1-2610"},
