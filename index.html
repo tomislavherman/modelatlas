@@ -295,12 +295,13 @@ const D=[
 {n:"Gemini Embedding",k:["text:embed"],d:"14 Jul 2025",x:"",u:"https://ai.google.dev/gemini-api/docs/embeddings"},
 {n:"Gemini Embedding 2",k:["text:embed"],d:"10 Mar 2026",x:"Natively multimodal, in preview",u:"https://ai.google.dev/gemini-api/docs/embeddings"},
 {n:"EmbeddingGemma 2",k:["text:embed"],d:"6 Oct 2026",x:"Puts text, code, images, video and audio into one embedding space on the device; 740M parameters, with the vision and audio encoders optional and an 8K context",u:"https://deepmind.google/models/gemma/embeddinggemma/",o:{l:"Apache 2.0",h:"https://huggingface.co/google/embeddinggemma-2",q:16,p:0.74}},
-{n:"Gemini Robotics 1.5 / Gemini Robotics-ER 1.6",k:["robotics"],d:"Oct 2025 → Apr 2026",x:"Vision-language-action pair that reasons in language before acting; ER 1.6 launched with Boston Dynamics",u:"https://deepmind.google/models/gemini-robotics/"},
+{n:"Gemini Robotics 1.5",k:["robotics"],d:"Oct 2025",x:"Vision-language-action model that reasons in language before acting",u:"https://deepmind.google/models/gemini-robotics/"},
+  {n:"Gemini Robotics-ER 1.6",k:["robotics"],d:"14 Apr 2026, shut down 31 Aug 2026",x:"Reasons in language before acting; launched with Boston Dynamics",u:"https://deepmind.google/models/gemini-robotics/"},
 {n:"Gemini Robotics 2 / Gemini Robotics-ER 2",k:["robotics"],d:"30 Jul 2026",x:"Coordinates a whole humanoid body rather than the upper half, with an On-Device 2 edge variant alongside",u:"https://deepmind.google/models/gemini-robotics/"}]},
 {c:"Anthropic",r:"US",f:"2021",n:"independent",u:"https://www.anthropic.com",m:[
 {n:"Claude Opus 4",k:["text:chat","text:code"],d:"May 2025, retired 15 Jun 2026",x:"Deprecated Apr 2026 and pulled from the API in favour of Claude Opus 4.8",u:"https://platform.claude.com/docs/en/about-claude/model-deprecations"},
 {n:"Claude Opus 4.8",k:["text:chat","text:code"],d:"28 May 2026",x:"Eighth point release of the largest tier inside a year"},
-{n:"Claude Haiku 4.5",k:["text:chat"],d:"Oct 2025",x:"The small, fast tier",u:"https://www.anthropic.com/news/claude-haiku-4-5"},
+{n:"Claude Haiku 4.5",k:["text:chat"],d:"15 Oct 2025",x:"The small, fast tier",u:"https://www.anthropic.com/news/claude-haiku-4-5"},
 {n:"Claude Sonnet 4.5",k:["text:chat","text:code"],d:"29 Sep 2025, retired 30 Nov 2026",x:"The 4.5 generation's mid tier and the long-serving default for coding agents; Sonnet 5.5 is the recommended replacement",u:"https://www.anthropic.com/news/claude-sonnet-4-5"},
 {n:"Claude Mythos Preview",k:["text:chat","text:code"],d:"7 Apr 2026",x:"Frontier model Anthropic will not release generally; Project Glasswing partners used it to find over ten thousand high- or critical-severity zero-days",u:"https://www.anthropic.com/news/mythos-preview"},
 {n:"Claude Mythos 5 / Claude Fable 5",k:["text:chat","text:code"],d:"9 Jun 2026",x:"Frontier tier; Mythos is the same model under lighter safeguards for vetted cyber and life-science orgs"},
@@ -613,8 +614,8 @@ const D=[
 {c:"Alibaba",r:"CN",f:"1999",n:"NYSE / HKEX",u:"https://www.alibabacloud.com",m:[
 {n:"Wan (Wanxiang)",k:["video"],d:"Feb 2025 → Jul 2025",x:"Wan 2.2 is the last open-weights release in the line",u:"https://wan.video",o:{l:"Apache 2.0",h:"https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B",p:[5,27]}},
 {n:"Wan 3.0",k:["video","audio:sfx"],d:"6 Aug 2026",x:"30-second 1080p clips with audio in one pass, prompted from documents, slides or web pages; the first Wan flagship with closed weights",u:"https://wan.video"},
-{n:"HappyHorse 1.0",k:["video","audio:sfx"],d:"Apr 2026",x:"15B unified transformer from the Taotian Future Life Lab that generates a clip and its soundtrack in one pass, lip-synced across seven languages; 1080p up to 15 seconds"},
-{n:"HappyHorse 1.1",k:["video","audio:sfx"],d:"Jun 2026",x:"Took the top Elo on the Artificial Analysis video arena while still entered anonymously",u:"https://www.alibabacloud.com/blog/happyhorse-gets-stronger-motion-expressiveness-higher-generation-consistency-and-enhanced-visual-quality_603293"},
+{n:"HappyHorse 1.0",k:["video","audio:sfx"],d:"22 Apr 2026",x:"15B unified transformer from the Taotian Future Life Lab that generates a clip and its soundtrack in one pass, lip-synced across seven languages; 1080p up to 15 seconds"},
+{n:"HappyHorse 1.1",k:["video","audio:sfx"],d:"16 Jun 2026",x:"Took the top Elo on the Artificial Analysis video arena while still entered anonymously",u:"https://www.alibabacloud.com/blog/happyhorse-gets-stronger-motion-expressiveness-higher-generation-consistency-and-enhanced-visual-quality_603293"},
 {n:"HappyOyster 1.0 Adventure / Directing / Acting",k:["world"],d:"Apr 2026 → API 18 Sep 2026",x:"Streaming world model in three modes: Adventure explores an endless scene, Directing drives one from a script at 720p, Acting holds a portrait video call in character",u:"https://www.alibabacloud.com/help/en/model-studio/happyoyster-overview"},
 {n:"Qwen-Image",k:["image"],d:"Aug 2025",x:"",u:"https://qwen.ai",o:{l:"Apache 2.0",h:"https://huggingface.co/Qwen/Qwen-Image",q:16,p:20}},
 {n:"Qwen-Image 3.0",k:["image"],d:"4 Aug 2026",x:"",u:"https://qwen.ai"},
@@ -853,6 +854,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"retired",y:"2026-08",f:"2026-10-12",c:"Google DeepMind",n:"Gemini Robotics-ER 1.6",k:["robotics"],x:"Reasons in language before acting; launched with Boston Dynamics",u:"https://deepmind.google/models/gemini-robotics/"},
 {t:"added",y:"2026-09-15",f:"2026-10-12",c:"StepFun",n:"StepAudio 3",k:["audio:speech","audio:music","audio:sfx"],x:"Five audio models shipped as one set: full-duplex realtime voice, speech recognition, speech synthesis, general audio and music generation",u:"https://platform.stepfun.ai/docs/en/guides/models/audio"},
 {t:"added",y:"2026-09-14",f:"2026-10-12",c:"Jina AI",n:"jina-ocr-v1",k:["text:chat"],x:"Vision-language model parsing document pages into Markdown; a speculative decoding head keeps it fast on low-budget GPUs",u:"https://jina.ai/news/jina-ocr-v1-faster-document-parsing-on-low-budget-gpus"},
 {t:"added",y:"2026-08-03",f:"2026-10-12",c:"Jina AI",n:"jina-reranker-v3.5",k:["text:embed"],x:"Listwise reranker scoring a query against many candidates in one pass; sliding-window layers mixed with global ones speed up long documents",u:"https://jina.ai/news/jina-reranker-v3-5-faster-listwise-reranking-hybrid-attention-self-distillation"},
