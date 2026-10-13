@@ -80,7 +80,7 @@ they make is in scope.
 - https://reflection.ai/blog
 - https://celeris.ai/blog
 - https://www.inceptionlabs.ai/blog
-- https://www.apodex.com/blog
+- https://aws.amazon.com/about-aws/whats-new/recent/feed/
 - https://cohere.com/blog
 - https://allenai.org/blog
 - https://aleph-alpha.com/en/blog/
@@ -146,7 +146,7 @@ same way as a newsroom, one call per organisation:
 
 ```sh
 for a in openai google facebook meta-models apodex ibm-granite nvidia \
-  black-forest-labs stabilityai ideogram-ai krea Lightricks mistralai \
+  black-forest-labs Cactus-Compute ideogram-ai krea Lightricks mistralai \
   allenai MiniMaxAI Wan-AI Qwen FunAudioLLM tencent zai-org inclusionAI \
   stepfun-ai internlm deepseek-ai moonshotai IFM thinkingmachines CohereLabs Aleph-Alpha openbmb \
   Agnes-AI XiaomiRobotics XiaomiMiMo m-a-p desert-ant-labs poolside IndexTeam robbyant Dexmal LiquidAI Cloudflare perplexity-ai StrandsAgents RekaAI JetBrains jinaai; do
