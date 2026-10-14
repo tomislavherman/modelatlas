@@ -673,7 +673,8 @@ const D=[
 {n:"GLM-5",k:["text:chat","text:code"],d:"12 Feb 2026",x:"Open weights",u:"https://z.ai",o:{l:"MIT",h:"https://huggingface.co/zai-org/GLM-5-FP8",q:8,p:754}},
 {n:"GLM-5.2",k:["text:chat","text:code"],d:"16 Jun 2026",x:"753B mixture of experts under MIT whose headline change is a 1M-token lossless context, aimed at long-horizon coding runs that drift as they fill up",u:"https://huggingface.co/zai-org/GLM-5.2",o:{l:"MIT",h:"https://huggingface.co/zai-org/GLM-5.2",q:16,p:753}},
 {n:"GLM-5.3",k:["text:chat","text:code"],d:"18 Aug 2026",x:"744B mixture of experts with 40B active, open weights; the 5.2 release added a 1M-token context under MIT",u:"https://z.ai",o:{l:"GLM-5.3 licence",h:"https://huggingface.co/zai-org/GLM-5.3",q:8,p:753}},
-{n:"GLM-5.3-Flash",k:["text:chat","text:code"],d:"26 Aug 2026",x:"320B with 18B active under MIT, the first natively multimodal GLM-5 and a tenth the price of 5.2; previewed anonymously as Ox Alpha and trained entirely on Chinese chips",u:"https://huggingface.co/zai-org/GLM-5.3-Flash",o:{l:"MIT",h:"https://huggingface.co/zai-org/GLM-5.3-Flash",q:8,p:321}}]},
+{n:"GLM-5.3-Flash",k:["text:chat","text:code"],d:"26 Aug 2026",x:"320B with 18B active under MIT, the first natively multimodal GLM-5 and a tenth the price of 5.2; previewed anonymously as Ox Alpha and trained entirely on Chinese chips",u:"https://huggingface.co/zai-org/GLM-5.3-Flash",o:{l:"MIT",h:"https://huggingface.co/zai-org/GLM-5.3-Flash",q:8,p:321}},
+{n:"GLM-Legal",k:["text:chat"],d:"announced 13 Oct 2026, beta by application",x:"Legal-domain model built on GLM-5.3-Flash for contract review, evidence analysis and compliance; 19.2% all-pass on Harvey LAB, 12.5 points above its base",u:"https://autoclaw.z.ai/blog/model/GLM-Legal/"}]},
 {c:"inclusionAI",r:"CN",f:"2025",n:"Ant Group",u:"https://www.inclusion-ai.org",m:[
 {n:"Ling-3.1-flash",k:["text:chat","text:code"],d:"30 Sep 2026",x:"560B mixture of experts with 25B active per token and a 1M-token context, aimed at agents, search and office work; weights promised after the trial",u:"https://x.com/AntLingAGI/status/2105335205741596911",o:{}},
 {n:"Ling-3.0-flash-VL",k:["text:chat"],d:"10 Sep 2026",x:"Ling 3.0 Flash with vision: 124B mixture of experts, 5.5B active, image and video input over a 256K context, built for reading interfaces and acting on them",u:"https://huggingface.co/inclusionAI/Ling-3.0-flash-VL",o:{l:"MIT",h:"https://huggingface.co/inclusionAI/Ling-3.0-flash-VL",q:16,p:124}},
@@ -865,6 +866,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"announced",y:"2026-10-13",f:"2026-10-14",c:"Zhipu / Z.ai",n:"GLM-Legal",k:["text:chat"],x:"Legal-domain model built on GLM-5.3-Flash for contract review, evidence analysis and compliance; 19.2% all-pass on Harvey LAB, 12.5 points above its base",u:"https://autoclaw.z.ai/blog/model/GLM-Legal/"},
 {t:"added",y:"2026-10-13",f:"2026-10-13",c:"Liquid AI",n:"LFM2.5-24B-A2B",k:["text:chat"],x:"Reasoning-only mixture of experts with 2B active, for on-device agents; 184 tokens a second on an M5 Max, ahead of Qwen3.6-35B-A3B on five of eight agentic benchmarks",u:"https://www.liquid.ai/blog/lfm2-5-24b-a2b"},
 {t:"added",y:"2026-05-05",f:"2026-10-13",c:"Ai2",n:"MolmoAct2 / MolmoAct2-Think",k:["robotics"],x:"Robot foundation model pairing the Molmo2-ER reasoning backbone with a flow-matching action expert; the Think tier predicts a 10x10 depth map before acting",u:"https://allenai.org/blog/molmoact2"},
 {t:"added",y:"2025-08-12",f:"2026-10-13",c:"Ai2",n:"MolmoAct",k:["robotics"],x:"Action reasoning model that plans through image-space waypoints and depth-aware perception tokens before producing robot commands; data and training code published too",u:"https://allenai.org/blog/molmoact"},
@@ -1582,7 +1584,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 13 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 14 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}

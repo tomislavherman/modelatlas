@@ -106,6 +106,7 @@ they make is in scope.
 - https://ltx.io/release-notes
 - https://reka.ai/news
 - https://blog.jetbrains.com/ai/
+- https://autoclaw.z.ai/blog
 
 Then read the API changelogs. A point release such as Gemini Omni 1.1 Flash
 gets a developer-blog post and a changelog line, not a headline, and the
