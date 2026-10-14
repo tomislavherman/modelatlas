@@ -481,6 +481,8 @@ const D=[
 {n:"WorldGen",k:["world"],d:"9 Sep 2026",x:"One image in, a whole 3D scene out: foreground objects come back as separate meshes with estimated physical properties, backgrounds as Gaussian splats, so the scene stays editable"}]},
 {c:"Manycore Tech",r:"CN",f:"2011",n:"HKEX Apr 2026",u:"https://www.aholo3d.com",m:[
 {n:"Lux3D",k:["world"],d:"Aug 2026",x:"Text or a reference image to a PBR-ready 3D asset, trained so glass, metal, ceramic and plastic hold up under light; a Turbo mode returns a draft in about twenty seconds",u:"https://lux3d.aholo3d.com/lux3d/home"}]},
+{c:"Noiz AI",r:"CN",f:"2025",n:"independent",u:"https://noiz.ai",m:[
+{n:"HelixWorld Preview v1",k:["world","video","audio:sfx"],d:"3 Sep 2026",x:"Interactive audio-visual world model: 24 FPS video and 48 kHz camera-grounded stereo audio generated together, distilled to a student that streams on one GPU",u:"https://github.com/NoizAI/HelixWorld",o:{l:"Apache 2.0",h:"https://huggingface.co/NoizAI/HelixWorld-preview"}}]},
 {c:"Mistral AI",r:"FR",f:"2023",n:"independent",u:"https://mistral.ai",m:[
 {n:"Voxtral",k:["audio:speech"],d:"Jul 2025",x:"Speech understanding",u:"https://mistral.ai/news/voxtral",o:{l:"Apache 2.0",h:"https://huggingface.co/mistralai/Voxtral-Small-24B-2507",q:16,p:[3,24]}},
 {n:"Voxtral TTS",k:["audio:speech"],d:"23 Mar 2026",x:"4B, open weights, priced against ElevenLabs",u:"https://mistral.ai/news/voxtral-tts/",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/mistralai/Voxtral-4B-TTS-2603",p:4}},
@@ -866,6 +868,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-03",f:"2026-10-14",c:"Noiz AI",n:"HelixWorld Preview v1",k:["world","video","audio:sfx"],x:"Interactive audio-visual world model: 24 FPS video and 48 kHz camera-grounded stereo audio generated together, distilled to a student that streams on one GPU",u:"https://github.com/NoizAI/HelixWorld"},
 {t:"announced",y:"2026-10-13",f:"2026-10-14",c:"Zhipu / Z.ai",n:"GLM-Legal",k:["text:chat"],x:"Legal-domain model built on GLM-5.3-Flash for contract review, evidence analysis and compliance; 19.2% all-pass on Harvey LAB, 12.5 points above its base",u:"https://autoclaw.z.ai/blog/model/GLM-Legal/"},
 {t:"added",y:"2026-10-13",f:"2026-10-13",c:"Liquid AI",n:"LFM2.5-24B-A2B",k:["text:chat"],x:"Reasoning-only mixture of experts with 2B active, for on-device agents; 184 tokens a second on an M5 Max, ahead of Qwen3.6-35B-A3B on five of eight agentic benchmarks",u:"https://www.liquid.ai/blog/lfm2-5-24b-a2b"},
 {t:"added",y:"2026-05-05",f:"2026-10-13",c:"Ai2",n:"MolmoAct2 / MolmoAct2-Think",k:["robotics"],x:"Robot foundation model pairing the Molmo2-ER reasoning backbone with a flow-matching action expert; the Think tier predicts a 10x10 depth map before acting",u:"https://allenai.org/blog/molmoact2"},
