@@ -514,6 +514,8 @@ const D=[
 {c:"Cartesia",r:"US",f:"2023",n:"independent",u:"https://cartesia.ai",m:[
 {n:"Sonic",k:["audio:speech"],d:"31 May 2024",x:"Low-latency state-space model",u:"https://cartesia.ai/sonic"},
 {n:"Sonic 3.6",k:["audio:speech"],d:"27 Aug 2026",x:"Low-latency state-space model",u:"https://www.cartesia.ai/blog/sonic-3.6"}]},
+{c:"Fish Audio",r:"US",f:"2025",n:"independent",u:"https://fish.audio",m:[
+{n:"Drama 3",k:["audio:speech"],d:"13 Oct 2026",x:"Text to speech directed in square brackets — [whispering], [laughing] — which it follows mid-line; 35B mixture of experts with 3B active, 83 languages",u:"https://fish.audio/blog/fish-audio-drama-3/",o:{l:"Fish Audio Community 1.0",h:"https://huggingface.co/fishaudio/drama-3",q:8,p:35}}]},
 {c:"Hume AI",r:"US",f:"2021",n:"independent",u:"https://www.hume.ai",m:[
 {n:"Octave / EVI",k:["audio:speech"],d:"2024 → Octave 26 Feb 2025",x:"Emotionally aware text-to-speech",u:"https://www.hume.ai/blog/octave-the-first-text-to-speech-model-that-understands-what-its-saying"},
 {n:"Octave 2",k:["audio:speech"],d:"1 Oct 2025",x:"11 languages, voice conversion",u:"https://www.hume.ai/blog/octave-2-launch"}]},
@@ -869,6 +871,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-13",f:"2026-10-15",c:"Fish Audio",n:"Drama 3",k:["audio:speech"],x:"Text to speech directed in square brackets — [whispering], [laughing] — which it follows mid-line; 35B mixture of experts with 3B active, 83 languages",u:"https://fish.audio/blog/fish-audio-drama-3/"},
 {t:"added",y:"2026-10-14",f:"2026-10-14",c:"SpaceXAI",n:"Grok Voice 3.0",k:["audio:speech"],x:"Speech-to-speech voice agent, sub-second time to first audio; 86.9 on the Artificial Analysis Speech-to-Speech Index against 81.3 for Grok Voice 2.0, at the same price",u:"https://x.ai/news/grok-voice-3"},
 {t:"added",y:"2026-09-03",f:"2026-10-14",c:"Noiz AI",n:"HelixWorld Preview v1",k:["world","video","audio:sfx"],x:"Interactive audio-visual world model: 24 FPS video and 48 kHz camera-grounded stereo audio generated together, distilled to a student that streams on one GPU",u:"https://github.com/NoizAI/HelixWorld"},
 {t:"announced",y:"2026-10-13",f:"2026-10-14",c:"Zhipu / Z.ai",n:"GLM-Legal",k:["text:chat"],x:"Legal-domain model built on GLM-5.3-Flash for contract review, evidence analysis and compliance; 19.2% all-pass on Harvey LAB, 12.5 points above its base",u:"https://autoclaw.z.ai/blog/model/GLM-Legal/"},
@@ -1589,7 +1592,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 14 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 15 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
