@@ -79,6 +79,7 @@ they make is in scope.
 - https://cognition.com/blog
 - https://reflection.ai/blog
 - https://celeris.ai/blog
+- https://typesafe.ai/blog
 - https://www.inceptionlabs.ai/blog
 - https://aws.amazon.com/about-aws/whats-new/recent/feed/
 - https://cohere.com/blog
