@@ -400,6 +400,7 @@ const D=[
 {n:"FLUX 3",k:["video","image","audio:sfx"],d:"23 Jul 2026 → video GA 4 Aug 2026",x:"One backbone for image, 20s video with dialogue, and robot actions",u:"https://bfl.ai/models/flux-3"},
 {n:"FLUX-mimic",k:["robotics"],d:"23 Jul 2026",x:"Robot action prediction from the FLUX 3 backbone",u:"https://bfl.ai/models/flux-3"},
 {n:"FLUX 3 Action",k:["robotics","world"],d:"23 Sep 2026",x:"World-action model: camera frames, robot state and a text instruction in, the next action chunk denoised alongside the next video frames; distilled checkpoints for speed",u:"https://bfl.ai/models/flux-3-action",o:{l:"FLUX Kommunity",h:"https://huggingface.co/black-forest-labs/flux-3-action-base",q:16,p:7}},
+{n:"FLUX 3 Image Klein",k:["image"],d:"15 Oct 2026",x:"Open-weights image generation and editing at 5.6B: up to 10 reference images, native 4K, bounding boxes to place or confine an edit; the INT8 build fits an 8GB RTX card",u:"https://bfl.ai/models/flux-3-image-klein",o:{l:"FLUX Kommunity",h:"https://huggingface.co/black-forest-labs/flux-3-image-klein",q:16,p:5.6}},
 {n:"FLUX 3 Dev",k:["image","video"],d:"announced, open weights later in 2026",x:"Last tier in the FLUX 3 rollout, licence undecided",u:"https://bfl.ai/models/flux-3",o:{l:"undecided"}}]},
 {c:"Runway",r:"US",f:"2018",n:"independent",u:"https://runwayml.com",m:[
 {n:"Gen-1",k:["video"],d:"Feb 2023",x:"",u:"https://runway.com/research/gen-1"},
@@ -875,6 +876,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-15",f:"2026-10-15",c:"Black Forest Labs",n:"FLUX 3 Image Klein",k:["image"],x:"Open-weights image generation and editing at 5.6B: up to 10 reference images, native 4K, bounding boxes to place or confine an edit; the INT8 build fits an 8GB RTX card",u:"https://bfl.ai/models/flux-3-image-klein"},
 {t:"announced",y:"2026-10-13",f:"2026-10-15",c:"NVIDIA",n:"Nemotron 3.5 Bolt",k:["text:chat"],x:"74B mixture of experts with 9B active, quantisation-aware trained to 2 bits so it fits 24GB; built for local agents on RTX Spark, with open weights, data and recipes",u:"https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-software-updates/"},
 {t:"added",y:"2026-10-14",f:"2026-10-15",c:"TypeSafe AI",n:"Jev 1.14",k:["text:chat"],x:"Second System One model, in preview: adds a bounding-box return type and an experimental lifted context limit, with the biggest gains in multilingual decisions",u:"https://typesafe.ai/blog/jev-1-14"},
 {t:"added",y:"2026-10",f:"2026-10-15",c:"Institute of Foundation Models",n:"Jais-ASR",k:["audio:speech"],x:"Arabic speech recognition on a Jais 3 backbone: MSA and dialects from 19 countries, code-switching into English, French, Spanish and Italian, with optional diacritization",u:"https://huggingface.co/IFM/Jais-ASR"},
