@@ -150,7 +150,7 @@ same way as a newsroom, one call per organisation:
 for a in openai google facebook meta-models apodex ibm-granite nvidia \
   black-forest-labs Cactus-Compute ideogram-ai kandinskylab Lightricks mistralai \
   allenai MiniMaxAI Wan-AI Qwen FunAudioLLM tencent zai-org inclusionAI \
-  stepfun-ai internlm deepseek-ai moonshotai IFM NoizAI CohereLabs Aleph-Alpha openbmb \
+  stepfun-ai internlm deepseek-ai moonshotai IFM inception42 NoizAI CohereLabs Aleph-Alpha openbmb \
   Agnes-AI XiaomiRobotics XiaomiMiMo m-a-p desert-ant-labs poolside IndexTeam robbyant Dexmal LiquidAI Cloudflare perplexity-ai StrandsAgents RekaAI JetBrains jinaai fishaudio; do
   curl -s -A "Mozilla/5.0" "https://huggingface.co/api/models?author=$a&sort=createdAt&direction=-1&limit=8&expand[]=createdAt&expand[]=tags&expand[]=safetensors" \
   | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{for(const m of JSON.parse(s))console.log(m.id,m.createdAt.slice(0,10),(m.tags||[]).filter(t=>t.startsWith("license:")).join(",")||"-",m.safetensors?.total?(m.safetensors.total/1e9).toFixed(1)+"B":"-")})'
