@@ -816,6 +816,9 @@ const D=[
 {n:"Celeris-1",k:["text:chat"],d:"Jul 2026",x:"Diffusion language model built for latency: complete answers in 158ms, 75.9% on MMLU-Pro and 81.4% with reasoning turned on; text only over a 131K context"},
 {n:"Celeris-1 Magnus",k:["text:chat"],d:"31 Aug 2026",x:"The agentic tier, taking text plus tools over the same 131K context: 41.2% on τ³-bench banking at a median 55s a task, against 27.8% with reasoning off",u:"https://celeris.ai/celeris-1-magnus"},
 {n:"Celeris-1 Decision",k:["text:chat"],d:"8 Oct 2026",x:"Decision model returning a probability per outcome on yes/no, choice or score questions over text, JSON or images, with an optional one-sentence reason; 67ms median",u:"https://celeris.ai/celeris-1-decision"}]},
+{c:"Sqwish Labs",r:"UK",f:"unknown",n:"independent",u:"https://sqwish.ai",m:[
+{n:"kettei fat / kettei chub",k:["text:chat"],d:"14 Oct 2026",x:"Decision models that score every allowed answer in one pass instead of generating text, and read charts and screenshots as well as prose; served on the OneHot API",u:"https://sqwish.ai/blog/your-ai-agent-is-writing-essays-to-tick-boxes"},
+{n:"kettei core / kettei dot",k:["text:chat"],d:"14 Oct 2026",x:"Open text-only tier of the kettei line, 3.7B and 900M, sized to sit beside an agent for ticket triage, passage ranking, tool choice and answer scoring",u:"https://sqwish.ai/blog/your-ai-agent-is-writing-essays-to-tick-boxes",o:{p:[0.9,3.7]}}]},
 {c:"Voyage AI",r:"US",f:"2023",n:"MongoDB (Feb 2025)",u:"https://www.voyageai.com",m:[
 {n:"voyage-3",k:["text:embed"],d:"18 Sep 2024",x:"",u:"https://blog.voyageai.com/2024/09/18/voyage-3/"},
 {n:"voyage-4",k:["text:embed"],d:"15 Jan 2026",x:"Mixture of experts with one shared embedding space across the family",u:"https://blog.voyageai.com/2026/01/15/voyage-4/"},
@@ -884,6 +887,8 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-14",f:"2026-10-16",c:"Sqwish Labs",n:"kettei fat / kettei chub",k:["text:chat"],x:"Decision models that score every allowed answer in one pass instead of generating text, and read charts and screenshots as well as prose; served on the OneHot API",u:"https://sqwish.ai/blog/your-ai-agent-is-writing-essays-to-tick-boxes"},
+{t:"added",y:"2026-10-14",f:"2026-10-16",c:"Sqwish Labs",n:"kettei core / kettei dot",k:["text:chat"],x:"Open text-only tier of the kettei line, 3.7B and 900M, sized to sit beside an agent for ticket triage, passage ranking, tool choice and answer scoring",u:"https://sqwish.ai/blog/your-ai-agent-is-writing-essays-to-tick-boxes"},
 {t:"added",y:"2026-10-15",f:"2026-10-16",c:"OpenAI",n:"GPT-Live-1.1 / GPT-Live-1.1 Quip",k:["audio:speech"],x:"Speech-to-speech update for ChatGPT, Codex and dots, Quip the mini tier: 13 new voices and markedly better French, German, Hindi, Korean, Japanese and Mexican Spanish",u:"https://community.openai.com/t/gpt-live-1-1-is-rolling-out-with-new-voices-and-better-accents/1406704"},
 {t:"added",y:"2026-10-15",f:"2026-10-16",c:"Liquid AI",n:"d1-ultra",k:["text:chat"],x:"Multimodal decision model, API only, on a larger open-weight base: returns a calibrated probability per answer option to a text or image question in one pass",u:"https://www.liquid.ai/blog/d1-ultra"},
 {t:"added",y:"2026-10-15",f:"2026-10-16",c:"NVIDIA",n:"Kimodo-SOMA-RP v1.2 / Kimodo-SOMA-RP-ArdyRep v1.2",k:["world"],x:"Kinematic motion diffusion generating 3D skeletal animation from a text prompt plus pose, end-effector, path or waypoint constraints; v1.2 removes a test-set leak",u:"https://research.nvidia.com/labs/sil/projects/kimodo/"},
