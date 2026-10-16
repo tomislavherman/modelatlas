@@ -61,6 +61,7 @@ they make is in scope.
 
 - https://www.anthropic.com/news
 - https://openai.com/news/
+- https://community.openai.com/c/announcements
 - https://deepmind.google/blog/
 - https://research.meta.ai/blog
 - https://x.ai/news
