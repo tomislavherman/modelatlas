@@ -378,7 +378,8 @@ const D=[
 {n:"MAI-Code-1.1-Flash",k:["text:code"],d:"11 Aug 2026 → local build 7 Oct 2026",x:"Higher code quality at 25% greater token efficiency and a quarter of the price of 1.0, with the gains concentrated on CLI and .NET work; serving in GitHub Copilot and VS Code",u:"https://microsoft.ai/news/mai-code-1-1-flash-br-better-faster-at-a-quarter-of-the-cost/"},
 {n:"Microsoft-Decision-1",k:["text:chat"],d:"9 Oct 2026",x:"Decision model on Qwen3.5-9B: one of a predefined set with calibrated confidence rather than free text; Xbox clocked it 80-100x faster than GPT-5 at matching quality",u:"https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-microsoft-decision-1-in-microsoft-foundry-for-decision-and-classific/4562742"},
 {n:"MAI-Cyber-1-Flash",k:["text:code"],d:"13 Aug 2026",x:"Compact, code-heavy security model out of the MAI-Thinking-1 lineage; 96% on CyberGym at half the cost of leading models, with the hardest tenth of work routed to larger models",u:"https://microsoft.ai/news/introducing-mai-cyber-1-flash-inside-mdash/"},
-{n:"MAI-Base-2",k:["text:chat"],d:"announced 15 Oct 2026",x:"Mixture of experts with 2.8T parameters and 80B active, pre-trained on 16k GB200s in 38 days; still in post-training, with the weights licensed to Foundry partners",u:"https://microsoft.ai/news/frontier-pre-training-at-microsoft-ai/"}]},
+{n:"MAI-Base-2",k:["text:chat"],d:"announced 15 Oct 2026",x:"Mixture of experts with 2.8T parameters and 80B active, pre-trained on 16k GB200s in 38 days; still in post-training, with the weights licensed to Foundry partners",u:"https://microsoft.ai/news/frontier-pre-training-at-microsoft-ai/"},
+{n:"Rho",k:["robotics"],d:"Jun 2026",x:"Open-weights family for robotic manipulation on dual-arm robots: a 5B base plus checkpoints fitted to particular rigs, turning plain language into control signals",u:"https://www.microsoft.com/en-us/research/story/advancing-ai-for-the-physical-world/",o:{l:"MIT",h:"https://huggingface.co/microsoft/rho-base",q:16,p:5.2}}]},
 {c:"IBM",r:"US",f:"1911",n:"NYSE",u:"https://www.ibm.com/granite",m:[
 {n:"Granite 3.0",k:["text:chat","text:code"],d:"Oct 2024",x:"Apache 2.0 weights across the whole family",o:{l:"Apache 2.0",h:"https://huggingface.co/ibm-granite/granite-3.0-8b-instruct",q:16,p:[1,8]}},
 {n:"Granite 4.2",k:["text:chat","text:code"],d:"25 Aug 2026",x:"Apache 2.0 weights; dense 3B, 8B and 30B models with a thinking switch, so one checkpoint either reasons step by step or answers straight, aimed at tool calling and agentic work",u:"https://research.ibm.com/blog/introducing-granite-4-2",o:{l:"Apache 2.0",h:"https://huggingface.co/ibm-granite/granite-4.2-30b",q:16,p:[3.7,29]}},
@@ -899,6 +900,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-06",f:"2026-10-19",c:"Microsoft",n:"Rho",k:["robotics"],x:"Open-weights family for robotic manipulation on dual-arm robots: a 5B base plus checkpoints fitted to particular rigs, turning plain language into control signals",u:"https://www.microsoft.com/en-us/research/story/advancing-ai-for-the-physical-world/"},
 {t:"announced",y:"2026-10",f:"2026-10-18",c:"NVIDIA",n:"Nemotron 3.5 Embed",k:["text:embed"],x:"Multimodal retrieval embeddings at 1B and 8B on a Ministral 3 base: a document page goes in as an image, as text or as both, and a query as text; 4096 dimensions, 34 languages",u:"https://huggingface.co/nvidia/Nemotron-3.5-Embed-8B-BF16"},
 {t:"added",y:"2026-10-16",f:"2026-10-18",c:"OpenMOSS",n:"MOSS-Image-Base / MOSS-Image-SFT",k:["image"],x:"5B diffusion transformer that takes a JSON layout fixing where text and objects sit, not just a prompt; renders Chinese and English text in-image, prompts up to 4K tokens",u:"https://openmoss.ai/MOSS-Image/"},
 {t:"added",y:"2026-10-16",f:"2026-10-18",c:"Elorian",n:"Glimpse",k:["text:chat"],x:"Reasons by revisiting the image mid-thought, cropping regions, pulling frames or running code; beats GPT-6 Astra on scientific charts and short-form video captioning",u:"https://elorian.ai/blog/introducing-glimpse"},
@@ -1648,7 +1650,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 18 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 19 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
