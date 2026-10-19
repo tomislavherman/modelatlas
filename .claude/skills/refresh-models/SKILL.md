@@ -68,7 +68,7 @@ they make is in scope.
 - https://api-docs.deepseek.com/updates
 - https://qwen.ai/blog
 - https://forum.moonshot.ai/c/announcement/5
-- https://seed.bytedance.com/en/blog
+- https://seed.bytedance.com/en/blog_list/visual
 - https://www.minimax.io/blog
 - https://www.tencent.com/newsroom/
 - https://microsoft.ai/news/
