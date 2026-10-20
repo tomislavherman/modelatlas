@@ -573,7 +573,8 @@ const D=[
 {n:"Clips / Title",k:["text:chat"],d:"14 Sep 2026",x:"The pair behind Auto Edit in Detail, the lab's video app, both on device: Clips marks where a short should start and end in a transcript, Title names and describes each clip",u:"https://desertant.com/blog/detail-auto-edit-on-device/",o:{l:"Desert Ant source-available 1.0",h:"https://huggingface.co/desert-ant-labs"}},
 {n:"Redact / Tongue / Gist / Emo",k:["text:chat"],d:"8 Sep 2026",x:"The rest of the stable text suite, all local: Redact masks personal data in 27 languages, Tongue names one of 84 languages from three words, Gist tags topics, Emo suggests emoji",u:"https://desertant.com/blog/introducing-desert-ant-labs/",o:{l:"Desert Ant source-available 1.0",h:"https://huggingface.co/desert-ant-labs"}},
 {n:"Shapes",k:["image"],d:"8 Sep 2026",x:"Turns a rough sketch into a clean shape on device",u:"https://desertant.com/blog/introducing-desert-ant-labs/",o:{l:"Desert Ant source-available 1.0",h:"https://huggingface.co/desert-ant-labs"}},
-{n:"Eye / Face / Moderator / Who / Schemer / Toxic",k:["image","audio:speech","text:chat"],d:"8 Sep 2026",x:"Six beta models beside the twelve stable ones: Eye ranks images, Face finds people in photos, Moderator flags nudity, Who labels speakers, Schemer extracts JSON, Toxic flags hate",u:"https://desertant.com/blog/introducing-desert-ant-labs/"}]},
+{n:"Face / Moderator / Schemer / Toxic",k:["image","text:chat"],d:"8 Sep 2026",x:"Beta models beside the stable suite: Face finds people in photos, Moderator flags nudity, Schemer extracts typed JSON and Toxic catches hate speech before it posts",u:"https://desertant.com/blog/introducing-desert-ant-labs/"},
+{n:"Who / Eye",k:["audio:speech","image"],d:"beta 8 Sep 2026 → 20 Oct 2026",x:"Diarization and image classification on device: Who labels who spoke and when, 12.6% error on AMI meetings against pyannote's 13.1%; Eye ranks 10,000 photos in under a minute",u:"https://desertant.com/blog/who-and-eye",o:{l:"Desert Ant source-available 1.0",h:"https://huggingface.co/desert-ant-labs"}}]},
 {c:"Sonilo",r:"US",f:"unknown",n:"independent",u:"https://sonilo.com",m:[
 {n:"Sonilo v1.0",k:["audio:music"],d:"May 2026",x:"Video-to-music with no text prompt: reads a clip's pacing, motion and emotional arc, then scores it to the exact duration; trained only on licensed catalogues"},
 {n:"Sonilo v1.1",k:["audio:music"],d:"Jun 2026",x:"Video-to-music with no text prompt, trained only on licensed catalogues"},
@@ -890,7 +891,9 @@ const D=[
 {c:"OpenMOSS",r:"CN",f:"2023",n:"Shanghai Innovation Institute",u:"https://openmoss.ai",m:[
 {n:"MOSS-Image-Base / MOSS-Image-SFT",k:["image"],d:"16 Oct 2026",x:"5B diffusion transformer that takes a JSON layout fixing where text and objects sit, not just a prompt; renders Chinese and English text in-image, prompts up to 4K tokens",u:"https://openmoss.ai/MOSS-Image/",o:{l:"Apache 2.0",h:"https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",q:16,p:5}}]},
 {c:"doubleAI",r:"IL",f:"2023",n:"independent",u:"https://www.doubleai.com",m:[
-{n:"Maxwell",k:["text:code"],d:"announced 19 Oct 2026, early access",x:"Rewrites a running program's machine code for its hardware and data, leaving the source unchanged; every optimization formally proven equivalent to the original",u:"https://heymaxwell.ai"}]}
+{n:"Maxwell",k:["text:code"],d:"announced 19 Oct 2026, early access",x:"Rewrites a running program's machine code for its hardware and data, leaving the source unchanged; every optimization formally proven equivalent to the original",u:"https://heymaxwell.ai"}]},
+{c:"Ropedia",r:"International",f:"unknown",n:"independent",u:"https://ropedia.com",m:[
+{n:"Ropedia W0",k:["world","robotics"],d:"19 Oct 2026",x:"Egocentric world model for loco-manipulation across humans and robots: camera poses carry locomotion, projected skeletons manipulation; minute-long rollouts in real time",u:"https://ropedia.github.io/ropedia-w0",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/ropedia-ai/Ropedia-W0",q:16,p:5}}]}
 ];
 
 // Every change the atlas has recorded: a model released, a model announced
@@ -906,6 +909,8 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-20",f:"2026-10-20",c:"Desert Ant Labs",n:"Who / Eye",k:["audio:speech","image"],x:"Diarization and image classification on device: Who labels who spoke and when, 12.6% error on AMI meetings against pyannote's 13.1%; Eye ranks 10,000 photos in under a minute",u:"https://desertant.com/blog/who-and-eye"},
+{t:"added",y:"2026-10-19",f:"2026-10-20",c:"Ropedia",n:"Ropedia W0",k:["world","robotics"],x:"Egocentric world model for loco-manipulation across humans and robots: camera poses carry locomotion, projected skeletons manipulation; minute-long rollouts in real time",u:"https://ropedia.github.io/ropedia-w0"},
 {t:"added",y:"2026-04-23",f:"2026-10-20",c:"OpenAI",n:"GPT-5.5",k:["text:chat","text:code"],x:"Frontier model for long agentic work with tool use and self-checking over a 1M-token context; matches GPT-5.4's per-token latency on far fewer tokens",u:"https://community.openai.com/t/gpt-5-5-is-here-available-in-the-api-codex-and-chatgpt-today/1379630"},
 {t:"announced",y:"2026-10-19",f:"2026-10-20",c:"doubleAI",n:"Maxwell",k:["text:code"],x:"Rewrites a running program's machine code for its hardware and data, leaving the source unchanged; every optimization formally proven equivalent to the original",u:"https://heymaxwell.ai"},
 {t:"added",y:"2026-10-19",f:"2026-10-19",c:"Inception",n:"Mercury 3",k:["text:chat","text:code"],x:"Diffusion LLM at frontier scale: about 1068 tokens a second with a 1M-token context, up from 260K in 2.5; completes 50% of 50 live Mind2Web tasks, ahead of GPT-6.1 Sol",u:"https://www.inceptionlabs.ai/blog/introducing-mercury-3"},
