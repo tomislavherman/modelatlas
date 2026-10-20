@@ -887,7 +887,9 @@ const D=[
 {c:"Elorian",r:"US",f:"2025",n:"independent",u:"https://elorian.ai",m:[
 {n:"Glimpse",k:["text:chat"],d:"16 Oct 2026",x:"Reasons by revisiting the image mid-thought, cropping regions, pulling frames or running code; beats GPT-6 Astra on scientific charts and short-form video captioning",u:"https://elorian.ai/blog/introducing-glimpse"}]},
 {c:"OpenMOSS",r:"CN",f:"2023",n:"Shanghai Innovation Institute",u:"https://openmoss.ai",m:[
-{n:"MOSS-Image-Base / MOSS-Image-SFT",k:["image"],d:"16 Oct 2026",x:"5B diffusion transformer that takes a JSON layout fixing where text and objects sit, not just a prompt; renders Chinese and English text in-image, prompts up to 4K tokens",u:"https://openmoss.ai/MOSS-Image/",o:{l:"Apache 2.0",h:"https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",q:16,p:5}}]}
+{n:"MOSS-Image-Base / MOSS-Image-SFT",k:["image"],d:"16 Oct 2026",x:"5B diffusion transformer that takes a JSON layout fixing where text and objects sit, not just a prompt; renders Chinese and English text in-image, prompts up to 4K tokens",u:"https://openmoss.ai/MOSS-Image/",o:{l:"Apache 2.0",h:"https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",q:16,p:5}}]},
+{c:"doubleAI",r:"IL",f:"2023",n:"independent",u:"https://www.doubleai.com",m:[
+{n:"Maxwell",k:["text:code"],d:"announced 19 Oct 2026, early access",x:"Rewrites a running program's machine code for its hardware and data, leaving the source unchanged; every optimization formally proven equivalent to the original",u:"https://heymaxwell.ai"}]}
 ];
 
 // Every change the atlas has recorded: a model released, a model announced
@@ -903,6 +905,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"announced",y:"2026-10-19",f:"2026-10-20",c:"doubleAI",n:"Maxwell",k:["text:code"],x:"Rewrites a running program's machine code for its hardware and data, leaving the source unchanged; every optimization formally proven equivalent to the original",u:"https://heymaxwell.ai"},
 {t:"added",y:"2026-10-19",f:"2026-10-19",c:"Inception",n:"Mercury 3",k:["text:chat","text:code"],x:"Diffusion LLM at frontier scale: about 1068 tokens a second with a 1M-token context, up from 260K in 2.5; completes 50% of 50 live Mind2Web tasks, ahead of GPT-6.1 Sol",u:"https://www.inceptionlabs.ai/blog/introducing-mercury-3"},
 {t:"added",y:"2026-10-19",f:"2026-10-19",c:"Cloudflare",n:"Clairic",k:["text:chat"],x:"Extraction model: unstructured text and up to four images in, typed values out — spans, numbers, dates, lists, estimates with an 80% interval — each with a confidence",u:"https://blog.cloudflare.com/clairic-extraction-model/"},
 {t:"added",y:"2026-10-19",f:"2026-10-19",c:"MiniMax",n:"MiniMax M3.1 Flash",k:["text:chat","text:code"],x:"Aggressively sparse flash tier for agent loops: 73.7% on DeepSWE v1.1 at $0.15 per 1M input tokens, 70% less than its predecessor on agentic tasks; weights promised later",u:"https://www.minimax.io/blog/minimax-m31f"},
@@ -1656,7 +1659,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 19 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 20 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
