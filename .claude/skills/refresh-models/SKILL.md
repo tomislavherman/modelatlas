@@ -63,6 +63,7 @@ they make is in scope.
 - https://openai.com/news/
 - https://community.openai.com/c/announcements
 - https://deepmind.google/blog/
+- https://magenta.withgoogle.com/blog
 - https://research.meta.ai/blog
 - https://x.ai/news
 - https://api-docs.deepseek.com/updates
