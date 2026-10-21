@@ -415,6 +415,7 @@ const D=[
 {n:"FLUX-mimic",k:["robotics"],d:"23 Jul 2026",x:"Robot action prediction from the FLUX 3 backbone",u:"https://bfl.ai/models/flux-3"},
 {n:"FLUX 3 Action",k:["robotics","world"],d:"23 Sep 2026",x:"World-action model: camera frames, robot state and a text instruction in, the next action chunk denoised alongside the next video frames; distilled checkpoints for speed",u:"https://bfl.ai/models/flux-3-action",o:{l:"FLUX Kommunity",h:"https://huggingface.co/black-forest-labs/flux-3-action-base",q:16,p:7}},
 {n:"FLUX 3 Image Klein",k:["image"],d:"15 Oct 2026",x:"Open-weights image generation and editing at 5.6B: up to 10 reference images, native 4K, bounding boxes to place or confine an edit; the INT8 build fits an 8GB RTX card",u:"https://bfl.ai/models/flux-3-image-klein",o:{l:"FLUX Kommunity",h:"https://huggingface.co/black-forest-labs/flux-3-image-klein",q:16,p:5.6}},
+{n:"FLUX 3 Max",k:["video","audio:sfx"],d:"19 Oct 2026",x:"FLUX 3 Video post-trained by fal for speed: a 10-second 720p clip in about 12 seconds, with 5-20s output, keyframes up to 10 images and optional audio",u:"https://fal.ai/flux-3-max"},
 {n:"FLUX 3 Dev",k:["image","video"],d:"announced, open weights later in 2026",x:"Last tier in the FLUX 3 rollout, licence undecided",u:"https://bfl.ai/models/flux-3",o:{l:"undecided"}}]},
 {c:"Runway",r:"US",f:"2018",n:"independent",u:"https://runwayml.com",m:[
 {n:"Gen-1",k:["video"],d:"Feb 2023",x:"",u:"https://runway.com/research/gen-1"},
@@ -915,6 +916,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-19",f:"2026-10-21",c:"Black Forest Labs",n:"FLUX 3 Max",k:["video","audio:sfx"],x:"FLUX 3 Video post-trained by fal for speed: a 10-second 720p clip in about 12 seconds, with 5-20s output, keyframes up to 10 images and optional audio",u:"https://fal.ai/flux-3-max"},
 {t:"added",y:"2026-10-13",f:"2026-10-21",c:"Nature Will",n:"Natura-1",k:["robotics"],x:"50B mixture of experts pretrained on a million hours of egocentric human video, then post-trained on robot data to drive 20-DoF dexterous hands on a 100 ms control loop",u:"https://www.naturewill.ai/blog/natura-1"},
 {t:"added",y:"2026-10-20",f:"2026-10-20",c:"NVIDIA",n:"Cosmos3-H-Dreams",k:["world","video"],x:"Real-time distilled student of Cosmos3-H-Embodied-Nano: generates endoscopic video autoregressively from one camera frame plus a stream of robot commands, in two or four steps",u:"https://huggingface.co/nvidia/Cosmos3-H-Dreams"},
 {t:"added",y:"2026-10-20",f:"2026-10-20",c:"NVIDIA",n:"Cosmos3-H-Embodied-Nano",k:["world","robotics"],x:"Cosmos3-Nano post-trained on surgical data: one 16B model does forward dynamics, inverse dynamics and policy for robotic cholecystectomy on the CMR Versius system",u:"https://huggingface.co/nvidia/Cosmos3-H-Embodied-Nano"},
