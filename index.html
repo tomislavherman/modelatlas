@@ -897,7 +897,9 @@ const D=[
 {c:"doubleAI",r:"IL",f:"2023",n:"independent",u:"https://www.doubleai.com",m:[
 {n:"Maxwell",k:["text:code"],d:"announced 19 Oct 2026, early access",x:"Rewrites a running program's machine code for its hardware and data, leaving the source unchanged; every optimization formally proven equivalent to the original",u:"https://heymaxwell.ai"}]},
 {c:"Ropedia",r:"International",f:"unknown",n:"independent",u:"https://ropedia.com",m:[
-{n:"Ropedia W0",k:["world","robotics"],d:"19 Oct 2026",x:"Egocentric world model for loco-manipulation across humans and robots: camera poses carry locomotion, projected skeletons manipulation; minute-long rollouts in real time",u:"https://ropedia.github.io/ropedia-w0",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/ropedia-ai/Ropedia-W0",q:16,p:5}}]}
+{n:"Ropedia W0",k:["world","robotics"],d:"19 Oct 2026",x:"Egocentric world model for loco-manipulation across humans and robots: camera poses carry locomotion, projected skeletons manipulation; minute-long rollouts in real time",u:"https://ropedia.github.io/ropedia-w0",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/ropedia-ai/Ropedia-W0",q:16,p:5}}]},
+{c:"Nature Will",r:"CN",f:"2026",n:"independent",u:"https://www.naturewill.ai",m:[
+{n:"Natura-1",k:["robotics"],d:"13 Oct 2026",x:"50B mixture of experts pretrained on a million hours of egocentric human video, then post-trained on robot data to drive 20-DoF dexterous hands on a 100 ms control loop",u:"https://www.naturewill.ai/blog/natura-1"}]}
 ];
 
 // Every change the atlas has recorded: a model released, a model announced
@@ -913,6 +915,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-13",f:"2026-10-21",c:"Nature Will",n:"Natura-1",k:["robotics"],x:"50B mixture of experts pretrained on a million hours of egocentric human video, then post-trained on robot data to drive 20-DoF dexterous hands on a 100 ms control loop",u:"https://www.naturewill.ai/blog/natura-1"},
 {t:"added",y:"2026-10-20",f:"2026-10-20",c:"NVIDIA",n:"Cosmos3-H-Dreams",k:["world","video"],x:"Real-time distilled student of Cosmos3-H-Embodied-Nano: generates endoscopic video autoregressively from one camera frame plus a stream of robot commands, in two or four steps",u:"https://huggingface.co/nvidia/Cosmos3-H-Dreams"},
 {t:"added",y:"2026-10-20",f:"2026-10-20",c:"NVIDIA",n:"Cosmos3-H-Embodied-Nano",k:["world","robotics"],x:"Cosmos3-Nano post-trained on surgical data: one 16B model does forward dynamics, inverse dynamics and policy for robotic cholecystectomy on the CMR Versius system",u:"https://huggingface.co/nvidia/Cosmos3-H-Embodied-Nano"},
 {t:"added",y:"2026-10-20",f:"2026-10-20",c:"Mistral AI",n:"Voxtral Small Transcribe 3 / Voxtral Mini Transcribe 3 / Voxtral Mini Transcribe Realtime 3",k:["audio:speech"],x:"Speech-to-text in 50+ languages at Small and Mini sizes, with diarization; the realtime variant streams partial transcripts under 500ms latency",u:"https://mistral.ai/news/voxtral-3"},
@@ -1676,7 +1679,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 20 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 21 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
