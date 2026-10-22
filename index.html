@@ -524,6 +524,7 @@ const D=[
 {n:"Eleven TTS",k:["audio:speech"],d:"23 Jan 2023",x:"",u:"https://elevenlabs.io/text-to-speech"},
 {n:"Eleven v3",k:["audio:speech"],d:"Jun 2025",x:"",u:"https://elevenlabs.io/text-to-speech"},
 {n:"Eleven v4 / Eleven v4 Turbo",k:["audio:speech"],d:"28 Sep 2026",x:"New architecture reading tone, pacing and character from the text across 90+ languages; Turbo trades some quality for ~150ms median time to first speech",u:"https://elevenlabs.io/blog/eleven-v4"},
+{n:"Eleven Realtime v1 Mini / Eleven Realtime v1 Max",k:["audio:speech"],d:"20 Oct 2026",x:"A new class of speech-to-speech models for voice agents in 90+ languages; Mini answers in 620ms, Max reasons first and scores 98.8% on Big Bench Audio",u:"https://elevenlabs.io/blog/realtime"},
 {n:"Scribe",k:["audio:speech"],d:"26 Feb 2025",x:"Speech-to-text",u:"https://elevenlabs.io/speech-to-text"},
 {n:"Scribe v2",k:["audio:speech"],d:"9 Jan 2026",x:"Speech-to-text",u:"https://elevenlabs.io/blog/introducing-scribe-v2"},
 {n:"Scribe v2 Realtime",k:["audio:speech"],d:"11 Nov 2025",x:"Streaming speech-to-text for voice agents and live captioning: sub-150ms latency at 93.5% accuracy across 30 languages, with word prediction covering the lag",u:"https://elevenlabs.io/blog/introducing-scribe-v2-realtime"},
@@ -929,6 +930,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-20",f:"2026-10-22",c:"ElevenLabs",n:"Eleven Realtime v1 Mini / Eleven Realtime v1 Max",k:["audio:speech"],x:"A new class of speech-to-speech models for voice agents in 90+ languages; Mini answers in 620ms, Max reasons first and scores 98.8% on Big Bench Audio",u:"https://elevenlabs.io/blog/realtime"},
 {t:"added",y:"2026-10",f:"2026-10-22",c:"inclusionAI",n:"Ming-3.0-asr-tiny",k:["audio:speech"],x:"Context-aware speech recognition on the Ling-tiny-v3 backbone with an audio encoder: Chinese, English and 15 regional dialects, with hotwords or prior dialogue as context",u:"https://huggingface.co/inclusionAI/Ming-3.0-asr-tiny"},
 {t:"added",y:"2026-10",f:"2026-10-22",c:"inclusionAI",n:"Ling-3.0-flash-UBTree",k:["text:chat"],x:"UBTree speculative-decoding drafter for Ling-3.0-flash: a five-layer DFlash backbone plus a bigram selector, proposing a tree of continuations the target verifies in one pass",u:"https://huggingface.co/inclusionAI/Ling-3.0-flash-UBTree"},
 {t:"added",y:"2026-04",f:"2026-10-22",c:"Alibaba",n:"Qwen3.6-35B-A3B",k:["text:chat","text:code"],x:"First open-weight variant of the Qwen3.6 generation: 35B mixture of experts with 3B active, vision-language, and an option to keep reasoning context from earlier turns",u:"https://qwen.ai/blog?id=qwen3.6-35b-a3b"},
