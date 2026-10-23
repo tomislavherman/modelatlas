@@ -237,7 +237,7 @@ const D=[
 {c:"OpenAI",r:"US",f:"2015",n:"independent",u:"https://openai.com",m:[
 {n:"DALL·E",k:["image"],d:"5 Jan 2021, retired 2025",x:"The first text-to-image model OpenAI shipped"},
 {n:"DALL·E 3",k:["image"],d:"20 Sep 2023, retired 2025",x:"Superseded by GPT Image",u:"https://openai.com/dall-e-3"},
-{n:"GPT Image 1",k:["image"],d:"Mar 2025, removed Dec 2026",x:"Native text rendering and prompt-driven editing; the mini and 1.5 tiers are being removed alongside it, with GPT Image 2 as the migration target"},
+{n:"GPT Image 1",k:["image"],d:"Mar 2025, removed 23 Oct 2026",x:"Native text rendering and prompt-driven editing; the mini and 1.5 tiers are being removed alongside it, with GPT Image 2 as the migration target"},
 {n:"GPT Image 2",k:["image"],d:"21 Apr 2026",x:"The tier the whole first generation was migrated onto"},
 {n:"GPT Image 2.5 Flare / GPT Image 2.5 Sunburst",k:["image"],d:"8 Sep 2026",x:"Lands in ChatGPT as Images 2.5 with two API tiers beside it, Flare as the default at half the latency of GPT Image 2 and Sunburst for edit-heavy production work",u:"https://openai.com/index/introducing-chatgpt-images-2-5/"},
 {n:"Sora",k:["video"],d:"Feb 2024 → Dec 2024, retired Sep 2025",x:"Replaced by Sora 2",u:"https://openai.com/sora"},
@@ -916,7 +916,9 @@ const D=[
 {c:"Nature Will",r:"CN",f:"2026",n:"independent",u:"https://www.naturewill.ai",m:[
 {n:"Natura-1",k:["robotics"],d:"13 Oct 2026",x:"50B mixture of experts pretrained on a million hours of egocentric human video, then post-trained on robot data to drive 20-DoF dexterous hands on a 100 ms control loop",u:"https://www.naturewill.ai/blog/natura-1"}]},
 {c:"VideoGen",r:"US",f:"2022",n:"independent",u:"https://videogen.io",m:[
-{n:"VideoGen Model 1",k:["video","audio:sfx"],d:"announced 20 Oct 2026, limited private-partner rollout",x:"Plans the screenplay, dialogue and shots, then generates up to ten minutes of multi-shot video; joint audio-video attention models sound with the picture",u:"https://videogen.io/model-1"}]}
+{n:"VideoGen Model 1",k:["video","audio:sfx"],d:"announced 20 Oct 2026, limited private-partner rollout",x:"Plans the screenplay, dialogue and shots, then generates up to ten minutes of multi-shot video; joint audio-video attention models sound with the picture",u:"https://videogen.io/model-1"}]},
+{c:"Recursive",r:"US",f:"unknown",n:"independent",u:"https://recursive.com",m:[
+{n:"Flint",k:["text:code"],d:"21 Oct 2026",x:"40B mixture of experts with 2.5B active for agentic coding on a laptop; Recursive credits its automated research system with nearly every step of the design",u:"https://recursive.com/updates/introducing-recursive-flint",o:{l:"Apache 2.0",h:"https://huggingface.co/RecursiveSI/flint",q:16,p:40}}]}
 ];
 
 // Every change the atlas has recorded: a model released, a model announced
@@ -932,6 +934,8 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-21",f:"2026-10-23",c:"Recursive",n:"Flint",k:["text:code"],x:"40B mixture of experts with 2.5B active for agentic coding on a laptop; Recursive credits its automated research system with nearly every step of the design",u:"https://recursive.com/updates/introducing-recursive-flint"},
+{t:"retired",y:"2026-04-22",f:"2026-10-23",c:"OpenAI",n:"GPT Image 1",k:["image"],x:"Native text rendering and prompt-driven editing; the mini and 1.5 tiers are being removed alongside it, with GPT Image 2 as the migration target"},
 {t:"added",y:"2026-10-22",f:"2026-10-23",c:"Ai2",n:"OlmoEarth v1.3",k:["text:embed"],x:"Satellite embedding model: a year of Sentinel-1 radar with Sentinel-2 and Landsat multispectral imagery goes in, one 128-dimensional vector per 10-metre pixel comes out",u:"https://allenai.org/blog/olmoearth-v1-3"},
 {t:"added",y:"2026-09",f:"2026-10-22",c:"inclusionAI",n:"Ling-3.0-flash-Sante",k:["text:chat"],x:"Healthcare specialization of Ling-3.0-flash: 124B mixture of experts with 5.1B active over a 256K context, built for medical reasoning, evidence synthesis and tool-assisted work",u:"https://huggingface.co/inclusionAI/Ling-3.0-flash-Sante"},
 {t:"added",y:"2026-10-20",f:"2026-10-22",c:"ElevenLabs",n:"Eleven Realtime v1 Mini / Eleven Realtime v1 Max",k:["audio:speech"],x:"A new class of speech-to-speech models for voice agents in 90+ languages; Mini answers in 620ms, Max reasons first and scores 98.8% on Big Bench Audio",u:"https://elevenlabs.io/blog/realtime"},
