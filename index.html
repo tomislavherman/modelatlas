@@ -678,6 +678,7 @@ const D=[
 {n:"Qwen-Audio-3.1-TTS-Next",k:["audio:speech","audio:sfx"],d:"announced Sep 2026",x:"Generates a whole cinematic soundscape from one text script, blending dialogue and ambient sound in a single pass instead of layering separate takes"},
 {n:"decision-model-preview",k:["text:chat"],d:"24 Sep 2026",x:"Structured decision model for high-frequency business calls: classifies, decides yes or no and scores in parallel from text or context, returning probabilities and confidence",u:"https://www.alibabacloud.com/help/en/model-studio/newly-released-models"}]},
 {c:"Tencent",r:"CN",f:"1998",n:"HKEX",u:"https://www.tencent.com",m:[
+{n:"Hy-Nomas",k:["world","video"],d:"Oct 2026",x:"Interactive world model generating video one segment at a time, so text and camera trajectories steer the world mid-generation; a KV cache carries context across segments",u:"https://huggingface.co/tencent/Hy-Nomas",o:{l:"Apache 2.0",h:"https://huggingface.co/tencent/Hy-Nomas"}},
 {n:"HunyuanVideo",k:["video"],d:"Dec 2024",x:"Open weights",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo",p:13}},
 {n:"HunyuanVideo 1.5",k:["video"],d:"Nov 2025",x:"Open weights",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo-1.5",p:8.3}},
 {n:"HunyuanImage 3.0",k:["image"],d:"Jan 2026",x:"80B mixture of experts, open weights",u:"https://github.com/Tencent-Hunyuan",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanImage-3.0",q:16,p:83}},
@@ -937,6 +938,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10",f:"2026-10-23",c:"Tencent",n:"Hy-Nomas",k:["world","video"],x:"Interactive world model generating video one segment at a time, so text and camera trajectories steer the world mid-generation; a KV cache carries context across segments",u:"https://huggingface.co/tencent/Hy-Nomas"},
 {t:"added",y:"2026-10-22",f:"2026-10-23",c:"Canva",n:"Canva Craft",k:["image"],x:"Canva's first in-house image model, in two stages: a planner fixes layout, scale, hierarchy and text, then a renderer draws it at up to 2K across 30 aspect ratios",u:"https://www.canva.com/newsroom/news/canva-craft/"},
 {t:"added",y:"2026-10-22",f:"2026-10-23",c:"Tencent",n:"WeVisOne-VL-2B / WeVisOne-VL-4B",k:["text:chat"],x:"WeChat Vision's perception model on a Qwen3-VL backbone: detection, counting, OCR, referring segmentation and alpha matting from one 9.6M-parameter pixel decoder",u:"https://huggingface.co/tencent/WeVisOne-VL-4B"},
 {t:"added",y:"2026-10-21",f:"2026-10-23",c:"Recursive",n:"Flint",k:["text:code"],x:"40B mixture of experts with 2.5B active for agentic coding on a laptop; Recursive credits its automated research system with nearly every step of the design",u:"https://recursive.com/updates/introducing-recursive-flint"},
