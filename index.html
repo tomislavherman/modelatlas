@@ -689,7 +689,8 @@ const D=[
 {n:"Hy4 preview",k:["text:chat","text:code"],d:"28 Aug 2026",x:"The Hy4 rename opens the line up at 770B with 49B active and a 1M-token context under Apache 2.0",u:"https://github.com/Tencent-Hunyuan/Hy4-preview",o:{l:"Apache 2.0",h:"https://huggingface.co/tencent/Hy4-preview",q:16,p:780}},
 {n:"EVIE-8B / EVIE-4.5B",k:["text:embed"],d:"Sep 2026",x:"Visual document retrievers with ColBERT-style late interaction over page images, built on Qwen3.5; 66.75 on ViDoRe V3, first on the leaderboard",u:"https://huggingface.co/tencent/EVIE-8B",o:{l:"Apache 2.0",h:"https://huggingface.co/tencent/EVIE-8B",q:16,p:[4.5,8]}},
 {n:"Youtu-Parsing-Omni",k:["text:chat"],d:"Oct 2026",x:"5B omni-modal parser reading document pages, charts, audio and video into one structured JSON of layout, text, tables, formulas and timestamps; 96.96 on OmniDocBench",u:"https://huggingface.co/tencent/Youtu-Parsing-Omni",o:{l:"Youtu Parsing",h:"https://huggingface.co/tencent/Youtu-Parsing-Omni",q:16,p:5}},
-{n:"Hy-Memory-30B-A3B",k:["text:chat"],d:"15 Oct 2026",x:"Memory writer that replaces the general LLM inside Mem0 and MemOS: decides what an agent keeps and how new evidence rewrites its memory bank; 30B MoE, 3B active",u:"https://huggingface.co/tencent/Hy-Memory-30B-A3B",o:{l:"Apache 2.0",h:"https://huggingface.co/tencent/Hy-Memory-30B-A3B",q:16,p:30}}]},
+{n:"Hy-Memory-30B-A3B",k:["text:chat"],d:"15 Oct 2026",x:"Memory writer that replaces the general LLM inside Mem0 and MemOS: decides what an agent keeps and how new evidence rewrites its memory bank; 30B MoE, 3B active",u:"https://huggingface.co/tencent/Hy-Memory-30B-A3B",o:{l:"Apache 2.0",h:"https://huggingface.co/tencent/Hy-Memory-30B-A3B",q:16,p:30}},
+{n:"WeVisOne-VL-2B / WeVisOne-VL-4B",k:["text:chat"],d:"22 Oct 2026",x:"WeChat Vision's perception model on a Qwen3-VL backbone: detection, counting, OCR, referring segmentation and alpha matting from one 9.6M-parameter pixel decoder",u:"https://huggingface.co/tencent/WeVisOne-VL-4B",o:{l:"Apache 2.0",h:"https://huggingface.co/tencent/WeVisOne-VL-4B",q:32,p:[2,4]}}]},
 {c:"ShengShu",r:"CN",f:"2023",n:"independent",u:"https://www.shengshu-ai.com",m:[
 {n:"Vidu",k:["video"],d:"Apr 2024",x:"",u:"https://www.vidu.com"},
 {n:"Vidu Q3",k:["video","audio:sfx"],d:"Jan 2026",x:"16-second clips with audio",u:"https://www.vidu.com"},
@@ -918,7 +919,9 @@ const D=[
 {c:"VideoGen",r:"US",f:"2022",n:"independent",u:"https://videogen.io",m:[
 {n:"VideoGen Model 1",k:["video","audio:sfx"],d:"announced 20 Oct 2026, limited private-partner rollout",x:"Plans the screenplay, dialogue and shots, then generates up to ten minutes of multi-shot video; joint audio-video attention models sound with the picture",u:"https://videogen.io/model-1"}]},
 {c:"Recursive",r:"US",f:"unknown",n:"independent",u:"https://recursive.com",m:[
-{n:"Flint",k:["text:code"],d:"21 Oct 2026",x:"40B mixture of experts with 2.5B active for agentic coding on a laptop; Recursive credits its automated research system with nearly every step of the design",u:"https://recursive.com/updates/introducing-recursive-flint",o:{l:"Apache 2.0",h:"https://huggingface.co/RecursiveSI/flint",q:16,p:40}}]}
+{n:"Flint",k:["text:code"],d:"21 Oct 2026",x:"40B mixture of experts with 2.5B active for agentic coding on a laptop; Recursive credits its automated research system with nearly every step of the design",u:"https://recursive.com/updates/introducing-recursive-flint",o:{l:"Apache 2.0",h:"https://huggingface.co/RecursiveSI/flint",q:16,p:40}}]},
+{c:"Canva",r:"AU",f:"2013",n:"independent",u:"https://www.canva.com",m:[
+{n:"Canva Craft",k:["image"],d:"22 Oct 2026",x:"Canva's first in-house image model, in two stages: a planner fixes layout, scale, hierarchy and text, then a renderer draws it at up to 2K across 30 aspect ratios",u:"https://www.canva.com/newsroom/news/canva-craft/"}]}
 ];
 
 // Every change the atlas has recorded: a model released, a model announced
@@ -934,6 +937,8 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-22",f:"2026-10-23",c:"Canva",n:"Canva Craft",k:["image"],x:"Canva's first in-house image model, in two stages: a planner fixes layout, scale, hierarchy and text, then a renderer draws it at up to 2K across 30 aspect ratios",u:"https://www.canva.com/newsroom/news/canva-craft/"},
+{t:"added",y:"2026-10-22",f:"2026-10-23",c:"Tencent",n:"WeVisOne-VL-2B / WeVisOne-VL-4B",k:["text:chat"],x:"WeChat Vision's perception model on a Qwen3-VL backbone: detection, counting, OCR, referring segmentation and alpha matting from one 9.6M-parameter pixel decoder",u:"https://huggingface.co/tencent/WeVisOne-VL-4B"},
 {t:"added",y:"2026-10-21",f:"2026-10-23",c:"Recursive",n:"Flint",k:["text:code"],x:"40B mixture of experts with 2.5B active for agentic coding on a laptop; Recursive credits its automated research system with nearly every step of the design",u:"https://recursive.com/updates/introducing-recursive-flint"},
 {t:"retired",y:"2026-04-22",f:"2026-10-23",c:"OpenAI",n:"GPT Image 1",k:["image"],x:"Native text rendering and prompt-driven editing; the mini and 1.5 tiers are being removed alongside it, with GPT Image 2 as the migration target"},
 {t:"added",y:"2026-10-22",f:"2026-10-23",c:"Ai2",n:"OlmoEarth v1.3",k:["text:embed"],x:"Satellite embedding model: a year of Sentinel-1 radar with Sentinel-2 and Landsat multispectral imagery goes in, one 128-dimensional vector per 10-metre pixel comes out",u:"https://allenai.org/blog/olmoearth-v1-3"},
