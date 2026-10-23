@@ -784,7 +784,8 @@ const D=[
 {n:"Bolmo",k:["text:chat"],d:"15 Dec 2025",x:"Olmo retrofitted to read raw UTF-8 bytes instead of a subword vocabulary; Ai2 calls them the first fully open byte-level LMs, and character accuracy gains nearly 20 points",u:"https://allenai.org/blog/bolmo",o:{l:"Apache 2.0",h:"https://huggingface.co/allenai/Bolmo-7B",q:32,p:[1,7]}},
 {n:"AstaBrief",k:["text:chat"],d:"2 Oct 2026",x:"Writes a cited scientific report from a question and retrieved papers in one pass rather than step by step, cutting generation time nearly tenfold; an 8B Qwen3 fine-tune",u:"https://allenai.org/blog/astabrief",o:{l:"Apache 2.0",h:"https://huggingface.co/allenai/AstaBrief_8B",q:16,p:8}},
 {n:"MolmoAct",k:["robotics"],d:"12 Aug 2025",x:"Action reasoning model that plans through image-space waypoints and depth-aware perception tokens before producing robot commands; data and training code published too",u:"https://allenai.org/blog/molmoact",o:{l:"Apache 2.0",h:"https://huggingface.co/allenai/MolmoAct-7B-D-0812",q:32,p:7}},
-{n:"MolmoAct2 / MolmoAct2-Think",k:["robotics"],d:"5 May 2026",x:"Robot foundation model pairing the Molmo2-ER reasoning backbone with a flow-matching action expert; the Think tier predicts a 10x10 depth map before acting",u:"https://allenai.org/blog/molmoact2",o:{h:"https://huggingface.co/allenai/MolmoAct2",q:32,p:5}}]},
+{n:"MolmoAct2 / MolmoAct2-Think",k:["robotics"],d:"5 May 2026",x:"Robot foundation model pairing the Molmo2-ER reasoning backbone with a flow-matching action expert; the Think tier predicts a 10x10 depth map before acting",u:"https://allenai.org/blog/molmoact2",o:{h:"https://huggingface.co/allenai/MolmoAct2",q:32,p:5}},
+{n:"OlmoEarth v1.3",k:["text:embed"],d:"22 Oct 2026",x:"Satellite embedding model: a year of Sentinel-1 radar with Sentinel-2 and Landsat multispectral imagery goes in, one 128-dimensional vector per 10-metre pixel comes out",u:"https://allenai.org/blog/olmoearth-v1-3",o:{l:"OlmoEarth Artifact",h:"https://huggingface.co/allenai/OlmoEarth-v1_3-Base",p:0.128}}]},
 {c:"Cohere",r:"CA/US",f:"2019",n:"independent",u:"https://cohere.com",m:[
 {n:"Embed v3",k:["text:embed"],d:"Nov 2023",x:""},
 {n:"Embed v4",k:["text:embed"],d:"Apr 2025",x:"Text, images and mixed PDF pages in one call; 128k context, Matryoshka dimensions from 256 to 1536",u:"https://cohere.com/blog/embed-4"},
@@ -931,6 +932,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-22",f:"2026-10-23",c:"Ai2",n:"OlmoEarth v1.3",k:["text:embed"],x:"Satellite embedding model: a year of Sentinel-1 radar with Sentinel-2 and Landsat multispectral imagery goes in, one 128-dimensional vector per 10-metre pixel comes out",u:"https://allenai.org/blog/olmoearth-v1-3"},
 {t:"added",y:"2026-09",f:"2026-10-22",c:"inclusionAI",n:"Ling-3.0-flash-Sante",k:["text:chat"],x:"Healthcare specialization of Ling-3.0-flash: 124B mixture of experts with 5.1B active over a 256K context, built for medical reasoning, evidence synthesis and tool-assisted work",u:"https://huggingface.co/inclusionAI/Ling-3.0-flash-Sante"},
 {t:"added",y:"2026-10-20",f:"2026-10-22",c:"ElevenLabs",n:"Eleven Realtime v1 Mini / Eleven Realtime v1 Max",k:["audio:speech"],x:"A new class of speech-to-speech models for voice agents in 90+ languages; Mini answers in 620ms, Max reasons first and scores 98.8% on Big Bench Audio",u:"https://elevenlabs.io/blog/realtime"},
 {t:"added",y:"2026-10",f:"2026-10-22",c:"inclusionAI",n:"Ming-3.0-asr-tiny",k:["audio:speech"],x:"Context-aware speech recognition on the Ling-tiny-v3 backbone with an audio encoder: Chinese, English and 15 regional dialects, with hotwords or prior dialogue as context",u:"https://huggingface.co/inclusionAI/Ming-3.0-asr-tiny"},
@@ -1711,7 +1713,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 22 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 23 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
