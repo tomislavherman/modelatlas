@@ -131,6 +131,7 @@ changelog names the exact model ID with the exact date:
 - https://elevenlabs.io/docs/changelog
 - https://developers.deepgram.com/changelog
 - https://developers.heygen.com/changelog
+- https://docs.mistral.ai/resources/changelogs
 
 Also read https://platform.claude.com/docs/en/about-claude/model-deprecations
 for Anthropic retirement dates; it lists every model with its status, and
