@@ -116,6 +116,7 @@ they make is in scope.
 - https://www.doubleai.com/news
 - https://recursive.com/updates
 - https://block.xyz/news/ai
+- https://dreamlabs.ai/research/
 
 Then read the API changelogs. A point release such as Gemini Omni 1.1 Flash
 gets a developer-blog post and a changelog line, not a headline, and the
