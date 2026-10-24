@@ -623,6 +623,7 @@ const D=[
 {n:"Seedance 1.5 pro",k:["video","audio:speech","audio:sfx"],d:"16 Dec 2025, discontinued 11 Nov 2026",x:"Joint audio-visual generation: speech, music and sound effects made with the video rather than dubbed on after, with lip-sync across languages and dialects",u:"https://seed.bytedance.com/en/blog/sound-and-vision-all-in-one-take-the-official-release-of-seedance-1-5-pro"},
 {n:"Seedance 2.0",k:["video","audio:sfx"],d:"12 Feb 2026",x:"One multimodal backbone taking text, image, audio and video in, with steadier motion and tighter control than 1.5 pro",u:"https://seed.bytedance.com/en/blog/official-launch-of-seedance-2-0"},
 {n:"Seedance 2.5",k:["video","audio:sfx"],d:"31 Jul 2026",x:"4K output; developer API delayed over studio copyright disputes",u:"https://seed.bytedance.com/en/seedance"},
+{n:"Seedance 2.5 4K",k:["video","audio:sfx"],d:"23 Oct 2026",x:"Lifts the Seedance 2.5 generation from 1080p to 4K with 10-bit colour, and drafts a shot at 480p before the final render; in trial with selected studios",u:"https://seed.bytedance.com/en/seedance"},
 {n:"Seed Audio / Seed-TTS",k:["audio:speech"],d:"Jun 2024",x:"The speech line before it became an audio-scene model"},
 {n:"Seed Audio 1.0",k:["audio:speech","audio:sfx","audio:music"],d:"20 Jul 2026",x:"Multi-speaker dialogue with a distinct voice each, music, foley and ambience generated together from one prompt or a video, zero-shot voice cloning, 20 languages",u:"https://seed.bytedance.com/en/blog/from-speech-to-audio-creation-introducing-the-seed-audio-1-0-audio-creation-model"},
 {n:"SeedRealtime",k:["audio:speech"],d:"Aug 2026",x:"Full-duplex model that watches, listens and speaks in one network and decides its own turn-taking; live in the Doubao app",u:"https://seed.bytedance.com/en/SeedRealtime"},
@@ -931,6 +932,8 @@ const D=[
 {n:"Canva Craft",k:["image"],d:"22 Oct 2026",x:"Canva's first in-house image model, in two stages: a planner fixes layout, scale, hierarchy and text, then a renderer draws it at up to 2K across 30 aspect ratios",u:"https://www.canva.com/newsroom/news/canva-craft/"}]},
 {c:"NEURA Robotics",r:"DE",f:"2019",n:"independent",u:"https://neura-robotics.com",m:[
 {n:"Neuron AI",k:["robotics"],d:"14 Oct 2026",x:"Perception-language-action model for the company's five robot bodies, fusing 3D vision, touch, audio, robot state and language with a memory, and inferring on the robot",u:"https://neura-robotics.com/neura-robotics-introduces-neuron-ai/"}]},
+{c:"Block",r:"US",f:"2009",n:"NYSE",u:"https://block.xyz",m:[
+{n:"Dessa",k:["audio:speech"],d:"announced 23 Oct 2026, waitlist",x:"Full-duplex speech-to-speech model trained from scratch on recorded human conversation, no text and no pretrained base, so it backchannels and laughs mid-sentence",u:"https://block.xyz/dessa"}]},
 ];
 
 // Every change the atlas has recorded: a model released, a model announced
@@ -947,6 +950,8 @@ const D=[
 // that model's tags, detail and link as they read at the time.
 const H=[
 {t:"added",y:"2026-10-23",f:"2026-10-24",c:"NVIDIA",n:"Nemotron 3.5 Bolt E4B",k:["text:chat"],x:"Bolt cut to 4GB for physical and conversational agents: local voice assistants, interactive characters and embedded interfaces on GeForce RTX, Jetson and RTX Spark",u:"https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/"},
+{t:"added",y:"2026-10-23",f:"2026-10-24",c:"ByteDance",n:"Seedance 2.5 4K",k:["video","audio:sfx"],x:"Lifts the Seedance 2.5 generation from 1080p to 4K with 10-bit colour, and drafts a shot at 480p before the final render; in trial with selected studios",u:"https://seed.bytedance.com/en/seedance"},
+{t:"announced",y:"2026-10-23",f:"2026-10-24",c:"Block",n:"Dessa",k:["audio:speech"],x:"Full-duplex speech-to-speech model trained from scratch on recorded human conversation, no text and no pretrained base, so it backchannels and laughs mid-sentence",u:"https://block.xyz/dessa"},
 {t:"added",y:"2026-10-14",f:"2026-10-24",c:"NEURA Robotics",n:"Neuron AI",k:["robotics"],x:"Perception-language-action model for the company's five robot bodies, fusing 3D vision, touch, audio, robot state and language with a memory, and inferring on the robot",u:"https://neura-robotics.com/neura-robotics-introduces-neuron-ai/"},
 {t:"added",y:"2026-10-23",f:"2026-10-24",c:"Moonshot AI",n:"Kimi K3.1 Pro / Kimi K3.1 Pro Highspeed",k:["text:chat","text:code"],x:"First of the K3.1 series: a 3T-class open-weight flagship with a 1M-token context, beside a Highspeed variant Moonshot puts at 2-3x the speed and the same quality",u:"https://forum.moonshot.ai/t/kimi-k3-1-pro-has-launched-start-exploring-now/629"},
 {t:"added",y:"2025-12-02",f:"2026-10-23",c:"Mistral AI",n:"Ministral 3",k:["text:chat"],x:"Three dense edge models at 3B, 8B and 14B, each in base, instruct and reasoning builds with image understanding; the 14B reasoning variant scores 85% on AIME '25",u:"https://mistral.ai/news/mistral-3/"},
