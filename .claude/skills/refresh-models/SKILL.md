@@ -89,6 +89,7 @@ they make is in scope.
 - https://allenai.org/blog
 - https://aleph-alpha.com/en/blog/
 - https://www.figure.ai/news
+- https://neura-robotics.com/news/
 - https://sakana.ai/blog/
 - https://www.tavus.io/blog
 - https://desertant.com/blog/
@@ -111,7 +112,6 @@ they make is in scope.
 - https://ltx.io/release-notes
 - https://reka.ai/news
 - https://blog.jetbrains.com/ai/
-- https://autoclaw.z.ai/blog
 - https://elorian.ai/blog
 - https://www.doubleai.com/news
 - https://recursive.com/updates
