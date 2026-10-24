@@ -304,9 +304,13 @@ const D=[
 {n:"Gemini Robotics 2 / Gemini Robotics-ER 2",k:["robotics"],d:"30 Jul 2026",x:"Coordinates a whole humanoid body rather than the upper half, with an On-Device 2 edge variant alongside",u:"https://deepmind.google/models/gemini-robotics/"}]},
 {c:"Anthropic",r:"US",f:"2021",n:"independent",u:"https://www.anthropic.com",m:[
 {n:"Claude Opus 4",k:["text:chat","text:code"],d:"May 2025, retired 15 Jun 2026",x:"Deprecated Apr 2026 and pulled from the API in favour of Claude Opus 4.8",u:"https://platform.claude.com/docs/en/about-claude/model-deprecations"},
+{n:"Claude Opus 4.5",k:["text:chat","text:code"],d:"24 Nov 2025",x:"State of the art on real-world software engineering at release; at medium effort it matched Sonnet 4.5's best SWE-bench Verified score on 76% fewer output tokens",u:"https://www.anthropic.com/news/claude-opus-4-5"},
+{n:"Claude Opus 4.6",k:["text:chat","text:code"],d:"5 Feb 2026",x:"First Opus-class model with a 1M-token context, in beta, and the first to prefer adaptive thinking over manual budgets; 65.4% on Terminal-Bench 2.0 at max effort",u:"https://www.anthropic.com/news/claude-opus-4-6"},
+{n:"Claude Opus 4.7",k:["text:chat","text:code"],d:"16 Apr 2026",x:"A clear step up on the hardest software engineering tasks, with a new xhigh effort level for runs over half an hour and image input raised to 3.75 megapixels",u:"https://www.anthropic.com/news/claude-opus-4-7"},
 {n:"Claude Opus 4.8",k:["text:chat","text:code"],d:"28 May 2026",x:"Eighth point release of the largest tier inside a year"},
 {n:"Claude Haiku 4.5",k:["text:chat"],d:"15 Oct 2025",x:"The small, fast tier",u:"https://www.anthropic.com/news/claude-haiku-4-5"},
 {n:"Claude Sonnet 4.5",k:["text:chat","text:code"],d:"29 Sep 2025, retired 30 Nov 2026",x:"The 4.5 generation's mid tier and the long-serving default for coding agents; Sonnet 5.5 is the recommended replacement",u:"https://www.anthropic.com/news/claude-sonnet-4-5"},
+{n:"Claude Sonnet 4.6",k:["text:chat","text:code"],d:"17 Feb 2026",x:"Mid tier lifted across coding, computer use and long-context reasoning, with a 1M-token context in beta; 79.6% on SWE-bench Verified, and the free and Pro default",u:"https://www.anthropic.com/news/claude-sonnet-4-6"},
 {n:"Claude Mythos Preview",k:["text:chat","text:code"],d:"7 Apr 2026",x:"Frontier model Anthropic will not release generally; Project Glasswing partners used it to find over ten thousand high- or critical-severity zero-days",u:"https://www.anthropic.com/news/mythos-preview"},
 {n:"Claude Mythos 5 / Claude Fable 5",k:["text:chat","text:code"],d:"9 Jun 2026",x:"Frontier tier; Mythos is the same model under lighter safeguards for vetted cyber and life-science orgs"},
 {n:"Claude Mythos 5.1 / Claude Fable 5.1",k:["text:chat","text:code"],d:"1 Sep 2026",x:"Matches Fable 5 at low effort and cuts cache reads to a quarter of the price",u:"https://www.anthropic.com/claude-fable-and-mythos-5-1"},
@@ -949,6 +953,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-02-17",f:"2026-10-24",c:"Anthropic",n:"Claude Sonnet 4.6",k:["text:chat","text:code"],x:"Mid tier lifted across coding, computer use and long-context reasoning, with a 1M-token context in beta; 79.6% on SWE-bench Verified, and the free and Pro default",u:"https://www.anthropic.com/news/claude-sonnet-4-6"},
 {t:"added",y:"2026-10-23",f:"2026-10-24",c:"NVIDIA",n:"Nemotron 3.5 Bolt E4B",k:["text:chat"],x:"Bolt cut to 4GB for physical and conversational agents: local voice assistants, interactive characters and embedded interfaces on GeForce RTX, Jetson and RTX Spark",u:"https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/"},
 {t:"added",y:"2026-10-23",f:"2026-10-24",c:"ByteDance",n:"Seedance 2.5 4K",k:["video","audio:sfx"],x:"Lifts the Seedance 2.5 generation from 1080p to 4K with 10-bit colour, and drafts a shot at 480p before the final render; in trial with selected studios",u:"https://seed.bytedance.com/en/seedance"},
 {t:"announced",y:"2026-10-23",f:"2026-10-24",c:"Block",n:"Dessa",k:["audio:speech"],x:"Full-duplex speech-to-speech model trained from scratch on recorded human conversation, no text and no pretrained base, so it backchannels and laughs mid-sentence",u:"https://block.xyz/dessa"},
