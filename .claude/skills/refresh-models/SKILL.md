@@ -89,6 +89,7 @@ they make is in scope.
 - https://allenai.org/blog
 - https://aleph-alpha.com/en/blog/
 - https://www.figure.ai/news
+- https://www.pi.website/blog
 - https://neura-robotics.com/news/
 - https://sakana.ai/blog/
 - https://www.tavus.io/blog
