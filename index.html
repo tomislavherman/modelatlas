@@ -476,7 +476,7 @@ const D=[
 {c:"Bria AI",r:"IL",f:"unknown",n:"independent",u:"https://bria.ai",m:[
 {n:"Fibo 1.5",k:["image"],d:"Jul 2026",x:"8B flow-matching text-to-image model prompted with long structured captions in Bria's Visual GenAI Language, trained only on licensed data",u:"https://huggingface.co/briaai/Fibo-1.5",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/briaai/Fibo-1.5",q:16,p:8}},
 {n:"Fibo Edit 1.5",k:["image"],d:"Aug 2026",x:"Instruction-following editor on the Fibo backbone, shipped as a base checkpoint and a few-step turbo distillation",u:"https://huggingface.co/briaai/Fibo-Edit-1.5-base",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/briaai/Fibo-Edit-1.5-base",q:16,p:8}},
-{n:"Fibo 2.0 Dev / Fibo 2.0 Edit Turbo",k:["image"],d:"Oct 2026",x:"First Fibo to generate and edit from one set of weights; Edit Turbo is the 4-step distillation, ranked top open-weights image editor on Artificial Analysis",u:"https://docs.bria.ai/whats-new/fibo-2",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/briaai/Fibo-2.0-dev",q:16,p:8}}]},
+{n:"Fibo 2.0 Dev / Fibo 2.0 Edit Turbo",k:["image"],d:"20 Oct 2026",x:"First Fibo to generate and edit from one set of weights; Edit Turbo is the 4-step distillation, ranked top open-weights image editor on Artificial Analysis",u:"https://docs.bria.ai/whats-new/fibo-2",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/briaai/Fibo-2.0-dev",q:16,p:8}}]},
 {c:"Reve",r:"US",f:"2023",n:"independent",u:"https://reve.com",m:[
 {n:"Reve Image 1.0",k:["image"],d:"Mar 2025, image generation shut down 27 Sep 2026",x:"Previewed as Halfmoon and trained from the ground up for prompt adherence, aesthetics and typography",u:"https://app.reve.com/model"},
 {n:"Reve v1.5",k:["image"],d:"23 Feb 2026, image generation shut down 27 Sep 2026",x:""},
@@ -1775,7 +1775,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 26 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 27 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
