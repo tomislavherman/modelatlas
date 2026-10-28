@@ -965,6 +965,10 @@ const D=[
 {n:"Nanbeige4.3-33B",k:["text:code","text:chat"],d:"24 Oct 2026",x:"Dense 33B teacher for the Nanbeige4.3 series, built for agentic coding and office work with a 512K context; 80.9 on Terminal-Bench 2.1 against 73.0 for Qwen3.8-27B",u:"https://huggingface.co/Nanbeige/Nanbeige4.3-33B",o:{l:"Apache 2.0",h:"https://huggingface.co/Nanbeige/Nanbeige4.3-33B",q:16,p:33}}]},
 {c:"Maya Research",r:"IN",f:"2025",n:"independent",u:"https://huggingface.co/maya-research",m:[
 {n:"Maya 2 Native",k:["audio:speech"],d:"Oct 2026",x:"Streaming text-to-speech for English and 11 Indic languages, with 20 built-in voices and zero-shot cloning from 3-10 seconds of reference audio; Qwen3 1.7B backbone",u:"https://huggingface.co/maya-research/maya2-native",o:{l:"Apache 2.0",h:"https://huggingface.co/maya-research/maya2-native",q:16,p:2.5}}]},
+{c:"H Company",r:"FR",f:"2023",n:"independent",u:"https://www.hcompany.ai",m:[
+{n:"Holo4 27B",k:["text:chat","text:code"],d:"28 Sep 2026",x:"Dense computer-use model that clicks, writes code and calls tools across desktop, web and mobile; 85.2% on OSWorld at $0.08 a task",u:"https://www.hcompany.ai/newsroom/holo4",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/Hcompany/Holo4-27B",q:16,p:27}},
+{n:"Holo4 35B-A3B",k:["text:chat","text:code"],d:"28 Sep 2026",x:"Mixture-of-experts sibling with 3B active per token: close to the dense 27B on accuracy for less, over the same GUI, code, MCP and API surface",u:"https://www.hcompany.ai/newsroom/holo4",o:{l:"Apache 2.0",h:"https://huggingface.co/Hcompany/Holo4-35B-A3B",q:16,p:35}},
+{n:"Holotron4 Nano",k:["text:chat","text:code"],d:"28 Sep 2026",x:"Small generalist agent model built on NVIDIA's Nemotron 3 Nano Omni, succeeding Holotron 3: GUI, MCP, API and coding-sandbox workflows",u:"https://www.hcompany.ai/newsroom/holo4",o:{l:"NVIDIA open model agreement",h:"https://huggingface.co/Hcompany/Holotron4-30B-A3B",q:16,p:33}}]},
 ];
 
 // Every change the atlas has recorded: a model released, a model announced
@@ -980,6 +984,9 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-09-28",f:"2026-10-28",c:"H Company",n:"Holo4 27B",k:["text:chat","text:code"],x:"Dense computer-use model that clicks, writes code and calls tools across desktop, web and mobile; 85.2% on OSWorld at $0.08 a task",u:"https://www.hcompany.ai/newsroom/holo4"},
+{t:"added",y:"2026-09-28",f:"2026-10-28",c:"H Company",n:"Holo4 35B-A3B",k:["text:chat","text:code"],x:"Mixture-of-experts sibling with 3B active per token: close to the dense 27B on accuracy for less, over the same GUI, code, MCP and API surface",u:"https://www.hcompany.ai/newsroom/holo4"},
+{t:"added",y:"2026-09-28",f:"2026-10-28",c:"H Company",n:"Holotron4 Nano",k:["text:chat","text:code"],x:"Small generalist agent model built on NVIDIA's Nemotron 3 Nano Omni, succeeding Holotron 3: GUI, MCP, API and coding-sandbox workflows",u:"https://www.hcompany.ai/newsroom/holo4"},
 {t:"added",y:"2026-02",f:"2026-10-28",c:"Alibaba",n:"Qwen3-Coder-Next",k:["text:code"],x:"Coding specialist on the Next architecture: 80B mixture of experts with 3B active per token and a 262K context, non-thinking only; 70.6 on SWE-bench Verified",u:"https://huggingface.co/Qwen/Qwen3-Coder-Next"},
 {t:"added",y:"2026-10",f:"2026-10-28",c:"NVIDIA",n:"Metatron v1",k:["robotics"],x:"Humanoid control policy for the 29-joint Unitree G1: a single MaskedMimic-style transformer student covers walking, scene interaction and recovery, as ONNX exports",u:"https://huggingface.co/nvidia/Metatron-v1"},
 {t:"added",y:"2026-10",f:"2026-10-28",c:"ModelBest / OpenBMB",n:"MiniCPM-OCR Jev",k:["text:chat"],x:"OCR quality assessment rather than parsing: a region image and a candidate transcription in, a 0-1 score out, to auto-accept reliable regions and flag the rest for review",u:"https://huggingface.co/openbmb/MiniCPM-OCR-Jev"},
