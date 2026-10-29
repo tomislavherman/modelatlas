@@ -454,6 +454,7 @@ const D=[
 {n:"Pika 1.0",k:["video"],d:"Nov 2023",x:"",u:"https://pika.art"},
 {n:"Pika 2.5",k:["video"],d:"2026",x:"",u:"https://create.pika.art/apps/pika-2-5"},
 {n:"PikaStream",k:["video"],d:"Apr 2026",x:"Real-time 24 fps",u:"https://pika.art"},
+{n:"Pika H3 Flex",k:["video","audio:sfx"],d:"29 Oct 2026",x:"Post-trained from MiniMax H3 and distilled to six denoising steps: 480p and 768p video with synchronized stereo audio in one pass, which the API splits into five stems",u:"https://pika.art/blog/pika-h3-flex",o:{l:"MiniMax H3 community",h:"https://huggingface.co/Pika-Labs/Pika-H3-Flex",q:16,p:33}},
 {n:"Pika Soundtrack",k:["audio:sfx","audio:music","audio:speech"],d:"18 Aug 2026",x:"Video-to-audio latent diffusion transformer that scores a clip with motion-aware effects, voice, music and ambience in one pass; distillation and caching halve the cost",u:"https://pika.art/blog/pika-soundtrack"},
 {n:"Pika Music",k:["audio:music"],d:"18 Aug 2026",x:"Latent diffusion transformer taking a prompt, lyrics, a reference voice or an existing track in any combination; a 90-second song in 6.21 seconds, 14.5x faster than playback",u:"https://pika.art/blog/pika-music"},
 {n:"Pika SFX",k:["audio:sfx"],d:"18 Aug 2026",x:"Text-to-sound-effect diffusion transformer in a compressed acoustic latent space: 1 to 20 seconds of 44.1 kHz stereo in 0.847s, against 2.5s for the models it benchmarks",u:"https://pika.art/blog/pika-sfx"},
@@ -994,6 +995,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-29",f:"2026-10-29",c:"Pika",n:"Pika H3 Flex",k:["video","audio:sfx"],x:"Post-trained from MiniMax H3 and distilled to six denoising steps: 480p and 768p video with synchronized stereo audio in one pass, which the API splits into five stems",u:"https://pika.art/blog/pika-h3-flex"},
 {t:"added",y:"2025-04-22",f:"2026-10-29",c:"Physical Intelligence",n:"π0.5",k:["robotics"],x:"Vision-language-action model trained on mixed data sources so it generalises to homes it never saw in training, where π0 was only tested close to its own data",u:"https://www.pi.website/blog/pi05"},
 {t:"added",y:"2025-11-17",f:"2026-10-29",c:"Physical Intelligence",n:"π*0.6",k:["robotics"],x:"Trained with Recap on top of π0.6: expert corrections plus reinforcement learning from the robot's own experience, more than doubling throughput on the hardest tasks",u:"https://www.pi.website/blog/pistar06"},
 {t:"added",y:"2026-10-28",f:"2026-10-29",c:"NVIDIA",n:"Nemotron 3.5 Transcribe",k:["audio:speech"],x:"Promptable 34B mixture of experts with 4B active: one checkpoint transcribes 40 languages, translates 31 to or from English and attributes up to eight speakers in 13",u:"https://huggingface.co/blog/nvidia/nemotron-transcribe-granary"},
