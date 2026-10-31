@@ -63,7 +63,6 @@ they make is in scope.
 - https://openai.com/news/
 - https://community.openai.com/c/announcements
 - https://deepmind.google/blog/
-- https://magenta.withgoogle.com/blog
 - https://research.meta.ai/blog
 - https://x.ai/news
 - https://api-docs.deepseek.com/updates
@@ -121,6 +120,7 @@ they make is in scope.
 - https://www.hcompany.ai/blog
 - https://www.krea.ai/blog
 - https://kyutai.org/
+- https://odyssey.systems/writing
 
 Then read the API changelogs. A point release such as Gemini Omni 1.1 Flash
 gets a developer-blog post and a changelog line, not a headline, and the

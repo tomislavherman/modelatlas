@@ -518,7 +518,10 @@ const D=[
 {n:"Lucy 2.5",k:["video"],d:"Jul 2026",x:"Live 1080p video editing",u:"https://decart.ai/blog"}]},
 {c:"Odyssey",r:"US",f:"2023",n:"independent",u:"https://odyssey.ml",m:[
 {n:"Odyssey-2 Pro",k:["world"],d:"Jan 2026",x:"Developer API",u:"https://odyssey.ml/introducing-odyssey-2"},
-{n:"Starchild-1 / Agora-1",k:["world","audio:sfx"],d:"May 2026",x:"Multimodal, multi-agent worlds",u:"https://odyssey.ml/the-gpt-2-moment-for-world-models"}]},
+{n:"Odyssey-2 Max",k:["world"],d:"21 Apr 2026",x:"Largest of the Odyssey-2 family, in private beta for frontier partners; scores 58.52 on VBench 2 physics against Odyssey-2 Pro's 49.67, and still runs in real time",u:"https://odyssey.systems/introducing-odyssey-2-max"},
+{n:"Odyssey-3 / Odyssey-3 Pro / Odyssey-3 Flash",k:["world"],d:"8 Oct 2026",x:"Autoregressive diffusion transformer that builds an embodied world from a prompt and updates it live as you act; the Pro tier tops Physics-IQ Verified at 66.1",u:"https://odyssey.systems/meet-odyssey-3"},
+{n:"Starchild-1 / Agora-1",k:["world","audio:sfx"],d:"18 May 2026",x:"Multimodal, multi-agent worlds",u:"https://odyssey.ml/the-gpt-2-moment-for-world-models"},
+{n:"Agora-2",k:["world"],d:"24 Sep 2026",x:"Multi-agent world model running as a learned game engine, with an explicit shared state so up to 20 humans and agents affect one another inside one generated world",u:"https://odyssey.systems/introducing-agora-2"}]},
 {c:"Viggle",r:"CA",f:"2022",n:"independent",u:"https://viggle.ai",m:[
 {n:"JST-2",k:["world"],d:"19 Oct 2026",x:"Physics-native world model holding a scene as persistent 3D atoms with learned dynamics: a scene in about a second, and characters that animate without a rigging step",u:"https://viggle.ai/jst2"}]},
 {c:"Deemos",r:"CN",f:"2020",n:"independent",u:"https://hyper3d.ai",m:[
@@ -1006,6 +1009,10 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-08",f:"2026-10-31",c:"Odyssey",n:"Odyssey-3 / Odyssey-3 Pro / Odyssey-3 Flash",k:["world"],x:"Autoregressive diffusion transformer that builds an embodied world from a prompt and updates it live as you act; the Pro tier tops Physics-IQ Verified at 66.1",u:"https://odyssey.systems/meet-odyssey-3"},
+{t:"announced",y:"2026-09-15",f:"2026-10-31",c:"Odyssey",n:"Odyssey-3 / Odyssey-3 Pro / Odyssey-3 Flash",k:["world"],x:"Autoregressive diffusion transformer that builds an embodied world from a prompt and updates it live as you act; the Pro tier tops Physics-IQ Verified at 66.1",u:"https://odyssey.systems/introducing-odyssey-3"},
+{t:"added",y:"2026-09-24",f:"2026-10-31",c:"Odyssey",n:"Agora-2",k:["world"],x:"Multi-agent world model running as a learned game engine, with an explicit shared state so up to 20 humans and agents affect one another inside one generated world",u:"https://odyssey.systems/introducing-agora-2"},
+{t:"added",y:"2026-04-21",f:"2026-10-31",c:"Odyssey",n:"Odyssey-2 Max",k:["world"],x:"Largest of the Odyssey-2 family, in private beta for frontier partners; scores 58.52 on VBench 2 physics against Odyssey-2 Pro's 49.67, and still runs in real time",u:"https://odyssey.systems/introducing-odyssey-2-max"},
 {t:"added",y:"2026-10-30",f:"2026-10-30",c:"OpenAI",n:"GPT-6 Rosalind",k:["text:chat"],x:"Life sciences successor to GPT-Rosalind: specialized biological reasoning with scientific tool use, gated to organizations approved for Rosalind Research under trusted access",u:"https://help.openai.com/en/articles/20001193-gpt-rosalind-for-life-sciences-research"},
 {t:"added",y:"2026-10-16",f:"2026-10-30",c:"Kyutai",n:"REKI",k:["robotics"],x:"2.4B vision-language-action model pretrained only on public data; register tokens cache a summary of each frame so the policy reads its recent past, cutting oscillations fourfold",u:"https://kyutai.org/reki/"},
 {t:"added",y:"2026-10-15",f:"2026-10-30",c:"Krea",n:"Krea 3",k:["image"],x:"Image editing at native 2K in under eight seconds, taking up to six reference images; holds products, labels and characters consistent and leaves untouched regions unchanged",u:"https://www.krea.ai/blog/introducing-krea-3"},
@@ -1852,7 +1859,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 30 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 31 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
