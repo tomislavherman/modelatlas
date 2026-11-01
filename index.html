@@ -588,6 +588,12 @@ const D=[
 {n:"Flux TTS",k:["audio:speech"],d:"12 Aug 2026",x:"Conversation-native turn handling",u:"https://deepgram.com/product/text-to-speech"},
 {n:"Nova 3 Medical",k:["audio:speech"],d:"3 Mar 2025 → multilingual 6 Oct 2026",x:"Nova-3 variant for clinical speech, tuned for medication, diagnostic and procedure terms; multilingual mode code-switches across ten languages in batch and streaming",u:"https://deepgram.com/learn/introducing-nova-3-medical-speech-to-text-api"},
 {n:"Nova 3 Pharma",k:["audio:speech"],d:"17 Sep 2026",x:"Nova-3 variant purpose-built for pharmaceutical vocabulary, tuned for accurate drug-name recognition; English only, across eight regional variants",u:"https://developers.deepgram.com/changelog/2026/9/17"}]},
+{c:"Rime",r:"US",f:"2022",n:"independent",u:"https://rime.ai",m:[
+{n:"Arcana",k:["audio:speech"],d:"9 May 2025",x:"Spoken language model that puts laughter, sighs and filler words into speech, with eight flagship voices and a beta that builds a new voice from a written description",u:"https://www.rime.ai/resources/introducing-arcana"},
+{n:"Mist v3",k:["audio:speech"],d:"6 Apr 2026",x:"Low-latency text-to-speech on a new inference engine: about 40ms to first byte at p90 on an L40S, 78 voices across four languages, with inline pronunciation control",u:"https://www.rime.ai/resources/introducing-mist-v3-enterprise-tts"},
+{n:"Coda",k:["audio:speech"],d:"19 May 2026",x:"Text-to-speech on two jointly trained decoders, one for meaning and one for acoustic detail, aimed at the rhythm of real conversation; 312 voices across ten languages",u:"https://www.rime.ai/resources/coda-tts"},
+{n:"Coda v2",k:["audio:speech"],d:"23 Oct 2026",x:"Takes a per-request X-SAMPA lexicon of up to 500 words in six languages, cutting the phone error rate on hard English words to 16.7% from 24.5%; a malformed entry errors",u:"https://www.rime.ai/labs/coda-phonemes"},
+{n:"Prism",k:["audio:speech"],d:"28 Oct 2026",x:"Speech-to-speech with an inspectable text layer guardrails can check before it speaks; about 300ms to first audio, with tool calls running alongside the speech",u:"https://www.rime.ai/resources/prism-first-speech-to-speech-for-enterprise"}]},
 {c:"Suno",r:"US",f:"2022",n:"independent",u:"https://suno.com",m:[
 {n:"Suno v1",k:["audio:music"],d:"2023, retired Sep 2026",x:"Trained on unlicensed material",u:"https://suno.com"},
 {n:"Suno v5.5",k:["audio:music"],d:"Mar 2026, retired Sep 2026",x:"Deprecated after the Warner settlement; switched off the day v6 shipped, though songs already generated stay playable",u:"https://suno.com"},
@@ -1014,6 +1020,11 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-28",f:"2026-11-01",c:"Rime",n:"Prism",k:["audio:speech"],x:"Speech-to-speech with an inspectable text layer guardrails can check before it speaks; about 300ms to first audio, with tool calls running alongside the speech",u:"https://www.rime.ai/resources/prism-first-speech-to-speech-for-enterprise"},
+{t:"added",y:"2026-10-23",f:"2026-11-01",c:"Rime",n:"Coda v2",k:["audio:speech"],x:"Takes a per-request X-SAMPA lexicon of up to 500 words in six languages, cutting the phone error rate on hard English words to 16.7% from 24.5%; a malformed entry errors",u:"https://www.rime.ai/labs/coda-phonemes"},
+{t:"added",y:"2026-05-19",f:"2026-11-01",c:"Rime",n:"Coda",k:["audio:speech"],x:"Text-to-speech on two jointly trained decoders, one for meaning and one for acoustic detail, aimed at the rhythm of real conversation; 312 voices across ten languages",u:"https://www.rime.ai/resources/coda-tts"},
+{t:"added",y:"2026-04-06",f:"2026-11-01",c:"Rime",n:"Mist v3",k:["audio:speech"],x:"Low-latency text-to-speech on a new inference engine: about 40ms to first byte at p90 on an L40S, 78 voices across four languages, with inline pronunciation control",u:"https://www.rime.ai/resources/introducing-mist-v3-enterprise-tts"},
+{t:"added",y:"2025-05-09",f:"2026-11-01",c:"Rime",n:"Arcana",k:["audio:speech"],x:"Spoken language model that puts laughter, sighs and filler words into speech, with eight flagship voices and a beta that builds a new voice from a written description",u:"https://www.rime.ai/resources/introducing-arcana"},
 {t:"added",y:"2026-10",f:"2026-10-31",c:"inclusionAI",n:"ZwZ2",k:["text:chat"],x:"Vision-language family in three sizes, trained with GRPO reinforcement learning to link evidence across image regions without zoom tools at inference",u:"https://huggingface.co/inclusionAI/ZwZ2-27B"},
 {t:"announced",y:"2026-10-29",f:"2026-10-31",c:"AgiBot",n:"GO-3 Preview",k:["robotics"],x:"Embodied foundation model on WRAM, a unified reasoning, prediction and action framework: the robot anticipates an action's outcome and generalises past learned sequences",u:"https://www.agibot.com/article/231/detail/131.html"},
 {t:"announced",y:"2026-10-29",f:"2026-10-31",c:"AgiBot",n:"WITA-Omni",k:["audio:speech","robotics"],x:"Omni-modal interaction model joining vision, speech and real-time dialogue: full-duplex conversation with movement coordinated to it, and inference on the robot",u:"https://www.agibot.com/article/231/detail/131.html"},
@@ -1666,7 +1677,7 @@ const MON={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,d
 // "wind-down Jul 2026"). Those are not releases, so the clause is dropped
 // before any date is read out of the line, for both the sort and the badge.
 const RETIRED=/\b(?:retired?|EOL|wind-?down|closed|ends?|discontinued|shut down|removed?|removal)\b[^,]*/gi;
-const NOW=2026*12+10;  // October 2026, the compile date in the header
+const NOW=2026*12+11;  // November 2026, the compile date in the header
 // Every release date a line names, as year*12+month, oldest first, with the
 // day kept beside it for ordering. x is how precisely the date was written:
 // 2 a day ("22 Sep 2026"), 1 a month ("Sep 2026"), 0 a bare year or a span
@@ -1868,7 +1879,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 31 Oct 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 1 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}

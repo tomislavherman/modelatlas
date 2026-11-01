@@ -103,6 +103,7 @@ they make is in scope.
 - https://pixverse.ai/en/blog
 - https://cartesia.ai/blog
 - https://fish.audio/blog
+- https://www.rime.ai/blog
 - https://blog.voyageai.com/
 - https://jina.ai/news
 - https://skild.ai/blogs
