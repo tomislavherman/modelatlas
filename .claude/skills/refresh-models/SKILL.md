@@ -122,6 +122,7 @@ they make is in scope.
 - https://www.krea.ai/blog
 - https://kyutai.org/
 - https://odyssey.systems/writing
+- https://spaitial.ai/blog
 - https://www.agibot.com/article/231
 
 Then read the API changelogs. A point release such as Gemini Omni 1.1 Flash
