@@ -104,6 +104,7 @@ they make is in scope.
 - https://cartesia.ai/blog
 - https://fish.audio/blog
 - https://www.rime.ai/blog
+- https://inworld.ai/blog
 - https://blog.voyageai.com/
 - https://jina.ai/news
 - https://skild.ai/blogs
