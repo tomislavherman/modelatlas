@@ -516,9 +516,9 @@ const D=[
 {n:"Orbis",k:["world","video"],d:"1 Sep 2026",x:"A live model that runs a world rather than rendering a clip: 4K at 24fps streamed in real time for hours without drift, and the prompt can be changed mid-generation",u:"https://www.visko.ai/news/visko-closes-10-million-pre-seed-round-and-launches-orbis"}]},
 {c:"Decart",r:"IL/US",f:"2023",n:"independent",u:"https://www.decart.ai",m:[
 {n:"Oasis",k:["world"],d:"Oct 2024",x:"Photorealistic driving simulation",u:"https://oasis.decart.ai",o:{l:"MIT",h:"https://huggingface.co/Etched/oasis-500m",p:0.5}},
-{n:"Oasis 3",k:["world"],d:"Jun 2026",x:"Photorealistic driving simulation, available via API",u:"https://oasis.decart.ai"},
-{n:"Lucy 2",k:["video"],d:"Jan 2026",x:"Live 1080p video editing",u:"https://decart.ai/blog"},
-{n:"Lucy 2.5",k:["video"],d:"Jul 2026",x:"Live 1080p video editing",u:"https://decart.ai/blog"}]},
+{n:"Oasis 3",k:["world"],d:"10 Jun 2026",x:"Photorealistic driving simulation, available via API",u:"https://decart.ai/publications/introducing-oasis-3-first-interactive-world-model-for-physical-ai"},
+{n:"Lucy 2",k:["video"],d:"26 Jan 2026",x:"Live 1080p video editing",u:"https://decart.ai/publications/lucy-2-introducing-sota-video-generation-in-realtime"},
+{n:"Lucy 2.5",k:["video"],d:"16 Jul 2026",x:"Live 1080p video editing",u:"https://decart.ai/publications/lucy-2-5-raising-the-bar-for-live-ai"}]},
 {c:"Odyssey",r:"US",f:"2023",n:"independent",u:"https://odyssey.ml",m:[
 {n:"Odyssey-2 Pro",k:["world"],d:"Jan 2026",x:"Developer API",u:"https://odyssey.ml/introducing-odyssey-2"},
 {n:"Odyssey-2 Max",k:["world"],d:"21 Apr 2026",x:"Largest of the Odyssey-2 family, in private beta for frontier partners; scores 58.52 on VBench 2 physics against Odyssey-2 Pro's 49.67, and still runs in real time",u:"https://odyssey.systems/introducing-odyssey-2-max"},
@@ -831,8 +831,8 @@ const D=[
 {n:"Beam",k:["text:chat","text:code"],d:"16 Oct 2026",x:"Reflection's first open-weight model: 501B sparse mixture of experts with 23B active, matching GLM-5.2 on reasoning at 3-4x less inference compute; weights now on Hugging Face",u:"https://reflection.ai/blog/introducing-beam",o:{l:"Apache 2.0",h:"https://huggingface.co/reflection/Beam-1.0-501B-A23B",q:16,p:501}}]},
 {c:"poolside",r:"US/FR",f:"2023",n:"independent",u:"https://poolside.ai",m:[
  {n:"Laguna XS.2 / Laguna M.1",k:["text:code"],d:"Apr 2026",x:"First public models from a lab that trains on code from scratch; XS.2 is 33B with 3B active under Apache 2.0 and runs on one GPU, M.1 the 225B flagship for long-horizon work",u:"https://poolside.ai/blog/introducing-laguna-xs2-m1",o:{l:"Apache 2.0 (XS.2)",h:"https://huggingface.co/poolside/Laguna-XS.2",q:16,p:33}},
- {n:"Laguna XS 2.1",k:["text:code"],d:"Jul 2026",x:"Same 33B architecture as XS.2 with 3B active, relicensed to OpenMDW-1.1; up 5.4 points to 63.1% on SWE-bench Multilingual, with FP8, INT4 and NVFP4 checkpoints",u:"https://poolside.ai/blog/introducing-laguna-xs-2-1",o:{l:"OpenMDW 1.1",h:"https://huggingface.co/poolside/Laguna-XS-2.1",q:16,p:33}},
- {n:"Laguna S 2.1",k:["text:code"],d:"Jul 2026",x:"118B with 8B active and a 1M-token context under OpenMDW-1.1; matches models several times its size on Terminal-Bench 2.1 and SWE-Bench Pro",u:"https://poolside.ai/blog/introducing-laguna-s-2-1",o:{l:"OpenMDW 1.1",h:"https://huggingface.co/poolside/Laguna-S-2.1",q:16,p:118}}]},
+ {n:"Laguna XS 2.1",k:["text:code"],d:"2 Jul 2026",x:"Same 33B architecture as XS.2 with 3B active, relicensed to OpenMDW-1.1; up 5.4 points to 63.1% on SWE-bench Multilingual, with FP8, INT4 and NVFP4 checkpoints",u:"https://poolside.ai/blog/introducing-laguna-xs-2-1",o:{l:"OpenMDW 1.1",h:"https://huggingface.co/poolside/Laguna-XS-2.1",q:16,p:33}},
+ {n:"Laguna S 2.1",k:["text:code"],d:"21 Jul 2026",x:"118B with 8B active and a 1M-token context under OpenMDW-1.1; matches models several times its size on Terminal-Bench 2.1 and SWE-Bench Pro",u:"https://poolside.ai/blog/introducing-laguna-s-2-1",o:{l:"OpenMDW 1.1",h:"https://huggingface.co/poolside/Laguna-S-2.1",q:16,p:118}}]},
 {c:"Cursor",r:"US",f:"2022",n:"independent",u:"https://cursor.com",m:[
 {n:"Composer",k:["text:code"],d:"Oct 2025",x:"",u:"https://cursor.com/blog"},
 {n:"Composer 2.5",k:["text:code"],d:"May 2026",x:"Trained on top of Kimi K2.5; matches Opus 4.7 and GPT-5.5 on SWE-Bench Multilingual at a tenth of the cost",u:"https://cursor.com/blog"}]},
@@ -1041,6 +1041,8 @@ const D=[
 {n:"EKA-1",k:["text:chat","text:code"],d:"announced 3 Nov 2026, early access by request",x:"Sparse hybrid model for maths, code, reasoning and agentic use, trained from scratch on 7.5T tokens; covers all 22 scheduled Indian languages and English",o:{l:"undecided"}}]},
 {c:"ZenteiQ",r:"IN",f:"2022",n:"independent",u:"https://zenteiq.ai",m:[
 {n:"Dhīr 2B / Dhīr 5B MoE",k:["text:chat"],d:"3 Nov 2026",x:"Compact text models pretrained from scratch to run offline on laptops and edge boards, with a 16k context; English and ten Indian languages, 6T+ tokens each",u:"https://zenteiq.ai/dhir/",o:{l:"Apache 2.0",p:[2,5]}}]},
+{c:"Scout AI",r:"US",f:"2024",n:"independent",u:"https://scoutco.ai",m:[
+ {n:"Fury",k:["robotics"],d:"16 Apr 2025",x:"Defence vision-language-action model that gives ground and air vehicles sensing, language and real-time motor control with no comms or GPS, on commercial hardware",u:"https://www.prnewswire.com/news-releases/scout-ai-emerges-from-stealth-with-15m-seed-round-lands-2-dod-contracts-and-unveils-fury--robotic-foundation-model-for-defense-302429902.html"}]}
 ];
 
 // Every change the atlas has recorded: a model released, a model announced
@@ -1056,6 +1058,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2025-04-16",f:"2026-11-05",c:"Scout AI",n:"Fury",k:["robotics"],x:"Defence vision-language-action model that gives ground and air vehicles sensing, language and real-time motor control with no comms or GPS, on commercial hardware",u:"https://www.prnewswire.com/news-releases/scout-ai-emerges-from-stealth-with-15m-seed-round-lands-2-dod-contracts-and-unveils-fury--robotic-foundation-model-for-defense-302429902.html"},
 {t:"added",y:"2026-11-04",f:"2026-11-05",c:"OpenAI",n:"GPT Image 2.6 Flare / GPT Image 2.6 Sunburst",k:["image"],x:"Lands in ChatGPT as Images 2.6 with 50% faster generation and animated GIF output; Flare returns an image in about six seconds, Sunburst holds edits consistent",u:"https://community.openai.com/t/images-upgraded-introducing-chatgpt-images-2-6/1412901"},
 {t:"added",y:"2026-11",f:"2026-11-05",c:"Bilibili",n:"Index-Translate-Omni",k:["text:chat","audio:speech","image"],x:"Adds speech recognition, Chinese-English speech translation and image translation to the Index-Translate checkpoints without retraining the language weights",u:"https://huggingface.co/IndexTeam/Index-Translate-omni-9B"},
 {t:"added",y:"2026-11-04",f:"2026-11-04",c:"Cognition",n:"SWE-2 Flash",k:["text:code"],x:"Small coding model post-trained from Thinking Machines' Inkling-Small: a fifth of SWE-2's price at 3x the speed, 20.0% on Terminal-Bench 4.0 and 24.0% on FrontierCode 2.0",u:"https://cognition.com/blog/swe-2-flash"},
