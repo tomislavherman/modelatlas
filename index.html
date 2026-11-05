@@ -1044,7 +1044,10 @@ const D=[
 {c:"Scout AI",r:"US",f:"2024",n:"independent",u:"https://scoutco.ai",m:[
  {n:"Fury",k:["robotics"],d:"16 Apr 2025",x:"Defence vision-language-action model that gives ground and air vehicles sensing, language and real-time motor control with no comms or GPS, on commercial hardware",u:"https://www.prnewswire.com/news-releases/scout-ai-emerges-from-stealth-with-15m-seed-round-lands-2-dod-contracts-and-unveils-fury--robotic-foundation-model-for-defense-302429902.html"}]},
 {c:"Ricursive Intelligence",r:"US",f:"2025",n:"independent",u:"https://www.ricursive.com",m:[
- {n:"Ripple-65B Preview",k:["text:code","text:chat"],d:"4 Nov 2026",x:"Dense 65B coding model pretrained from scratch, a general-purpose variant of the model behind Ricursive’s chip-design platform; 80.5 self-reported on Terminal-Bench 2.1",u:"https://www.ricursive.com/ripple",o:{l:"Apache 2.0",h:"https://huggingface.co/ricursiveAI/Ripple-65B-Preview",q:16,p:65}}]}
+ {n:"Ripple-65B Preview",k:["text:code","text:chat"],d:"4 Nov 2026",x:"Dense 65B coding model pretrained from scratch, a general-purpose variant of the model behind Ricursive’s chip-design platform; 80.5 self-reported on Terminal-Bench 2.1",u:"https://www.ricursive.com/ripple",o:{l:"Apache 2.0",h:"https://huggingface.co/ricursiveAI/Ripple-65B-Preview",q:16,p:65}}]},
+{c:"Edge0",r:"US",f:"unknown",n:"independent",u:"https://edge0.ai",m:[
+ {n:"Audio8-TTS-Preview-0.6B",k:["audio:speech"],d:"Jul 2026",x:"Zero-shot voice cloning in 11 languages at 0.6B parameters, on a DualAR architecture taken from Fish Audio’s S2 Pro",u:"https://huggingface.co/Edge0/Audio8-TTS-Preview-0.6b",o:{l:"Apache 2.0",h:"https://huggingface.co/Edge0/Audio8-TTS-Preview-0.6b",q:16,p:0.6}},
+ {n:"Audio8-TTS-Realistic-Air",k:["audio:speech"],d:"Oct 2026",x:"More realistic speech than Preview at the same 0.6B size, with zero-shot voice cloning in 23 languages and a 44.1kHz neural audio codec",u:"https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air",o:{l:"Apache 2.0",h:"https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air",q:16,p:0.6}}]}
 ];
 
 // Every change the atlas has recorded: a model released, a model announced
@@ -1060,6 +1063,8 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10",f:"2026-11-05",c:"Edge0",n:"Audio8-TTS-Realistic-Air",k:["audio:speech"],x:"More realistic speech than Preview at the same 0.6B size, with zero-shot voice cloning in 23 languages and a 44.1kHz neural audio codec",u:"https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air"},
+{t:"added",y:"2026-07",f:"2026-11-05",c:"Edge0",n:"Audio8-TTS-Preview-0.6B",k:["audio:speech"],x:"Zero-shot voice cloning in 11 languages at 0.6B parameters, on a DualAR architecture taken from Fish Audio’s S2 Pro",u:"https://huggingface.co/Edge0/Audio8-TTS-Preview-0.6b"},
 {t:"added",y:"2026-11-04",f:"2026-11-05",c:"Ricursive Intelligence",n:"Ripple-65B Preview",k:["text:code","text:chat"],x:"Dense 65B coding model pretrained from scratch, a general-purpose variant of the model behind Ricursive’s chip-design platform; 80.5 self-reported on Terminal-Bench 2.1",u:"https://www.ricursive.com/ripple"},
 {t:"added",y:"2025-04-16",f:"2026-11-05",c:"Scout AI",n:"Fury",k:["robotics"],x:"Defence vision-language-action model that gives ground and air vehicles sensing, language and real-time motor control with no comms or GPS, on commercial hardware",u:"https://www.prnewswire.com/news-releases/scout-ai-emerges-from-stealth-with-15m-seed-round-lands-2-dod-contracts-and-unveils-fury--robotic-foundation-model-for-defense-302429902.html"},
 {t:"added",y:"2026-11-04",f:"2026-11-05",c:"OpenAI",n:"GPT Image 2.6 Flare / GPT Image 2.6 Sunburst",k:["image"],x:"Lands in ChatGPT as Images 2.6 with 50% faster generation and animated GIF output; Flare returns an image in about six seconds, Sunburst holds edits consistent",u:"https://community.openai.com/t/images-upgraded-introducing-chatgpt-images-2-6/1412901"},

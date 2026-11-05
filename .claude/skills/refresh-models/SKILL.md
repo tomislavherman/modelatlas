@@ -104,6 +104,7 @@ they make is in scope.
 - https://cartesia.ai/blog
 - https://fish.audio/blog
 - https://www.rime.ai/blog
+- https://edge0.ai/research
 - https://inworld.ai/blog
 - https://blog.voyageai.com/
 - https://jina.ai/news
@@ -169,7 +170,7 @@ same way as a newsroom, one call per organisation:
 ```sh
 for a in openai google microsoft facebook meta-models apodex ibm-granite nvidia \
   black-forest-labs briaai Cactus-Compute Alibaba-DAMO-Academy kandinskylab Lightricks mistralai \
-  allenai MiniMaxAI Wan-AI Qwen OpenMOSS-Team tencent zai-org inclusionAI \
+  allenai MiniMaxAI Wan-AI Qwen OpenMOSS-Team tencent zai-org inclusionAI Edge0 \
   stepfun-ai internlm deepseek-ai moonshotai IFM inception42 NoizAI CohereLabs Aleph-Alpha openbmb \
   Agnes-AI XiaomiRobotics XiaomiMiMo m-a-p poolside IndexTeam robbyant reflection LiquidAI Cloudflare perplexity-ai StrandsAgents RekaAI JetBrains jinaai fishaudio ropedia-ai Sqwish RecursiveSI ricursiveAI Nanbeige maya-research Hcompany desert-ant-labs Pika-Labs krea kyutai agibot-world sarvamai soketlabs meituan-longcat; do
   curl -s -A "Mozilla/5.0" "https://huggingface.co/api/models?author=$a&sort=createdAt&direction=-1&limit=8&expand[]=createdAt&expand[]=tags&expand[]=safetensors" \
