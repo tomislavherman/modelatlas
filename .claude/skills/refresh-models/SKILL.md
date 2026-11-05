@@ -67,6 +67,7 @@ they make is in scope.
 - https://x.ai/news
 - https://api-docs.deepseek.com/updates
 - https://qwen.ai/blog
+- https://ernie.baidu.com/blog
 - https://forum.moonshot.ai/c/announcement/5
 - https://seed.bytedance.com/en/blog_list/visual
 - https://www.minimax.io/blog
@@ -168,7 +169,7 @@ later. The Hugging Face API is a dated index per organisation, so read it the
 same way as a newsroom, one call per organisation:
 
 ```sh
-for a in openai google microsoft facebook meta-models apodex ibm-granite nvidia \
+for a in openai google microsoft facebook meta-models apodex ibm-granite nvidia baidu \
   black-forest-labs briaai Cactus-Compute Alibaba-DAMO-Academy kandinskylab Lightricks mistralai \
   allenai MiniMaxAI Wan-AI Qwen OpenMOSS-Team tencent zai-org inclusionAI Edge0 \
   stepfun-ai internlm deepseek-ai moonshotai IFM inception42 NoizAI CohereLabs Aleph-Alpha openbmb \
