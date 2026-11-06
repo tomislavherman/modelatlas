@@ -1058,7 +1058,8 @@ const D=[
  {n:"Ripple-65B Preview",k:["text:code","text:chat"],d:"4 Nov 2026",x:"Dense 65B coding model pretrained from scratch, a general-purpose variant of the model behind Ricursive’s chip-design platform; 80.5 self-reported on Terminal-Bench 2.1",u:"https://www.ricursive.com/ripple",o:{l:"Apache 2.0",h:"https://huggingface.co/ricursiveAI/Ripple-65B-Preview",q:16,p:65}}]},
 {c:"Edge0",r:"US",f:"unknown",n:"independent",u:"https://edge0.ai",m:[
  {n:"Audio8-TTS-Preview-0.6B",k:["audio:speech"],d:"Jul 2026",x:"Zero-shot voice cloning in 11 languages at 0.6B parameters, on a DualAR architecture taken from Fish Audio’s S2 Pro",u:"https://huggingface.co/Edge0/Audio8-TTS-Preview-0.6b",o:{l:"Apache 2.0",h:"https://huggingface.co/Edge0/Audio8-TTS-Preview-0.6b",q:16,p:0.6}},
- {n:"Audio8-TTS-Realistic-Air",k:["audio:speech"],d:"Oct 2026",x:"More realistic speech than Preview at the same 0.6B size, with zero-shot voice cloning in 23 languages and a 44.1kHz neural audio codec",u:"https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air",o:{l:"Apache 2.0",h:"https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air",q:16,p:0.6}}]}
+ {n:"Audio8-TTS-Realistic-Air",k:["audio:speech"],d:"Oct 2026",x:"More realistic speech than Preview at the same 0.6B size, with zero-shot voice cloning in 23 languages and a 44.1kHz neural audio codec",u:"https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air",o:{l:"Apache 2.0",h:"https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air",q:16,p:0.6}},
+ {n:"Audio8-ASR-Infinite",k:["audio:speech"],d:"Sep 2026",x:"Native streaming Chinese-English transcription, with a rolling KV cache holding memory and latency constant over unlimited-length audio and a semantic VAD for end-of-turn",u:"https://huggingface.co/Edge0/Audio8-ASR-Infinite",o:{l:"Apache 2.0",h:"https://huggingface.co/Edge0/Audio8-ASR-Infinite",q:16,p:4}}]}
 ];
 
 // Every change the atlas has recorded: a model released, a model announced
@@ -1074,6 +1075,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-09",f:"2026-11-06",c:"Edge0",n:"Audio8-ASR-Infinite",k:["audio:speech"],x:"Native streaming Chinese-English transcription, with a rolling KV cache holding memory and latency constant over unlimited-length audio and a semantic VAD for end-of-turn",u:"https://huggingface.co/Edge0/Audio8-ASR-Infinite"},
 {t:"added",y:"2026-11",f:"2026-11-06",c:"Ai2",n:"ManiFlow-tb",k:["robotics"],x:"Low-level action model for Ai2’s ToyBlocks block-stacking project: a 322M flow-matching policy mapping camera images and robot state to Franka arm actions",u:"https://huggingface.co/allenai/maniflow-tb"},
 {t:"added",y:"2026-11-05",f:"2026-11-06",c:"NVIDIA",n:"MetricTrail 1.0",k:["world"],x:"Visual odometry and metric 3D reconstruction from long RGB sequences: a 3.4M-parameter adapter over frozen DINOv3 and MoGe-2 depth, for noncommercial research only",u:"https://huggingface.co/nvidia/MetricTrail"},
 {t:"added",y:"2025-12-11",f:"2026-11-06",c:"Ai2",n:"Molmo 2 / Molmo 2-O",k:["text:chat"],x:"Video and multi-image understanding with pointing, counting and object tracking with persistent IDs; the 8B beats the original 72B Molmo on pointing and grounding",u:"https://allenai.org/blog/molmo2"},
