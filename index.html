@@ -1079,6 +1079,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"retired",y:"2026-10-06",f:"2026-11-08",c:"Google DeepMind",n:"Nano Banana 2",k:["image"],x:"",u:"https://deepmind.google/models/gemini-image/"},
 {t:"added",y:"2026-08-10",f:"2026-11-07",c:"Alibaba",n:"RynnValue-4B / RynnValue-8B",k:["robotics"],x:"Value model for robot manipulation: reads the seconds remaining to task completion off a video, serving as an RL critic, a policy evaluator or a demonstration filter",u:"https://alibaba-damo-academy.github.io/RynnValue.github.io/"},
 {t:"added",y:"2026-11-05",f:"2026-11-07",c:"Celeris",n:"Celeris-1.1 Decision",k:["text:chat"],x:"Second version of the hosted decision model, at a median 36 ms on jev-bench and a tenth of the price; takes text, JSON and images over a 128K context",u:"https://celeris.ai/celeris-1-1-decision"},
 {t:"added",y:"2026-11",f:"2026-11-07",c:"Shanghai AI Laboratory",n:"Sage-SciPerception",k:["text:chat"],x:"Trained projectors mapping crystals, spectra, protein and DNA sequences and ECG signals into the input space of GLM-5.3-Flash, so it answers on scientific data directly",u:"https://huggingface.co/internlm/Sage-SciPerception"},
@@ -1991,7 +1992,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 7 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 8 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
