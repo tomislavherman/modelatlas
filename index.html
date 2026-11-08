@@ -909,6 +909,8 @@ const D=[
 {c:"Sakana AI",r:"JP",f:"2023",n:"independent",u:"https://sakana.ai",m:[
 {n:"Sakana Namazu",k:["text:chat"],d:"3 Aug 2026",x:"Japanese-specialised LLM post-trained from Moonshot's open-weights Kimi K2.6, with web search and code execution built in; lifts FairPoliticsQA from 34.1% to 56.3% over the base",u:"https://sakana.ai/namazu-api/"},
 {n:"Fugu Max / Fugu Ultra v2",k:["text:chat","text:code"],d:"11 Sep 2026",x:"One orchestration architecture in two tiers, each trained to route a task across open-weights and specialist models behind one API: Max for cost, Ultra v2 for capability",u:"https://sakana.ai/fugu-max-release/"}]},
+{c:"Preferred Networks",r:"JP",f:"2014",n:"independent",u:"https://www.preferred.jp/en/",m:[
+{n:"PLaMo 3 Translate",k:["text:chat"],d:"5 Nov 2026",x:"Translation across 53 languages on the PLaMo 3 NICT base, from 0.8B to 31B so it runs on a phone; PFN says the 0.8B beats models 30x its size on Japanese-English",u:"https://www.preferred.jp/en/news/pr20261105",o:{l:"PLaMo community",h:"https://huggingface.co/pfnet/plamo-3-translate-31b",q:16,p:[0.8,31]}}]},
 {c:"Agnes AI",r:"SG",f:"2025",n:"independent",u:"https://agnes-ai.com",m:[
 {n:"Agnes-3.0-Flash Preview",k:["text:chat"],d:"Sep 2026",x:"Open-weights multimodal model for flagship-class reasoning on modest hardware: 33B parameters, 262K context, image and video in, and a KV cache on only one decoder layer in four",u:"https://huggingface.co/Agnes-AI/Agnes-3.0-Flash",o:{l:"Apache 2.0",h:"https://huggingface.co/Agnes-AI/Agnes-3.0-Flash",q:16,p:33}},
 {n:"Agnes-3.0-Qwen",k:["text:chat"],d:"Oct 2026",x:"Flagship tier post-trained from Qwen3.8-Flash-Next: 180B mixture of experts with 10 of 512 experts live per token, a 1M-token context and selectable reasoning effort",u:"https://huggingface.co/Agnes-AI/Agnes-3.0-Qwen",o:{l:"Qwen Community 1.0",h:"https://huggingface.co/Agnes-AI/Agnes-3.0-Qwen",q:16,p:180}},
@@ -1079,6 +1081,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-11-05",f:"2026-11-08",c:"Preferred Networks",n:"PLaMo 3 Translate",k:["text:chat"],x:"Translation across 53 languages on the PLaMo 3 NICT base, from 0.8B to 31B so it runs on a phone; PFN says the 0.8B beats models 30x its size on Japanese-English",u:"https://www.preferred.jp/en/news/pr20261105"},
 {t:"retired",y:"2026-10-06",f:"2026-11-08",c:"Google DeepMind",n:"Nano Banana 2",k:["image"],x:"",u:"https://deepmind.google/models/gemini-image/"},
 {t:"added",y:"2026-08-10",f:"2026-11-07",c:"Alibaba",n:"RynnValue-4B / RynnValue-8B",k:["robotics"],x:"Value model for robot manipulation: reads the seconds remaining to task completion off a video, serving as an RL critic, a policy evaluator or a demonstration filter",u:"https://alibaba-damo-academy.github.io/RynnValue.github.io/"},
 {t:"added",y:"2026-11-05",f:"2026-11-07",c:"Celeris",n:"Celeris-1.1 Decision",k:["text:chat"],x:"Second version of the hosted decision model, at a median 36 ms on jev-bench and a tenth of the price; takes text, JSON and images over a 128K context",u:"https://celeris.ai/celeris-1-1-decision"},
