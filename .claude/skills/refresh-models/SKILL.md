@@ -174,7 +174,7 @@ same way as a newsroom, one call per organisation:
 ```sh
 for a in openai google microsoft facebook meta-models apodex ibm-granite nvidia baidu \
   black-forest-labs briaai Cactus-Compute Alibaba-DAMO-Academy kandinskylab Lightricks mistralai \
-  allenai MiniMaxAI Wan-AI Qwen OpenMOSS-Team tencent zai-org inclusionAI Edge0 \
+  allenai MiniMaxAI Wan-AI Qwen OpenMOSS-Team tencent ByteDance-Seed zai-org inclusionAI Edge0 \
   stepfun-ai internlm deepseek-ai moonshotai IFM inception42 NoizAI CohereLabs Aleph-Alpha openbmb \
   Agnes-AI XiaomiRobotics XiaomiMiMo m-a-p poolside IndexTeam robbyant reflection LiquidAI Cloudflare perplexity-ai StrandsAgents RekaAI JetBrains jinaai fishaudio ropedia-ai Sqwish RecursiveSI ricursiveAI Nanbeige maya-research Hcompany desert-ant-labs Pika-Labs krea kyutai agibot-world OpenGalaxea sarvamai soketlabs meituan-longcat thinkingmachines pfnet hindsight-ai; do
   curl -s -A "Mozilla/5.0" "https://huggingface.co/api/models?author=$a&sort=createdAt&direction=-1&limit=8&expand[]=createdAt&expand[]=tags&expand[]=safetensors" \
