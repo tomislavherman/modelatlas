@@ -471,6 +471,8 @@ const D=[
 {n:"Pika Speech",k:["audio:speech"],d:"18 Aug 2026",x:"3B flow-matching transformer generating 48 kHz speech at a 0.02 real-time factor, cloning a voice from five seconds of audio; Pika puts it at nine times cheaper than Eleven v3",u:"https://pika.art/blog/pika-speech"}]},
 {c:"Moonvalley",r:"CA/US",f:"2021",n:"independent",u:"https://www.moonvalley.com",m:[
 {n:"Marey",k:["video"],d:"8 Jul 2025",x:"Trained only on licensed footage",u:"https://www.moonvalley.com/marey"}]},
+{c:"Wizstar",r:"US",f:"unknown",n:"independent",u:"https://wizstar.com",m:[
+{n:"Wizshot 1.0",k:["video","audio:sfx"],d:"6 Nov 2026",x:"Reference-to-video from up to nine images, with native audio and 720p clips of 5 to 15 seconds in either orientation; the platform’s first in-house model",u:"https://wizstar.com/models/wizshot"}]},
 {c:"Midjourney",r:"US",f:"2022",n:"independent",u:"https://www.midjourney.com",m:[
 {n:"Midjourney v1",k:["image"],d:"Feb 2022",x:"",u:"https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version"},
 {n:"Midjourney v8.2",k:["image"],d:"24 Jul 2026",x:"",u:"https://updates.midjourney.com/version-8-2/"},
@@ -588,6 +590,8 @@ const D=[
 {c:"Cactus Compute",r:"US",f:"2025",n:"independent",u:"https://cactuscompute.com",m:[
 {n:"Whistle",k:["audio:speech"],d:"2 Oct 2026",x:"On-device speech recognition in one 16.9 MB CPU file: seven languages with automatic detection, word-level timestamps and 80ms speech embeddings, 30s of audio a pass",u:"https://cactuscompute.com/blog/whistle",o:{l:"Apache 2.0",h:"https://huggingface.co/Cactus-Compute/whistle"}},
 {n:"Mirage",k:["text:chat"],d:"6 Nov 2026",x:"On-device vision model reading a photo into a description or structured fields; 54M parameters in one CPU file, shipped in Cactus’s .cact format beside safetensors",u:"https://huggingface.co/Cactus-Compute/mirage",o:{l:"Apache 2.0",h:"https://huggingface.co/Cactus-Compute/mirage",q:32,p:0.054}}]},
+{c:"Conway / Underdog",r:"US",f:"2026",n:"independent",u:"https://underdog.ai",m:[
+{n:"Underdog Woof",k:["audio:speech"],d:"5 Nov 2026",x:"English text-to-speech in one 40.6 MB numpy file with two voices, reading numbers, dates and codes the way people say them; 38M parameters, 13.8x real time on one CPU thread",u:"https://huggingface.co/ConwayResearch/Underdog-Woof",o:{l:"Underdog non-commercial 1.0",h:"https://huggingface.co/ConwayResearch/Underdog-Woof",q:8,p:0.038}}]},
 {c:"Decagon",r:"US",f:"2023",n:"independent",u:"https://decagon.ai",m:[
 {n:"Chord",k:["audio:speech"],d:"1 Oct 2026",x:"Tokenizer-free diffusion speech model post-trained on unscrubbed conversational recordings, keeping the pacing, emphasis, pauses and filler words of real speech",u:"https://decagon.ai/blog/decagon-chord-voice-model"}]},
 {c:"Deepgram",r:"US",f:"2015",n:"independent",u:"https://deepgram.com",m:[
@@ -1089,6 +1093,8 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-11-06",f:"2026-11-09",c:"Wizstar",n:"Wizshot 1.0",k:["video","audio:sfx"],x:"Reference-to-video from up to nine images, with native audio and 720p clips of 5 to 15 seconds in either orientation; the platform’s first in-house model",u:"https://wizstar.com/models/wizshot"},
+{t:"added",y:"2026-11-05",f:"2026-11-09",c:"Conway / Underdog",n:"Underdog Woof",k:["audio:speech"],x:"English text-to-speech in one 40.6 MB numpy file with two voices, reading numbers, dates and codes the way people say them; 38M parameters, 13.8x real time on one CPU thread",u:"https://huggingface.co/ConwayResearch/Underdog-Woof"},
 {t:"added",y:"2026-11-09",f:"2026-11-09",c:"ByteDance",n:"Seedream 5.5",k:["image"],x:"Keeps unedited regions intact at the pixel level across repeated edits, and outputs layered RGBA images with transparent backgrounds",u:"https://seed.bytedance.com/en/seedream5_5"},
 {t:"added",y:"2026-11",f:"2026-11-09",c:"ByteDance",n:"Cola2",k:["text:chat"],x:"Continuous-latent language model: groups text into semantic spans, generates latent blocks with a block-causal diffusion transformer, then decodes them to tokens",u:"https://huggingface.co/ByteDance-Seed/Cola2"},
 {t:"retired",y:"2026",f:"2026-11-09",c:"MiniMax",n:"MiniMax M2",k:["text:chat","text:code"],x:"",u:"https://platform.minimax.io/docs/faq/models"},
