@@ -101,6 +101,7 @@ they make is in scope.
 - https://blog.cloudflare.com/
 - https://mistral.ai/news
 - https://developer.nvidia.com/blog/
+- https://blogs.nvidia.com/blog/category/generative-ai/
 - https://pika.art/blog
 - https://pixverse.ai/en/blog
 - https://cartesia.ai/blog
