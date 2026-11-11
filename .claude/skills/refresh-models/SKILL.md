@@ -93,7 +93,7 @@ they make is in scope.
 - https://www.pi.website/blog
 - https://neura-robotics.com/news/
 - https://sakana.ai/blog/
-- https://www.preferred.jp/en/news/
+- https://www.preferred.jp/ja/news/
 - https://www.tavus.io/blog
 - https://desertant.com/blog/
 - https://www.microsoft.com/en-us/research/blog/
