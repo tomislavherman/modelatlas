@@ -684,7 +684,7 @@ const D=[
 {n:"Seed Audio 1.0",k:["audio:speech","audio:sfx","audio:music"],d:"20 Jul 2026",x:"Multi-speaker dialogue with a distinct voice each, music, foley and ambience generated together from one prompt or a video, zero-shot voice cloning, 20 languages",u:"https://seed.bytedance.com/en/blog/from-speech-to-audio-creation-introducing-the-seed-audio-1-0-audio-creation-model"},
 {n:"SeedRealtime",k:["audio:speech"],d:"Aug 2026",x:"Full-duplex model that watches, listens and speaks in one network and decides its own turn-taking; live in the Doubao app",u:"https://seed.bytedance.com/en/SeedRealtime"},
 {n:"Doubao 1.6",k:["text:chat","text:code"],d:"11 Jun 2025",x:"",u:"https://seed.bytedance.com"},
-{n:"Doubao-Seed 2.0",k:["text:chat","text:code"],d:"14 Feb 2026",x:"Pro, Lite and Mini agent tiers plus a separate code model",u:"https://seed.bytedance.com"},
+{n:"Doubao-Seed 2.0",k:["text:chat","text:code"],d:"14 Feb 2026, Lite and Mini tiers removed 22 Oct 2026, Pro and code tiers shut down 24 Nov 2026",x:"Pro, Lite and Mini agent tiers plus a separate code model",u:"https://seed.bytedance.com"},
 {n:"Doubao-Seed 2.1",k:["text:chat","text:code"],d:"23 Jun 2026",x:"Agent-focused successor to 2.0: multi-step tool use, end-to-end coding and stronger video understanding; the Pro tier tops GDPVal on real-world work tasks",u:"https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity"},
 {n:"Cola2",k:["text:chat"],d:"Nov 2026",x:"Continuous-latent language model: groups text into semantic spans, generates latent blocks with a block-causal diffusion transformer, then decodes them to tokens",u:"https://huggingface.co/ByteDance-Seed/Cola2",o:{h:"https://huggingface.co/ByteDance-Seed/Cola2",q:32,p:9}}]},
 {c:"Kunlun Tech",r:"CN",f:"2008",n:"public (Shenzhen)",u:"https://www.mureka.ai",m:[
@@ -692,6 +692,7 @@ const D=[
 {n:"Mureka V9.5",k:["audio:music"],d:"Aug 2026",x:"Plans a track's structure before rendering audio, with O3 previewed alongside",u:"https://www.mureka.ai"}]},
 {c:"Kuaishou",r:"CN",f:"2011",n:"HKEX 2021",u:"https://www.kuaishou.com",m:[
 {n:"Kling",k:["video"],d:"Jun 2024",x:"",u:"https://klingai.com"},
+{n:"Kling O1",k:["video"],d:"1 Dec 2025",x:"First of the Omni line: one engine for generation and editing, from text, image, video or subject references, with in-painting, shot extension and style re-rendering"},
 {n:"Kling v3",k:["video","audio:sfx"],d:"Feb 2026",x:"Launched as Video 3.0 and Video 3.0 Omni: 15-second clips with native audio across languages, dialects and accents, and reference videos to hold characters and scenes consistent",u:"https://klingai.com"},
 {n:"Kling 4.0",k:["video","audio:sfx"],d:"15 Oct 2026",x:"Doubles Kling's maximum clip to 30 seconds and takes more than a dozen text, image and video references, plus up to ten keyframes fixing the look of each segment",u:"https://kling.ai"},
 {n:"Kolors",k:["image"],d:"Jun 2024",x:"Open weights",u:"https://github.com/Kwai-Kolors/Kolors",o:{l:"Apache 2.0",h:"https://huggingface.co/Kwai-Kolors/Kolors",q:32,p:2.6}},
@@ -1114,6 +1115,8 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"retired",y:"2026-09-22",f:"2026-11-11",c:"ByteDance",n:"Doubao-Seed 2.0",k:["text:chat","text:code"],x:"Pro, Lite and Mini agent tiers plus a separate code model",u:"https://seed.bytedance.com"},
+{t:"added",y:"2025-12-01",f:"2026-11-11",c:"Kuaishou",n:"Kling O1",k:["video"],x:"First of the Omni line: one engine for generation and editing, from text, image, video or subject references, with in-painting, shot extension and style re-rendering"},
 {t:"added",y:"2026-11",f:"2026-11-11",c:"inclusionAI",n:"Sing VL S1",k:["text:chat","image"],x:"Multimodal decision model on Qwen3.5: one forward pass scores a named question's options, returning a probability per choice, a yes/no likelihood or an expected rating",u:"https://huggingface.co/inclusionAI/SingVL_S1_4B"},
 {t:"added",y:"2026-11-11",f:"2026-11-11",c:"inclusionAI",n:"ZoomGain-4B / ZoomGain-9B",k:["text:chat"],x:"Vision-language pair trained on questions about a whole image built from details only visible zoomed in; the best of 28 models scored 61.08 on its ZoomGainBench",u:"https://huggingface.co/inclusionAI/ZoomGain-9B"},
 {t:"added",y:"2026-11-11",f:"2026-11-11",c:"Alibaba",n:"Qwen4-Max-Preview",k:["text:chat","text:code"],x:"Next-generation flagship: text generation with image and video understanding and deep reasoning, aimed at coding, frontend design and agentic work; preview on Token Plan only",u:"https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview"},
