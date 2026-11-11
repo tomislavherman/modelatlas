@@ -699,7 +699,7 @@ const D=[
 {n:"Hailuo Video-01",k:["video"],d:"Sep 2024",x:"",u:"https://hailuoai.video"},
 {n:"Hailuo 2.3",k:["video"],d:"28 Oct 2025",x:"",u:"https://hailuoai.video"},
 {n:"Hailuo H3",k:["video","audio:sfx"],d:"31 Jul 2026 → open weights Aug 2026",x:"33B omni-modal, 2K, native stereo audio in one pipeline; the 2K upscale stays API-only",u:"https://hailuoai.video",o:{l:"MiniMax H3 community",h:"https://huggingface.co/MiniMaxAI/MiniMax-H3",q:16,p:33}},
-{n:"MiniMax H3 Image",k:["image"],d:"Nov 2026",x:"Image generation and editing in one checkpoint off the H3 family: the H3 transformer without its audio layers, distilled to six steps, at 16 megapixels with no upscaler",u:"https://platform.minimax.io/docs/guides/image-generation",o:{l:"MiniMax H3 Image community",h:"https://huggingface.co/MiniMaxAI/MiniMax-H3-Image",q:16,p:33}},
+{n:"MiniMax H3 Image",k:["image"],d:"11 Nov 2026",x:"Image generation and editing in one checkpoint off the H3 family: the H3 transformer without its audio layers, distilled to six steps, at 16 megapixels with no upscaler",u:"https://platform.minimax.io/docs/guides/image-generation",o:{l:"MiniMax H3 Image community",h:"https://huggingface.co/MiniMaxAI/MiniMax-H3-Image",q:16,p:33}},
 {n:"Speech 2.6",k:["audio:speech"],d:"29 Oct 2025",x:"",u:"https://www.minimax.io/audio"},
 {n:"Speech 2.8",k:["audio:speech"],d:"23 Jan 2026",x:"Native sound tags for breaths, hesitations and fillers, voice cloning from a ten-second sample, and background noise stripped out of the take",u:"https://www.minimax.io/news/minimax-speech-28"},
 {n:"Music 2.0",k:["audio:music"],d:"29 Oct 2025",x:"",u:"https://www.minimax.io/news/minimax-music-20"},
@@ -1101,6 +1101,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"retired",y:"2026-07",f:"2026-11-11",c:"ByteDance",n:"Seedance 1.5 pro",k:["video","audio:speech","audio:sfx"],x:"Joint audio-visual generation: speech, music and sound effects made with the video rather than dubbed on after, with lip-sync across languages and dialects",u:"https://seed.bytedance.com/en/blog/sound-and-vision-all-in-one-take-the-official-release-of-seedance-1-5-pro"},
 {t:"added",y:"2026-11-10",f:"2026-11-10",c:"Google DeepMind",n:"Gemini Robotics 2.5",k:["robotics"],x:"Rolling out to robotics partners including Apptronik and Mercedes-Benz: 30-100% higher success than Gemini Robotics 2 across more than 200 tasks, and 20-30% faster",u:"https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/"},
 {t:"added",y:"2026-11-10",f:"2026-11-10",c:"Google DeepMind",n:"Gemini 4 Carbon",k:["text:chat","text:code"],x:"Google's strongest model yet and top of the Artificial Analysis Intelligence Index v5.0, built for cybersecurity defence, sustained agentic coding and scientific reasoning",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"},
 {t:"added",y:"2026-11",f:"2026-11-10",c:"MiniMax",n:"MiniMax H3 Image",k:["image"],x:"Image generation and editing in one checkpoint off the H3 family: the H3 transformer without its audio layers, distilled to six steps, at 16 megapixels with no upscaler",u:"https://platform.minimax.io/docs/guides/image-generation"},
@@ -2035,7 +2036,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 10 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 11 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}

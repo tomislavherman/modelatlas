@@ -163,7 +163,11 @@ whose legacy table dates the deprecation and the retirement per API id; the
 news blog announces releases and never mentions a shutdown, and
 https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
 for Microsoft's, whose Microsoft section carries the MAI line's retirement
-dates that microsoft.ai/news never mentions.
+dates that microsoft.ai/news never mentions, and
+https://ark.volcengine.com/region:cn-beijing/docs/model-deprecation-notice for
+ByteDance's, which retires models in numbered batches and dates each batch's
+notice and shutdown nodes separately; seed.bytedance.com announces releases
+and never mentions a shutdown.
 
 ### Weights repositories
 
