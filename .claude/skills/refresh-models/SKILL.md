@@ -105,6 +105,7 @@ they make is in scope.
 - https://blogs.nvidia.com/blog/category/generative-ai/
 - https://pika.art/blog
 - https://pixverse.ai/en/blog
+- https://kling.ai/blog
 - https://cartesia.ai/blog
 - https://fish.audio/blog
 - https://www.rime.ai/blog
