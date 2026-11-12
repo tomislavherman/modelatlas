@@ -171,7 +171,11 @@ dates that microsoft.ai/news never mentions, and
 https://ark.volcengine.com/region:cn-beijing/docs/model-deprecation-notice for
 ByteDance's, which retires models in numbered batches and dates each batch's
 notice and shutdown nodes separately; seed.bytedance.com announces releases
-and never mentions a shutdown.
+and never mentions a shutdown, and
+https://cloud.tencent.com/document/product/1823/130051 for Tencent's, whose
+TokenHub model list carries a 下线 date per model ID — the only place
+HunyuanImage 3.0's shutdown appears, since tencent.com/newsroom announces
+releases and never mentions one.
 
 ### Weights repositories
 
