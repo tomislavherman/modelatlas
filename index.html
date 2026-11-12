@@ -584,6 +584,10 @@ const D=[
 {c:"Cartesia",r:"US",f:"2023",n:"independent",u:"https://cartesia.ai",m:[
 {n:"Sonic",k:["audio:speech"],d:"31 May 2024",x:"Low-latency state-space model",u:"https://cartesia.ai/sonic"},
 {n:"Sonic 3.6",k:["audio:speech"],d:"27 Aug 2026",x:"Low-latency state-space model",u:"https://www.cartesia.ai/blog/sonic-3.6"}]},
+{c:"Gradium",r:"FR",f:"2025",n:"independent",u:"https://gradium.ai",m:[
+{n:"Gradium TTS",k:["audio:speech"],d:"31 Aug 2026",x:"Text-to-speech that reads phone numbers, emails and IBANs with no normalisation step in front of it: 81% on a 500-sentence hard-case set in five languages, 216ms to first audio",u:"https://gradium.ai/blog/gradium-tts-latency-and-accuracy"},
+{n:"Phonon 31m",k:["audio:speech"],d:"20 Oct 2026",x:"The smallest Phonon and the only one under a permissive licence: English only, 37 built-in voices, 64MB at 8-bit, and it runs on the device with no network",u:"https://gradium.ai/blog/release-phonon-open-weight",o:{l:"Apache 2.0",h:"https://huggingface.co/gradium/phonon-31m-en",q:16,p:0.041}},
+{n:"Phonon 40m / Phonon 40m multilingual",k:["audio:speech"],d:"20 Oct 2026",x:"On-device text-to-speech in English, French, German, Spanish and Portuguese: one model per language, or 102 voices in a single multilingual set of weights",u:"https://gradium.ai/blog/release-phonon-open-weight",o:{l:"CC BY-NC 4.0",h:"https://huggingface.co/gradium/phonon-40m-multilingual",q:16,p:0.051}}]},
 {c:"Fish Audio",r:"US",f:"2025",n:"independent",u:"https://fish.audio",m:[
 {n:"Live 3",k:["audio:speech"],d:"10 Nov 2026",x:"Full-duplex voice model that keeps listening while it speaks, its sense of timing learned from real dialogue rather than rules; answers in as little as 186 ms, English only",u:"https://fish.audio/blog/introducing-live-3/"},
 {n:"Drama 3",k:["audio:speech"],d:"13 Oct 2026",x:"Text to speech directed in square brackets — [whispering], [laughing] — which it follows mid-line; 35B mixture of experts with 3B active, 83 languages",u:"https://fish.audio/blog/fish-audio-drama-3/",o:{l:"Fish Audio Community 1.0",h:"https://huggingface.co/fishaudio/drama-3",q:8,p:35}}]},
@@ -1121,6 +1125,9 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-10-20",f:"2026-11-12",c:"Gradium",n:"Phonon 40m / Phonon 40m multilingual",k:["audio:speech"],x:"On-device text-to-speech in English, French, German, Spanish and Portuguese: one model per language, or 102 voices in a single multilingual set of weights",u:"https://gradium.ai/blog/release-phonon-open-weight"},
+{t:"added",y:"2026-10-20",f:"2026-11-12",c:"Gradium",n:"Phonon 31m",k:["audio:speech"],x:"The smallest Phonon and the only one under a permissive licence: English only, 37 built-in voices, 64MB at 8-bit, and it runs on the device with no network",u:"https://gradium.ai/blog/release-phonon-open-weight"},
+{t:"added",y:"2026-08-31",f:"2026-11-12",c:"Gradium",n:"Gradium TTS",k:["audio:speech"],x:"Text-to-speech that reads phone numbers, emails and IBANs with no normalisation step in front of it: 81% on a 500-sentence hard-case set in five languages, 216ms to first audio",u:"https://gradium.ai/blog/gradium-tts-latency-and-accuracy"},
 {t:"added",y:"2026-04",f:"2026-11-12",c:"StepFun",n:"ACE-Step 1.5 XL",k:["audio:music"],x:"Swaps in a 4B-parameter diffusion decoder for richer audio, and is the base for every task on the line: text-to-music, cover, repaint, extract and complete",u:"https://huggingface.co/ACE-Step/acestep-v15-xl-base"},
 {t:"added",y:"2026-01",f:"2026-11-12",c:"StepFun",n:"ACE-Step 1.5",k:["audio:music"],x:"A language-model planner writes the song blueprint — metadata, lyrics and captions — and a diffusion transformer renders the audio; runs in under 4GB of VRAM",u:"https://ace-step.github.io/ace-step-v1.5.github.io"},
 {t:"added",y:"2025-04",f:"2026-11-12",c:"StepFun",n:"ACE-Step v1",k:["audio:music"],x:"Diffusion foundation model writing full-length songs from a text description, with lyric editing and remixing; co-led with ACE Studio",u:"https://huggingface.co/ACE-Step/ACE-Step-v1-3.5B"},
