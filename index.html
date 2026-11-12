@@ -766,7 +766,7 @@ const D=[
 {n:"Hy-Nomas",k:["world","video"],d:"21 Oct 2026",x:"Interactive world model generating video one segment at a time, so text and camera trajectories steer the world mid-generation; a KV cache carries context across segments",u:"https://huggingface.co/tencent/Hy-Nomas",o:{l:"Apache 2.0",h:"https://huggingface.co/tencent/Hy-Nomas",q:16,p:9}},
 {n:"HunyuanVideo",k:["video"],d:"Dec 2024",x:"Open weights",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo",p:13}},
 {n:"HunyuanVideo 1.5",k:["video"],d:"Nov 2025",x:"Open weights",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo-1.5",p:8.3}},
-{n:"HunyuanImage 3.0",k:["image"],d:"Jan 2026",x:"80B mixture of experts, open weights",u:"https://github.com/Tencent-Hunyuan",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanImage-3.0",q:16,p:83}},
+{n:"HunyuanImage 3.0",k:["image"],d:"Jan 2026, hosted API ends 12 Nov 2026",x:"80B mixture of experts, open weights",u:"https://github.com/Tencent-Hunyuan",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanImage-3.0",q:16,p:83}},
 {n:"Hy Image 3.5 Preview",k:["image"],d:"22 Sep 2026",x:"Unifies generation with multi-round conversational editing, takes up to 20 reference images against 3.0's three, and renders directly at 4096×4096"},
 {n:"Hunyuan3D / HunyuanWorld",k:["world"],d:"Nov 2024 → Apr 2026",x:"Open weights",u:"https://3d.hunyuan.tencent.com",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/Hunyuan3D-2"}},
 {n:"HunyuanVideo-Avatar",k:["avatar"],d:"May 2025",x:"",u:"https://github.com/Tencent-Hunyuan/HunyuanVideo-Avatar",o:{l:"Tencent Hunyuan community",h:"https://huggingface.co/tencent/HunyuanVideo-Avatar"}},
@@ -1135,6 +1135,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"retired",y:"2026-11",f:"2026-11-12",c:"Tencent",n:"HunyuanImage 3.0",k:["image"],x:"80B mixture of experts, open weights; the hy-image-v3 endpoint was removed from Tencent Cloud, with Hy-Image-3.5 Preview as the successor",u:"https://cloud.tencent.com/document/product/1823/130051"},
 {t:"added",y:"2026-11-09",f:"2026-11-12",c:"Nuance Labs",n:"Nuplex 1.0",k:["avatar","audio:speech"],x:"Full-duplex audiovisual model behind the Emma persona: a speaking face that listens and reacts mid-sentence, its reply timing overlapping the speaker's on 89% of 1,785 questions",u:"https://home.nuancelabs.ai/research/meet-emma-the-first-nuplex-persona"},
 {t:"added",y:"2026-10",f:"2026-11-12",c:"DeepReinforce / Ornith",n:"Ornith-1.5-122B",k:["text:code","text:chat"],x:"122B mixture of experts, the most capable of the 1.5 family and sized for a single GPU; 81.2 on TerminalBench 2.1, with a quantised Mobile build for phones",u:"https://huggingface.co/ornith-ai/Ornith-1.5-122B"},
 {t:"added",y:"2026-08",f:"2026-11-12",c:"DeepReinforce / Ornith",n:"Ornith-1.5-9B / Ornith-1.5-35B / Ornith-1.5-397B",k:["text:code","text:chat"],x:"Widens the self-improvement loop to generating its own training tasks as well as scaffolds and rollouts; the 9B ships a quantised Mobile build for phones",u:"https://ornith.ai/ornith_1_5.html"},
