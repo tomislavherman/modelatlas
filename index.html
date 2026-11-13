@@ -1129,6 +1129,11 @@ const D=[
 {n:"Ornith-1.5-122B",k:["text:code","text:chat"],d:"Oct 2026",x:"122B mixture of experts, the most capable of the 1.5 family and sized for a single GPU; 81.2 on TerminalBench 2.1, with a quantised Mobile build for phones",u:"https://huggingface.co/ornith-ai/Ornith-1.5-122B",o:{l:"MIT",h:"https://huggingface.co/ornith-ai/Ornith-1.5-122B",q:16,p:122}}]},
 {c:"Nuance Labs",r:"US",f:"unknown",n:"independent",u:"https://home.nuancelabs.ai",m:[
 {n:"Nuplex 1.0",k:["avatar","audio:speech"],d:"9 Nov 2026",x:"Full-duplex audiovisual model behind the Emma persona: a speaking face that listens and reacts mid-sentence, its reply timing overlapping the speaker's on 89% of 1,785 questions",u:"https://home.nuancelabs.ai/research/meet-emma-the-first-nuplex-persona"}]},
+{c:"Hark",r:"US",f:"2025",n:"independent",u:"https://hark.com",m:[
+{n:"Hark Handoff",k:["text:chat","text:code"],d:"5 Aug 2026",x:"Computer-use agent trained by supervised fine-tuning then reinforcement learning; outputs cursor and keyboard actions on a live browser in a per-task virtual machine",u:"https://hark.com/articles/introducing-hark-handoff"},
+{n:"Hark Handoff²",k:["text:chat","text:code"],d:"12 Nov 2026",x:"Second generation, with the harness and the RL recipe trained together: 82% of tasks on Hark’s 478-task browsing benchmark against v1’s 73%, at 46% less time per task",u:"https://hark.com/articles/introducing-hark-handoff-now-2x-faster"}]},
+{c:"Speechify",r:"US",f:"2017",n:"independent",u:"https://speechify.ai",m:[
+{n:"Simba 3.5",k:["audio:speech"],d:"21 Oct 2026",x:"Streaming-native text to speech covering 48 languages under one model id, cloned voices included; preferred over the English-only Simba 3.2 in 63% of blind comparisons",u:"https://speechify.ai/blog/simba-3-5"}]},
 ];
 
 // Every change the atlas has recorded: a model released, a model announced
@@ -1144,6 +1149,9 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-11-12",f:"2026-11-13",c:"Hark",n:"Hark Handoff²",k:["text:chat","text:code"],x:"Second generation, with the harness and the RL recipe trained together: 82% of tasks on Hark’s 478-task browsing benchmark against v1’s 73%, at 46% less time per task",u:"https://hark.com/articles/introducing-hark-handoff-now-2x-faster"},
+{t:"added",y:"2026-10-21",f:"2026-11-13",c:"Speechify",n:"Simba 3.5",k:["audio:speech"],x:"Streaming-native text to speech covering 48 languages under one model id, cloned voices included; preferred over the English-only Simba 3.2 in 63% of blind comparisons",u:"https://speechify.ai/blog/simba-3-5"},
+{t:"added",y:"2026-08-05",f:"2026-11-13",c:"Hark",n:"Hark Handoff",k:["text:chat","text:code"],x:"Computer-use agent trained by supervised fine-tuning then reinforcement learning; outputs cursor and keyboard actions on a live browser in a per-task virtual machine",u:"https://hark.com/articles/introducing-hark-handoff"},
 {t:"added",y:"2026-11-12",f:"2026-11-13",c:"Salesforce",n:"SOV-Transcribe-1",k:["audio:speech"],x:"Salesforce's first open-weight speech model, 26B with 4B active: non-streaming transcription that keeps names, phone numbers and emails intact, and a prompt steers the style",u:"https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"},
 {t:"added",y:"2026-11-12",f:"2026-11-13",c:"inclusionAI",n:"Duo 1.0 / Duo 1.2",k:["world","video","audio:speech"],x:"Full-duplex world model: an Intent module decides when and how to respond, a Realization module built on MiniMax H3 generates the audio and video together on one timeline",u:"https://duo-v1.github.io/"},
 {t:"added",y:"2026-11-12",f:"2026-11-13",c:"Chariot",n:"Chariot-1-TTS-Multilingual",k:["audio:speech"],x:"Text to speech in 11 Indic languages and English with 50+ voices and instant voice cloning; switches language mid-sentence and reads prices, dates and abbreviations from context",u:"https://chariot.in/news/introducing-chariot-1-tts-multilingual/"},
