@@ -83,18 +83,17 @@ they make is in scope.
 - https://thinkingmachines.ai/news
 - https://celeris.ai/blog
 - https://boson.ai/blog
-- https://www.arcee.ai/blog
 - https://www.inceptionlabs.ai/blog
 - https://aws.amazon.com/about-aws/whats-new/recent/feed/
 - https://cohere.com/blog
 - https://allenai.org/blog
 - https://aleph-alpha.com/en/blog/
 - https://www.figure.ai/news
-- https://www.pi.website/blog
 - https://neura-robotics.com/news/
 - https://sakana.ai/blog/
 - https://www.preferred.jp/ja/news/
 - https://www.tavus.io/blog
+- https://www.hume.ai/blog
 - https://desertant.com/blog/
 - https://www.microsoft.com/en-us/research/blog/
 - https://www.visko.ai/news
@@ -134,6 +133,7 @@ they make is in scope.
 - https://spaitial.ai/blog
 - https://www.agibot.com/article/231
 - https://www.sarvam.ai/blogs
+- https://chariot.in/news
 - https://hindsight.vectorize.io/blog
 - https://www.deepl.com/en/press-release
 
