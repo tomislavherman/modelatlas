@@ -113,7 +113,7 @@ they make is in scope.
 - https://inworld.ai/blog
 - https://blog.voyageai.com/
 - https://jina.ai/news
-- https://skild.ai/blogs
+- https://hark.com/articles
 - https://cactuscompute.com/blog
 - https://www.liquid.ai/news
 - https://strandsagents.com/blog/
