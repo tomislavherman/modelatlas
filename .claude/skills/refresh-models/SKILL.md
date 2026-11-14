@@ -89,7 +89,6 @@ they make is in scope.
 - https://research.ibm.com/blog
 - https://allenai.org/blog
 - https://aleph-alpha.com/en/blog/
-- https://www.figure.ai/news
 - https://neura-robotics.com/news/
 - https://sakana.ai/blog/
 - https://www.preferred.jp/ja/news/
@@ -111,7 +110,6 @@ they make is in scope.
 - https://fish.audio/blog
 - https://www.rime.ai/blog
 - https://edge0.ai/research
-- https://inworld.ai/blog
 - https://blog.voyageai.com/
 - https://jina.ai/news
 - https://hark.com/articles
@@ -137,6 +135,8 @@ they make is in scope.
 - https://chariot.in/news
 - https://hindsight.vectorize.io/blog
 - https://www.deepl.com/en/press-release
+- https://www.upstage.ai/blog
+- https://news.sktelecom.com/en/category/press-center/press-release
 
 Then read the API changelogs. A point release such as Gemini Omni 1.1 Flash
 gets a developer-blog post and a changelog line, not a headline, and the
@@ -188,10 +188,10 @@ same way as a newsroom, one call per organisation:
 ```sh
 for a in openai google microsoft facebook meta-models apodex ibm-granite nvidia baidu \
   black-forest-labs briaai Cactus-Compute Alibaba-DAMO-Academy kandinskylab Lightricks mistralai \
-  allenai MiniMaxAI Wan-AI Qwen OpenMOSS-Team tencent ByteDance-Seed zai-org inclusionAI Edge0 \
+  allenai MiniMaxAI Motif-Technologies Qwen OpenMOSS-Team tencent ByteDance-Seed zai-org inclusionAI Edge0 \
   stepfun-ai internlm deepseek-ai moonshotai IFM inception42 NoizAI CohereLabs Aleph-Alpha openbmb \
-  bosonai Skywork ACE-Step gradium \
-  Agnes-AI XiaomiRobotics XiaomiMiMo m-a-p poolside IndexTeam robbyant reflection LiquidAI Cloudflare perplexity-ai StrandsAgents RekaAI JetBrains jinaai fishaudio ropedia-ai Sqwish RecursiveSI ricursiveAI Nanbeige maya-research Hcompany desert-ant-labs Pika-Labs krea kyutai agibot-world salesforce-sovereign-intelligence sarvamai soketlabs meituan-longcat MeituanRobotics thinkingmachines pfnet hindsight-ai ConwayResearch runwayml ornith-ai; do
+  bosonai Skywork LGAI-EXAONE gradium \
+  Agnes-AI XiaomiRobotics XiaomiMiMo m-a-p skt IndexTeam robbyant reflection LiquidAI Cloudflare perplexity-ai StrandsAgents RekaAI JetBrains jinaai fishaudio ropedia-ai Sqwish RecursiveSI ricursiveAI Nanbeige maya-research Hcompany desert-ant-labs Pika-Labs krea kyutai upstage salesforce-sovereign-intelligence sarvamai soketlabs meituan-longcat MeituanRobotics thinkingmachines pfnet hindsight-ai ConwayResearch runwayml ornith-ai; do
   curl -s -A "Mozilla/5.0" "https://huggingface.co/api/models?author=$a&sort=createdAt&direction=-1&limit=8&expand[]=createdAt&expand[]=tags&expand[]=safetensors" \
   | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{for(const m of JSON.parse(s))console.log(m.id,m.createdAt.slice(0,10),(m.tags||[]).filter(t=>t.startsWith("license:")).join(",")||"-",m.safetensors?.total?(m.safetensors.total/1e9).toFixed(1)+"B":"-")})'
 done
