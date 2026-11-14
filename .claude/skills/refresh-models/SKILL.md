@@ -86,6 +86,7 @@ they make is in scope.
 - https://www.inceptionlabs.ai/blog
 - https://aws.amazon.com/about-aws/whats-new/recent/feed/
 - https://cohere.com/blog
+- https://research.ibm.com/blog
 - https://allenai.org/blog
 - https://aleph-alpha.com/en/blog/
 - https://www.figure.ai/news
