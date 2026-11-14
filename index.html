@@ -627,6 +627,8 @@ const D=[
 {c:"Inworld AI",r:"US",f:"2021",n:"independent",u:"https://inworld.ai",m:[
 {n:"Inworld TTS-1.5 Max / Inworld TTS-1.5 Mini",k:["audio:speech"],d:"21 Jan 2026",x:"Text-to-speech in two tiers: Max under 250ms to first audio at p90, Mini under 130ms, across 15 languages with a 40% lower word error rate than the generation before",u:"https://inworld.ai/blog/introducing-inworld-tts-1-5"},
 {n:"Realtime TTS-2",k:["audio:speech"],d:"31 Aug 2026",x:"Reads the audio of previous turns so delivery adapts to how the speaker sounded, and holds one voice identity across 100+ languages; sub-200ms median time to first audio",u:"https://inworld.ai/blog/realtime-tts-2"}]},
+{c:"Timedomain / ACE Studio",r:"US",f:"2018",n:"independent",u:"https://timedomain.ai",m:[
+{n:"ACE Music v1",k:["audio:music"],d:"11 Nov 2026",x:"Closed-weights song generation from a style description and optional lyrics; debuted at 1160 Elo on Artificial Analysis’s vocal leaderboard, above Suno v6’s 1144",u:"https://acemusic.ai/acemusic-v1/"}]},
 {c:"Suno",r:"US",f:"2022",n:"independent",u:"https://suno.com",m:[
 {n:"Suno v1",k:["audio:music"],d:"2023, retired Sep 2026",x:"Trained on unlicensed material",u:"https://suno.com"},
 {n:"Suno v5.5",k:["audio:music"],d:"Mar 2026, retired Sep 2026",x:"Deprecated after the Warner settlement; switched off the day v6 shipped, though songs already generated stay playable",u:"https://suno.com"},
@@ -1150,6 +1152,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-11-11",f:"2026-11-14",c:"Timedomain / ACE Studio",n:"ACE Music v1",k:["audio:music"],x:"Closed-weights song generation from a style description and optional lyrics; debuted at 1160 Elo on Artificial Analysis’s vocal leaderboard, above Suno v6’s 1144",u:"https://acemusic.ai/acemusic-v1/"},
 {t:"added",y:"2026-11",f:"2026-11-14",c:"HeyGen",n:"HeyGen Decision 1",k:["text:chat","image"],x:"Scores named questions about text, images or video in one call, returning a probability per yes/no, choice or rating rather than prose; 128k context",u:"https://developers.heygen.com/docs/models/heygen-decision"},
 {t:"added",y:"2026-11-12",f:"2026-11-13",c:"Hark",n:"Hark Handoff²",k:["text:chat","text:code"],x:"Second generation, with the harness and the RL recipe trained together: 82% of tasks on Hark’s 478-task browsing benchmark against v1’s 73%, at 46% less time per task",u:"https://hark.com/articles/introducing-hark-handoff-now-2x-faster"},
 {t:"added",y:"2026-10-21",f:"2026-11-13",c:"Speechify",n:"Simba 3.5",k:["audio:speech"],x:"Streaming-native text to speech covering 48 languages under one model id, cloned voices included; preferred over the English-only Simba 3.2 in 63% of blind comparisons",u:"https://speechify.ai/blog/simba-3-5"},
