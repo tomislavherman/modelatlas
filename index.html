@@ -662,7 +662,8 @@ const D=[
 {n:"Avatar IV",k:["avatar"],d:"Apr 2025",x:"Digital twin from a 15-second clip, lip-sync in 175+ languages",u:"https://www.heygen.com/avatars"},
 {n:"Avatar V",k:["avatar"],d:"Apr 2026",x:"Digital twin from a 15-second clip, lip-sync in 175+ languages",u:"https://www.heygen.com/avatars"},
 {n:"HeyGen Video 1",k:["video","audio:speech","audio:sfx"],d:"Sep 2026 → 2K Oct 2026",x:"HeyGen's first general-purpose video model: a scene's picture, dialogue and sound effects in one pass, from text, a first frame or up to twelve references",u:"https://www.heygen.com/models/heygen-video"},
-{n:"HeyGen Voice",k:["audio:speech"],d:"Sep 2026 → Turbo Oct 2026",x:"HeyGen's in-house voice model: clones a speaker from one recording and fits delivery and acoustics to the scene in a target image; instant and professional clone modes",u:"https://www.heygen.com/research/heygen-voice-scene-aware-voice-cloning"}]},
+{n:"HeyGen Voice",k:["audio:speech"],d:"Sep 2026 → Turbo Oct 2026",x:"HeyGen's in-house voice model: clones a speaker from one recording and fits delivery and acoustics to the scene in a target image; instant and professional clone modes",u:"https://www.heygen.com/research/heygen-voice-scene-aware-voice-cloning"},
+{n:"HeyGen Decision 1",k:["text:chat","image"],d:"Nov 2026",x:"Scores named questions about text, images or video in one call, returning a probability per yes/no, choice or rating rather than prose; 128k context",u:"https://developers.heygen.com/docs/models/heygen-decision"}]},
 {c:"Synthesia",r:"UK",f:"2017",n:"independent",u:"https://www.synthesia.io",m:[
 {n:"Express-1",k:["avatar"],d:"22 Apr 2024",x:"Full-body gesture and voice cloning",u:"https://www.synthesia.io/post/expressive-avatars-powered-by-synthesias-new-express1-model-are-here"},
 {n:"Express-2",k:["avatar"],d:"4 Sep 2025",x:"Full-body gesture and voice cloning",u:"https://www.synthesia.io/features/avatars"}]},
@@ -1149,6 +1150,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-11",f:"2026-11-14",c:"HeyGen",n:"HeyGen Decision 1",k:["text:chat","image"],x:"Scores named questions about text, images or video in one call, returning a probability per yes/no, choice or rating rather than prose; 128k context",u:"https://developers.heygen.com/docs/models/heygen-decision"},
 {t:"added",y:"2026-11-12",f:"2026-11-13",c:"Hark",n:"Hark Handoff²",k:["text:chat","text:code"],x:"Second generation, with the harness and the RL recipe trained together: 82% of tasks on Hark’s 478-task browsing benchmark against v1’s 73%, at 46% less time per task",u:"https://hark.com/articles/introducing-hark-handoff-now-2x-faster"},
 {t:"added",y:"2026-10-21",f:"2026-11-13",c:"Speechify",n:"Simba 3.5",k:["audio:speech"],x:"Streaming-native text to speech covering 48 languages under one model id, cloned voices included; preferred over the English-only Simba 3.2 in 63% of blind comparisons",u:"https://speechify.ai/blog/simba-3-5"},
 {t:"added",y:"2026-08-05",f:"2026-11-13",c:"Hark",n:"Hark Handoff",k:["text:chat","text:code"],x:"Computer-use agent trained by supervised fine-tuning then reinforcement learning; outputs cursor and keyboard actions on a live browser in a per-task virtual machine",u:"https://hark.com/articles/introducing-hark-handoff"},
@@ -2128,7 +2130,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 13 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 14 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
