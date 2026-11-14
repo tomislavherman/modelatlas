@@ -147,8 +147,8 @@ changelog names the exact model ID with the exact date:
 - https://docs.x.ai/developers/release-notes
 - https://docs.z.ai/release-notes/new-released
 - https://platform.vidu.com/docs/api-reference/updates
-- https://www.kimi.com/code/docs/en/kimi-code/whats-new.html
 - https://www.alibabacloud.com/help/en/model-studio/newly-released-models
+- https://ark.volcengine.com/region:cn-beijing/docs/model-release-announcement
 - https://elevenlabs.io/docs/changelog
 - https://developers.deepgram.com/changelog
 - https://developers.heygen.com/changelog
