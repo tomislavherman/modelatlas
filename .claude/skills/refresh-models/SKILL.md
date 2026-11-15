@@ -105,7 +105,6 @@ they make is in scope.
 - https://pika.art/blog
 - https://pixverse.ai/en/blog
 - https://kling.ai/blog
-- https://cartesia.ai/blog
 - https://gradium.ai/blog
 - https://fish.audio/blog
 - https://www.rime.ai/blog
@@ -130,6 +129,7 @@ they make is in scope.
 - https://kyutai.org/
 - https://odyssey.systems/writing
 - https://spaitial.ai/blog
+- https://worldlabs.ai/blog
 - https://www.agibot.com/article/231
 - https://www.sarvam.ai/blogs
 - https://chariot.in/news
