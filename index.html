@@ -524,7 +524,7 @@ const D=[
 {n:"Marble 1.1",k:["world"],d:"Apr 2026",x:"Editable, downloadable 3D worlds from text, photos or panoramas",u:"https://marble.worldlabs.ai"},
 {n:"RTFM",k:["world"],d:"16 Oct 2025",x:"Real-time frame model",u:"https://www.worldlabs.ai/blog/rtfm"},
 {n:"World API",k:["world"],d:"Jan 2026",x:"",u:"https://www.worldlabs.ai"},
-{n:"Atlas",k:["world","video"],d:"1 Sep 2026",x:"Omni world model: text, images, video and 3D in one spatial context, out to Gaussian splats or a minute of 1440p video; early access with select partners",u:"https://www.worldlabs.ai/blog/atlas"}]},
+{n:"Atlas",k:["world","video"],d:"1 Sep 2026 → GA 12 Nov 2026",x:"Omni world model: text, images, video and 3D in one spatial context, out to Gaussian splats or a minute of 1440p video; now public with tools and a developer API",u:"https://www.worldlabs.ai/blog/atlas"}]},
 {c:"Visko",r:"US",f:"2025",n:"independent",u:"https://www.visko.ai",m:[
 {n:"Orbis",k:["world","video"],d:"1 Sep 2026",x:"A live model that runs a world rather than rendering a clip: 4K at 24fps streamed in real time for hours without drift, and the prompt can be changed mid-generation",u:"https://www.visko.ai/news/visko-closes-10-million-pre-seed-round-and-launches-orbis"}]},
 {c:"Decart",r:"IL/US",f:"2023",n:"independent",u:"https://www.decart.ai",m:[
@@ -2162,7 +2162,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 14 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 15 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
