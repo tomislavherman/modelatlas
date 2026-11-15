@@ -71,6 +71,7 @@ they make is in scope.
 - https://forum.moonshot.ai/c/announcement/5
 - https://seed.bytedance.com/en/blog_list/visual
 - https://www.minimax.io/blog
+- https://www.ant-ling.com/en/
 - https://www.tencent.com/newsroom/
 - https://microsoft.ai/news/
 - https://techcommunity.microsoft.com/category/azure-ai-foundry/blog/azure-ai-foundry-blog
@@ -136,7 +137,6 @@ they make is in scope.
 - https://hindsight.vectorize.io/blog
 - https://www.deepl.com/en/press-release
 - https://www.upstage.ai/blog
-- https://news.sktelecom.com/en/category/press-center/press-release
 
 Then read the API changelogs. A point release such as Gemini Omni 1.1 Flash
 gets a developer-blog post and a changelog line, not a headline, and the
