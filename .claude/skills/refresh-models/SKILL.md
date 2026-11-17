@@ -94,6 +94,7 @@ they make is in scope.
 - https://sakana.ai/blog/
 - https://www.preferred.jp/ja/news/
 - https://www.tavus.io/blog
+- https://www.heygen.com/research
 - https://www.hume.ai/blog
 - https://desertant.com/blog/
 - https://www.microsoft.com/en-us/research/blog/
@@ -136,7 +137,6 @@ they make is in scope.
 - https://chariot.in/news
 - https://hindsight.vectorize.io/blog
 - https://www.deepl.com/en/press-release
-- https://www.upstage.ai/blog
 - https://www.mindlab.im/updates
 - https://www.zyphra.com/our-work
 
