@@ -300,7 +300,7 @@ const D=[
 {n:"Gemini 3.8 Flash / Gemini 3.8 Flash Cyber",k:["text:chat","text:code"],d:"2 Sep 2026",x:"Takes Terminal-Bench 2.1 from 81.6% to 90.8%, with a Cyber variant for vulnerability discovery and patching limited to the Fairwind program",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"},
 {n:"Gemini 4 Argon",k:["text:chat","text:code"],d:"30 Sep 2026 → GA 13 Oct 2026",x:"First of the Gemini 4 generation, trained for defensive security: patches the vulnerabilities it finds, tying first on CWE-bench v1 at 68%; Fairwind defenders first",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"},
 {n:"Gemini 4 Carbon",k:["text:chat","text:code"],d:"10 Nov 2026",x:"Google's strongest model yet and top of the Artificial Analysis Intelligence Index v5.0, built for cybersecurity defence, sustained agentic coding and scientific reasoning",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"},
-{n:"Gemini 4 Hydrogen",k:["text:chat","text:code"],d:"12 Nov 2026",x:"Fast tier of the Gemini 4 generation, adapted from Carbon for everyday coding and agentic work; adds an xhigh thinking level and edges past Argon on Artificial Analysis",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"},
+{n:"Gemini 4 Hydrogen",k:["text:chat","text:code","robotics"],d:"12 Nov 2026",x:"Fast tier of the Gemini 4 generation, adapted from Carbon for everyday coding and agentic work; adds an xhigh thinking level and edges past Argon on Artificial Analysis",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"},
 {n:"Gemma 4",k:["text:chat","text:code"],d:"2 Apr 2026",x:"Open-weights family under Apache 2.0 in four sizes from a 2B-effective edge model to a 31B dense one, with native vision and audio input",u:"https://deepmind.google/models/gemma/gemma-4/",o:{l:"Apache 2.0",h:"https://huggingface.co/google/gemma-4-31B-it",q:16,p:[5,31]}},
 {n:"DiffusionGemma",k:["text:chat"],d:"10 Jun 2026",x:"Discrete text diffusion on the Gemma 4 26B MoE: denoises blocks of tokens in parallel rather than one at a time, up to 4x faster generation on a dedicated GPU",u:"https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/",o:{l:"Apache 2.0",h:"https://huggingface.co/google/diffusiongemma-26B-A4B-it",q:16,p:26}},
 {n:"Gemini 3.5 Transcribe",k:["audio:speech"],d:"26 Aug 2026",x:"Speech-to-text successor to Chirp 3 in public preview: 2.6% word error rate against 5%, live and batch variants, 85 languages",u:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe/"},
@@ -728,7 +728,7 @@ const D=[
 {n:"Kling 4.0 / Kling 4.0 Flash",k:["video","audio:sfx"],d:"15 Oct 2026",x:"Doubles Kling's maximum clip to 30 seconds and takes more than a dozen references plus up to ten keyframes fixing each segment; Flash is the fast lower-resolution tier",u:"https://kling.ai/release-note/release-notes/Kling_4"},
 {n:"Kolors",k:["image"],d:"Jun 2024",x:"Open weights",u:"https://github.com/Kwai-Kolors/Kolors",o:{l:"Apache 2.0",h:"https://huggingface.co/Kwai-Kolors/Kolors",q:32,p:2.6}},
 {n:"Kling Image 3.0",k:["image"],d:"Jan 2026",x:"Kolors renamed into the Kling line"},
-{n:"Kling Image 4.0",k:["image"],d:"17 Nov 2026",x:"First Kling image model to generate at native 8K, with up to ten cohesive images from one prompt and text in seven languages editable on its own layer"}]},
+{n:"Kling Image 4.0",k:["image"],d:"17 Nov 2026",x:"First Kling image model to generate at native 8K, with up to ten cohesive images from one prompt and text in seven languages editable on its own layer",u:"https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise"}]},
 {c:"MiniMax",r:"CN",f:"2021",n:"HKEX Jan 2026",u:"https://www.minimax.io",m:[
 {n:"Hailuo Video-01",k:["video"],d:"Sep 2024",x:"",u:"https://hailuoai.video"},
 {n:"Hailuo 2.3",k:["video"],d:"28 Oct 2025",x:"",u:"https://hailuoai.video"},
@@ -1204,6 +1204,8 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"retired",y:"2026-10",f:"2026-11-18",c:"MiniMax",n:"MiniMax M2.7",k:["text:chat","text:code"],x:"The first MiniMax model to take part in its own training loop, aimed at agent harnesses, long-running software engineering and editing Office documents end to end",u:"https://www.minimax.io/news/minimax-m27-en"},
+{t:"retired",y:"2026-10",f:"2026-11-18",c:"MiniMax",n:"MiniMax M2.5",k:["text:chat","text:code"],x:"Reinforcement learning across hundreds of thousands of real-world task environments; 80.2% on SWE-Bench Verified, with a high-speed tier beside the flagship",u:"https://www.minimax.io/blog/minimax-m25"},
 {t:"added",y:"2026-11-17",f:"2026-11-17",c:"OpenAI",n:"GPT-6.2 Astra / GPT-6.2 Sol",k:["text:chat","text:code"],x:"The generation after GPT-6.1: Astra for the hardest long-running projects, Sol as the default tier for everyday coding and agents at $2 and $10 per MTok; 1.05M-token context",u:"https://developers.openai.com/api/docs/models/gpt-6.2-astra"},
 {t:"added",y:"2026-11-17",f:"2026-11-17",c:"Microsoft",n:"MAI-Code-2 / MAI-Code-2-Flash",k:["text:code"],x:"Averaged over four benchmarks, 98% of GPT-6.1 Sol's quality at 40% of its cost on production coding, debugging and repo-wide work; Flash is the high-volume tier for routine edits",u:"https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/"},
 {t:"added",y:"2026-11-17",f:"2026-11-17",c:"Microsoft",n:"MAI-Cyber-2-Flash",k:["text:code"],x:"Security model for vulnerability discovery and threat investigation, with a 1M-token context for whole codebases; edges GPT-6 Astra on CyberGym-E2E at under 2% of its cost per task",u:"https://microsoft.ai/news/introducing-mai-cyber-2-flash/"},
@@ -2232,7 +2234,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 17 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 18 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}

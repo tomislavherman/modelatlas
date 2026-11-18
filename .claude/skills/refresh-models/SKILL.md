@@ -179,7 +179,11 @@ and never mentions a shutdown, and
 https://cloud.tencent.com/document/product/1823/130051 for Tencent's, whose
 TokenHub model list carries a 下线 date per model ID — the only place
 HunyuanImage 3.0's shutdown appears, since tencent.com/newsroom announces
-releases and never mentions one.
+releases and never mentions one, and
+https://platform.minimax.io/docs/faq/models for MiniMax's, whose Retired
+Models table is the only place M2.5's and M2.7's shutdown appears; it dates
+the retirement and the routing cutover but never the notice, so the
+announcement month has to come from the earliest date the schedule names.
 
 ### Weights repositories
 
