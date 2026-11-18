@@ -132,7 +132,7 @@ they make is in scope.
 - https://odyssey.systems/writing
 - https://spaitial.ai/blog
 - https://worldlabs.ai/blog
-- https://www.agibot.com/article/231
+- https://www.agibot.com/news
 - https://www.sarvam.ai/blogs
 - https://chariot.in/news
 - https://hindsight.vectorize.io/blog
