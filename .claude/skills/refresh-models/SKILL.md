@@ -75,6 +75,7 @@ they make is in scope.
 - https://www.tencent.com/newsroom/
 - https://microsoft.ai/news/
 - https://techcommunity.microsoft.com/category/azure-ai-foundry/blog/azure-ai-foundry-blog
+- https://devblogs.microsoft.com/foundry-on-windows/
 - https://bfl.ai/blog
 - https://runway.com/research
 - https://elevenlabs.io/blog
