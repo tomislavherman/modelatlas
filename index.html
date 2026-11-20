@@ -1192,6 +1192,8 @@ const D=[
 {c:"Hark",r:"US",f:"2025",n:"independent",u:"https://hark.com",m:[
 {n:"Hark Handoff",k:["text:chat","text:code"],d:"5 Aug 2026",x:"Computer-use agent trained by supervised fine-tuning then reinforcement learning; outputs cursor and keyboard actions on a live browser in a per-task virtual machine",u:"https://hark.com/articles/introducing-hark-handoff"},
 {n:"Hark Handoff²",k:["text:chat","text:code"],d:"12 Nov 2026",x:"Second generation, with the harness and the RL recipe trained together: 82% of tasks on Hark’s 478-task browsing benchmark against v1’s 73%, at 46% less time per task",u:"https://hark.com/articles/introducing-hark-handoff-now-2x-faster"}]},
+{c:"Bland",r:"US",f:"2023",n:"independent",u:"https://www.bland.ai",m:[
+{n:"Tofu-1",k:["audio:speech"],d:"announced Nov 2026, research preview",x:"Full-duplex speech-to-speech for phone calls: listens while it talks, tells the caller apart from background voices, and generates ambience and a second speaker",u:"https://www.bland.ai/speech-to-speech"}]},
 {c:"Speechify",r:"US",f:"2017",n:"independent",u:"https://speechify.ai",m:[
 {n:"Simba 3.5",k:["audio:speech"],d:"21 Oct 2026",x:"Streaming-native text to speech covering 48 languages under one model id, cloned voices included; preferred over the English-only Simba 3.2 in 63% of blind comparisons",u:"https://speechify.ai/blog/simba-3-5"}]},
 {c:"LG AI Research",r:"KR",f:"2020",n:"LG",u:"https://www.lgresearch.ai",m:[
@@ -1222,6 +1224,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"announced",y:"2026-11",f:"2026-11-20",c:"Bland",n:"Tofu-1",k:["audio:speech"],x:"Full-duplex speech-to-speech for phone calls: listens while it talks, tells the caller apart from background voices, and generates ambience and a second speaker",u:"https://www.bland.ai/speech-to-speech"},
 {t:"added",y:"2026-11",f:"2026-11-19",c:"Amazon",n:"Strands Decider Gemma 4 v2",k:["text:chat"],x:"Strands decider v2 on Gemma 4 E2B, one merged model rather than an adapter: a 255-row answer-code readout replaces the LM head, and 87.4% on JevBench against v1's 77.5%",u:"https://huggingface.co/StrandsAgents/strands-decider-E2B-gemma4-v2-2611"},
 {t:"added",y:"2026-11-10",f:"2026-11-19",c:"Reson8",n:"Rumble-2",k:["audio:speech"],x:"Production speech-to-text over 50-plus languages, first on Cekura's Converse benchmark at 2.05% word error rate and the lowest latency of 22 models on Coval's streaming test",u:"https://www.reson8.dev/blog/rumble-2"},
 {t:"added",y:"2026-11-03",f:"2026-11-19",c:"Reson8",n:"Rumble-2-Flash",k:["audio:speech"],x:"Smallest tier of the line at 0.5B parameters over 40-plus languages, distilled on-policy from Rumble-2; about 5% word error rate on English Open ASR, from €0.01 an hour",u:"https://www.reson8.dev/blog/rumble-2-flash"},
@@ -2273,7 +2276,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 19 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 20 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
