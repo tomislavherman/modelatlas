@@ -1152,6 +1152,10 @@ const D=[
 {n:"GO-1",k:["robotics"],d:"Mar 2025 → open weights 23 Sep 2025",x:"Vision-language-action model on a hierarchical ViLLA design: latent action tokens bridge image-text input and the action expert, pretrained on AgiBot's own robot data",u:"https://agibot-world.com/blog/go1",o:{l:"CC BY-NC-SA 4.0",h:"https://huggingface.co/agibot-world/GO-1",q:16,p:3}},
 {n:"GO-3 Preview",k:["robotics"],d:"announced 29 Oct 2026",x:"Embodied foundation model on WRAM, a unified reasoning, prediction and action framework: the robot anticipates an action's outcome and generalises past learned sequences",u:"https://www.agibot.com/article/231/detail/131.html"},
 {n:"WITA-Omni",k:["audio:speech","robotics"],d:"announced 29 Oct 2026",x:"Omni-modal interaction model joining vision, speech and real-time dialogue: full-duplex conversation with movement coordinated to it, and inference on the robot",u:"https://www.agibot.com/article/231/detail/131.html"}]},
+{c:"Unisound",r:"CN",f:"2012",n:"HKEX Jun 2025",u:"https://www.unisound.com",m:[
+{n:"U2-Flash",k:["text:chat","text:code"],d:"15 Sep 2026",x:"Sparse mixture of experts at 266B with 10B active, post-trained with recursive self-improvement; Unisound frames it as a successor to U2, not a lighter tier of it",u:"https://www.unisound.com/en/research/158"},
+{n:"U2-Decision",k:["text:chat"],d:"26 Sep 2026",x:"Picks what happens next in multi-model, multi-agent and multi-tool workflows, routing each task on complexity, risk, cost and latency and stopping a risky request",u:"https://www.unisound.com/en/research/159",o:{p:4}},
+{n:"U2-Flash-1118",k:["text:chat","text:code"],d:"18 Nov 2026",x:"Adds a 1B vision module over the same language backbone, reading screenshots, mockups and document layouts; same work at 37% fewer tokens and 44.8% fewer calls",u:"https://www.unisound.com/en/research/177"}]},
 {c:"SpAItial",r:"UK",f:"2024",n:"independent",u:"https://spaitial.ai",m:[
 {n:"Echo-1",k:["world"],d:"15 Dec 2025",x:"Text prompt or image into a 3D-consistent scene with geometry and appearance at metric scale, explorable in real time, with segmentation and text-driven object edits",u:"https://spaitial.ai/blog/echo-release"},
 {n:"Echo-2",k:["world"],d:"28 Apr 2026",x:"Turns a single photo or panorama into an explorable 3D world, physically grounded so the generated geometry holds as a space rather than a view"},
@@ -1229,6 +1233,9 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-11-18",f:"2026-11-21",c:"Unisound",n:"U2-Flash-1118",k:["text:chat","text:code"],x:"Adds a 1B vision module over the same language backbone, reading screenshots, mockups and document layouts; same work at 37% fewer tokens and 44.8% fewer calls",u:"https://www.unisound.com/en/research/177"},
+{t:"added",y:"2026-09-26",f:"2026-11-21",c:"Unisound",n:"U2-Decision",k:["text:chat"],x:"Picks what happens next in multi-model, multi-agent and multi-tool workflows, routing each task on complexity, risk, cost and latency and stopping a risky request",u:"https://www.unisound.com/en/research/159"},
+{t:"added",y:"2026-09-15",f:"2026-11-21",c:"Unisound",n:"U2-Flash",k:["text:chat","text:code"],x:"Sparse mixture of experts at 266B with 10B active, post-trained with recursive self-improvement; Unisound frames it as a successor to U2, not a lighter tier of it",u:"https://www.unisound.com/en/research/158"},
 {t:"added",y:"2026-11-20",f:"2026-11-20",c:"Thinking Machines Lab",n:"Inkling 2 Mini",k:["text:chat","text:code"],x:"26.4B mixture of experts with 3.4B active and a looped middle: 12 of its 24 layers run three times on shared weights, giving 48 layer applications per token",u:"https://thinkingmachines.ai/news/inkling-2-mini/"},
 {t:"announced",y:"2026-11-20",f:"2026-11-20",c:"MiniMax",n:"MiniMax Internal Model (MIM)",k:["text:chat"],x:"Internal cryptanalysis model: it broke collision resistance on NIST candidates Waterfall-256 and Blender-256 and solved 55 previously unsolved McEliece challenge instances",u:"https://www.minimax.io/blog/practical-cryptanalysis-with-minimaxs-latest-internal-model"},
 {t:"retired",y:"2026-11",f:"2026-11-20",c:"SpaceXAI",n:"Grok Build 0.1",k:["text:code"],x:"Coding model behind the Grok Build agent harness, trained for web development, debugging and MCP tool use; past 100 tokens a second in public beta on the API",u:"https://x.ai/news/grok-build-0-1"},
@@ -2287,7 +2294,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 20 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 21 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
