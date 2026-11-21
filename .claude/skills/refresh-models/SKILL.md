@@ -197,7 +197,7 @@ same way as a newsroom, one call per organisation:
 
 ```sh
 for a in openai google microsoft facebook meta-models apodex ibm-granite nvidia baidu \
-  black-forest-labs briaai Cactus-Compute Alibaba-DAMO-Academy kandinskylab Lightricks mistralai \
+  black-forest-labs briaai Cactus-Compute Alibaba-DAMO-Academy Wan-AI kandinskylab Lightricks mistralai \
   allenai MiniMaxAI Motif-Technologies Qwen OpenMOSS-Team tencent ByteDance-Seed zai-org inclusionAI Edge0 \
   stepfun-ai internlm deepseek-ai moonshotai IFM inception42 NoizAI CohereLabs Aleph-Alpha openbmb \
   bosonai Skywork LGAI-EXAONE gradium ai21labs \
