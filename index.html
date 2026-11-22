@@ -260,7 +260,7 @@ const D=[
 {n:"GPT-6.2 Astra / GPT-6.2 Sol",k:["text:chat","text:code"],d:"17 Nov 2026",x:"The generation after GPT-6.1: Astra for the hardest long-running projects, Sol as the default tier for everyday coding and agents at $2 and $10 per MTok; 1.05M-token context",u:"https://developers.openai.com/api/docs/models/gpt-6.2-astra"},
 {n:"GPT-5-Codex",k:["text:code"],d:"23 Sep 2025, shut down 23 Jul 2026",x:"Agentic coding variant of GPT-5"},
 {n:"GPT-5.2-Codex",k:["text:code"],d:"Dec 2025, shut down 23 Jul 2026",x:"Agentic coding variant of GPT-5.2, tuned for long-horizon work with context compaction and stronger on large refactors, Windows environments and cybersecurity",u:"https://openai.com/index/introducing-gpt-5-2-codex/"},
-{n:"GPT-5.3-Codex",k:["text:code"],d:"Feb 2026, API ends 1 Apr 2027",x:"The base model behind GitHub Copilot Business and Enterprise",u:"https://openai.com/index/gpt-5-3-codex-system-card/"},
+{n:"GPT-5.3-Codex",k:["text:code"],d:"5 Feb 2026, API ends 1 Apr 2027",x:"The base model behind GitHub Copilot Business and Enterprise",u:"https://openai.com/index/gpt-5-3-codex-system-card/"},
 {n:"GPT-5.4-Cyber",k:["text:code"],d:"14 Apr 2026, removed from the API 1 Oct 2026",x:"Cyber-permissive variant of GPT-5.4 for vetted defenders, able to reverse-engineer compiled binaries; access gated to OpenAI’s Trusted Access for Cyber programme",u:"https://developers.openai.com/api/docs/deprecations"},
 {n:"GPT-5.5-Cyber",k:["text:code"],d:"May 2026, removed from the API 1 Feb 2027",x:"Cyber-permissive variant of GPT-5.5 for vetted defenders through Trusted Access for Cyber, trained to be more permissive on security work rather than more capable than GPT-5.5",u:"https://developers.openai.com/api/docs/deprecations"},
 {n:"GPT-5.6-Cyber",k:["text:code"],d:"7 Aug 2026",x:"Purpose-trained on GPT-5.6 Sol for authorized vulnerability research and exploit validation; completes 95.0% of advanced cyber requests where Sol manages 1.5%",u:"https://developers.openai.com/api/docs/models/gpt-5.6-cyber"},
@@ -272,13 +272,13 @@ const D=[
 {c:"Google DeepMind",r:"US",f:"2010 / merged 2023",n:"Alphabet",u:"https://deepmind.google",m:[
 {n:"Imagen",k:["image"],d:"May 2023 → GA 18 Jul 2023, shut down Aug 2026",x:"",u:"https://deepmind.google/models/imagen/"},
 {n:"Imagen 4",k:["image"],d:"20 May 2025, shut down Aug 2026",x:"Endpoints closed; Gemini-native Nano Banana is the migration target",u:"https://deepmind.google/models/imagen/"},
-{n:"Nano Banana",k:["image"],d:"Aug 2025, shut down 2 Oct 2026",x:"Gemini-native image generation and editing",u:"https://ai.google.dev/gemini-api/docs/deprecations"},
+{n:"Nano Banana",k:["image"],d:"26 Aug 2025, shut down 2 Oct 2026",x:"Gemini-native image generation and editing",u:"https://ai.google.dev/gemini-api/docs/deprecations"},
 {n:"Nano Banana 2",k:["image"],d:"26 Feb 2026, shut down 29 Oct 2026",x:"",u:"https://deepmind.google/models/gemini-image/"},
 {n:"Nano Banana Pro",k:["image"],d:"28 May 2026",x:"Premium tier of the line: highest world knowledge, up to six reference images, interleaved text-and-image output and 4K rendering for marketing assets and diagrams",u:"https://ai.google.dev/gemini-api/docs/image-generation"},
 {n:"Nano Banana 2 Lite",k:["image"],d:"30 Jun 2026",x:"Fastest and cheapest of the line, capped at 1K and without Search grounding or character-consistency references; built for high-volume work where cost is the constraint",u:"https://ai.google.dev/gemini-api/docs/image-generation"},
 {n:"Nano Banana 2.1",k:["image"],d:"6 Oct 2026",x:"High-efficiency image generation and conversational editing, succeeding Gemini 3.1 Flash Image; adds panoramic aspect ratios from 1:4 to 8:1 at 1K, 2K and 4K",u:"https://ai.google.dev/gemini-api/docs/image-generation"},
 {n:"Veo",k:["video"],d:"May 2024",x:"Silent video",u:"https://deepmind.google/models/veo/"},
-{n:"Veo 3.1",k:["video","audio:sfx"],d:"Oct 2025, API ends 22 Oct 2026",x:"Native Foley sound generated with the picture; Gemini Omni 1.1 Flash is the migration target",u:"https://deepmind.google/models/veo/"},
+{n:"Veo 3.1",k:["video","audio:sfx"],d:"15 Oct 2025, API ends 22 Oct 2026",x:"Native Foley sound generated with the picture; Gemini Omni 1.1 Flash is the migration target",u:"https://deepmind.google/models/veo/"},
 {n:"Gemini Omni Flash",k:["video","audio:sfx"],d:"May 2026, API ends 30 Sep 2026",x:"Video with sound from text, image or video input, edited by conversation",u:"https://ai.google.dev/gemini-api/docs/omni"},
 {n:"Gemini Omni 1.1 Flash",k:["video","audio:sfx"],d:"27 Aug 2026, shut down 3 Dec 2026",x:"Adds scene extension to 40 s, first and last frame control, a cheaper 360p draft mode and 4K upscaling; Gemini Omni 1.2 Flash is the migration target",u:"https://ai.google.dev/gemini-api/docs/omni"},
 {n:"Gemini Omni 1.2 Flash",k:["video","audio:sfx"],d:"5 Nov 2026",x:"Clips of 3-15 s extendable to 30 s in conversation, up to six reference images for character consistency, and 4K upscaling, priced below 1.1 Flash",u:"https://aistudio.google.com/docs/omni"},
@@ -2307,7 +2307,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 21 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 22 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
