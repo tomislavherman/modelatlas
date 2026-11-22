@@ -73,6 +73,7 @@ they make is in scope.
 - https://www.minimax.io/blog
 - https://www.ant-ling.com/en/
 - https://www.tencent.com/newsroom/
+- https://www.sensetime.com/en/news
 - https://www.unisound.com/en/research
 - https://microsoft.ai/news/
 - https://techcommunity.microsoft.com/category/azure-ai-foundry/blog/azure-ai-foundry-blog
@@ -199,7 +200,7 @@ same way as a newsroom, one call per organisation:
 ```sh
 for a in openai google microsoft facebook meta-models apodex ibm-granite nvidia baidu \
   black-forest-labs briaai Cactus-Compute Alibaba-DAMO-Academy Wan-AI kandinskylab Lightricks mistralai \
-  allenai MiniMaxAI Motif-Technologies Qwen OpenMOSS-Team tencent ByteDance-Seed zai-org inclusionAI Edge0 \
+  allenai MiniMaxAI Motif-Technologies Qwen OpenMOSS-Team tencent sensenova ByteDance-Seed zai-org inclusionAI Edge0 \
   stepfun-ai internlm deepseek-ai moonshotai IFM inception42 NoizAI CohereLabs Aleph-Alpha openbmb \
   bosonai Skywork LGAI-EXAONE gradium ai21labs baselabs \
   Agnes-AI XiaomiRobotics XiaomiMiMo m-a-p skt IndexTeam robbyant reflection LiquidAI Cloudflare perplexity-ai StrandsAgents RekaAI JetBrains jinaai fishaudio ropedia-ai Sqwish RecursiveSI ricursiveAI Nanbeige maya-research Hcompany desert-ant-labs Pika-Labs krea kyutai upstage salesforce-sovereign-intelligence sarvamai soketlabs meituan-longcat MeituanRobotics thinkingmachines pfnet hindsight-ai ConwayResearch runwayml ornith-ai mindlab-research Zyphra Reson8; do
