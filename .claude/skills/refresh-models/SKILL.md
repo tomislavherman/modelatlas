@@ -164,6 +164,7 @@ changelog names the exact model ID with the exact date:
 - https://docs.mistral.ai/resources/changelogs
 - https://docs.platform.pixverse.ai/changelog-2394996m0
 - https://www.assemblyai.com/changelog
+- https://support.huaweicloud.com/wtsnew-cloudrobo/index.html
 
 Also read https://platform.claude.com/docs/en/about-claude/model-deprecations
 for Anthropic retirement dates; it lists every model with its status, and
