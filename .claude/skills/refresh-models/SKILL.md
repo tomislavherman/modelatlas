@@ -113,7 +113,7 @@ they make is in scope.
 - https://gradium.ai/blog
 - https://fish.audio/blog
 - https://www.rime.ai/blog
-- https://edge0.ai/research
+- https://edge0.ai/blog
 - https://blog.voyageai.com/
 - https://jina.ai/news
 - https://hark.com/articles
