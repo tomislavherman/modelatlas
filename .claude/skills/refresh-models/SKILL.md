@@ -73,7 +73,7 @@ they make is in scope.
 - https://www.minimax.io/blog
 - https://www.ant-ling.com/en/
 - https://www.tencent.com/newsroom/
-- https://www.sensetime.com/en/news
+- https://www.sensetime.com/cn/news
 - https://www.unisound.com/en/research
 - https://microsoft.ai/news/
 - https://techcommunity.microsoft.com/category/azure-ai-foundry/blog/azure-ai-foundry-blog
