@@ -166,6 +166,7 @@ changelog names the exact model ID with the exact date:
 - https://docs.mistral.ai/resources/changelogs
 - https://docs.platform.pixverse.ai/changelog-2394996m0
 - https://www.assemblyai.com/changelog
+- https://murf.ai/api/docs/changelog
 - https://support.huaweicloud.com/wtsnew-cloudrobo/index.html
 - https://console.upstage.ai/docs/models/history
 
