@@ -946,7 +946,8 @@ const D=[
 {n:"SWE-1.5",k:["text:code"],d:"Oct 2025",x:"Runs inside Devin",u:"https://cognition.ai/blog"},
 {n:"SWE-1.7",k:["text:code"],d:"8 Jul 2026",x:"Runs inside Devin at about 1000 tokens per second on Cerebras hardware",u:"https://cognition.com/blog/swe-1-7"},
 {n:"SWE-2",k:["text:code"],d:"10 Sep 2026",x:"Post-trained from Kimi K3 with medium, high and max effort levels; 50.0% on FrontierCode 1.1 Main, within a point of Fable 5.1 at 64% less cost, and 92.8% on Terminal-Bench 2.1",u:"https://cognition.com/blog/swe-2"},
-{n:"SWE-2 Flash",k:["text:code"],d:"4 Nov 2026",x:"Small coding model post-trained from Thinking Machines' Inkling-Small: a fifth of SWE-2's price at 3x the speed, 20.0% on Terminal-Bench 4.0 and 24.0% on FrontierCode 2.0",u:"https://cognition.com/blog/swe-2-flash"}]},
+{n:"SWE-2 Flash",k:["text:code"],d:"4 Nov 2026",x:"Small coding model post-trained from Thinking Machines' Inkling-Small: a fifth of SWE-2's price at 3x the speed, 20.0% on Terminal-Bench 4.0 and 24.0% on FrontierCode 2.0",u:"https://cognition.com/blog/swe-2-flash"},
+{n:"SWE-2.1",k:["text:code"],d:"24 Nov 2026",x:"Post-trained from Kimi K3 with pure reinforcement learning: 80% on ExploitBench, and agent performance that keeps rising log-linearly as runs stretch over hours",u:"https://cognition.com/blog/swe-2-1"}]},
 {c:"Inception",r:"US",f:"2024",n:"independent",u:"https://www.inceptionlabs.ai",m:[
 {n:"Mercury",k:["text:chat","text:code"],d:"2025 → Feb 2026",x:"Diffusion language models: tokens are produced and refined in parallel instead of one at a time"},
 {n:"Mercury 2.5",k:["text:chat","text:code"],d:"Aug 2026 → GA 24 Sep 2026",x:"Past 1100 tokens a second on stock GPUs at cost-optimised frontier quality, with tunable reasoning and parallel tool calls; on Inception's API, Baseten and OpenRouter",u:"https://www.inceptionlabs.ai/blog/introducing-mercury-2-5"},
@@ -1288,6 +1289,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-11-24",f:"2026-11-25",c:"Cognition",n:"SWE-2.1",k:["text:code"],x:"Post-trained from Kimi K3 with pure reinforcement learning: 80% on ExploitBench, and agent performance that keeps rising log-linearly as runs stretch over hours",u:"https://cognition.com/blog/swe-2-1"},
 {t:"added",y:"2026-11-23",f:"2026-11-24",c:"John Snow Labs",n:"Medical DM Small / Medical DM Nano",k:["text:chat"],x:"Clinical decision models answering a fixed-choice question about a note with a probability rather than text: Small scores 0.917 and Nano 0.901 across nine task areas",u:"https://www.johnsnowlabs.com/john-snow-labs-launches-first-commercially-available-decision-models-for-healthcare/"},
 {t:"added",y:"2026-11-13",f:"2026-11-24",c:"Huawei Cloud",n:"CloudRobo-WM-7B-Preview",k:["robotics","world"],x:"Post-train of CloudRobo-WM1.2 on RoboTwin 2.0 Clean data: 7B multimodal MoT over a Wan2.2 video backbone, with a flow-matching branch emitting dual-arm actions",u:"https://support.huaweicloud.com/usermanual-cloudrobo/cloudrobo_02_0132.html"},
 {t:"added",y:"2026-11-23",f:"2026-11-24",c:"Ai2",n:"RoboTracker",k:["robotics"],x:"Point tracker for manipulation video: AllTracker fine-tuned on Ai2’s 15M-clip synthetic RoboTrack set, 17M parameters, scoring 63.4 AJ on RoboTrack-Bench against 62.6",u:"https://allenai.org/blog/robotrack"},
@@ -2398,7 +2400,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 24 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 25 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
