@@ -108,7 +108,6 @@ they make is in scope.
 - https://developer.nvidia.com/blog/
 - https://blogs.nvidia.com/blog/category/generative-ai/
 - https://pika.art/blog
-- https://pixverse.ai/en/blog
 - https://kling.ai/blog
 - https://sand.ai/research
 - https://gradium.ai/blog
@@ -163,7 +162,7 @@ changelog names the exact model ID with the exact date:
 - https://elevenlabs.io/docs/changelog
 - https://developers.deepgram.com/changelog
 - https://developers.heygen.com/changelog
-- https://docs.mistral.ai/resources/changelogs
+- https://docs.mistral.ai/getting-started/changelog/
 - https://docs.platform.pixverse.ai/changelog-2394996m0
 - https://www.assemblyai.com/changelog
 - https://murf.ai/api/docs/changelog
