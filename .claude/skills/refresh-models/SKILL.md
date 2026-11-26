@@ -137,6 +137,7 @@ they make is in scope.
 - https://worldlabs.ai/blog
 - https://www.agibot.com/news
 - https://x2robot.com/en/blog
+- https://www.xpeng.com/pressroom
 - https://www.sarvam.ai/blogs
 - https://chariot.in/news
 - https://hindsight.vectorize.io/blog
