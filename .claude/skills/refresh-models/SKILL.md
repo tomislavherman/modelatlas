@@ -72,6 +72,7 @@ they make is in scope.
 - https://seed.bytedance.com/en/blog_list/visual
 - https://www.minimax.io/blog
 - https://www.ant-ling.com/en/
+- https://developer.ant-ling.com/en/blogs
 - https://www.tencent.com/newsroom/
 - https://www.sensetime.com/cn/news
 - https://www.unisound.com/en/research
