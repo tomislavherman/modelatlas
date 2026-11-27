@@ -1298,7 +1298,9 @@ const D=[
 {n:"WALL-OSS-0.5",k:["robotics"],d:"28 May 2026",x:"Gradient-bridged co-training of vision, language and action, deployable on a real robot straight from pretraining with no task-specific fine-tuning",u:"https://x2robot.com/oss",o:{h:"https://huggingface.co/x-square-robot/wall-oss-0.5",q:16,p:4.2}},
 {n:"WALL-OSS-1.0",k:["robotics"],d:"23 Nov 2026",x:"Native vision-language-action pretraining rather than actions bolted onto a VLM; 55.1% zero-shot success over 312 real-robot tasks, in Lite, Nano, Gen and AR variants",u:"https://x2robot.com/en/blog/wall-oss-1",o:{l:"Apache 2.0",h:"https://huggingface.co/x-square-robot/wall-oss-1.0-lite-robodojo-base",q:32,p:5.3}}]},
 {c:"XPENG",r:"CN",f:"2014",n:"NYSE / HKEX",u:"https://www.xpeng.com",m:[
-{n:"WorldGPT",k:["world","robotics"],d:"announced 24 Nov 2026",x:"Predicts how a scene will evolve and plans the actions to take, for cars, boats, drones, single- and dual-arm robots and humanoids from one cloud teacher model",u:"https://www.xpeng.com/news/01a20bcf44b3a1e838d68a02a2110153"}]}
+{n:"WorldGPT",k:["world","robotics"],d:"announced 24 Nov 2026",x:"Predicts how a scene will evolve and plans the actions to take, for cars, boats, drones, single- and dual-arm robots and humanoids from one cloud teacher model",u:"https://www.xpeng.com/news/01a20bcf44b3a1e838d68a02a2110153"}]},
+{c:"AMD",r:"US",f:"1969",n:"NASDAQ",u:"https://www.amd.com",m:[
+{n:"Nitro-P / Nitro-P-1step",k:["image"],d:"20 Nov 2026",x:"VAE-free text-to-image diffusion in pixel space: an E-MMDiT backbone sets structure at patch level and a light U-Net reconstructs it; a one-step distilled build ships with it",u:"https://rocm.blogs.amd.com/artificial-intelligence/nitro-p/README.html",o:{h:"https://huggingface.co/amd/Nitro-P",q:32,p:0.679}}]}
 ];
 
 // Every change the atlas has recorded: a model released, a model announced
@@ -1314,6 +1316,7 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-11-20",f:"2026-11-27",c:"AMD",n:"Nitro-P / Nitro-P-1step",k:["image"],x:"VAE-free text-to-image diffusion in pixel space: an E-MMDiT backbone sets structure at patch level and a light U-Net reconstructs it; a one-step distilled build ships with it",u:"https://rocm.blogs.amd.com/artificial-intelligence/nitro-p/README.html"},
 {t:"added",y:"2026-11-26",f:"2026-11-26",c:"Robbyant",n:"LingBot-Navi",k:["robotics"],x:"Navigation model built on Qwen3.5-4B whose spatial-memory encoder anchors visual features to reconstructed surfaces, so scene evidence is reused across successive goals",u:"https://technology.robbyant.com/lingbot-navi"},
 {t:"added",y:"2026-11-24",f:"2026-11-26",c:"NVIDIA",n:"Nemotron-Labs-Image-30B-A3B",k:["image"],x:"Autoregressive image generator from the Nemotron-Labs VisualCreation framework: 30B mixture of experts, 3B active, emitting visual tokens a bundled L24SQ tokenizer renders",u:"https://huggingface.co/nvidia/Nemotron-Labs-Image-30B-A3B"},
 {t:"added",y:"2026-11",f:"2026-11-26",c:"Kandinsky Lab",n:"Kandinsky WM 1.5 AV",k:["world","video"],x:"Driving world model generating scenes from an image, text and a camera trajectory, in four runtimes from prefix continuation to chunked generation with scene history",u:"https://huggingface.co/kandinskylab/Kandinsky-WM-1.5-AV"},
@@ -2448,7 +2451,7 @@ $("views").innerHTML=VIEWS.map(([v,l])=>`<button role="tab" data-v="${v}">${l}</
 $("filters").innerHTML=CATS.map(([v,l])=>`<button data-f="${v}">${icon(v)}${l}</button>`).join("");
 // The compile stamp lives in the footer; check.js reads this literal and
 // fails if it disagrees with NOW, so bump the two together.
-$("foot").innerHTML="Compiled 26 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
+$("foot").innerHTML="Compiled 27 Nov 2026 · "+D.length+" companies · "+D.reduce((a,c)=>a+c.m.length,0)+" models. Company founding dates and ownership are the stable part of this map; model version numbers move monthly and some smaller entries are approximate. Verify anything load-bearing against the vendor's own announcement.";
 
 // Both views carry `k`, so one category test serves them both.
 function matchCat(m){return filt==="all"||m.k.some(t=>t===filt||t.startsWith(filt+":"))}
