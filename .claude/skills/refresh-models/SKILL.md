@@ -150,6 +150,7 @@ they make is in scope.
 - https://blog.deepprinciple.com
 - https://prismml.com/blog
 - https://rocm.blogs.amd.com/blog/category/applications-models.html
+- https://giga.chat/blog/en
 
 Then read the API changelogs. A point release such as Gemini Omni 1.1 Flash
 gets a developer-blog post and a changelog line, not a headline, and the
@@ -208,7 +209,7 @@ same way as a newsroom, one call per organisation:
 
 ```sh
 for a in openai google microsoft facebook meta-models apodex ibm-granite nvidia baidu \
-  black-forest-labs briaai Cactus-Compute Alibaba-DAMO-Academy Wan-AI kandinskylab Lightricks mistralai \
+  black-forest-labs briaai Cactus-Compute Alibaba-DAMO-Academy Wan-AI kandinskylab ai-sage Lightricks mistralai \
   allenai MiniMaxAI Motif-Technologies Qwen OpenMOSS-Team tencent sensenova ByteDance-Seed zai-org inclusionAI Edge0 \
   stepfun-ai internlm deepseek-ai moonshotai IFM inception42 NoizAI CohereLabs Aleph-Alpha openbmb \
   bosonai Skywork LGAI-EXAONE gradium apple baselabs LightOriginsHQ \
