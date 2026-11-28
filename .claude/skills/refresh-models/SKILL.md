@@ -150,7 +150,7 @@ they make is in scope.
 - https://blog.deepprinciple.com
 - https://prismml.com/blog
 - https://rocm.blogs.amd.com/blog/category/applications-models.html
-- https://giga.chat/blog/en
+- https://giga.chat/blog
 
 Then read the API changelogs. A point release such as Gemini Omni 1.1 Flash
 gets a developer-blog post and a changelog line, not a headline, and the
