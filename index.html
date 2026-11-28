@@ -499,6 +499,7 @@ const D=[
 {c:"Midjourney",r:"US",f:"2022",n:"independent",u:"https://www.midjourney.com",m:[
 {n:"Midjourney v1",k:["image"],d:"Feb 2022",x:"",u:"https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version"},
 {n:"Midjourney v8.2",k:["image"],d:"24 Jul 2026",x:"",u:"https://updates.midjourney.com/version-8-2/"},
+{n:"Niji 8",k:["image"],d:"24 Nov 2026",x:"Anime line's first new version since Niji 7: a dedicated edit feature replaces character reference, holding one character consistent across poses and backgrounds",u:"https://nijijourney.com/blog/niji-8"},
 {n:"Midjourney Video V1",k:["video"],d:"Jun 2025",x:"",u:"https://www.midjourney.com/updates"},
 {n:"Midjourney Video V8",k:["video"],d:"Apr 2026",x:"",u:"https://www.midjourney.com/updates"},
 {n:"World model (unnamed)",k:["world"],d:"announced Jun 2025",x:"Published roadmap after video: 3D, then real-time, then one unified system",u:"https://www.midjourney.com/updates"}]},
@@ -1315,7 +1316,11 @@ const D=[
 {c:"KRAFTON",r:"KR",f:"2007",n:"KOSPI",u:"https://krafton.ai",m:[
 {n:"Raon-1 mini",k:["text:chat","text:code"],d:"25 Nov 2026",x:"Korean-first 30B-A4B MoE trained from scratch, 18 of its 25 layers linear attention; six reasoning effort levels, a 262K context, and NVFP4 fits it in 20 GiB",u:"https://huggingface.co/KRAFTON/Raon-1-mini",o:{l:"Apache 2.0",h:"https://huggingface.co/KRAFTON/Raon-1-mini",q:8,p:29}},
 {n:"Raon-1 mini preview",k:["text:chat","text:code"],d:"21 Oct 2026",x:"Preview of the 30B-A4B MoE, since superseded by the full Raon-1 mini and gated behind a request",u:"https://huggingface.co/KRAFTON/Raon-1-mini-preview",o:{l:"Apache 2.0",h:"https://huggingface.co/KRAFTON/Raon-1-mini-preview",q:8,p:29}},
-{n:"Raon-1 nano",k:["text:chat"],d:"Oct 2026",x:"Dense on-device model, 1.5B effective parameters of a 3.1B total that includes a per-layer embedding table; Korean and English instruction following and tool calling",u:"https://huggingface.co/KRAFTON/Raon-1-nano",o:{l:"Apache 2.0",h:"https://huggingface.co/KRAFTON/Raon-1-nano",q:16,p:3.5}}]}
+{n:"Raon-1 nano",k:["text:chat"],d:"Oct 2026",x:"Dense on-device model, 1.5B effective parameters of a 3.1B total that includes a per-layer embedding table; Korean and English instruction following and tool calling",u:"https://huggingface.co/KRAFTON/Raon-1-nano",o:{l:"Apache 2.0",h:"https://huggingface.co/KRAFTON/Raon-1-nano",q:16,p:3.5}}]},
+{c:"Apple",r:"US",f:"1976",n:"NASDAQ",u:"https://machinelearning.apple.com",m:[
+{n:"FastFrames-S / FastFrames-L",k:["video"],d:"Nov 2026",x:"Autoregressive two-step video diffusion at 480p: the 1.3B runs 36ms a frame on one B200 and the 14B 45ms on eight, distilled from Wan2.1 by a recipe named Causal Forcing++",u:"https://apple-aiml-research.github.io/ml-fastframes/",o:{l:"Apple ML Research",h:"https://huggingface.co/apple/FastFrames-L",p:[1.3,14]}}]},
+{c:"PrismML",r:"US",f:"2025",n:"independent",u:"https://prismml.com",m:[
+{n:"Ternary Bonsai 2.5 27B",k:["text:code","text:chat"],d:"24 Nov 2026",x:"Ternary-weight build of Qwen3.8 27B for local coding agents, 5.9 GB on disk: 75.6 on SWE-bench Verified where Bonsai 2 27B scored 60.8, and 90.5 on AppWorld against 51.2",u:"https://prismml.com/news/bonsai-2-5-27b",o:{l:"Apache 2.0",h:"https://huggingface.co/prism-ml/Ternary-Bonsai-2.5-27B-mlx-2bit"}}]}
 ];
 
 // Every change the atlas has recorded: a model released, a model announced
@@ -1331,6 +1336,9 @@ const D=[
 // Retirement; `n` names the version that changed, and `k`, `x` and `u` are
 // that model's tags, detail and link as they read at the time.
 const H=[
+{t:"added",y:"2026-11-24",f:"2026-11-28",c:"Midjourney",n:"Niji 8",k:["image"],x:"Anime line's first new version since Niji 7: a dedicated edit feature replaces character reference, holding one character consistent across poses and backgrounds",u:"https://nijijourney.com/blog/niji-8"},
+{t:"added",y:"2026-11-24",f:"2026-11-28",c:"PrismML",n:"Ternary Bonsai 2.5 27B",k:["text:code","text:chat"],x:"Ternary-weight build of Qwen3.8 27B for local coding agents, 5.9 GB on disk: 75.6 on SWE-bench Verified where Bonsai 2 27B scored 60.8, and 90.5 on AppWorld against 51.2",u:"https://prismml.com/news/bonsai-2-5-27b"},
+{t:"added",y:"2026-11",f:"2026-11-28",c:"Apple",n:"FastFrames-S / FastFrames-L",k:["video"],x:"Autoregressive two-step video diffusion at 480p: the 1.3B runs 36ms a frame on one B200 and the 14B 45ms on eight, distilled from Wan2.1 by a recipe named Causal Forcing++",u:"https://apple-aiml-research.github.io/ml-fastframes/"},
 {t:"added",y:"2026-11-13",f:"2026-11-28",c:"higurashi",n:"Haru-4B",k:["audio:speech"],x:"Full-duplex spoken dialogue base model on a Qwen3.5-4B backbone: user audio, model audio and model text sum into one stream at 7.5 Hz, about 65 ms end to end on an M1 Max",u:"https://blog.higurashi.ai/melte/haru4b/"},
 {t:"added",y:"2026-10",f:"2026-11-28",c:"higurashi",n:"FastDialogueSidon",k:["audio:speech"],x:"One-step separation of two-speaker full-duplex dialogue: up to 120 s of 16 kHz mono in, two 24 kHz tracks out, one DiT step per window in place of 30 diffusion steps",u:"https://huggingface.co/higurashi-ai/FastDialogueSidon"},
 {t:"added",y:"2026-07-15",f:"2026-11-27",c:"Tencent",n:"Hy-Embodied-VLM-1.0",k:["robotics"],x:"Embodied vision-language model at 30B with 3B active, reading up to 128 images a prompt; an action-centric capability taxonomy puts it first on 19 of 38 benchmarks",u:"https://huggingface.co/tencent/Hy-Embodied-VLM-1.0"},
